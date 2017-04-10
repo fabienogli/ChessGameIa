@@ -14,23 +14,28 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Fichiers sources\Model">
-      <UniqueIdentifier>{9c3ca6db-23ef-41e6-9420-24b24f30f41c}</UniqueIdentifier>
+      <UniqueIdentifier>{df38c0fb-c8c1-4ec3-a943-442c86508548}</UniqueIdentifier>
     </Filter>
     <Filter Include="Fichiers d%27en-tête\Model">
-      <UniqueIdentifier>{c0705a81-87f5-4cec-990d-2294aff667a0}</UniqueIdentifier>
+      <UniqueIdentifier>{36a504b2-3c2f-4d40-bc3c-4b14bd8dc1e6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
+    <ClCompile Include="main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Coordonnee.cpp">
+      <Filter>Fichiers sources\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Case.cpp">
+      <Filter>Fichiers sources\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Grille.cpp">
+      <Filter>Fichiers sources\Model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Coordonee.h">
+    <ClInclude Include="Coordonnee.h">
       <Filter>Fichiers d%27en-tête\Model</Filter>
     </ClInclude>
     <ClInclude Include="Case.h">
@@ -39,70 +44,5 @@
     <ClInclude Include="Grille.h">
       <Filter>Fichiers d%27en-tête\Model</Filter>
     </ClInclude>
-    <ClInclude Include="Piece.h">
-      <Filter>Fichiers d%27en-tête\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="Plateau.h">
-      <Filter>Fichiers d%27en-tête\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="Cavalier.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Pion.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Fou.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Tour.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Dame.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Roi.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Chess.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Case.cpp">
-      <Filter>Fichiers sources\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="Coordonne.cpp">
-      <Filter>Fichiers sources\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="Grille.cpp">
-      <Filter>Fichiers sources\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="Piece.cpp">
-      <Filter>Fichiers sources\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="Plateau.cpp">
-      <Filter>Fichiers sources\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="Cavalier.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Pion.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Fou.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Tour.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Dame.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Roi.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

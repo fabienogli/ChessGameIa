@@ -1,11 +1,2 @@
-﻿  Plateau.cpp
-c:\users\fabien\documents\projet\chessgameia\chess\chess\plateau.cpp(9): fatal error C1010: fin de fichier inattendue lors de la recherche d'un en-tête précompilé. N'auriez-vous pas oublié d'ajouter '#include "stdafx.h"' à votre source ?
-  Piece.cpp
-c:\users\fabien\documents\projet\chessgameia\chess\chess\piece.cpp(9): fatal error C1010: fin de fichier inattendue lors de la recherche d'un en-tête précompilé. N'auriez-vous pas oublié d'ajouter '#include "stdafx.h"' à votre source ?
-  Grille.cpp
-c:\users\fabien\documents\projet\chessgameia\chess\chess\grille.cpp(10): fatal error C1010: fin de fichier inattendue lors de la recherche d'un en-tête précompilé. N'auriez-vous pas oublié d'ajouter '#include "stdafx.h"' à votre source ?
-  Coordonne.cpp
-c:\users\fabien\documents\projet\chessgameia\chess\chess\coordonne.cpp(32): fatal error C1010: fin de fichier inattendue lors de la recherche d'un en-tête précompilé. N'auriez-vous pas oublié d'ajouter '#include "stdafx.h"' à votre source ?
-  Case.cpp
-c:\users\fabien\documents\projet\chessgameia\chess\chess\case.cpp(15): fatal error C1010: fin de fichier inattendue lors de la recherche d'un en-tête précompilé. N'auriez-vous pas oublié d'ajouter '#include "stdafx.h"' à votre source ?
-  Génération de code en cours...
+﻿  main.cpp
+LINK : fatal error LNK1168: impossible d'ouvrir C:\Users\Fabien\Documents\ESSAI\FINAL\Chess\Debug\Chess.exe pour écrire

@@ -1,15 +1,32 @@
 #include "Grille.h"
 
+
+
 Grille::Grille()
 {
-	
-	for (int j; j < tailleY; j++) {
-		for (int i; i < tailleX; i++) {
-			cases[i][j] = new Case(i, j);
+	for (int y = 0; y < hauteur; y++) {
+		for (int x = 0; x < largeur; x++) {
+			cases[x][y] = new Case(x, y);
 		}
 	}
 }
 
+
 Grille::~Grille()
 {
+}
+
+Case Grille::getCase(int x, int y)
+{
+	return *cases[x][y];
+}
+
+int Grille::getHauteur()
+{
+	return hauteur;
+}
+
+int Grille::getLargeur()
+{
+	return largeur;
 }

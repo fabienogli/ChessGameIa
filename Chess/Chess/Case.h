@@ -1,15 +1,13 @@
-#include "Coordonee.h"
-#include "Piece.h"
+#pragma once
+#include "Coordonnee.h"
 class Case
 {
 public:
 	Case(int x, int y);
-	Coordonnee getCoordonnee();
-	void setPiece(Piece *piece);
-	Piece getPiece();
+	void setCoord(Coordonnee coord);
+	Coordonnee getCoordonee();
 	~Case();
 private:
-	Coordonnee *m_coord;
-	Piece *pieceCourante;
+	Coordonnee *coordonnee;
 };
 

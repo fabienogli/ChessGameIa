@@ -1,25 +1,23 @@
 #include "Case.h"
+
+
+
 Case::Case(int x, int y)
 {
-	m_coord = new Coordonnee(x,y);
+	coordonnee = new Coordonnee(x, y);
 }
 
-Coordonnee Case::getCoordonnee()
+Coordonnee Case::getCoordonee()
 {
-	return *m_coord;
+	return *coordonnee;
 }
+
+void Case::setCoord(Coordonnee coord)
+{
+	*coordonnee = coord;
+}
+
 
 Case::~Case()
 {
-	delete m_coord;
-}
-
-void Case::setPiece(Piece *piece)
-{
-	pieceCourante = piece;
-}
-
-Piece Case::getPiece()
-{
-	return *pieceCourante;
 }
