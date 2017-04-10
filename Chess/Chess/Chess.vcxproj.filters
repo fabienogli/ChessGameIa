@@ -19,6 +19,12 @@
     <Filter Include="Fichiers d%27en-tête\Model">
       <UniqueIdentifier>{36a504b2-3c2f-4d40-bc3c-4b14bd8dc1e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Model\Piece">
+      <UniqueIdentifier>{63749faa-b831-4474-8b93-b269f4f739a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Model\Piece">
+      <UniqueIdentifier>{255d9c92-8d6a-4322-a007-220bc519e838}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -33,6 +39,33 @@
     <ClCompile Include="Grille.cpp">
       <Filter>Fichiers sources\Model</Filter>
     </ClCompile>
+    <ClCompile Include="Piece.cpp">
+      <Filter>Fichiers sources\Model\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="Cavalier.cpp">
+      <Filter>Fichiers sources\Model\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="Dame.cpp">
+      <Filter>Fichiers sources\Model\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="Fou.cpp">
+      <Filter>Fichiers sources\Model\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="Roi.cpp">
+      <Filter>Fichiers sources\Model\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="Tour.cpp">
+      <Filter>Fichiers sources\Model\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="Joueur.cpp">
+      <Filter>Fichiers sources\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Plateau.cpp">
+      <Filter>Fichiers sources\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Pion.cpp">
+      <Filter>Fichiers sources\Model\Piece</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Coordonnee.h">
@@ -42,6 +75,33 @@
       <Filter>Fichiers d%27en-tête\Model</Filter>
     </ClInclude>
     <ClInclude Include="Grille.h">
+      <Filter>Fichiers d%27en-tête\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Piece.h">
+      <Filter>Fichiers d%27en-tête\Model\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="Cavalier.h">
+      <Filter>Fichiers d%27en-tête\Model\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="Fou.h">
+      <Filter>Fichiers d%27en-tête\Model\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="Dame.h">
+      <Filter>Fichiers d%27en-tête\Model\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="Pion.h">
+      <Filter>Fichiers d%27en-tête\Model\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="Roi.h">
+      <Filter>Fichiers d%27en-tête\Model\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="Tour.h">
+      <Filter>Fichiers d%27en-tête\Model\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="Plateau.h">
+      <Filter>Fichiers d%27en-tête\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Joueur.h">
       <Filter>Fichiers d%27en-tête\Model</Filter>
     </ClInclude>
   </ItemGroup>

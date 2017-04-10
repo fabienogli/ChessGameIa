@@ -14,6 +14,7 @@ Grille::Grille()
 
 Grille::~Grille()
 {
+	delete cases;
 }
 
 Case Grille::getCase(int x, int y)
