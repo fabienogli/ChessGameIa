@@ -66,6 +66,9 @@
     <ClCompile Include="Pion.cpp">
       <Filter>Fichiers sources\Model\Piece</Filter>
     </ClCompile>
+    <ClCompile Include="PieceDiagonale.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Coordonnee.h">
@@ -76,9 +79,6 @@
     </ClInclude>
     <ClInclude Include="Grille.h">
       <Filter>Fichiers d%27en-tête\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="Piece.h">
-      <Filter>Fichiers d%27en-tête\Model\Piece</Filter>
     </ClInclude>
     <ClInclude Include="Cavalier.h">
       <Filter>Fichiers d%27en-tête\Model\Piece</Filter>
@@ -102,6 +102,12 @@
       <Filter>Fichiers d%27en-tête\Model</Filter>
     </ClInclude>
     <ClInclude Include="Joueur.h">
+      <Filter>Fichiers d%27en-tête\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="PieceDiagonale.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Piece.h">
       <Filter>Fichiers d%27en-tête\Model</Filter>
     </ClInclude>
   </ItemGroup>

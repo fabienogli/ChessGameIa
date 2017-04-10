@@ -7,10 +7,15 @@ class Piece
 public:
 	Piece();
 	Coordonnee getCoordonne();
-	void setCoordonnee(int x, int y);
+	void setCoordonnee(Coordonnee coord);
 	void kill(Piece& piece);
 	bool isAlive();
 	void afficher();
+	bool testDeplacement(Coordonnee coord);
+	bool testDiagonal(Coordonnee coord);
+	bool testVertical(Coordonnee coord);
+	bool testHorizontal(Coordonnee coord);
+	void move(Coordonnee coord);
 	~Piece();
 private:
 	Coordonnee *coordonnee;
