@@ -145,27 +145,39 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cavalier.h" />
     <ClInclude Include="Coordonee.h" />
     <ClInclude Include="Case.h" />
+    <ClInclude Include="Dame.h" />
+    <ClInclude Include="Fou.h" />
     <ClInclude Include="Grille.h" />
     <ClInclude Include="Piece.h" />
+    <ClInclude Include="Pion.h" />
     <ClInclude Include="Plateau.h" />
+    <ClInclude Include="Roi.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Tour.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Cavalier.cpp" />
     <ClCompile Include="Chess.cpp" />
     <ClCompile Include="Case.cpp" />
     <ClCompile Include="Coordonne.cpp" />
+    <ClCompile Include="Dame.cpp" />
+    <ClCompile Include="Fou.cpp" />
     <ClCompile Include="Grille.cpp" />
     <ClCompile Include="Piece.cpp" />
+    <ClCompile Include="Pion.cpp" />
     <ClCompile Include="Plateau.cpp" />
+    <ClCompile Include="Roi.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Tour.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
