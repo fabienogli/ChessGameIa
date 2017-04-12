@@ -1,12 +1,15 @@
 #include <iostream>
-#include "Piece.h"
+#include "Pion.h"
+
 using namespace std;
 
 int main()
 {
-	Piece piece;
-	piece.setCoordonnee(0, 1);
+	Pion piece;
+	Coordonnee coord(0, 1);
+	piece.setCoordonnee(coord);
 	piece.afficher();
+	cout << typeid(piece).name() << endl;
 	cin.get();
 	return 0;
 }

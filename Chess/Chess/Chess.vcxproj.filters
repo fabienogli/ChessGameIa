@@ -66,6 +66,9 @@
     <ClCompile Include="Piece.cpp">
       <Filter>Fichiers sources\Model</Filter>
     </ClCompile>
+    <ClCompile Include="TypePiece.cpp">
+      <Filter>Fichiers sources\Model\Piece</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Coordonnee.h">

@@ -5,6 +5,6 @@ class Dame : public Piece
 public:
 	Dame();
 	~Dame();
-	bool testDeplacement(Coordonnee coord);
+	virtual bool testDeplacement(Coordonnee coord);
 };
 

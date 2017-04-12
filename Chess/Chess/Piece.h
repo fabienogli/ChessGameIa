@@ -11,7 +11,7 @@ public:
 	void kill(Piece& piece);
 	bool isAlive();
 	void afficher();
-	bool testDeplacement(Coordonnee coord);
+	virtual bool testDeplacement(Coordonnee coord);
 	bool testDiagonal(Coordonnee coord);
 	bool testVertical(Coordonnee coord);
 	bool testHorizontal(Coordonnee coord);
@@ -20,5 +20,7 @@ public:
 private:
 	Coordonnee *coordonnee;
 	bool alive;
+
+	
 };
 

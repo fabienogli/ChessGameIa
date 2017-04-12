@@ -1,11 +1,11 @@
 #include "Piece.h"
 
 
-
 Piece::Piece()
 {
 	alive = true;
 }
+
 
 Coordonnee Piece::getCoordonne()
 {
@@ -42,8 +42,8 @@ bool Piece::testDiagonal(Coordonnee coord)
 	int x = coord.getX();
 	int y = coord.getY();
 
-	unsigned i = getCoordonne().getX();
-	unsigned j = getCoordonne().getY();
+	float i = getCoordonne().getX();
+	float j = getCoordonne().getY();
 
 	if (x < i)
 		i = -i;
@@ -64,7 +64,7 @@ bool Piece::testDiagonal(Coordonnee coord)
 bool Piece::testVertical(Coordonnee coord)
 {
 	int y = getCoordonne().getY();
-	unsigned j = coord.getY();
+	float j = coord.getY();
 	if (j > y)
 		j = -j;
 	bool moveAble = false;
@@ -74,12 +74,13 @@ bool Piece::testVertical(Coordonnee coord)
 		else
 			j++;
 	}
+	return moveAble;
 }
 
 bool Piece::testHorizontal(Coordonnee coord)
 {
 	int x = getCoordonne().getX();
-	unsigned i = coord.getX();
+	float i = coord.getX();
 
 	if (i > x)
 		i = -i;
@@ -92,6 +93,7 @@ bool Piece::testHorizontal(Coordonnee coord)
 			i += 1;
 		}
 	}
+	return moveAble;
 }
 
 void Piece::move(Coordonnee coord)
@@ -106,3 +108,6 @@ Piece::~Piece()
 {
 	alive = false;
 }
+
+
+

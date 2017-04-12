@@ -5,6 +5,6 @@ class Tour : public Piece
 public:
 	Tour();
 	~Tour();
-	bool testDeplacement(Coordonnee coord);
+	virtual bool testDeplacement(Coordonnee coord);
 };
 

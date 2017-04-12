@@ -1,6 +1,6 @@
 #pragma once
 #include "Piece.h"
-class Cavalier : Piece
+class Cavalier :public Piece
 {
 public:
 	Cavalier();

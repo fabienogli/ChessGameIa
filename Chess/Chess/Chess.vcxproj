@@ -159,6 +159,7 @@
     <ClCompile Include="Plateau.cpp" />
     <ClCompile Include="Roi.cpp" />
     <ClCompile Include="Tour.cpp" />
+    <ClCompile Include="TypePiece.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Case.h" />

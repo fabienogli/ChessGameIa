@@ -5,6 +5,6 @@ class Fou : public Piece
 public:
 	Fou();
 	~Fou();
-	bool testDeplacement(Coordonnee coord);
+	virtual bool testDeplacement(Coordonnee coord);
 };
 
