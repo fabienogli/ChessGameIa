@@ -12,9 +12,9 @@ Coordonnee Piece::getCoordonne()
 	return *coordonnee;
 }
 
-void Piece::setCoordonnee(Coordonnee coord)
+void Piece::setCoordonnee(Coordonnee *coord)
 {
-	coordonnee = &coord;
+	coordonnee = coord;
 }
 
 void Piece::kill(Piece & piece)
@@ -29,7 +29,7 @@ bool Piece::isAlive()
 
 void Piece::afficher()
 {
-	std::cout << getCoordonne().getX() << " " << getCoordonne().getY() << " " << isAlive() << std::endl;
+	std::cout <<"x= "<< getCoordonne().getX() << " et y= " << getCoordonne().getY() << " " << isAlive() <<typeid(*this).name()<< std::endl;
 }
 
 bool Piece::testDeplacement(Coordonnee coord)
@@ -96,10 +96,11 @@ bool Piece::testHorizontal(Coordonnee coord)
 	return moveAble;
 }
 
-void Piece::move(Coordonnee coord)
+void Piece::move(Coordonnee coord, Coordonnee origin)
 {
-	if (testDeplacement(coord)) {
-		setCoordonnee(coord);
+	Coordonnee test(origin.getX() - coord.getX(), origin.getY() - coord.getY());
+	if (testDeplacement(test)) {
+		setCoordonnee(&coord);
 	}
 }
 

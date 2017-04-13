@@ -6,9 +6,9 @@ using namespace std;
 
 int main()
 {
-	Joueur joueur("Christian");
-	joueur.generateDeck();
+	Joueur joueur("Christian", 0);
 	joueur.afficherPiece();
+	
 	cin.get();
 	return 0;
 }

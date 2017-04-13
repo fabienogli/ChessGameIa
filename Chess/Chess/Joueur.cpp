@@ -2,9 +2,11 @@
 
 
 
-Joueur::Joueur(std::string nom)
+Joueur::Joueur(std::string nom, int i)
 {
 	nomJoueur = nom;
+	setOrigin(i);
+	generateDeck();
 }
 
 std::string Joueur::getNomjoueur()
@@ -32,12 +34,28 @@ void Joueur::generateDeck()
 {
 	for (int i = 0; i < 8; i++)
 	{
-		deck.push_back(new Pion());
+		Pion *pion = new Pion();
+		int j = int(abs((*origin).getY() - (2 - i % 2)));
+		(*pion).setCoordonnee(new Coordonnee(i,j));
+		deck.push_back(pion);
 	}
-	deck.push_back(new Tour());
-	deck.push_back(new Fou());
-	deck.push_back(new Roi());
-	deck.push_back(new Cavalier());
+
+	Tour *tour = new Tour();
+	int y = (*origin).getY();
+	(*tour).setCoordonnee(new Coordonnee(0, y));
+	deck.push_back(tour);
+
+	Fou *fou = new Fou();
+	(*fou).setCoordonnee(new Coordonnee(2, y));
+	deck.push_back(fou);
+
+	Roi *roi = new Roi();
+	(*roi).setCoordonnee(new Coordonnee(4, y));
+	deck.push_back(roi);
+
+	Cavalier *cavalier = new Cavalier();
+	(*cavalier).setCoordonnee(new Coordonnee(6, y));
+	deck.push_back(cavalier);
 
 }
 
@@ -45,7 +63,7 @@ void Joueur::afficherPiece()
 {
 	for (int i = 0; i < deck.size(); i++)
 	{
-		std::cout << typeid(*deck[i]).name() << std::endl;
+		(*deck[i]).afficher();
 	}
 }
 
@@ -56,5 +74,20 @@ Joueur::~Joueur()
 	{
 		delete deck[i];
 		deck[i] = 0;
+	}
+}
+
+void Joueur::setOrigin(int i)
+{
+	switch (i)
+	{
+	case 0:
+		origin = new Coordonnee(0, 0);
+		break;
+	case 1:
+		origin = new Coordonnee(7, 7);
+		break;
+	default:
+		break;
 	}
 }

@@ -11,13 +11,15 @@
 class Joueur
 {
 public:
-	Joueur(std::string nom);
+	Joueur(std::string nom, int i);
 	std::string getNomjoueur();
 	Piece getPiece(Piece& pieceSelec);
 	void generateDeck();
 	void afficherPiece();
+	void setOrigin(int i);
 	~Joueur();
 private:
+	Coordonnee *origin;
 	std::string nomJoueur;
 	static int const nombrePiece = 6;
 	std::vector<Piece*> deck;
