@@ -1,15 +1,14 @@
 #include <iostream>
-#include "Pion.h"
+#include "Plateau.h"
+#include "Joueur.h"
 
 using namespace std;
 
 int main()
 {
-	Pion piece;
-	Coordonnee coord(0, 1);
-	piece.setCoordonnee(coord);
-	piece.afficher();
-	cout << typeid(piece).name() << endl;
+	Joueur joueur("Christian");
+	joueur.generateDeck();
+	joueur.afficherPiece();
 	cin.get();
 	return 0;
 }

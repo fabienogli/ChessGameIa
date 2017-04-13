@@ -14,24 +14,39 @@ std::string Joueur::getNomjoueur()
 
 Piece Joueur::getPiece(Piece& pieceSelec)
 {
-
+	Coordonnee coord = pieceSelec.getCoordonne();
+	bool found = false;
+	int i = 0;
+	while (found || i < deck.size())
+	{
+		if (coord.getX() == (*deck[i]).getCoordonne().getX()&& coord.getY() == (*deck[i]).getCoordonne().getY())
+		{
+			found = true;
+		}
+		i++;
+	}
+	return *deck[i];
 }
 
 void Joueur::generateDeck()
 {
-	Cavalier	*cavalier;
-	Tour		*tour;
-	Fou			*fou;
-	Roi			*roi;
 	for (int i = 0; i < 8; i++)
 	{
 		deck.push_back(new Pion());
 	}
-	deck.push_back(tour);
-	deck.push_back(fou);
-	deck.push_back(roi);
-	deck.push_back(cavalier);
+	deck.push_back(new Tour());
+	deck.push_back(new Fou());
+	deck.push_back(new Roi());
+	deck.push_back(new Cavalier());
 
+}
+
+void Joueur::afficherPiece()
+{
+	for (int i = 0; i < deck.size(); i++)
+	{
+		std::cout << typeid(*deck[i]).name() << std::endl;
+	}
 }
 
 

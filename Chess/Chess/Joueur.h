@@ -15,6 +15,7 @@ public:
 	std::string getNomjoueur();
 	Piece getPiece(Piece& pieceSelec);
 	void generateDeck();
+	void afficherPiece();
 	~Joueur();
 private:
 	std::string nomJoueur;

@@ -6,8 +6,8 @@ public:
 	Grille();
 	~Grille();
 	Case getCase(int x, int y);
-	static int getHauteur();
-	static int getLargeur();
+	int getHauteur();
+	int getLargeur();
 private:
 	static int const hauteur = 8;
 	static int const largeur = 8;
