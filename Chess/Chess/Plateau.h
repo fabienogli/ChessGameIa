@@ -5,6 +5,7 @@ class Plateau
 {
 public:
 	Plateau();
+	void initiatePosInGrid();
 	void afficher();
 	Joueur& getJoueur();
 	~Plateau();

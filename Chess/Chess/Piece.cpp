@@ -1,37 +1,42 @@
 #include "Piece.h"
 
-
+//Initialise la piece
 Piece::Piece()
 {
 	alive = true;
 }
 
-
+//Retourne les coordonne de la piece
 Coordonnee Piece::getCoordonne()
 {
 	return *coordonnee;
 }
 
+//Modifie les coordonne de la piece
 void Piece::setCoordonnee(Coordonnee *coord)
 {
 	coordonnee = coord;
 }
 
+//Methode lorsqu une piece mange une autre
 void Piece::kill(Piece & piece)
 {
 	piece.~Piece();
 }
 
+//Test pour voir si la piece est toujours en vie
 bool Piece::isAlive()
 {
 	return alive;
 }
 
+//retourne son abscisse, son ordonnee et le nom de la piece
 void Piece::afficher()
 {
-	std::cout <<"x= "<< getCoordonne().getX() << " et y= " << getCoordonne().getY() << " " << isAlive() <<typeid(*this).name()<< std::endl;
+	std::cout <<"x= "<< getCoordonne().getX() << " et y= " << getCoordonne().getY() << " " << getId()<< std::endl;
 }
 
+//Methode pour tester un deplacement
 bool Piece::testDeplacement(Coordonnee coord)
 {
 	return false;
@@ -96,6 +101,7 @@ bool Piece::testHorizontal(Coordonnee coord)
 	return moveAble;
 }
 
+//Methode de deplacement de la piece, si le test retourne vrai, la piece peut se deplacer
 void Piece::move(Coordonnee coord, Coordonnee origin)
 {
 	Coordonnee test(origin.getX() - coord.getX(), origin.getY() - coord.getY());
@@ -104,10 +110,16 @@ void Piece::move(Coordonnee coord, Coordonnee origin)
 	}
 }
 
-
+//Destructeur de la piece
 Piece::~Piece()
 {
 	alive = false;
+	delete coordonnee;
+}
+
+char Piece::getId()
+{
+	return typeid(*this).name()[6];
 }
 
 

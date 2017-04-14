@@ -8,7 +8,7 @@ public:
 	void setCoord(Coordonnee coord);
 	Coordonnee getCoordonee();
 	bool isOccupied();
-	void setPiece(Piece& piece);
+	void setPiece(Piece * piece);
 	Piece getPiece();
 	void removePiece();
 	~Case();

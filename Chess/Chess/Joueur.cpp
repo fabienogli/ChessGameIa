@@ -1,7 +1,8 @@
 #include "Joueur.h"
 
 
-
+//Methode constructeur de la classe joueur
+//prend en parametre le nom du joueur et un int qui determine la position du joueur sur le plateau
 Joueur::Joueur(std::string nom, int i)
 {
 	nomJoueur = nom;
@@ -9,19 +10,20 @@ Joueur::Joueur(std::string nom, int i)
 	generateDeck();
 }
 
+//Retourne le nom du joueur
 std::string Joueur::getNomjoueur()
 {
 	return nomJoueur;
 }
 
-Piece Joueur::getPiece(Piece& pieceSelec)
+//Retourne la piece selectionne
+Piece Joueur::getPiece(Coordonnee *coord)
 {
-	Coordonnee coord = pieceSelec.getCoordonne();
 	bool found = false;
 	int i = 0;
 	while (found || i < deck.size())
 	{
-		if (coord.getX() == (*deck[i]).getCoordonne().getX()&& coord.getY() == (*deck[i]).getCoordonne().getY())
+		if ((*coord).getX() == (*deck[i]).getCoordonne().getX()&& (*coord).getY() == (*deck[i]).getCoordonne().getY())
 		{
 			found = true;
 		}
@@ -30,6 +32,7 @@ Piece Joueur::getPiece(Piece& pieceSelec)
 	return *deck[i];
 }
 
+//Genere les differentes pieces dans un vecteur
 void Joueur::generateDeck()
 {
 	for (int i = 0; i < 8; i++)
@@ -59,6 +62,7 @@ void Joueur::generateDeck()
 
 }
 
+//Affiche pour chaque piece ses coordonne et le nom de la piece
 void Joueur::afficherPiece()
 {
 	for (int i = 0; i < deck.size(); i++)
@@ -67,16 +71,17 @@ void Joueur::afficherPiece()
 	}
 }
 
-
+//Destructeur du joueur 
 Joueur::~Joueur()
 {
 	for (int i(0); i < deck.size(); ++i)
 	{
 		delete deck[i];
-		deck[i] = 0;
 	}
+	delete origin;
 }
 
+//Definie la position du joueur dans le plateau
 void Joueur::setOrigin(int i)
 {
 	switch (i)
@@ -91,3 +96,20 @@ void Joueur::setOrigin(int i)
 		break;
 	}
 }
+
+std::vector<Piece*> Joueur::getDeck()
+{
+	return deck;
+}
+
+Piece Joueur::getPiece(int i)
+{
+	return *deck[i];
+}
+
+int Joueur::getDeckSize()
+{
+	return deck.size();
+}
+
+

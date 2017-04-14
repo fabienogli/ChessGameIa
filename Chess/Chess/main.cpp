@@ -6,9 +6,8 @@ using namespace std;
 
 int main()
 {
-	Joueur joueur("Christian", 0);
-	joueur.afficherPiece();
-	
+	Plateau plateau;
+	plateau.afficher();
 	cin.get();
 	return 0;
 }

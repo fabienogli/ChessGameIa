@@ -1,7 +1,10 @@
 #include "Grille.h"
 
+/*Classe Grille
+Compose d objet de la classe case
+*/
 
-
+//Constructeur de Grille
 Grille::Grille()
 {
 	for (int y = 0; y < hauteur; y++) {
@@ -11,23 +14,31 @@ Grille::Grille()
 	}
 }
 
-
+//Destructeur de Grille
 Grille::~Grille()
 {
 	delete cases;
 }
 
+//Retourne la case a l abscisse x et a l ordonne y
 Case Grille::getCase(int x, int y)
 {
 	return *cases[x][y];
 }
 
+//Retourne la hauteur de la grille
 int Grille::getHauteur()
 {
 	return hauteur;
 }
 
+//Retourne la largeur de la grille
 int Grille::getLargeur()
 {
 	return largeur;
+}
+
+void Grille::putPiece(Piece *piece)
+{
+	(*cases[(*piece).getCoordonne().getX()][(*piece).getCoordonne().getY()]).setPiece(piece);
 }

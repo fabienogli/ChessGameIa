@@ -17,6 +17,7 @@ public:
 	bool testHorizontal(Coordonnee coord);
 	void move(Coordonnee coord, Coordonnee origin);
 	~Piece();
+	char getId();
 private:
 	Coordonnee *coordonnee;
 	bool alive;

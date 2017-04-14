@@ -1,7 +1,7 @@
 #include "Roi.h"
-
-
-
+/**
+Classe du roi
+*/
 Roi::Roi()
 {
 }
