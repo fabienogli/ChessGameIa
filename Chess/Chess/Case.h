@@ -8,13 +8,11 @@ public:
 	void setCoord(Coordonnee coord);
 	Coordonnee getCoordonee();
 	bool isOccupied();
-	void setPiece(Piece * piece);
-	Piece getPiece();
+	void setPiece();
 	void removePiece();
 	~Case();
 private:
 	Coordonnee *coordonnee;
-	Piece *pieceCourante;
 	bool occupied;
 };
 

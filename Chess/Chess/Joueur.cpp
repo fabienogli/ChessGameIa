@@ -16,22 +16,26 @@ std::string Joueur::getNomjoueur()
 	return nomJoueur;
 }
 
-//Retourne la piece selectionne
-Piece Joueur::getPiece(Coordonnee *coord)
+
+double Joueur::isAnyPiece(Coordonnee coord)
 {
 	bool found = false;
 	int i = 0;
-	while (found || i < deck.size())
+	while (!found && i < deck.size())
 	{
-		if ((*coord).getX() == (*deck[i]).getCoordonne().getX()&& (*coord).getY() == (*deck[i]).getCoordonne().getY())
+		if (coord.getX() == (*deck[i]).getCoordonne().getX() && coord.getY() == (*deck[i]).getCoordonne().getY())
 		{
 			found = true;
 		}
-		i++;
+		else
+			i++;
 	}
-	return *deck[i];
+	if (found)
+		return i;
+	else {
+		return -1;
+	}
 }
-
 //Genere les differentes pieces dans un vecteur
 void Joueur::generateDeck()
 {
@@ -74,9 +78,10 @@ void Joueur::afficherPiece()
 //Destructeur du joueur 
 Joueur::~Joueur()
 {
-	for (int i(0); i < deck.size(); ++i)
+	for (int i =0; i < deck.size(); i++)
 	{
 		delete deck[i];
+		std::cout << i << std::endl;
 	}
 	delete origin;
 }

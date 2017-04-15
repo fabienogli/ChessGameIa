@@ -17,7 +17,9 @@ Grille::Grille()
 //Destructeur de Grille
 Grille::~Grille()
 {
-	delete cases;
+	for (int i = 0; i < hauteur; i++)
+		for (int j = 0; j < largeur; j++)
+			delete cases[i][j];
 }
 
 //Retourne la case a l abscisse x et a l ordonne y
@@ -40,5 +42,5 @@ int Grille::getLargeur()
 
 void Grille::putPiece(Piece *piece)
 {
-	(*cases[(*piece).getCoordonne().getX()][(*piece).getCoordonne().getY()]).setPiece(piece);
+	(*cases[(*piece).getCoordonne().getX()][(*piece).getCoordonne().getY()]).setPiece();
 }

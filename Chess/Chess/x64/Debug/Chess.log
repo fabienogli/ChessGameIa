@@ -1,3 +1,5 @@
 ﻿  Plateau.cpp
+c:\users\fabien\documents\projet\chessgameia\chess\chess\plateau.cpp(33): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+c:\users\fabien\documents\projet\chessgameia\chess\chess\plateau.cpp(37): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
   Chess.vcxproj -> C:\Users\Fabien\Documents\Projet\ChessGameIa\Chess\x64\Debug\Chess.exe
   Chess.vcxproj -> C:\Users\Fabien\Documents\Projet\ChessGameIa\Chess\x64\Debug\Chess.pdb (Full PDB)
