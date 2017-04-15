@@ -1,4 +1,4 @@
-#include "Plateau.h"
+ #include "Plateau.h"
 
 //Constructeur du plateau
 Plateau::Plateau()
