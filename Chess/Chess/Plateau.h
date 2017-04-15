@@ -7,7 +7,7 @@ public:
 	Plateau();
 	void initiatePosInGrid();
 	void afficher();
-	Joueur& getJoueur();
+	Joueur getJoueur();
 	~Plateau();
 private:
 	Grille *damier;

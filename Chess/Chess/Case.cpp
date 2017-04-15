@@ -18,16 +18,12 @@ bool Case::isOccupied()
 	return occupied;
 }
 
-void Case::setPiece(Piece *piece)
+void Case::setPiece()
 {
 	occupied = true;
-	pieceCourante = piece;
 }
 
-Piece Case::getPiece()
-{
-	return *pieceCourante;
-}
+
 
 void Case::removePiece()
 {
