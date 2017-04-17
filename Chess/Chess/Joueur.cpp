@@ -7,6 +7,7 @@ Joueur::Joueur(std::string nom, int i)
 {
 	nomJoueur = nom;
 	setOrigin(i);
+    id = i ;
 	generateDeck();
 }
 
@@ -14,6 +15,9 @@ Joueur::Joueur(std::string nom, int i)
 std::string Joueur::getNomjoueur()
 {
 	return nomJoueur;
+}
+int Joueur::getIdJoueur(){
+    return id;
 }
 
 

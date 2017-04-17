@@ -1,48 +1,55 @@
-﻿Build started 15/04/2017 14:37:46.
+﻿Build started 16/04/2017 16:15:27.
      1>Project "C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\Chess\Chess\Chess.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Case.cpp Cavalier.cpp Coordonnee.cpp Dame.cpp Fou.cpp Grille.cpp Joueur.cpp main.cpp Piece.cpp Pion.cpp Plateau.cpp Roi.cpp Tour.cpp TypePiece.cpp
-         TypePiece.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Case.cpp Cavalier.cpp Dame.cpp Fou.cpp Grille.cpp Joueur.cpp Piece.cpp Pion.cpp Plateau.cpp Roi.cpp Tour.cpp main.cpp
+         main.cpp
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C2143: syntax error : missing ';' before 'public'
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Case.h(4): fatal error C1083: Cannot open include file: 'QPixmap': No such file or directory
          Tour.cpp
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C2143: syntax error : missing ';' before 'public'
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
          Roi.cpp
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C2143: syntax error : missing ';' before 'public'
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
          Plateau.cpp
-     1>Plateau.cpp(33): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Plateau.cpp(37): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C2143: syntax error : missing ';' before 'public'
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Case.h(4): fatal error C1083: Cannot open include file: 'QPixmap': No such file or directory
          Pion.cpp
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C2143: syntax error : missing ';' before 'public'
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
          Piece.cpp
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C2143: syntax error : missing ';' before 'public'
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
      1>Piece.cpp(50): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
      1>Piece.cpp(51): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
      1>Piece.cpp(72): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
      1>Piece.cpp(88): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-         main.cpp
          Joueur.cpp
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C2143: syntax error : missing ';' before 'public'
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
      1>Joueur.cpp(117): warning C4267: 'return' : conversion from 'size_t' to 'int', possible loss of data
          Grille.cpp
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C2143: syntax error : missing ';' before 'public'
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Case.h(4): fatal error C1083: Cannot open include file: 'QPixmap': No such file or directory
          Fou.cpp
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C2143: syntax error : missing ';' before 'public'
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
          Dame.cpp
-         Coordonnee.cpp
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C2143: syntax error : missing ';' before 'public'
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
          Cavalier.cpp
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C2143: syntax error : missing ';' before 'public'
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
          Case.cpp
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C2143: syntax error : missing ';' before 'public'
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Piece.h(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\Case.h(4): fatal error C1083: Cannot open include file: 'QPixmap': No such file or directory
          Generating Code...
-     1>c:\users\markk\onedrive\dossiersgit\chessgameia\chess\chess\roi.cpp(18): warning C4715: 'Roi::testDeplacement' : not all control paths return a value
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\Chess\x64\Debug\Chess.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\Chess\x64\Debug\Chess.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\Chess\x64\Debug\Chess.lib" /MACHINE:X64 x64\Debug\Case.obj
-         x64\Debug\Cavalier.obj
-         x64\Debug\Coordonnee.obj
-         x64\Debug\Dame.obj
-         x64\Debug\Fou.obj
-         x64\Debug\Grille.obj
-         x64\Debug\Joueur.obj
-         x64\Debug\main.obj
-         x64\Debug\Piece.obj
-         x64\Debug\Pion.obj
-         x64\Debug\Plateau.obj
-         x64\Debug\Roi.obj
-         x64\Debug\Tour.obj
-         x64\Debug\TypePiece.obj
-         Chess.vcxproj -> C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\Chess\x64\Debug\Chess.exe
-     1>Done Building Project "C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\Chess\Chess\Chess.vcxproj" (Build target(s)).
+     1>Done Building Project "C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\Chess\Chess\Chess.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:12.43
+Time Elapsed 00:00:14.88

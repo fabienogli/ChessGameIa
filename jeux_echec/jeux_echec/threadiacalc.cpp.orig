@@ -1,0 +1,276 @@
+#include "threadiacalc.h"
+
+ThreadIAcalc::ThreadIAcalc(int joueur,piece terrain[8][8],int groupe[8][8],int profondeur,QPoint case_pion,QPoint to_dest, QThread * parent) :
+    QThread(parent)
+{
+<<<<<<< HEAD:ia_difficile.cpp
+
+=======
+    std::copy ( terrain, terrain+8*8, this->terrain );
+    std::copy ( groupe, groupe+8*8, this->groupe );
+    this->joueur = joueur;
+    this->profondeur = profondeur;
+    this->case_pion = case_pion;
+    this->to_dest = to_dest;
+>>>>>>> 7a8e68d737b9b92a3c676052df763e6499ca054d:threadiacalc.cpp
+}
+int ThreadIAcalc::eval(int joueur)
+{
+    int score_joueur1 = 0;
+    int score_joueur2 = 0;
+
+    for(int x = 0; x < 8; x++)
+    {
+        for(int y = 0; y < 8; y++)
+        {
+            if(terrain[x][y] == Pion && groupe[x][y] == 1)
+            {
+                score_joueur1++;
+            }
+            else if(terrain[x][y] == Pion && groupe[x][y] == 2)
+            {
+                score_joueur2++;
+            }
+            if((terrain[x][y] == Fous || terrain[x][y] == Cavalier) && groupe[x][y] == 1)
+            {
+                score_joueur1 += 3;
+            }
+            else if((terrain[x][y] == Fous || terrain[x][y] == Cavalier) && groupe[x][y] == 2)
+            {
+                score_joueur2 += 3;
+            }
+            if(terrain[x][y] == Tour && groupe[x][y] == 1)
+            {
+                score_joueur1 += 5;
+            }
+            else if(terrain[x][y] == Tour && groupe[x][y] == 2)
+            {
+               score_joueur2 += 5;
+            }
+            if(terrain[x][y] == Reine && groupe[x][y] == 1)
+            {
+                score_joueur1 += 10;
+            }
+            else if(terrain[x][y] == Reine && groupe[x][y] == 2)
+            {
+               score_joueur2 += 10;
+            }
+            if(terrain[x][y] == Rois && groupe[x][y] == joueur)
+            {
+                if(deplacements::est_en_echecetMat(terrain,groupe,QPoint(x,y)))
+                {
+                   return -1000;
+                }
+
+            }
+            else if(terrain[x][y] == Rois && groupe[x][y] != joueur)
+            {
+                if(deplacements::est_en_echecetMat(terrain,groupe,QPoint(x,y)))
+                {
+                   return 1000;
+                }
+            }
+
+
+        }
+    }
+   // qDebug() << "score joueur 1 :"<< score_joueur1 << "score 2 :" << score_joueur2;
+
+    return  score_joueur1 - score_joueur2;
+
+}
+
+bool ThreadIAcalc::gagnant_jeux()
+{
+
+    for(int x = 0; x < 8; x++)
+    {
+        for(int y = 0; y < 8; y++)
+        {
+            // on verifi lechec et mat
+            if(terrain[x][y] == Rois)
+            {
+                if(deplacements::est_en_echecetMat(terrain,groupe,QPoint(x,y)))
+                {
+                   return true;
+                }
+
+            }
+        }
+    }
+    return false;
+}
+<<<<<<< HEAD:ia_difficile.cpp
+int Max(int joueur,piece terrain[8][8],int groupe[8][8],int profondeur)
+=======
+
+int ThreadIAcalc::Max(int joueur,int profondeur)
+>>>>>>> 7a8e68d737b9b92a3c676052df763e6499ca054d:threadiacalc.cpp
+{
+    if(profondeur <= 0 || gagnant_jeux())
+    {
+         return eval(joueur);
+    }
+
+     int max = -10000;
+
+     for(int x=0;x<8;x++)
+     {
+          for(int y=0;y<8;y++)
+          {
+              if(groupe[x][y] == joueur)
+              {
+                  QVector<QPoint> liste_coup;
+                  switch(terrain[x][y])
+                  {
+                      case Pion:
+                          liste_coup = deplacements::deplacement_pion(groupe,QPoint(x,y));
+                      break;
+                      case Rois:
+                          liste_coup = deplacements::deplacement_roi(groupe,QPoint(x,y));
+                      break;
+                      case Reine:
+                          liste_coup = deplacements::deplacement_reine(groupe,QPoint(x,y));
+                      break;
+                      case Fous:
+                          liste_coup = deplacements::deplacement_fou(groupe,QPoint(x,y));
+                      break;
+                      case Tour:
+                          liste_coup = deplacements::deplacement_tour(groupe,QPoint(x,y));
+                      break;
+                      case Cavalier:
+                          liste_coup = deplacements::deplacement_cavalier(groupe,QPoint(x,y));
+                      break;
+                      case Rien:
+                          liste_coup = QVector<QPoint>();
+                      break;
+                  }
+
+                  for (int i = 0; i < liste_coup.count(); i++)
+                  {
+
+                      // on joue le tour
+                      piece temp_piece = terrain[liste_coup.at(i).x()][liste_coup.at(i).y()];
+                      int temp_groupe = groupe[liste_coup.at(i).x()][liste_coup.at(i).y()];
+
+                      terrain[liste_coup.at(i).x()][liste_coup.at(i).y()] = terrain[x][y];
+                      terrain[x][y] = Rien;
+                      groupe[liste_coup.at(i).x()][liste_coup.at(i).y()] = groupe[x][y];
+                      groupe[x][y] = 0;
+
+                      int score = 0;
+                      // on relance l'apel
+                      if(joueur == 1)
+                      {
+                          score = Min(2,profondeur-1);
+                      }
+                      else
+                      {
+                          score = Min(1,profondeur-1);
+                      }
+
+
+                      terrain[x][y] = terrain[liste_coup.at(i).x()][liste_coup.at(i).y()];
+                      terrain[liste_coup.at(i).x()][liste_coup.at(i).y()] = temp_piece;
+
+                      groupe[x][y] = groupe[liste_coup.at(i).x()][liste_coup.at(i).y()] ;
+                      groupe[liste_coup.at(i).x()][liste_coup.at(i).y()] = temp_groupe;
+
+                      if (score > max)
+                      {
+                          max = score;
+                      }
+                  }
+
+               }
+          }
+     }
+
+     return max;
+}
+
+int ThreadIAcalc::Min(int joueur,int profondeur)
+{
+     if(profondeur <= 0 || gagnant_jeux())
+     {
+          return eval(joueur);
+     }
+
+
+
+     int min = 10000;
+
+     for(int x=0;x<8;x++)
+     {
+          for(int y=0;y<8;y++)
+          {
+              if(groupe[x][y] == joueur)
+              {
+                  QVector<QPoint> liste_coup;
+                  switch(terrain[x][y])
+                  {
+                      case Pion:
+                          liste_coup = deplacements::deplacement_pion(groupe,QPoint(x,y));
+                      break;
+                      case Rois:
+                          liste_coup = deplacements::deplacement_roi(groupe,QPoint(x,y));
+                      break;
+                      case Reine:
+                          liste_coup = deplacements::deplacement_reine(groupe,QPoint(x,y));
+                      break;
+                      case Fous:
+                          liste_coup = deplacements::deplacement_fou(groupe,QPoint(x,y));
+                      break;
+                      case Tour:
+                          liste_coup = deplacements::deplacement_tour(groupe,QPoint(x,y));
+                      break;
+                      case Cavalier:
+                          liste_coup = deplacements::deplacement_cavalier(groupe,QPoint(x,y));
+                      break;
+                      case Rien:
+                          liste_coup = QVector<QPoint>();
+                      break;
+                  }
+
+                  for (int i = 0; i < liste_coup.count(); i++)
+                  {
+
+                      // on joue le tour
+                      piece temp_piece = terrain[liste_coup.at(i).x()][liste_coup.at(i).y()];
+                      int temp_groupe = groupe[liste_coup.at(i).x()][liste_coup.at(i).y()];
+
+                      terrain[liste_coup.at(i).x()][liste_coup.at(i).y()] = terrain[x][y];
+                      terrain[x][y] = Rien;
+                      groupe[liste_coup.at(i).x()][liste_coup.at(i).y()] = groupe[x][y];
+                      groupe[x][y] = 0;
+
+                      int score = 0;
+                      // on relance l'apel
+                      if(joueur == 1)
+                      {
+                          score = Max(2,profondeur-1);
+                      }
+                      else
+                      {
+                          score = Max(1,profondeur-1);
+                      }
+
+
+                      terrain[x][y] = terrain[liste_coup.at(i).x()][liste_coup.at(i).y()];
+                      terrain[liste_coup.at(i).x()][liste_coup.at(i).y()] = temp_piece;
+
+                      groupe[x][y] = groupe[liste_coup.at(i).x()][liste_coup.at(i).y()] ;
+                      groupe[liste_coup.at(i).x()][liste_coup.at(i).y()] = temp_groupe;
+
+                      if (score < min)
+                      {
+                          min = score;
+                      }
+                  }
+
+               }
+          }
+     }
+
+     return min;
+}

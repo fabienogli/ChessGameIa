@@ -3,6 +3,8 @@
 class Grille
 {
 public:
+
+
 	Grille();
 	~Grille();
 	Case getCase(int x, int y);

@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/jeux">
+        <file>case_blanche.png</file>
+        <file>case_noir.png</file>
+        <file>halo.png</file>
+        <file>pieces/blanc_cavalier.png</file>
+        <file>pieces/blanc_fou.png</file>
+        <file>pieces/blanc_pion.png</file>
+        <file>pieces/blanc_reine.png</file>
+        <file>pieces/blanc_roi.png</file>
+        <file>pieces/blanc_tour.png</file>
+        <file>pieces/noir_cavalier.png</file>
+        <file>pieces/noir_fou.png</file>
+        <file>pieces/noir_pion.png</file>
+        <file>pieces/noir_reine.png</file>
+        <file>pieces/noir_roi.png</file>
+        <file>pieces/noir_tour.png</file>
+    </qresource>
+</RCC>

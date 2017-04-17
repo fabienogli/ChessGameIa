@@ -1,8 +1,11 @@
 #pragma once
 #include "Coordonnee.h"
 #include "Piece.h"
+#include <QPixmap>
+
 class Case
 {
+
 public:
 	Case(int x, int y);
 	void setCoord(Coordonnee coord);
@@ -14,5 +17,8 @@ public:
 private:
 	Coordonnee *coordonnee;
 	bool occupied;
+
+
+
 };
 

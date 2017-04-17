@@ -18,6 +18,7 @@ public:
 	void generateDeck();
 	void afficherPiece();
 	void setOrigin(int i);
+    int getIdJoueur();
 	std::vector<Piece*> getDeck();
 	Piece getPiece(int i);
 	int getDeckSize();
@@ -25,6 +26,7 @@ public:
 private:
 	Coordonnee *origin;
 	std::string nomJoueur;
+    int id;
 	static int const nombrePiece = 6;
 	std::vector<Piece*> deck;
 };

@@ -4,6 +4,7 @@
 
 class Piece
 {
+
 public:
 	Piece();
 	Coordonnee getCoordonne();

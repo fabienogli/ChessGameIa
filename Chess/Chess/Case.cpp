@@ -1,7 +1,5 @@
 #include "Case.h"
 
-
-
 Case::Case(int x, int y)
 {
 	occupied = false;
@@ -40,3 +38,4 @@ Case::~Case()
 {
 	delete coordonnee;
 }
+
