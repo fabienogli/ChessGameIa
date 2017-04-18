@@ -10,9 +10,7 @@ Joueur::Joueur(std::string nom, int i)
     id = i ;
 	generateDeck();
 }
-Joueur::Joueur()
-{
-}
+Joueur::Joueur(){}
 //Retourne le nom du joueur
 std::string Joueur::getNomjoueur()
 {
@@ -22,6 +20,9 @@ int Joueur::getIdJoueur(){
     return id;
 }
 
+Coordonnee Joueur::getOrigin(){
+    return *origin;
+}
 
 double Joueur::isAnyPiece(Coordonnee coord)
 {

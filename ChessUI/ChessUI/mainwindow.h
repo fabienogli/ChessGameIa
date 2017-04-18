@@ -25,9 +25,9 @@ public slots:
 
 signals:
  //on transmet les coordonnées en paramètres
-void movePiece(int idJoueur,int i1,int i2,int i3,int i4);
+void movePiece(int i1,int i2,int i3,int i4);
 
-private slots:
+public slots:
  void on_ok_button_clicked();
  void displayPlayerId(int id);
 

@@ -22,6 +22,7 @@ public:
     int getIdJoueur();
 	std::vector<Piece*> getDeck();
 	Piece getPiece(int i);
+    Coordonnee getOrigin();
 	int getDeckSize();
 	~Joueur();
 private:

@@ -1,5 +1,9 @@
 #include "Piece.h"
-
+#include "Roi.h"
+#include "Cavalier.h"
+#include "Fou.h"
+#include "Tour.h"
+#include "Pion.h"
 //Initialise la piece
 Piece::Piece()
 {
@@ -16,6 +20,10 @@ Coordonnee Piece::getCoordonne()
 void Piece::setCoordonnee(Coordonnee *coord)
 {
 	coordonnee = coord;
+}
+void Piece::setCoordonne(int x,int y){
+    coordonnee->setX(x);
+    coordonnee->setY(y);
 }
 
 //Methode lorsqu une piece mange une autre
@@ -39,7 +47,26 @@ void Piece::afficher()
 //Methode pour tester un deplacement
 bool Piece::testDeplacement(Coordonnee coord)
 {
-	return false;
+    /*std::cout << "test deplacement Piece";std::cout << std::endl;
+    return false;*/
+    bool verif = false;
+    switch (getId()) {
+    case 'P':
+
+       /* if (coord.getX() == getCoordonne().getX()  && coord.getY() == getCoordonne().getY() - 1)
+            verif = true;*/
+        std::cout << "test deplacement";std::cout << std::endl;
+        std::cout <<coord.getX();std::cout << std::endl;
+        std::cout <<coord.getY();std::cout << std::endl;
+        std::cout <<this->getCoordonne().getX();std::cout << std::endl;
+        std::cout <<this->getCoordonne().getY();std::cout << std::endl;
+        std::cout <<abs(coord.getY()- getCoordonne().getY());std::cout << std::endl;
+        if (coord.getX() == getCoordonne().getX()  && ((abs(coord.getY()-getCoordonne().getY()== 1)) || (abs(coord.getY()-getCoordonne().getY()== 2))))
+                verif = true;
+        return verif;
+    default:
+        break;
+    }
 }
 
 bool Piece::testDiagonal(Coordonnee coord)
@@ -102,11 +129,17 @@ bool Piece::testHorizontal(Coordonnee coord)
 }
 
 //Methode de deplacement de la piece, si le test retourne vrai, la piece peut se deplacer
-void Piece::move(Coordonnee coord, Coordonnee origin)
+void Piece::move(Coordonnee * coord, Coordonnee origin)
 {
-	Coordonnee test(origin.getX() - coord.getX(), origin.getY() - coord.getY());
-	if (testDeplacement(test)) {
-		setCoordonnee(&coord);
+    std::cout << "je suis ici";std::cout << std::endl;
+   // Coordonnee test(origin.getX() - (*coord).getX(), origin.getY() - (*coord).getY());
+   // std::cout << test.getX();
+    //if (testDeplacement(test)) {
+    if (testDeplacement(*coord)==true) {
+       // setCoordonnee(new Coordonnee(*coord));
+        setCoordonne(coord->getX(),coord->getY());
+        afficher();
+        std::cout << "je suis ici";std::cout << std::endl;
 	}
 }
 

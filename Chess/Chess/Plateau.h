@@ -22,13 +22,16 @@ private:
 	Grille *damier;
 	Joueur *joueurActif;
 	Joueur *joueur1,*joueur2;
+    Coordonnee *coordArrivee;
+    Coordonnee *coordDepart;
 signals:
     void afficherInit(Piece * piece,int id);
     void displayPlayerId(int id);
 public slots:
+    void sentDisplayPlayerId();
     void displayPlateau();
     void displayPiece(Piece * piece,int id);
-    void movePiece(int idJoueur,int i1,int i2,int i3,int i4);
+    void movePiece(int i1,int i2,int i3,int i4);
 
 };
 

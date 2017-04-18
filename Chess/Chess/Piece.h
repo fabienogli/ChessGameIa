@@ -9,6 +9,7 @@ public:
 	Piece();
 	Coordonnee getCoordonne();
 	void setCoordonnee(Coordonnee *coord);
+    void setCoordonne(int x,int y);
 	void kill(Piece& piece);
 	bool isAlive();
 	void afficher();
@@ -16,13 +17,11 @@ public:
 	bool testDiagonal(Coordonnee coord);
 	bool testVertical(Coordonnee coord);
 	bool testHorizontal(Coordonnee coord);
-	void move(Coordonnee coord, Coordonnee origin);
+    void move(Coordonnee *coord, Coordonnee origin);
 	~Piece();
 	char getId();
 private:
 	Coordonnee *coordonnee;
-	bool alive;
-
-	
+	bool alive;	
 };
 

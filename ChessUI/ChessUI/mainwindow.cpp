@@ -24,13 +24,14 @@ MainWindow::MainWindow(QWidget *parent) :
     //afficher une piece
     QObject::connect(plateau,SIGNAL(afficherInit(Piece*,int)),this,SLOT(afficherInit(Piece*,int)));
     //afficher idJoueur
-    QObject::connect(plateau,SIGNAL(displayPlayerId(int)),this,SLOT(displayPlayerId(int)));
+    QObject::connect(plateau,SIGNAL(displayPlayerId(int)),this,SLOT(displayPlayerId(int)),Qt::UniqueConnection);
     //QObject::connect(plateau,SIGNAL(),this,SLOT());
     //initialiser plateau
-    QObject::connect(ui->initButton,SIGNAL(clicked(bool)),plateau,SLOT(displayPlateau()));
+    QObject::connect(ui->initButton,SIGNAL(clicked(bool)),plateau,SLOT(displayPlateau()),Qt::UniqueConnection);
+    QObject::connect(ui->initButton,SIGNAL(clicked(bool)),plateau,SLOT(sentDisplayPlayerId()),Qt::UniqueConnection);
     //deplacer une piece
-    QObject::connect(ui->ok_button,SIGNAL(clicked(bool)),this,SLOT(on_ok_button_clicked()));
-    QObject::connect(this,SIGNAL(movePiece(int,int,int,int,int)),plateau,SLOT(movePiece(int,int,int,int,int)));
+    QObject::connect(ui->ok_button,SIGNAL(clicked(bool)),this,SLOT(on_ok_button_clicked()),Qt::UniqueConnection);
+    QObject::connect(this,SIGNAL(movePiece(int,int,int,int)),plateau,SLOT(movePiece(int,int,int,int)),Qt::UniqueConnection);
     //QPixmap pixmap;
     // bool loaded= pixmap.load("chessicons/King1.bmp");
     // std::cout << "image loaded = " << loaded << std::endl;
@@ -322,5 +323,5 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_ok_button_clicked()
 {
-    emit movePiece((ui->label_2->text()).toInt(),ui->comboBox->currentIndex(),ui->comboBox_2->currentIndex(),ui->comboBox_3->currentIndex(),ui->comboBox_4->currentIndex());
+    emit movePiece(ui->comboBox->currentIndex(),ui->comboBox_2->currentIndex(),ui->comboBox_3->currentIndex(),ui->comboBox_4->currentIndex());
 }
