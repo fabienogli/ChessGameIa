@@ -45,6 +45,7 @@ void MainWindow::displayPlayerId(int id){
     ui->label_2->setText(QString::number(id));
 }
 void MainWindow::afficherInit(Piece * piece, int id){
+    //std::cout << "image loaded";
     QPixmap pixmap;
     //pixmap.fill(Qt::transparent);
     /* void MainWindow::afficherInit(){

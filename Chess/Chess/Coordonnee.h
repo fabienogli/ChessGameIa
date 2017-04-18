@@ -10,7 +10,7 @@ public:
     void setX(int x);
     void setY(int y);
 private:
-	int x;
-	int y;
+    double x;
+    double y;
 };
 

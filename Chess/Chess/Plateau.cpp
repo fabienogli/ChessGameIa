@@ -29,18 +29,18 @@ void Plateau::initiatePosInGrid()
 }
 //deplacer une piece
 void Plateau::movePiece(int i1, int i2, int i3, int i4){
-    std::cout << i1;
-    std::cout << std::endl;
+    std::cout << i1;std::cout << std::endl;
     std::cout << i2;std::cout << std::endl;
     std::cout << i3;std::cout << std::endl;
     std::cout << i4;std::cout << std::endl;
     //prendre la piece en i1,i2 et l'envoyer en i3,i4
     std::cout << "je suis 3";
-
     coordDepart->setX(i2);
     coordDepart->setY(i1);
     coordArrivee->setX(i4);
     coordArrivee->setY(i3);
+    std::cout << coordDepart->getX();std::cout << std::endl;
+    std::cout << coordDepart->getY();std::cout << std::endl;
     //on recherche dans le deck du premier joueur
     double tmp1 = (*joueur1).isAnyPiece(*coordDepart);
     //on recherche dans le deck du deuxieme joueur
@@ -48,29 +48,10 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
         if (tmp1 != -1)
         {  std::cout << "je suis 1-1";std::cout << std::endl;
             std::cout << tmp1;std::cout << std::endl;
-            //(*joueur1).getPiece(tmp1).afficher();
-            switch ((*joueur1).getPiece(int(tmp1)).getId()) {
-            case 'R':
-
-                break;
-            case 'P':
-
-                break;
-            case 'T':
-
-                break;
-            case 'F':
-
-                break;
-            case 'C':
-
-                break;
-            default:
-                break;
-            }
-            (*joueur1).getPiece(tmp1).afficher();
-           ((*joueur1).getPiece(tmp1)).move(coordArrivee,(*joueur1).getOrigin());
-            //(*joueur1).getPiece(tmp1).afficher();
+            (*joueur1).getDeck()[tmp1]->afficher();
+            //(*joueur1).getPiece(int(tmp1)).move(coordArrivee,(*joueur1).getOrigin());
+            (*joueur1).getDeck()[tmp1]->move(coordArrivee,(*joueur1).getOrigin());
+            (*joueur1).getDeck()[tmp1]->afficher();
             std::cout << "je suis 1-2";std::cout << std::endl;
             emit afficherInit((*joueur1).getDeck()[tmp1],(*joueur1).getIdJoueur());
             std::cout << "je suis 1-3";std::cout << std::endl;
@@ -83,7 +64,9 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
             std::cout << "je suis 2";*/
             std::cout << "je suis 2-1";
                         std::cout << tmp2;
-                       (*joueur2).getPiece(tmp2).move(coordArrivee,(*joueur2).getOrigin());
+                        //(*joueur2).getPiece(tmp2).afficher();
+                        (*joueur2).getDeck()[tmp2]->move(coordArrivee,(*joueur2).getOrigin());
+                        (*joueur2).getDeck()[tmp2]->afficher();
                         //(*joueur2).getPiece(tmp2).afficher();
                         std::cout << "je suis 2-2";
                         emit afficherInit((*joueur2).getDeck()[tmp2],(*joueur2).getIdJoueur());

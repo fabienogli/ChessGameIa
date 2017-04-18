@@ -47,26 +47,8 @@ void Piece::afficher()
 //Methode pour tester un deplacement
 bool Piece::testDeplacement(Coordonnee coord)
 {
-    /*std::cout << "test deplacement Piece";std::cout << std::endl;
-    return false;*/
     bool verif = false;
-    switch (getId()) {
-    case 'P':
-
-       /* if (coord.getX() == getCoordonne().getX()  && coord.getY() == getCoordonne().getY() - 1)
-            verif = true;*/
-        std::cout << "test deplacement";std::cout << std::endl;
-        std::cout <<coord.getX();std::cout << std::endl;
-        std::cout <<coord.getY();std::cout << std::endl;
-        std::cout <<this->getCoordonne().getX();std::cout << std::endl;
-        std::cout <<this->getCoordonne().getY();std::cout << std::endl;
-        std::cout <<abs(coord.getY()- getCoordonne().getY());std::cout << std::endl;
-        if (coord.getX() == getCoordonne().getX()  && ((abs(coord.getY()-getCoordonne().getY()== 1)) || (abs(coord.getY()-getCoordonne().getY()== 2))))
-                verif = true;
-        return verif;
-    default:
-        break;
-    }
+    return verif;
 }
 
 bool Piece::testDiagonal(Coordonnee coord)
@@ -133,13 +115,12 @@ void Piece::move(Coordonnee * coord, Coordonnee origin)
 {
     std::cout << "je suis ici";std::cout << std::endl;
    // Coordonnee test(origin.getX() - (*coord).getX(), origin.getY() - (*coord).getY());
-   // std::cout << test.getX();
     //if (testDeplacement(test)) {
     if (testDeplacement(*coord)==true) {
        // setCoordonnee(new Coordonnee(*coord));
         setCoordonne(coord->getX(),coord->getY());
         afficher();
-        std::cout << "je suis ici";std::cout << std::endl;
+        std::cout << "j'ai update les coord";std::cout << std::endl;
 	}
 }
 
