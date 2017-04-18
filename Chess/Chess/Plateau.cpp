@@ -49,7 +49,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
         {  std::cout << "je suis 1-1";std::cout << std::endl;
             std::cout << tmp1;std::cout << std::endl;
             //(*joueur1).getPiece(tmp1).afficher();
-            switch ((*joueur1).getPiece(tmp1).getId()) {
+            switch ((*joueur1).getPiece(int(tmp1)).getId()) {
             case 'R':
 
                 break;
