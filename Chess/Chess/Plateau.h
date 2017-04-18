@@ -24,8 +24,11 @@ private:
 	Joueur *joueur1,*joueur2;
 signals:
     void afficherInit(Piece * piece,int id);
+    void displayPlayerId(int id);
 public slots:
     void displayPlateau();
     void displayPiece(Piece * piece,int id);
+    void movePiece(int idJoueur,int i1,int i2,int i3,int i4);
+
 };
 

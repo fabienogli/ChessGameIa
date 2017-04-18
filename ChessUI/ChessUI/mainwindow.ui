@@ -119,6 +119,9 @@
      </item>
      <item row="0" column="3">
       <widget class="QComboBox" name="comboBox">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
        <item>
         <property name="text">
          <string>A</string>
@@ -256,7 +259,7 @@
      <rect>
       <x>50</x>
       <y>10</y>
-      <width>411</width>
+      <width>421</width>
       <height>431</height>
      </rect>
     </property>
@@ -1188,7 +1191,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="initButton">
     <property name="geometry">
      <rect>
       <x>690</x>
@@ -1201,7 +1204,7 @@
      <string>Init</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="ok_button">
     <property name="geometry">
      <rect>
       <x>700</x>
@@ -1217,8 +1220,8 @@
    <zorder>layoutWidget</zorder>
    <zorder>tableWidget</zorder>
    <zorder>gridLayoutWidget</zorder>
-   <zorder>pushButton</zorder>
-   <zorder>pushButton_3</zorder>
+   <zorder>initButton</zorder>
+   <zorder>ok_button</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

@@ -10,7 +10,9 @@ Joueur::Joueur(std::string nom, int i)
     id = i ;
 	generateDeck();
 }
-
+Joueur::Joueur()
+{
+}
 //Retourne le nom du joueur
 std::string Joueur::getNomjoueur()
 {

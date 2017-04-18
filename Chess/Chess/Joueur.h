@@ -12,6 +12,7 @@ class Joueur
 {
 public:
 	Joueur(std::string nom, int i);
+    Joueur();
 	std::string getNomjoueur();
 	Piece getPiece(Coordonnee * coord);
 	double isAnyPiece(Coordonnee coord);

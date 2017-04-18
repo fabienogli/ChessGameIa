@@ -130,8 +130,8 @@ public:
     QLabel *label_19;
     QGraphicsView *graphicsView_7;
     QFrame *line;
-    QPushButton *pushButton;
-    QPushButton *pushButton_3;
+    QPushButton *initButton;
+    QPushButton *ok_button;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -197,7 +197,7 @@ public:
 
         layoutWidget = new QWidget(centralWidget);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(50, 10, 411, 431));
+        layoutWidget->setGeometry(QRect(50, 10, 421, 431));
         gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setSpacing(0);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -744,18 +744,18 @@ public:
 
         gridLayout->addWidget(line, 3, 10, 1, 1);
 
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(690, 70, 61, 23));
-        pushButton_3 = new QPushButton(centralWidget);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(700, 450, 41, 23));
+        initButton = new QPushButton(centralWidget);
+        initButton->setObjectName(QStringLiteral("initButton"));
+        initButton->setGeometry(QRect(690, 70, 61, 23));
+        ok_button = new QPushButton(centralWidget);
+        ok_button->setObjectName(QStringLiteral("ok_button"));
+        ok_button->setGeometry(QRect(700, 450, 41, 23));
         MainWindow->setCentralWidget(centralWidget);
         layoutWidget->raise();
         tableWidget->raise();
         gridLayoutWidget->raise();
-        pushButton->raise();
-        pushButton_3->raise();
+        initButton->raise();
+        ok_button->raise();
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 761, 21));
@@ -833,6 +833,9 @@ public:
 
         retranslateUi(MainWindow);
 
+        comboBox->setCurrentIndex(0);
+
+
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
@@ -902,8 +905,8 @@ public:
         label_17->setText(QApplication::translate("MainWindow", "6", Q_NULLPTR));
         label_18->setText(QApplication::translate("MainWindow", "7", Q_NULLPTR));
         label_19->setText(QApplication::translate("MainWindow", "8", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("MainWindow", "Init", Q_NULLPTR));
-        pushButton_3->setText(QApplication::translate("MainWindow", "OK", Q_NULLPTR));
+        initButton->setText(QApplication::translate("MainWindow", "Init", Q_NULLPTR));
+        ok_button->setText(QApplication::translate("MainWindow", "OK", Q_NULLPTR));
     } // retranslateUi
 
 };

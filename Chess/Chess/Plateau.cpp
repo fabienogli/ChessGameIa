@@ -6,12 +6,15 @@ Plateau::Plateau() :QObject()
 	damier = new Grille();
 	joueur1 = new Joueur("joueur 1",0);
 	joueur2 = new Joueur("joueur 2",1);
+    joueurActif=new Joueur();
 	initiatePosInGrid();
+   // setJoueurActif(*joueur1);
     }
 
 //Positionne les pieces des differentes piece des joueurs dans le plateau
 void Plateau::initiatePosInGrid()
 {
+
 	for (int i=0; i < (*joueur1).getDeckSize(); i++)
 	{
 		(*damier).putPiece((*joueur1).getDeck()[i]);
@@ -19,21 +22,26 @@ void Plateau::initiatePosInGrid()
 
 	}
 }
+//deplacer une piece
+void Plateau::movePiece(int idJoueur, int i1, int i2, int i3, int i4){
 
+}
 //slot pour affichage gui des pieces
 void Plateau::displayPlateau(){
+
     for (int i=0; i < (*joueur1).getDeckSize(); i++)
     {
         emit afficherInit((*joueur1).getDeck()[i],(*joueur1).getIdJoueur());
         emit afficherInit((*joueur2).getDeck()[i],(*joueur2).getIdJoueur());
     }
-
+//emit displayPlayerId((*joueurActif).getIdJoueur());
 }
 
 /**
  * @brief Plateau::displayPiece affiche une piece dans le GUI
  */
-void Plateau::displayPiece(){
+void Plateau::displayPiece(Piece * piece, int id){
+
 
 }
 
@@ -84,8 +92,9 @@ Joueur Plateau::getJoueur1(){
 Joueur Plateau::getJoueur2(){
     return *joueur2;
 }
-void Plateau::setJoueurActif(Joueur joueur){
+void Plateau::setJoueurActif(Joueur  joueur){
     *joueurActif=joueur;
+
 }
 
 Grille Plateau::getGrille(){
@@ -98,4 +107,5 @@ Plateau::~Plateau()
 	delete damier;
 	delete joueur1;
 	delete joueur2;
+    delete joueurActif;
 }

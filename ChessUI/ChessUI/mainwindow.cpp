@@ -21,9 +21,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableWidget->setColumnWidth(0,20);
     ui->tableWidget->setColumnWidth(1,100);
     ui->tableWidget->setColumnWidth(2,100);
+    //afficher une piece
     QObject::connect(plateau,SIGNAL(afficherInit(Piece*,int)),this,SLOT(afficherInit(Piece*,int)));
-    QObject::connect(ui->pushButton,SIGNAL(clicked(bool)),plateau,SLOT(displayPlateau()));
-
+    //afficher idJoueur
+    QObject::connect(plateau,SIGNAL(displayPlayerId(int)),this,SLOT(displayPlayerId(int)));
+    //QObject::connect(plateau,SIGNAL(),this,SLOT());
+    //initialiser plateau
+    QObject::connect(ui->initButton,SIGNAL(clicked(bool)),plateau,SLOT(displayPlateau()));
+    //deplacer une piece
+    QObject::connect(ui->ok_button,SIGNAL(clicked(bool)),this,SLOT(on_ok_button_clicked()));
+    QObject::connect(this,SIGNAL(movePiece(int,int,int,int,int)),plateau,SLOT(movePiece(int,int,int,int,int)));
     //QPixmap pixmap;
     // bool loaded= pixmap.load("chessicons/King1.bmp");
     // std::cout << "image loaded = " << loaded << std::endl;
@@ -32,6 +39,9 @@ MainWindow::MainWindow(QWidget *parent) :
     scene->addPixmap(pixmap);
     ui->graphicsView->setScene(scene);*/
 
+}
+void MainWindow::displayPlayerId(int id){
+    ui->label_2->setText(QString::number(id));
 }
 void MainWindow::afficherInit(Piece * piece, int id){
     QPixmap pixmap;
@@ -310,4 +320,7 @@ MainWindow::~MainWindow()
 }
 
 
-
+void MainWindow::on_ok_button_clicked()
+{
+    emit movePiece((ui->label_2->text()).toInt(),ui->comboBox->currentIndex(),ui->comboBox_2->currentIndex(),ui->comboBox_3->currentIndex(),ui->comboBox_4->currentIndex());
+}
