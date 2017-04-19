@@ -19,8 +19,8 @@ public:
 
 
 public slots:
-    //affiche toutes les pieces au debut
-    void afficherInit(Piece * piece,int id);
+    //affiche ou supprime une pieces au debut
+    void affichSuppInit(Piece * piece,int id,int i);
    // void afficherInit();
 
 signals:

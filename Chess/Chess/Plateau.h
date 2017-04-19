@@ -24,13 +24,13 @@ private:
 	Joueur *joueur1,*joueur2;
     Coordonnee *coordArrivee;
     Coordonnee *coordDepart;
+    Piece *aSupprimer;
 signals:
-    void afficherInit(Piece * piece,int id);
+    void affichSuppInit(Piece * piece,int id,int i);
     void displayPlayerId(int id);
 public slots:
     void sentDisplayPlayerId();
     void displayPlateau();
-    void displayPiece(Piece * piece,int id);
     void movePiece(int i1,int i2,int i3,int i4);
 
 };

@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableWidget->setColumnWidth(1,100);
     ui->tableWidget->setColumnWidth(2,100);
     //afficher une piece
-    QObject::connect(plateau,SIGNAL(afficherInit(Piece*,int)),this,SLOT(afficherInit(Piece*,int)));
+    QObject::connect(plateau,SIGNAL(affichSuppInit(Piece*,int,int)),this,SLOT(affichSuppInit(Piece*,int,int)));
     //afficher idJoueur
     QObject::connect(plateau,SIGNAL(displayPlayerId(int)),this,SLOT(displayPlayerId(int)),Qt::UniqueConnection);
     //QObject::connect(plateau,SIGNAL(),this,SLOT());
@@ -44,7 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::displayPlayerId(int id){
     ui->label_2->setText(QString::number(id));
 }
-void MainWindow::afficherInit(Piece * piece, int id){
+void MainWindow::affichSuppInit(Piece * piece, int id,int i){
     //std::cout << "image loaded";
     QPixmap pixmap;
     //pixmap.fill(Qt::transparent);
@@ -56,7 +56,8 @@ void MainWindow::afficherInit(Piece * piece, int id){
     QGraphicsScene* scene = new QGraphicsScene;
     scene->addPixmap(pixmap);
     ui->graphicsView->setScene(scene);*/
-
+if(i==0){
+    std::cout << "jaffiche";std::cout << std::endl;
     switch((*piece).getId()){
     case 'R':
         switch (id) {
@@ -120,7 +121,11 @@ void MainWindow::afficherInit(Piece * piece, int id){
         break;
     default: break;
     }
+}else{
+    std::cout << "jefface";std::cout << std::endl;
+    pixmap.load("");
 
+}
     pixmap = pixmap.scaled(45,45);
     QGraphicsScene* scene = new QGraphicsScene;
     scene->addPixmap(pixmap);

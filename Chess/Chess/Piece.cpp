@@ -111,8 +111,9 @@ bool Piece::testHorizontal(Coordonnee coord)
 }
 
 //Methode de deplacement de la piece, si le test retourne vrai, la piece peut se deplacer
-void Piece::move(Coordonnee * coord, Coordonnee origin)
+bool Piece::move(Coordonnee * coord, Coordonnee origin)
 {
+    bool verif =false;
     std::cout << "je suis ici";std::cout << std::endl;
    // Coordonnee test(origin.getX() - (*coord).getX(), origin.getY() - (*coord).getY());
     //if (testDeplacement(test)) {
@@ -121,7 +122,9 @@ void Piece::move(Coordonnee * coord, Coordonnee origin)
         setCoordonne(coord->getX(),coord->getY());
         afficher();
         std::cout << "j'ai update les coord";std::cout << std::endl;
+        verif=true;
 	}
+    return verif;
 }
 
 //Destructeur de la piece

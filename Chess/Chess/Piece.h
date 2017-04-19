@@ -17,7 +17,7 @@ public:
 	bool testDiagonal(Coordonnee coord);
 	bool testVertical(Coordonnee coord);
 	bool testHorizontal(Coordonnee coord);
-    void move(Coordonnee *coord, Coordonnee origin);
+    bool move(Coordonnee *coord, Coordonnee origin);
 	~Piece();
 	char getId();
 private:

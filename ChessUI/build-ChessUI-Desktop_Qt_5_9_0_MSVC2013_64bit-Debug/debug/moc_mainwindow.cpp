@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[13];
-    char stringdata0[100];
+    QByteArrayData data[14];
+    char stringdata0[104];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,16 +38,17 @@ QT_MOC_LITERAL(3, 22, 2), // "i1"
 QT_MOC_LITERAL(4, 25, 2), // "i2"
 QT_MOC_LITERAL(5, 28, 2), // "i3"
 QT_MOC_LITERAL(6, 31, 2), // "i4"
-QT_MOC_LITERAL(7, 34, 12), // "afficherInit"
-QT_MOC_LITERAL(8, 47, 6), // "Piece*"
-QT_MOC_LITERAL(9, 54, 5), // "piece"
-QT_MOC_LITERAL(10, 60, 2), // "id"
-QT_MOC_LITERAL(11, 63, 20), // "on_ok_button_clicked"
-QT_MOC_LITERAL(12, 84, 15) // "displayPlayerId"
+QT_MOC_LITERAL(7, 34, 14), // "affichSuppInit"
+QT_MOC_LITERAL(8, 49, 6), // "Piece*"
+QT_MOC_LITERAL(9, 56, 5), // "piece"
+QT_MOC_LITERAL(10, 62, 2), // "id"
+QT_MOC_LITERAL(11, 65, 1), // "i"
+QT_MOC_LITERAL(12, 67, 20), // "on_ok_button_clicked"
+QT_MOC_LITERAL(13, 88, 15) // "displayPlayerId"
 
     },
     "MainWindow\0movePiece\0\0i1\0i2\0i3\0i4\0"
-    "afficherInit\0Piece*\0piece\0id\0"
+    "affichSuppInit\0Piece*\0piece\0id\0i\0"
     "on_ok_button_clicked\0displayPlayerId"
 };
 #undef QT_MOC_LITERAL
@@ -69,15 +70,15 @@ static const uint qt_meta_data_MainWindow[] = {
        1,    4,   34,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       7,    2,   43,    2, 0x0a /* Public */,
-      11,    0,   48,    2, 0x0a /* Public */,
-      12,    1,   49,    2, 0x0a /* Public */,
+       7,    3,   43,    2, 0x0a /* Public */,
+      12,    0,   50,    2, 0x0a /* Public */,
+      13,    1,   51,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int,    3,    4,    5,    6,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 8, QMetaType::Int,    9,   10,
+    QMetaType::Void, 0x80000000 | 8, QMetaType::Int, QMetaType::Int,    9,   10,   11,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,   10,
 
@@ -91,7 +92,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->movePiece((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4]))); break;
-        case 1: _t->afficherInit((*reinterpret_cast< Piece*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 1: _t->affichSuppInit((*reinterpret_cast< Piece*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
         case 2: _t->on_ok_button_clicked(); break;
         case 3: _t->displayPlayerId((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
