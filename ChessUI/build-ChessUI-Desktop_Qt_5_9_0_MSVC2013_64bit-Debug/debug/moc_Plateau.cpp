@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Plateau_t {
-    QByteArrayData data[15];
-    char stringdata0[115];
+    QByteArrayData data[16];
+    char stringdata0[123];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -39,18 +39,20 @@ QT_MOC_LITERAL(4, 31, 5), // "piece"
 QT_MOC_LITERAL(5, 37, 2), // "id"
 QT_MOC_LITERAL(6, 40, 1), // "i"
 QT_MOC_LITERAL(7, 42, 15), // "displayPlayerId"
-QT_MOC_LITERAL(8, 58, 19), // "sentDisplayPlayerId"
-QT_MOC_LITERAL(9, 78, 14), // "displayPlateau"
-QT_MOC_LITERAL(10, 93, 9), // "movePiece"
-QT_MOC_LITERAL(11, 103, 2), // "i1"
-QT_MOC_LITERAL(12, 106, 2), // "i2"
-QT_MOC_LITERAL(13, 109, 2), // "i3"
-QT_MOC_LITERAL(14, 112, 2) // "i4"
+QT_MOC_LITERAL(8, 58, 7), // "badMove"
+QT_MOC_LITERAL(9, 66, 19), // "sentDisplayPlayerId"
+QT_MOC_LITERAL(10, 86, 14), // "displayPlateau"
+QT_MOC_LITERAL(11, 101, 9), // "movePiece"
+QT_MOC_LITERAL(12, 111, 2), // "i1"
+QT_MOC_LITERAL(13, 114, 2), // "i2"
+QT_MOC_LITERAL(14, 117, 2), // "i3"
+QT_MOC_LITERAL(15, 120, 2) // "i4"
 
     },
     "Plateau\0affichSuppInit\0\0Piece*\0piece\0"
-    "id\0i\0displayPlayerId\0sentDisplayPlayerId\0"
-    "displayPlateau\0movePiece\0i1\0i2\0i3\0i4"
+    "id\0i\0displayPlayerId\0badMove\0"
+    "sentDisplayPlayerId\0displayPlateau\0"
+    "movePiece\0i1\0i2\0i3\0i4"
 };
 #undef QT_MOC_LITERAL
 
@@ -60,30 +62,32 @@ static const uint qt_meta_data_Plateau[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       2,       // signalCount
+       3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    3,   39,    2, 0x06 /* Public */,
-       7,    1,   46,    2, 0x06 /* Public */,
+       1,    3,   44,    2, 0x06 /* Public */,
+       7,    1,   51,    2, 0x06 /* Public */,
+       8,    0,   54,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       8,    0,   49,    2, 0x0a /* Public */,
-       9,    0,   50,    2, 0x0a /* Public */,
-      10,    4,   51,    2, 0x0a /* Public */,
+       9,    0,   55,    2, 0x0a /* Public */,
+      10,    0,   56,    2, 0x0a /* Public */,
+      11,    4,   57,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3, QMetaType::Int, QMetaType::Int,    4,    5,    6,
     QMetaType::Void, QMetaType::Int,    5,
+    QMetaType::Void,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int,   11,   12,   13,   14,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int,   12,   13,   14,   15,
 
        0        // eod
 };
@@ -96,9 +100,10 @@ void Plateau::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         switch (_id) {
         case 0: _t->affichSuppInit((*reinterpret_cast< Piece*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
         case 1: _t->displayPlayerId((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 2: _t->sentDisplayPlayerId(); break;
-        case 3: _t->displayPlateau(); break;
-        case 4: _t->movePiece((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4]))); break;
+        case 2: _t->badMove(); break;
+        case 3: _t->sentDisplayPlayerId(); break;
+        case 4: _t->displayPlateau(); break;
+        case 5: _t->movePiece((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -115,6 +120,13 @@ void Plateau::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
             typedef void (Plateau::*_t)(int );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Plateau::displayPlayerId)) {
                 *result = 1;
+                return;
+            }
+        }
+        {
+            typedef void (Plateau::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Plateau::badMove)) {
+                *result = 2;
                 return;
             }
         }
@@ -146,13 +158,13 @@ int Plateau::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 6)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
 }
@@ -169,6 +181,12 @@ void Plateau::displayPlayerId(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
+}
+
+// SIGNAL 2
+void Plateau::badMove()
+{
+    QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

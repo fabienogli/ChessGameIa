@@ -18,11 +18,6 @@ public:
     ~MainWindow();
 
 
-public slots:
-    //affiche ou supprime une pieces au debut
-    void affichSuppInit(Piece * piece,int id,int i);
-   // void afficherInit();
-
 signals:
  //on transmet les coordonnées en paramètres
 void movePiece(int i1,int i2,int i3,int i4);
@@ -30,6 +25,10 @@ void movePiece(int i1,int i2,int i3,int i4);
 public slots:
  void on_ok_button_clicked();
  void displayPlayerId(int id);
+ //affiche ou supprime une pieces au debut
+ void affichSuppInit(Piece * piece,int id,int i);
+// mauvais deplacement();
+ void badMove();
 
 private:
     Ui::MainWindow *ui;

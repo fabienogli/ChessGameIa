@@ -28,6 +28,7 @@ private:
 signals:
     void affichSuppInit(Piece * piece,int id,int i);
     void displayPlayerId(int id);
+    void badMove();
 public slots:
     void sentDisplayPlayerId();
     void displayPlateau();

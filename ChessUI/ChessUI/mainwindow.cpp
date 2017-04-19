@@ -7,6 +7,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QPixmap>
+#include <QMessageBox>
 #include <QGraphicsPixmapItem>
 #include <iostream>
 using namespace std;
@@ -32,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //deplacer une piece
     QObject::connect(ui->ok_button,SIGNAL(clicked(bool)),this,SLOT(on_ok_button_clicked()),Qt::UniqueConnection);
     QObject::connect(this,SIGNAL(movePiece(int,int,int,int)),plateau,SLOT(movePiece(int,int,int,int)),Qt::UniqueConnection);
+    QObject::connect(plateau,SIGNAL(badMove()),this,SLOT(badMove()),Qt::UniqueConnection);
     //QPixmap pixmap;
     // bool loaded= pixmap.load("chessicons/King1.bmp");
     // std::cout << "image loaded = " << loaded << std::endl;
@@ -43,6 +45,9 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 void MainWindow::displayPlayerId(int id){
     ui->label_2->setText(QString::number(id));
+}
+void MainWindow::badMove(){
+    QMessageBox::critical(this, "Mauvais déplacement", "Ce déplacement n'est pas autorisé!");
 }
 void MainWindow::affichSuppInit(Piece * piece, int id,int i){
     //std::cout << "image loaded";
