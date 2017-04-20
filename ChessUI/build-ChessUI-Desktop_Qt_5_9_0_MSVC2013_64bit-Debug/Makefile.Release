@@ -733,10 +733,6 @@ release\mainwindow.obj: ..\ChessUI\mainwindow.cpp ../ChessUI/mainwindow.h \
 		C:\Qt\5.9\msvc2013_64\include\QtWidgets\qtoolbar.h \
 		C:\Qt\5.9\msvc2013_64\include\QtWidgets\QVBoxLayout \
 		C:\Qt\5.9\msvc2013_64\include\QtWidgets\QWidget \
-		C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\Chess\Chess\Plateau.h \
-		C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\Chess\Chess\Coordonnee.h \
-		C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\Chess\Chess\Case.h \
-		C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\Chess\Chess\Grille.h \
 		C:\Qt\5.9\msvc2013_64\include\QtWidgets\QGraphicsScene \
 		C:\Qt\5.9\msvc2013_64\include\QtWidgets\QMessageBox \
 		C:\Qt\5.9\msvc2013_64\include\QtWidgets\qmessagebox.h \
