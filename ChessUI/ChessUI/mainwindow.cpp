@@ -1,9 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\Chess\Chess\Plateau.h"
-#include "C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\Chess\Chess\Coordonnee.h"
-#include "C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\Chess\Chess\Case.h"
-#include "C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\Chess\Chess\Grille.h"
+#include "../../Chess/Chess/Plateau.h"
+#include "../../Chess/Chess/Coordonnee.h"
+#include "../../Chess/Chess/Case.h"
+#include "../../Chess/Chess/Grille.h"
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QPixmap>
