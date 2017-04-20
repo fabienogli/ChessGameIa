@@ -86,9 +86,9 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
             emit affichSuppInit(aSupprimer,(*joueur2).getIdJoueur(),1);
         }
         else{
-            std::cout << "deplacement non autorise";std::cout << std::endl;}
+            std::cout << "deplacement non autorise";std::cout << std::endl;
         std::cout << "je suis 2-3";std::cout << std::endl;
-        emit badMove();
+        emit badMove();}
     }
     std::cout << "jai fini";std::cout << std::endl;
 }
