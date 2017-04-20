@@ -2,6 +2,7 @@
 #include "Grille.h"
 #include "Joueur.h"
 #include "Piece.h"
+#include "ia.h"
 #include <QObject>
 class Plateau : public QObject
 {
@@ -25,6 +26,7 @@ private:
     Coordonnee *coordArrivee;
     Coordonnee *coordDepart;
     Piece *aSupprimer;
+    ia *IA;
 signals:
     void affichSuppInit(Piece * piece,int id,int i);
     void displayPlayerId(int id);

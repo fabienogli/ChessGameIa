@@ -56,8 +56,8 @@ bool Piece::testDiagonal(Coordonnee coord)
 	int x = coord.getX();
 	int y = coord.getY();
 
-	float i = getCoordonne().getX();
-	float j = getCoordonne().getY();
+    int i = getCoordonne().getX();
+    int j = getCoordonne().getY();
 
 	if (x < i)
 		i = -i;
@@ -78,7 +78,7 @@ bool Piece::testDiagonal(Coordonnee coord)
 bool Piece::testVertical(Coordonnee coord)
 {
 	int y = getCoordonne().getY();
-	float j = coord.getY();
+    int j = coord.getY();
 	if (j > y)
 		j = -j;
 	bool moveAble = false;
@@ -94,7 +94,7 @@ bool Piece::testVertical(Coordonnee coord)
 bool Piece::testHorizontal(Coordonnee coord)
 {
 	int x = getCoordonne().getX();
-	float i = coord.getX();
+    int i = coord.getX();
 
 	if (i > x)
 		i = -i;

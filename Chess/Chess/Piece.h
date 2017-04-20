@@ -1,5 +1,6 @@
 #pragma once
 #include "Coordonnee.h"
+#include "Plateau.h"
 #include <iostream>
 
 class Piece
@@ -18,6 +19,7 @@ public:
 	bool testVertical(Coordonnee coord);
 	bool testHorizontal(Coordonnee coord);
     bool move(Coordonnee *coord, Coordonnee origin);
+    virtual std::vector<Coordonnee> deplacementsPossible(Plateau plateau);
 	~Piece();
 	char getId();
 private:

@@ -1,5 +1,6 @@
 #ifndef IA_H
 #define IA_H
+#include "Plateau.h";
 
 
 class ia
@@ -7,10 +8,13 @@ class ia
 public:
     ia();
     void setLevel(int i);
-    int alphaBeta();
-    void evaluer();
+    int jouer();
+    int eval(Plateau * plateau );
     int max();
     int min();
+    int gagnant(Joueur * joueur);
+private:
+    int level;
 };
 
 #endif // IA_H
