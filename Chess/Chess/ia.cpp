@@ -8,7 +8,7 @@ ia::ia()
 
 
 }
-int ia::gagnant(Joueur *joueur){
+int ia::gagnant(int idJoueur){
     int tmp=0;
     return tmp;
 
