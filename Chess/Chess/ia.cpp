@@ -8,7 +8,9 @@ ia::ia()
 
 
 }
-int ia::gagnant(int joueur){
+int ia::gagnant(Joueur *joueur){
+    int tmp=0;
+    return tmp;
 
 }
 int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
@@ -60,8 +62,9 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
 
     return max;
 }
-int ia::min(int idJoueur,Plateau *plateau,int profondeur,int alpha,int beta){
-
+int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
+    int tmp=0;
+    return tmp;
 }
 void ia::setLevel(int i){
     this->level=i;
@@ -72,9 +75,12 @@ int ia::getLevel(){
 
 int ia::jouer()
 {
+    int tmp=0;
+    return tmp;
 
 }
 int ia::eval(Plateau * plateau){
-
+    int tmp=0;
+    return tmp;
 }
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "Piece.h"
+#include <vector>
 class Pion : public Piece
 {
 public:

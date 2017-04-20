@@ -1,9 +1,11 @@
 #include "Piece.h"
+#include "Plateau.h"
 #include "Roi.h"
 #include "Cavalier.h"
 #include "Fou.h"
 #include "Tour.h"
 #include "Pion.h"
+#include <vector>
 //Initialise la piece
 Piece::Piece()
 {
@@ -30,6 +32,12 @@ void Piece::setCoordonne(int x,int y){
 void Piece::kill(Piece & piece)
 {
 	piece.~Piece();
+}
+
+std::vector<Coordonnee> Piece::deplacementsPossible(int idJoueur,Plateau plateau){
+
+    std::vector<Coordonnee> listDep;
+    return listDep;
 }
 
 //Test pour voir si la piece est toujours en vie

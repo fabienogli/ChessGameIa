@@ -1,4 +1,7 @@
 #include "Pion.h"
+#include "Plateau.h"
+#include "Coordonnee.h"
+#include <vector>
 
 
 
@@ -27,6 +30,7 @@ bool Pion::testDeplacement(Coordonnee coord)
 
 std::vector<Coordonnee> Pion::deplacementsPossible(int idJoueur,Plateau plateau){
     std::vector<Coordonnee> tabDep;
+    /*
     switch(idJoueur){
     case 0:
         //black
@@ -56,6 +60,7 @@ std::vector<Coordonnee> Pion::deplacementsPossible(int idJoueur,Plateau plateau)
                         tabDep.push_back(Coordonnee(getCoordonne().getX()+1,getCoordonne().getY()+1));
                     }
                 }
+                /*
                 //si c'est un pion qui c'est deplace : l'attaque est possible
                 if(terrain[dest_precedent.x()][dest_precedent.y()] == Pion  && origin_precedent.x() == 6)
                 {
@@ -76,7 +81,8 @@ std::vector<Coordonnee> Pion::deplacementsPossible(int idJoueur,Plateau plateau)
                             }
                         }
                     }
-                }
+                }*/
+    /*
         break;
     case 1:
         if((getCoordonne().getY() == 5 || getCoordonne().getY()==6) && plateau.getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()-2).isOccupied()==false && plateau.getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()-1).isOccupied()==false )
@@ -109,5 +115,6 @@ std::vector<Coordonnee> Pion::deplacementsPossible(int idJoueur,Plateau plateau)
     default:
         break;
     }
+*/
 return tabDep;
 }
