@@ -1,7 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#include "C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\Chess\Chess\Plateau.h"
-#include "C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\Chess\Chess\Piece.h"
+#include "../../Chess/Chess/Plateau.h"
+#include "../../Chess/Chess/Piece.h"
 
 #include <QMainWindow>
 
