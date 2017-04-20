@@ -1,7 +1,6 @@
 #ifndef IA_H
 #define IA_H
-#include "Plateau.h";
-
+class Plateau;
 
 class ia
 {
