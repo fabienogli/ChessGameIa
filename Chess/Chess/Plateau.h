@@ -13,10 +13,15 @@ public:
 	void initiatePosInGrid();
 	void afficher();
     Joueur getJoueurActif();
-    Joueur getJoueur1();
-    Joueur getJoueur2();
+    Joueur* getJoueur1();
+    Joueur* getJoueur2();
     void setJoueurActif(Joueur joueur);
     Grille getGrille();
+    void initialize();
+    void reinitialize();
+    void updateCaseStatus(Piece piece);
+    QVector<QPoint> getCoupPrec();
+    void setCoupPrec(QVector<QPoint> CoupPrec);
 
 	~Plateau();
 private:
@@ -26,6 +31,8 @@ private:
     Coordonnee *coordArrivee;
     Coordonnee *coordDepart;
     Piece *aSupprimer;
+    QVector<QPoint> *m_coupPrecedent;
+
     ia *IA;
 signals:
     void affichSuppInit(Piece * piece,int id,int i);

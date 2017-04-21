@@ -51,24 +51,29 @@ void Joueur::generateDeck()
 		Pion *pion = new Pion();
 		int j = int(abs((*origin).getY() - (2 - i % 2)));
 		(*pion).setCoordonnee(new Coordonnee(i,j));
+        pion->setCouleur(id);
 		deck.push_back(pion);
 	}
 
 	Tour *tour = new Tour();
 	int y = (*origin).getY();
 	(*tour).setCoordonnee(new Coordonnee(0, y));
+    tour->setCouleur(id);
 	deck.push_back(tour);
 
 	Fou *fou = new Fou();
 	(*fou).setCoordonnee(new Coordonnee(2, y));
+    fou->setCouleur(id);
 	deck.push_back(fou);
 
 	Roi *roi = new Roi();
 	(*roi).setCoordonnee(new Coordonnee(4, y));
+    roi->setCouleur(id);
 	deck.push_back(roi);
 
 	Cavalier *cavalier = new Cavalier();
 	(*cavalier).setCoordonnee(new Coordonnee(6, y));
+    cavalier->setCouleur(id);
 	deck.push_back(cavalier);
 
 }

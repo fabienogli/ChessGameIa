@@ -11,12 +11,18 @@ public:
 	void setCoord(Coordonnee coord);
 	Coordonnee getCoordonee();
 	bool isOccupied();
+    char getId();
+    void setId(char id);
+    int getCouleur();
+    void setCouleur(int i);
 	void setPiece();
 	void removePiece();
 	~Case();
 private:
 	Coordonnee *coordonnee;
 	bool occupied;
+    int couleur;
+    char id;
 
 
 

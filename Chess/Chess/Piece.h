@@ -21,11 +21,14 @@ public:
 	bool testVertical(Coordonnee coord);
 	bool testHorizontal(Coordonnee coord);
     bool move(Coordonnee *coord, Coordonnee origin);
-    virtual std::vector<Coordonnee> deplacementsPossible(int idJoueur,Plateau plateau);
+    virtual QVector<QPoint> deplacementsPossible(int idJoueur,Plateau plateau);
+    int getCouleur();
+    void setCouleur(int i);
 	~Piece();
 	char getId();
 private:
 	Coordonnee *coordonnee;
 	bool alive;	
+    int couleur;
 };
 

@@ -18,6 +18,8 @@ public:
 private:
     int level;//represente la profondeur
     QVector<QPoint> *m_coupPrecedent;
+    QPoint m_Posi_Rois1;
+    QPoint m_Posi_Rois2;
 };
 
 #endif // IA_H

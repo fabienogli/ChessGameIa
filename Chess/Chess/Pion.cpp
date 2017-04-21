@@ -28,93 +28,94 @@ bool Pion::testDeplacement(Coordonnee coord)
 	return verif;
 }
 
-std::vector<Coordonnee> Pion::deplacementsPossible(int idJoueur,Plateau plateau){
-    std::vector<Coordonnee> tabDep;
-    /*
+QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * plateau){
+    QVector<QPoint> tabDep;
+    QPoint dest_precedent = plateau->getCoupPrec().at(1);
+    QPoint origin_precedent = plateau->getCoupPrec().at(0);
     switch(idJoueur){
     case 0:
         //black
-        if((getCoordonne().getY() == 1 || getCoordonne().getY()==2) && plateau.getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()+2).isOccupied()==false && plateau.getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()+1).isOccupied()==false )
+        if((getCoordonne().getY() == 1 || getCoordonne().getY()==2) && plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()+2).isOccupied()==false && plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()+1).isOccupied()==false )
             {
-                tabDep.push_back(Coordonnee(getCoordonne().getX(),getCoordonne().getY()+2));
+                tabDep.append(QPoint(getCoordonne().getX(),getCoordonne().getY()+2));
 
             }
         if(getCoordonne().getY() < 7)
                 {
-                    if(plateau.getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()+1).isOccupied()==false)
+                    if(plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()+1).isOccupied()==false)
                     {
-                        tabDep.push_back(Coordonnee(getCoordonne().getX(),getCoordonne().getY()+1));
+                        tabDep.append(QPoint(getCoordonne().getX(),getCoordonne().getY()+1));
                     }
                 }
                 if(getCoordonne().getX() > 0)
                 {
-                    if(plateau.getJoueur1().isAnyPiece(Coordonnee(getCoordonne().getX()-1,getCoordonne().getY()+1)) == -1 && plateau.getGrille().getCase(getCoordonne().getX()-1,getCoordonne().getY()+1).isOccupied()==true)
+                    if(plateau->getJoueur1().isAnyPiece(Coordonnee(getCoordonne().getX()-1,getCoordonne().getY()+1)) == -1 && plateau->getGrille().getCase(getCoordonne().getX()-1,getCoordonne().getY()+1).isOccupied()==true)
                     {
-                        tabDep.push_back(Coordonnee(getCoordonne().getX()-1,getCoordonne().getY()+1));
+                        tabDep.append(QPoint(getCoordonne().getX()-1,getCoordonne().getY()+1));
                     }
                 }
                 if(getCoordonne().getX() < 7)
                 {
-                    if(plateau.getJoueur1().isAnyPiece(Coordonnee(getCoordonne().getX()+1,getCoordonne().getY()+1)) == -1 && plateau.getGrille().getCase(getCoordonne().getX()+1,getCoordonne().getY()+1).isOccupied()==true)
+                    if(plateau->getJoueur1().isAnyPiece(Coordonnee(getCoordonne().getX()+1,getCoordonne().getY()+1)) == -1 && plateau->getGrille().getCase(getCoordonne().getX()+1,getCoordonne().getY()+1).isOccupied()==true)
                     {
-                        tabDep.push_back(Coordonnee(getCoordonne().getX()+1,getCoordonne().getY()+1));
+                        tabDep.append(QPoint(getCoordonne().getX()+1,getCoordonne().getY()+1));
                     }
                 }
-                /*
+
                 //si c'est un pion qui c'est deplace : l'attaque est possible
-                if(terrain[dest_precedent.x()][dest_precedent.y()] == Pion  && origin_precedent.x() == 6)
+                if(plateau->getGrille().getCase(dest_precedent.x(),dest_precedent.y()).getId() == 'P'  && origin_precedent.x() == 6)
                 {
                     // si le pion fait pas parti de mon groupe
-                    if(groupe[dest_precedent.x()][dest_precedent.y()] != groupe[cas.x()][cas.y()])
+                    if(plateau->getGrille().getCase(dest_precedent.x(),dest_precedent.y()).getCouleur() != 0)
                     {
                         //si il a fait le deplacement qui m'interesse
-                        if ((dest_precedent.x() - origin_precedent.x()) == -2)
+                        if ((dest_precedent.y() - origin_precedent.y()) == -2)
                         {
                             //je verifie qu'il est dans mon champs d'attaque
-                            if (dest_precedent.x() == cas.x() && (cas.y()+1) == dest_precedent.y())
+                            if (dest_precedent.x()+1 == getCoordonne().getX() && getCoordonne().getY() == dest_precedent.y())
                             {
-                                resultat.append(QPoint(cas.x()+1,cas.y()+1));
+                                resultat.append(QPoint(getCoordonne().getX()+1,getCoordonne().getY()+1));
                             }
-                            else if(dest_precedent.x() == cas.x() && (cas.y()-1) == dest_precedent.y())
+                            else if(dest_precedent.y() == getCoordonne().getY() && getCoordonne().getX() == dest_precedent.x())
                             {
-                                resultat.append(QPoint(cas.x()+1,cas.y()-1));
+                                resultat.append(QPoint(getCoordonne().getX()-1,getCoordonne().getY()+1));
                             }
                         }
                     }
-                }*/
-    /*
+                }
+
         break;
     case 1:
         if((getCoordonne().getY() == 5 || getCoordonne().getY()==6) && plateau.getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()-2).isOccupied()==false && plateau.getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()-1).isOccupied()==false )
             {
-                tabDep.push_back(Coordonnee(getCoordonne().getX(),getCoordonne().getY()-2));
+               tabDep.append(QPoint(getCoordonne().getX(),getCoordonne().getY()-2));
 
             }
         if(getCoordonne().getY() > 0)
                 {
                     if(plateau.getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()-1).isOccupied()==false)
                     {
-                        tabDep.push_back(Coordonnee(getCoordonne().getX(),getCoordonne().getY()-1));
+                       tabDep.append(QPoint(getCoordonne().getX(),getCoordonne().getY()-1));
                     }
                 }
                 if(getCoordonne().getX() > 0)
                 {
                     if(plateau.getJoueur2().isAnyPiece(Coordonnee(getCoordonne().getX()-1,getCoordonne().getY()-1)) == -1 && plateau.getGrille().getCase(getCoordonne().getX()-1,getCoordonne().getY()-1).isOccupied()==true)
                     {
-                        tabDep.push_back(Coordonnee(getCoordonne().getX()-1,getCoordonne().getY()-1));
+                        tabDep.append(QPoint(getCoordonne().getX()-1,getCoordonne().getY()-1));
                     }
                 }
                 if(getCoordonne().getX() < 7)
                 {
                     if(plateau.getJoueur2().isAnyPiece(Coordonnee(getCoordonne().getX()+1,getCoordonne().getY()-1)) == -1 && plateau.getGrille().getCase(getCoordonne().getX()+1,getCoordonne().getY()-1).isOccupied()==true)
                     {
-                        tabDep.push_back(Coordonnee(getCoordonne().getX()+1,getCoordonne().getY()-1));
+                       tabDep.append(QPoint(getCoordonne().getX()+1,getCoordonne().getY()-1));
                     }
                 }
         break;
     default:
         break;
     }
-*/
+
 return tabDep;
 }

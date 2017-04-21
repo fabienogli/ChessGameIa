@@ -7,6 +7,11 @@
 //Constructeur du plateau
 Plateau::Plateau() :QObject()
 {
+    initialize();
+    //setJoueurActif(*joueur1);
+}
+
+void Plateau::initialize(){
     damier = new Grille();
     joueur1 = new Joueur("joueur 1",0);
     joueur2 = new Joueur("joueur 2",1);
@@ -14,10 +19,14 @@ Plateau::Plateau() :QObject()
     coordDepart = new Coordonnee(0,0);
     coordArrivee= new Coordonnee(0,0);
     aSupprimer=new Piece();
+    m_coupPrecedent = new QVector<QPoint>();
+    m_coupPrecedent->append(QPoint(0,0));
+    m_coupPrecedent->append(QPoint(0,0));
     initiatePosInGrid();
-    //setJoueurActif(*joueur1);
 }
+void Plateau::reinitialize(){
 
+}
 //Positionne les pieces des differentes piece des joueurs dans le plateau
 void Plateau::initiatePosInGrid()
 {
@@ -58,6 +67,10 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
         (*joueur1).getDeck()[tmp1]->afficher();
         std::cout << "je suis 1-2";std::cout << std::endl;
         if(b==true){
+                m_coupPrecedent[0][0].setX(coordDepart->getX());
+                m_coupPrecedent[0][0].setY(coordDepart->getY());
+                m_coupPrecedent[0][1].setX(coordArrivee->getX());
+                m_coupPrecedent[0][1].setY(coordArrivee->getY());
             std::cout << "je suis 1-2bis";std::cout << std::endl;
             emit affichSuppInit((*joueur1).getDeck()[tmp1],(*joueur1).getIdJoueur(),0);
             emit affichSuppInit(aSupprimer,(*joueur1).getIdJoueur(),1);
@@ -81,14 +94,18 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
         //(*joueur2).getPiece(tmp2).afficher();
         std::cout << "je suis 2-2";
         if(b==true){
+            m_coupPrecedent[0][0].setX(coordDepart->getX());
+            m_coupPrecedent[0][0].setY(coordDepart->getY());
+            m_coupPrecedent[0][1].setX(coordArrivee->getX());
+            m_coupPrecedent[0][1].setY(coordArrivee->getY());
             std::cout << "je suis 2-2bis";std::cout << std::endl;
             emit affichSuppInit((*joueur2).getDeck()[tmp2],(*joueur2).getIdJoueur(),0);
             emit affichSuppInit(aSupprimer,(*joueur2).getIdJoueur(),1);
         }
         else{
             std::cout << "deplacement non autorise";std::cout << std::endl;
-        std::cout << "je suis 2-3";std::cout << std::endl;
-        emit badMove();}
+            std::cout << "je suis 2-3";std::cout << std::endl;
+            emit badMove();}
     }
     std::cout << "jai fini";std::cout << std::endl;
 }
@@ -144,6 +161,9 @@ void Plateau::afficher()
         std::cout << "-------------" << std::endl;
     }
 }
+//mettre a jour l'etat d'une case après le deplacement
+void Plateau::updateCaseStatus(Piece piece,Coordonnee oldCoord){
+}
 
 //Retourne le pointeur du joueur actif
 Joueur Plateau::getJoueurActif()
@@ -151,11 +171,11 @@ Joueur Plateau::getJoueurActif()
     return *joueurActif;
 }
 
-Joueur Plateau::getJoueur1(){
-    return *joueur1;
+Joueur* Plateau::getJoueur1(){
+    return joueur1;
 }
-Joueur Plateau::getJoueur2(){
-    return *joueur2;
+Joueur* Plateau::getJoueur2(){
+    return joueur2;
 }
 void Plateau::setJoueurActif(Joueur  joueur){
     *joueurActif=joueur;
@@ -163,6 +183,14 @@ void Plateau::setJoueurActif(Joueur  joueur){
 
 Grille Plateau::getGrille(){
     return *damier;
+}
+
+QVector<QPoint> Plateau::getCoupPrec(){
+    return *m_coupPrecedent;
+}
+
+void Plateau::setCoupPrec(QVector<QPoint> CoupPrec){
+    *m_coupPrecedent=CoupPrec;
 }
 
 //Destructeur du plateau

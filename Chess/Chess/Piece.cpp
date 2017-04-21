@@ -10,12 +10,19 @@
 Piece::Piece()
 {
 	alive = true;
+    couleur = -1;
 }
 
 //Retourne les coordonne de la piece
 Coordonnee Piece::getCoordonne()
 {
 	return *coordonnee;
+}
+int Piece::getCouleur(){
+    return couleur;
+}
+void Piece::setCouleur(int i){
+    this->couleur=i;
 }
 
 //Modifie les coordonne de la piece
@@ -34,9 +41,9 @@ void Piece::kill(Piece & piece)
 	piece.~Piece();
 }
 
-std::vector<Coordonnee> Piece::deplacementsPossible(int idJoueur,Plateau plateau){
+QVector<QPoint> Piece::deplacementsPossible(int idJoueur,Plateau plateau){
 
-    std::vector<Coordonnee> listDep;
+    QVector<QPoint> listDep;
     return listDep;
 }
 
@@ -128,6 +135,7 @@ bool Piece::move(Coordonnee * coord, Coordonnee origin)
     if (testDeplacement(*coord)==true) {
        // setCoordonnee(new Coordonnee(*coord));
         setCoordonne(coord->getX(),coord->getY());
+
         afficher();
         std::cout << "j'ai update les coord";std::cout << std::endl;
         verif=true;
