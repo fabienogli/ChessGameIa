@@ -24,7 +24,11 @@ bool Pion::testDeplacement(Coordonnee coord)
     if (coord.getX() == getCoordonne().getX()  && ((abs(coord.getY()-getCoordonne().getY()) == 1) || (abs(coord.getY()-getCoordonne().getY())== 2)))
             verif = true;
     if(verif==true) {std::cout << "vrai";std::cout << std::endl;}
-    else{ std::cout << "faux";std::cout << std::endl;}
+    else
+    {
+        std::cout << "faux";
+        std::cout << std::endl;
+    }
 	return verif;
 }
 
@@ -63,7 +67,7 @@ QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * plateau){
                 }
 
                 //si c'est un pion qui c'est deplace : l'attaque est possible
-                if(plateau->getGrille().getCase(dest_precedent.x(),dest_precedent.y()).getId() == 'P'  && origin_precedent.x() == 6)
+                if(plateau->getGrille().getCase(dest_precedent.x(),dest_precedent.y()).getId() == 'P'  && (origin_precedent.y() == 6 || origin_precedent.y() == 5))
                 {
                     // si le pion fait pas parti de mon groupe
                     if(plateau->getGrille().getCase(dest_precedent.x(),dest_precedent.y()).getCouleur() != 0)
@@ -76,7 +80,7 @@ QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * plateau){
                             {
                                 resultat.append(QPoint(getCoordonne().getX()+1,getCoordonne().getY()+1));
                             }
-                            else if(dest_precedent.y() == getCoordonne().getY() && getCoordonne().getX() == dest_precedent.x())
+                            else if(dest_precedent.y() == getCoordonne().getY() && getCoordonne().getX() == dest_precedent.x()-1)
                             {
                                 resultat.append(QPoint(getCoordonne().getX()-1,getCoordonne().getY()+1));
                             }
@@ -110,6 +114,27 @@ QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * plateau){
                     if(plateau.getJoueur2().isAnyPiece(Coordonnee(getCoordonne().getX()+1,getCoordonne().getY()-1)) == -1 && plateau.getGrille().getCase(getCoordonne().getX()+1,getCoordonne().getY()-1).isOccupied()==true)
                     {
                        tabDep.append(QPoint(getCoordonne().getX()+1,getCoordonne().getY()-1));
+                    }
+                }
+                //si c'est un pion qui c'est deplace : l'attaque est possible
+                if(plateau->getGrille().getCase(dest_precedent.x(),dest_precedent.y()).getId() == 'P'  && (origin_precedent.y() == 1 || origin_precedent.y() == 2))
+                {
+                    // si le pion fait pas parti de mon groupe
+                    if(plateau->getGrille().getCase(dest_precedent.x(),dest_precedent.y()).getCouleur() != 1)
+                    {
+                        //si il a fait le deplacement qui m'interesse
+                        if ((dest_precedent.y() - origin_precedent.y()) == 2)
+                        {
+                            //je verifie qu'il est dans mon champs d'attaque
+                            if (dest_precedent.x()+1 == getCoordonne().getX() && getCoordonne().getY() == dest_precedent.y())
+                            {
+                                resultat.append(QPoint(getCoordonne().getX()+1,getCoordonne().getY()+1));
+                            }
+                            else if(dest_precedent.y() == getCoordonne().getY() && getCoordonne().getX() == dest_precedent.x()-1)
+                            {
+                                resultat.append(QPoint(getCoordonne().getX()-1,getCoordonne().getY()+1));
+                            }
+                        }
                     }
                 }
         break;
