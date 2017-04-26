@@ -3,6 +3,7 @@
 //#include "Plateau.h"
 class Plateau;
 #include <iostream>
+#include <QVector>
 #include <vector>
 
 class Piece

@@ -190,9 +190,9 @@ debug\moc_mainwindow.cpp: ..\..\Chess\Chess\Plateau.h \
 		..\..\Chess\Chess\Case.h \
 		..\..\Chess\Chess\Coordonnee.h \
 		..\..\Chess\Chess\Piece.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QVector \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobal.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig-bootstrapped.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig.h \
@@ -214,23 +214,8 @@ debug\moc_mainwindow.cpp: ..\..\Chess\Chess\Plateau.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qmutex.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qnumeric.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qversiontagging.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qrefcount.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qarraydata.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qhashfunctions.h \
@@ -238,10 +223,27 @@ debug\moc_mainwindow.cpp: ..\..\Chess\Chess\Plateau.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qpair.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearraylist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstring.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qregexp.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgba64.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qsharedpointer.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qshareddata.h \
@@ -259,7 +261,6 @@ debug\moc_mainwindow.cpp: ..\..\Chess\Chess\Plateau.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qtransform.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qmatrix.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qpolygon.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qregion.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qdatastream.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiodevice.h \
@@ -312,9 +313,9 @@ debug\moc_Plateau.cpp: ..\..\Chess\Chess\Grille.h \
 		..\..\Chess\Chess\Case.h \
 		..\..\Chess\Chess\Coordonnee.h \
 		..\..\Chess\Chess\Piece.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QVector \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobal.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig-bootstrapped.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig.h \
@@ -336,23 +337,8 @@ debug\moc_Plateau.cpp: ..\..\Chess\Chess\Grille.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qmutex.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qnumeric.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qversiontagging.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qrefcount.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qarraydata.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qhashfunctions.h \
@@ -360,10 +346,27 @@ debug\moc_Plateau.cpp: ..\..\Chess\Chess\Grille.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qpair.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearraylist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstring.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qregexp.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgba64.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qsharedpointer.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qshareddata.h \
@@ -381,7 +384,6 @@ debug\moc_Plateau.cpp: ..\..\Chess\Chess\Grille.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qtransform.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qmatrix.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qpolygon.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qregion.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qdatastream.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiodevice.h \
@@ -428,9 +430,9 @@ debug\main.obj: ..\ChessUI\main.cpp ../ChessUI/mainwindow.h \
 		../../Chess/Chess/Case.h \
 		../../Chess/Chess/Coordonnee.h \
 		../../Chess/Chess/Piece.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QVector \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobal.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig-bootstrapped.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig.h \
@@ -452,23 +454,8 @@ debug\main.obj: ..\ChessUI\main.cpp ../ChessUI/mainwindow.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qmutex.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qnumeric.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qversiontagging.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qrefcount.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qarraydata.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qhashfunctions.h \
@@ -476,10 +463,27 @@ debug\main.obj: ..\ChessUI\main.cpp ../ChessUI/mainwindow.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qpair.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearraylist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstring.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qregexp.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgba64.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qsharedpointer.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qshareddata.h \
@@ -497,7 +501,6 @@ debug\main.obj: ..\ChessUI\main.cpp ../ChessUI/mainwindow.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qtransform.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qmatrix.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qpolygon.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qregion.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qdatastream.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiodevice.h \
@@ -556,9 +559,9 @@ debug\mainwindow.obj: ..\ChessUI\mainwindow.cpp ../ChessUI/mainwindow.h \
 		../../Chess/Chess/Case.h \
 		../../Chess/Chess/Coordonnee.h \
 		../../Chess/Chess/Piece.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QVector \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobal.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig-bootstrapped.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig.h \
@@ -580,23 +583,8 @@ debug\mainwindow.obj: ..\ChessUI\mainwindow.cpp ../ChessUI/mainwindow.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qmutex.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qnumeric.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qversiontagging.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qrefcount.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qarraydata.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qhashfunctions.h \
@@ -604,10 +592,27 @@ debug\mainwindow.obj: ..\ChessUI\mainwindow.cpp ../ChessUI/mainwindow.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qpair.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearraylist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstring.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qregexp.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgba64.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qsharedpointer.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qshareddata.h \
@@ -625,7 +630,6 @@ debug\mainwindow.obj: ..\ChessUI\mainwindow.cpp ../ChessUI/mainwindow.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qtransform.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qmatrix.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qpolygon.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qregion.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qdatastream.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiodevice.h \
@@ -744,9 +748,9 @@ debug\mainwindow.obj: ..\ChessUI\mainwindow.cpp ../ChessUI/mainwindow.h \
 debug\Case.obj: ..\..\Chess\Chess\Case.cpp ../../Chess/Chess/Case.h \
 		../../Chess/Chess/Coordonnee.h \
 		../../Chess/Chess/Piece.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QVector \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobal.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig-bootstrapped.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig.h \
@@ -768,23 +772,8 @@ debug\Case.obj: ..\..\Chess\Chess\Case.cpp ../../Chess/Chess/Case.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qmutex.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qnumeric.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qversiontagging.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qrefcount.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qarraydata.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qhashfunctions.h \
@@ -792,10 +781,27 @@ debug\Case.obj: ..\..\Chess\Chess\Case.cpp ../../Chess/Chess/Case.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qpair.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearraylist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstring.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qregexp.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgba64.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qsharedpointer.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qshareddata.h \
@@ -813,7 +819,6 @@ debug\Case.obj: ..\..\Chess\Chess\Case.cpp ../../Chess/Chess/Case.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qtransform.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qmatrix.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qpolygon.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qregion.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qdatastream.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiodevice.h \
@@ -823,29 +828,10 @@ debug\Case.obj: ..\..\Chess\Chess\Case.cpp ../../Chess/Chess/Case.h \
 
 debug\Cavalier.obj: ..\..\Chess\Chess\Cavalier.cpp ../../Chess/Chess/Cavalier.h \
 		../../Chess/Chess/Piece.h \
-		../../Chess/Chess/Coordonnee.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\Cavalier.obj ..\..\Chess\Chess\Cavalier.cpp
-
-debug\Coordonnee.obj: ..\..\Chess\Chess\Coordonnee.cpp ../../Chess/Chess/Coordonnee.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\Coordonnee.obj ..\..\Chess\Chess\Coordonnee.cpp
-
-debug\Dame.obj: ..\..\Chess\Chess\Dame.cpp ../../Chess/Chess/Dame.h \
-		../../Chess/Chess/Piece.h \
-		../../Chess/Chess/Coordonnee.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\Dame.obj ..\..\Chess\Chess\Dame.cpp
-
-debug\Fou.obj: ..\..\Chess\Chess\Fou.cpp ../../Chess/Chess/Fou.h \
-		../../Chess/Chess/Piece.h \
-		../../Chess/Chess/Coordonnee.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\Fou.obj ..\..\Chess\Chess\Fou.cpp
-
-debug\Grille.obj: ..\..\Chess\Chess\Grille.cpp ../../Chess/Chess/Grille.h \
-		../../Chess/Chess/Case.h \
 		../../Chess/Chess/Coordonnee.h \
-		../../Chess/Chess/Piece.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QVector \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobal.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig-bootstrapped.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig.h \
@@ -867,23 +853,8 @@ debug\Grille.obj: ..\..\Chess\Chess\Grille.cpp ../../Chess/Chess/Grille.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qmutex.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qnumeric.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qversiontagging.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qrefcount.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qarraydata.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qhashfunctions.h \
@@ -891,10 +862,166 @@ debug\Grille.obj: ..\..\Chess\Chess\Grille.cpp ../../Chess/Chess/Grille.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qpair.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearraylist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstring.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qregexp.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\Cavalier.obj ..\..\Chess\Chess\Cavalier.cpp
+
+debug\Coordonnee.obj: ..\..\Chess\Chess\Coordonnee.cpp ../../Chess/Chess/Coordonnee.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\Coordonnee.obj ..\..\Chess\Chess\Coordonnee.cpp
+
+debug\Dame.obj: ..\..\Chess\Chess\Dame.cpp ../../Chess/Chess/Dame.h \
+		../../Chess/Chess/Piece.h \
+		../../Chess/Chess/Coordonnee.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QVector \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig-bootstrapped.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qtcore-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsysinfo.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlogging.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qflags.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmutex.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnumeric.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qversiontagging.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrefcount.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qarraydata.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qhashfunctions.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qchar.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpair.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstring.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qregexp.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\Dame.obj ..\..\Chess\Chess\Dame.cpp
+
+debug\Fou.obj: ..\..\Chess\Chess\Fou.cpp ../../Chess/Chess/Fou.h \
+		../../Chess/Chess/Piece.h \
+		../../Chess/Chess/Coordonnee.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QVector \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig-bootstrapped.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qtcore-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsysinfo.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlogging.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qflags.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmutex.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnumeric.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qversiontagging.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrefcount.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qarraydata.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qhashfunctions.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qchar.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpair.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstring.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qregexp.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\Fou.obj ..\..\Chess\Chess\Fou.cpp
+
+debug\Grille.obj: ..\..\Chess\Chess\Grille.cpp ../../Chess/Chess/Grille.h \
+		../../Chess/Chess/Case.h \
+		../../Chess/Chess/Coordonnee.h \
+		../../Chess/Chess/Piece.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QVector \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig-bootstrapped.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qtcore-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsysinfo.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlogging.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qflags.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmutex.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnumeric.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qversiontagging.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrefcount.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qarraydata.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qhashfunctions.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qchar.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpair.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstring.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qregexp.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgba64.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qsharedpointer.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qshareddata.h \
@@ -912,7 +1039,6 @@ debug\Grille.obj: ..\..\Chess\Chess\Grille.cpp ../../Chess/Chess/Grille.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qtransform.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qmatrix.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qpolygon.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qregion.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qdatastream.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiodevice.h \
@@ -923,6 +1049,46 @@ debug\Grille.obj: ..\..\Chess\Chess\Grille.cpp ../../Chess/Chess/Grille.h \
 debug\Joueur.obj: ..\..\Chess\Chess\Joueur.cpp ../../Chess/Chess/Joueur.h \
 		../../Chess/Chess/Piece.h \
 		../../Chess/Chess/Coordonnee.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QVector \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig-bootstrapped.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qtcore-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsysinfo.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlogging.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qflags.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmutex.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnumeric.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qversiontagging.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrefcount.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qarraydata.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qhashfunctions.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qchar.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpair.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstring.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qregexp.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
 		../../Chess/Chess/Roi.h \
 		../../Chess/Chess/Cavalier.h \
 		../../Chess/Chess/Dame.h \
@@ -936,9 +1102,9 @@ debug\main.obj: ..\..\Chess\Chess\main.cpp ../../Chess/Chess/Plateau.h \
 		../../Chess/Chess/Case.h \
 		../../Chess/Chess/Coordonnee.h \
 		../../Chess/Chess/Piece.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QVector \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobal.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig-bootstrapped.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig.h \
@@ -960,23 +1126,8 @@ debug\main.obj: ..\..\Chess\Chess\main.cpp ../../Chess/Chess/Plateau.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qmutex.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qnumeric.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qversiontagging.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qrefcount.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qarraydata.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qhashfunctions.h \
@@ -984,10 +1135,27 @@ debug\main.obj: ..\..\Chess\Chess\main.cpp ../../Chess/Chess/Plateau.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qpair.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearraylist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstring.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qregexp.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgba64.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qsharedpointer.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qshareddata.h \
@@ -1005,7 +1173,6 @@ debug\main.obj: ..\..\Chess\Chess\main.cpp ../../Chess/Chess/Plateau.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qtransform.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qmatrix.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qpolygon.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qregion.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qdatastream.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiodevice.h \
@@ -1024,12 +1191,9 @@ debug\main.obj: ..\..\Chess\Chess\main.cpp ../../Chess/Chess/Plateau.h \
 
 debug\Piece.obj: ..\..\Chess\Chess\Piece.cpp ../../Chess/Chess/Piece.h \
 		../../Chess/Chess/Coordonnee.h \
-		../../Chess/Chess/Plateau.h \
-		../../Chess/Chess/Grille.h \
-		../../Chess/Chess/Case.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QVector \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobal.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig-bootstrapped.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig.h \
@@ -1051,23 +1215,8 @@ debug\Piece.obj: ..\..\Chess\Chess\Piece.cpp ../../Chess/Chess/Piece.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qmutex.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qnumeric.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qversiontagging.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qrefcount.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qarraydata.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qhashfunctions.h \
@@ -1075,10 +1224,30 @@ debug\Piece.obj: ..\..\Chess\Chess\Piece.cpp ../../Chess/Chess/Piece.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qpair.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearraylist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstring.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qregexp.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
+		../../Chess/Chess/Plateau.h \
+		../../Chess/Chess/Grille.h \
+		../../Chess/Chess/Case.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgba64.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qsharedpointer.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qshareddata.h \
@@ -1096,7 +1265,6 @@ debug\Piece.obj: ..\..\Chess\Chess\Piece.cpp ../../Chess/Chess/Piece.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qtransform.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qmatrix.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qpolygon.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qregion.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qdatastream.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiodevice.h \
@@ -1115,18 +1283,10 @@ debug\Piece.obj: ..\..\Chess\Chess\Piece.cpp ../../Chess/Chess/Piece.h \
 
 debug\PieceDiagonale.obj: ..\..\Chess\Chess\PieceDiagonale.cpp ../../Chess/Chess/PieceDiagonale.h \
 		../../Chess/Chess/Piece.h \
-		../../Chess/Chess/Coordonnee.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\PieceDiagonale.obj ..\..\Chess\Chess\PieceDiagonale.cpp
-
-debug\Pion.obj: ..\..\Chess\Chess\Pion.cpp ../../Chess/Chess/Pion.h \
-		../../Chess/Chess/Piece.h \
 		../../Chess/Chess/Coordonnee.h \
-		../../Chess/Chess/Plateau.h \
-		../../Chess/Chess/Grille.h \
-		../../Chess/Chess/Case.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QVector \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobal.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig-bootstrapped.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig.h \
@@ -1148,23 +1308,8 @@ debug\Pion.obj: ..\..\Chess\Chess\Pion.cpp ../../Chess/Chess/Pion.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qmutex.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qnumeric.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qversiontagging.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qrefcount.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qarraydata.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qhashfunctions.h \
@@ -1172,10 +1317,75 @@ debug\Pion.obj: ..\..\Chess\Chess\Pion.cpp ../../Chess/Chess/Pion.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qpair.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearraylist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstring.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qregexp.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\PieceDiagonale.obj ..\..\Chess\Chess\PieceDiagonale.cpp
+
+debug\Pion.obj: ..\..\Chess\Chess\Pion.cpp ../../Chess/Chess/Pion.h \
+		../../Chess/Chess/Piece.h \
+		../../Chess/Chess/Coordonnee.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QVector \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig-bootstrapped.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qtcore-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsysinfo.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlogging.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qflags.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmutex.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnumeric.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qversiontagging.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrefcount.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qarraydata.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qhashfunctions.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qchar.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpair.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstring.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qregexp.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
+		../../Chess/Chess/Plateau.h \
+		../../Chess/Chess/Grille.h \
+		../../Chess/Chess/Case.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgba64.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qsharedpointer.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qshareddata.h \
@@ -1193,7 +1403,6 @@ debug\Pion.obj: ..\..\Chess\Chess\Pion.cpp ../../Chess/Chess/Pion.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qtransform.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qmatrix.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qpolygon.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qregion.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qdatastream.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiodevice.h \
@@ -1214,9 +1423,9 @@ debug\Plateau.obj: ..\..\Chess\Chess\Plateau.cpp ../../Chess/Chess/Plateau.h \
 		../../Chess/Chess/Case.h \
 		../../Chess/Chess/Coordonnee.h \
 		../../Chess/Chess/Piece.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QVector \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobal.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig-bootstrapped.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig.h \
@@ -1238,23 +1447,8 @@ debug\Plateau.obj: ..\..\Chess\Chess\Plateau.cpp ../../Chess/Chess/Plateau.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qmutex.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qnumeric.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qversiontagging.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qrefcount.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qarraydata.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qhashfunctions.h \
@@ -1262,10 +1456,27 @@ debug\Plateau.obj: ..\..\Chess\Chess\Plateau.cpp ../../Chess/Chess/Plateau.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qpair.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearraylist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstring.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qregexp.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgba64.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qsharedpointer.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qshareddata.h \
@@ -1283,7 +1494,6 @@ debug\Plateau.obj: ..\..\Chess\Chess\Plateau.cpp ../../Chess/Chess/Plateau.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qtransform.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qmatrix.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qpolygon.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qregion.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qdatastream.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiodevice.h \
@@ -1332,26 +1542,10 @@ debug\Plateau.obj: ..\..\Chess\Chess\Plateau.cpp ../../Chess/Chess/Plateau.h \
 
 debug\Roi.obj: ..\..\Chess\Chess\Roi.cpp ../../Chess/Chess/Roi.h \
 		../../Chess/Chess/Piece.h \
-		../../Chess/Chess/Coordonnee.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\Roi.obj ..\..\Chess\Chess\Roi.cpp
-
-debug\Tour.obj: ..\..\Chess\Chess\Tour.cpp ../../Chess/Chess/Tour.h \
-		../../Chess/Chess/Piece.h \
-		../../Chess/Chess/Coordonnee.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\Tour.obj ..\..\Chess\Chess\Tour.cpp
-
-debug\TypePiece.obj: ..\..\Chess\Chess\TypePiece.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\TypePiece.obj ..\..\Chess\Chess\TypePiece.cpp
-
-debug\ia.obj: ..\..\Chess\Chess\ia.cpp ../../Chess/Chess/ia.h \
-		../../Chess/Chess/Plateau.h \
-		../../Chess/Chess/Grille.h \
-		../../Chess/Chess/Case.h \
 		../../Chess/Chess/Coordonnee.h \
-		../../Chess/Chess/Piece.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QVector \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobal.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig-bootstrapped.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig.h \
@@ -1373,23 +1567,8 @@ debug\ia.obj: ..\..\Chess\Chess\ia.cpp ../../Chess/Chess/ia.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qmutex.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qnumeric.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qversiontagging.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
-		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
-		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qrefcount.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qarraydata.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qhashfunctions.h \
@@ -1397,10 +1576,30 @@ debug\ia.obj: ..\..\Chess\Chess\ia.cpp ../../Chess/Chess/ia.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qpair.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearraylist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstring.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qregexp.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
+		../../Chess/Chess/Plateau.h \
+		../../Chess/Chess/Grille.h \
+		../../Chess/Chess/Case.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgba64.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qsharedpointer.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qshareddata.h \
@@ -1418,7 +1617,146 @@ debug\ia.obj: ..\..\Chess\Chess\ia.cpp ../../Chess/Chess/ia.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qtransform.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qmatrix.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qpolygon.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qregion.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qdatastream.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qiodevice.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qline.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpainterpath.h \
+		../../Chess/Chess/Joueur.h \
+		../../Chess/Chess/Cavalier.h \
+		../../Chess/Chess/Dame.h \
+		../../Chess/Chess/Pion.h \
+		../../Chess/Chess/Fou.h \
+		../../Chess/Chess/Tour.h \
+		../../Chess/Chess/ia.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QObject
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\Roi.obj ..\..\Chess\Chess\Roi.cpp
+
+debug\Tour.obj: ..\..\Chess\Chess\Tour.cpp ../../Chess/Chess/Tour.h \
+		../../Chess/Chess/Piece.h \
+		../../Chess/Chess/Coordonnee.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QVector \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig-bootstrapped.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qtcore-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsysinfo.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlogging.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qflags.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmutex.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnumeric.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qversiontagging.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrefcount.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qarraydata.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qhashfunctions.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qchar.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpair.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstring.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qregexp.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\Tour.obj ..\..\Chess\Chess\Tour.cpp
+
+debug\TypePiece.obj: ..\..\Chess\Chess\TypePiece.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\TypePiece.obj ..\..\Chess\Chess\TypePiece.cpp
+
+debug\ia.obj: ..\..\Chess\Chess\ia.cpp ../../Chess/Chess/ia.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\QVector \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qalgorithms.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig-bootstrapped.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qconfig.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qtcore-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsysinfo.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlogging.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qflags.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmutex.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnumeric.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qversiontagging.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qlist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrefcount.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qarraydata.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qhashfunctions.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qchar.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpair.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qnamespace.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstring.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringlist.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qregexp.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qpoint.h \
+		../../Chess/Chess/Plateau.h \
+		../../Chess/Chess/Grille.h \
+		../../Chess/Chess/Case.h \
+		../../Chess/Chess/Coordonnee.h \
+		../../Chess/Chess/Piece.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\QPixmap \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixmap.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtgui-config.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qrect.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmargins.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsize.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qcolor.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgb.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qrgba64.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsharedpointer.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qshareddata.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qhash.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qsharedpointer_impl.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobject.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qcoreevent.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qmetatype.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.9\msvc2013_64\include\QtCore\qobject_impl.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qimage.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpixelformat.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qtransform.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qmatrix.h \
+		C:\Qt\5.9\msvc2013_64\include\QtGui\qpolygon.h \
 		C:\Qt\5.9\msvc2013_64\include\QtGui\qregion.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qdatastream.h \
 		C:\Qt\5.9\msvc2013_64\include\QtCore\qiodevice.h \
