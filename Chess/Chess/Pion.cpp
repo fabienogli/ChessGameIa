@@ -32,7 +32,7 @@ bool Pion::testDeplacement(Coordonnee coord)
 	return verif;
 }
 
-QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * plateau){
+virtual QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * plateau){
     QVector<QPoint> tabDep;
     QPoint dest_precedent = plateau->getCoupPrec().at(1);
     QPoint origin_precedent = plateau->getCoupPrec().at(0);

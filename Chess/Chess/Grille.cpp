@@ -49,7 +49,7 @@ void Grille::putPiece(Piece *piece)
 }
 
 void Grille::removePiece(Coordonnee coordOrigin){
-    (*cases[coord.getX()][coord.getY()]).removePiece();
-    (*cases[coord.getX()][coord.getY()]).setId('');
-    (*cases[coord.getX()][coord.getY()]).setCouleur(-1);
+    (*cases[coordOrigin.getX()][coordOrigin.getY()]).removePiece();
+    (*cases[coordOrigin.getX()][coordOrigin.getY()]).setId('');
+    (*cases[coordOrigin.getX()][coordOrigin.getY()]).setCouleur(-1);
 }
