@@ -32,10 +32,11 @@ bool Pion::testDeplacement(Coordonnee coord)
 	return verif;
 }
 
-virtual QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * plateau){
+QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * plateau){
     QVector<QPoint> tabDep;
     QPoint dest_precedent = plateau->getCoupPrec().at(1);
     QPoint origin_precedent = plateau->getCoupPrec().at(0);
+
     switch(idJoueur){
     case 0:
         //black
@@ -53,14 +54,14 @@ virtual QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * platea
                 }
                 if(getCoordonne().getX() > 0)
                 {
-                    if(plateau->getJoueur1().isAnyPiece(Coordonnee(getCoordonne().getX()-1,getCoordonne().getY()+1)) == -1 && plateau->getGrille().getCase(getCoordonne().getX()-1,getCoordonne().getY()+1).isOccupied()==true)
+                    if(plateau->getJoueur1()->isAnyPiece(Coordonnee(getCoordonne().getX()-1,getCoordonne().getY()+1)) == -1 && plateau->getGrille().getCase(getCoordonne().getX()-1,getCoordonne().getY()+1).isOccupied()==true)
                     {
                         tabDep.append(QPoint(getCoordonne().getX()-1,getCoordonne().getY()+1));
                     }
                 }
                 if(getCoordonne().getX() < 7)
                 {
-                    if(plateau->getJoueur1().isAnyPiece(Coordonnee(getCoordonne().getX()+1,getCoordonne().getY()+1)) == -1 && plateau->getGrille().getCase(getCoordonne().getX()+1,getCoordonne().getY()+1).isOccupied()==true)
+                    if(plateau->getJoueur1()->isAnyPiece(Coordonnee(getCoordonne().getX()+1,getCoordonne().getY()+1)) == -1 && plateau->getGrille().getCase(getCoordonne().getX()+1,getCoordonne().getY()+1).isOccupied()==true)
                     {
                         tabDep.append(QPoint(getCoordonne().getX()+1,getCoordonne().getY()+1));
                     }
@@ -78,11 +79,11 @@ virtual QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * platea
                             //je verifie qu'il est dans mon champs d'attaque
                             if (dest_precedent.x()+1 == getCoordonne().getX() && getCoordonne().getY() == dest_precedent.y())
                             {
-                                resultat.append(QPoint(getCoordonne().getX()+1,getCoordonne().getY()+1));
+                                tabDep.append(QPoint(getCoordonne().getX()+1,getCoordonne().getY()+1));
                             }
                             else if(dest_precedent.y() == getCoordonne().getY() && getCoordonne().getX() == dest_precedent.x()-1)
                             {
-                                resultat.append(QPoint(getCoordonne().getX()-1,getCoordonne().getY()+1));
+                                tabDep.append(QPoint(getCoordonne().getX()-1,getCoordonne().getY()+1));
                             }
                         }
                     }
@@ -90,28 +91,28 @@ virtual QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * platea
 
         break;
     case 1:
-        if((getCoordonne().getY() == 5 || getCoordonne().getY()==6) && plateau.getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()-2).isOccupied()==false && plateau.getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()-1).isOccupied()==false )
+        if((getCoordonne().getY() == 5 || getCoordonne().getY()==6) && plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()-2).isOccupied()==false && plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()-1).isOccupied()==false )
             {
                tabDep.append(QPoint(getCoordonne().getX(),getCoordonne().getY()-2));
 
             }
         if(getCoordonne().getY() > 0)
                 {
-                    if(plateau.getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()-1).isOccupied()==false)
+                    if(plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()-1).isOccupied()==false)
                     {
                        tabDep.append(QPoint(getCoordonne().getX(),getCoordonne().getY()-1));
                     }
                 }
                 if(getCoordonne().getX() > 0)
                 {
-                    if(plateau.getJoueur2().isAnyPiece(Coordonnee(getCoordonne().getX()-1,getCoordonne().getY()-1)) == -1 && plateau.getGrille().getCase(getCoordonne().getX()-1,getCoordonne().getY()-1).isOccupied()==true)
+                    if(plateau->getJoueur2()->isAnyPiece(Coordonnee(getCoordonne().getX()-1,getCoordonne().getY()-1)) == -1 && plateau->getGrille().getCase(getCoordonne().getX()-1,getCoordonne().getY()-1).isOccupied()==true)
                     {
                         tabDep.append(QPoint(getCoordonne().getX()-1,getCoordonne().getY()-1));
                     }
                 }
                 if(getCoordonne().getX() < 7)
                 {
-                    if(plateau.getJoueur2().isAnyPiece(Coordonnee(getCoordonne().getX()+1,getCoordonne().getY()-1)) == -1 && plateau.getGrille().getCase(getCoordonne().getX()+1,getCoordonne().getY()-1).isOccupied()==true)
+                    if(plateau->getJoueur2()->isAnyPiece(Coordonnee(getCoordonne().getX()+1,getCoordonne().getY()-1)) == -1 && plateau->getGrille().getCase(getCoordonne().getX()+1,getCoordonne().getY()-1).isOccupied()==true)
                     {
                        tabDep.append(QPoint(getCoordonne().getX()+1,getCoordonne().getY()-1));
                     }
@@ -128,11 +129,11 @@ virtual QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * platea
                             //je verifie qu'il est dans mon champs d'attaque
                             if (dest_precedent.x()+1 == getCoordonne().getX() && getCoordonne().getY() == dest_precedent.y())
                             {
-                                resultat.append(QPoint(getCoordonne().getX()+1,getCoordonne().getY()+1));
+                                tabDep.append(QPoint(getCoordonne().getX()+1,getCoordonne().getY()+1));
                             }
                             else if(dest_precedent.y() == getCoordonne().getY() && getCoordonne().getX() == dest_precedent.x()-1)
                             {
-                                resultat.append(QPoint(getCoordonne().getX()-1,getCoordonne().getY()+1));
+                                tabDep.append(QPoint(getCoordonne().getX()-1,getCoordonne().getY()+1));
                             }
                         }
                     }

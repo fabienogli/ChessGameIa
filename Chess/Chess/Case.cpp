@@ -4,7 +4,7 @@ Case::Case(int x, int y)
 {
 	occupied = false;
     couleur=-1;
-    id="";
+    id='N';
 	coordonnee = new Coordonnee(x, y);
 }
 

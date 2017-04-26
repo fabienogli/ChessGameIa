@@ -19,7 +19,7 @@ public:
     Grille getGrille();
     void initialize();
     void reinitialize();
-    void updateCaseStatus(Piece piece);
+    void updateCaseStatus(Piece piece,Coordonnee oldCoord);
     QVector<QPoint> getCoupPrec();
     void setCoupPrec(QVector<QPoint> CoupPrec);
 

@@ -24,14 +24,14 @@ QVector<QPoint> Roi::deplacementsPossible(int idJoueur,Plateau * plateau){
     QVector<QPoint> resultat;
         for(int y = -1; y < 2 ; y++) // on fait les 3 zones de guauche a droite
         {
-            if((getCoordonne().getY() +y) < 8 && (getCoordonne().getX()+x) >= 0) // si on depasse le x a droite ou a guauche on regarde pas le y
+            if((getCoordonne().getY() +y) < 8 && (getCoordonne().getY()+y) >= 0) // si on depasse le x a droite ou a guauche on regarde pas le y
             {
                 for(int x = -1; x < 2; x++) // pour chaque x on fait les 3 valeurs de y possible
                 {
                     // si on sort de la carte ou que c'est notre case (notre piece) on l'ajoute pas
                     if((getCoordonne().getX()+x) < 8 && (getCoordonne().getX()+x) >= 0 && (getCoordonne().getX() != (getCoordonne().getX()+x) || getCoordonne().getY() != (getCoordonne().getY()+y)))
                     {
-                        if(plateau->getGrille().getCase(getCoordonne().getX()+x,getCoordonne().getY()+y) != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()))
+                        if(plateau->getGrille().getCase(getCoordonne().getX()+x,getCoordonne().getY()+y).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur())
                         {
                             if(x != 0 || y != 0)
                             {/*

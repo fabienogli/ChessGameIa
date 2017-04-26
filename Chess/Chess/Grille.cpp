@@ -50,6 +50,6 @@ void Grille::putPiece(Piece *piece)
 
 void Grille::removePiece(Coordonnee coordOrigin){
     (*cases[coordOrigin.getX()][coordOrigin.getY()]).removePiece();
-    (*cases[coordOrigin.getX()][coordOrigin.getY()]).setId('');
+    (*cases[coordOrigin.getX()][coordOrigin.getY()]).setId('N');
     (*cases[coordOrigin.getX()][coordOrigin.getY()]).setCouleur(-1);
 }

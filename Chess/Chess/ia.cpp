@@ -116,7 +116,7 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
                         }
                     }
                     plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setId(plateau->getGrille().getCase(x,y).getId()) ;
-                    plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setCouleur(plateau->getGrille().getCase(x,y).getCouleur();) ;
+                    plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setCouleur(plateau->getGrille().getCase(x,y).getCouleur()) ;
                     plateau->getGrille().getCase(x,y).removePiece();
                     m_coupPrecedent[0][0].setX(x);
                     m_coupPrecedent[0][0].setY(y);
@@ -285,7 +285,7 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
                         }
                     }
                     plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setId(plateau->getGrille().getCase(x,y).getId()) ;
-                    plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setCouleur(plateau->getGrille().getCase(x,y).getCouleur();) ;
+                    plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setCouleur(plateau->getGrille().getCase(x,y).getCouleur()) ;
                     plateau->getGrille().getCase(x,y).removePiece();
                     m_coupPrecedent[0][0].setX(x);
                     m_coupPrecedent[0][0].setY(y);
@@ -390,9 +390,10 @@ int ia::getLevel(){
     return level;
 }
 
-QVector<QPoint> ia::jouer()
+QVector<QPoint> ia::jouer(int joueur)
 {
-    int tmp=0;
+
+    QVector<QPoint> tmp;
     return tmp;
 
 }
@@ -434,6 +435,7 @@ int ia::eval(Plateau * plateau){
 }
 QVector<QPoint> ia::calc_echec_et_mat(int joueur,QPoint pos_rois_joueur){
 
-
+    QVector<QPoint> tmp;
+    return tmp;
 }
 
