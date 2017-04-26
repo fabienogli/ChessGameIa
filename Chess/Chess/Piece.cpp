@@ -41,7 +41,7 @@ void Piece::kill(Piece & piece)
 	piece.~Piece();
 }
 
-QVector<QPoint> Piece::deplacementsPossible(int idJoueur,Plateau plateau){
+QVector<QPoint> Piece::deplacementsPossible(int idJoueur,Plateau * plateau){
 
     QVector<QPoint> listDep;
     return listDep;

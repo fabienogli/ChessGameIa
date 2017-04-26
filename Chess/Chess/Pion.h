@@ -8,6 +8,6 @@ public:
 	Pion();
 	~Pion();
 	virtual bool testDeplacement(Coordonnee coord);
-    virtual QVector<QPoint> deplacementsPossible(int idJoueur,Plateau plateau);
+    virtual QVector<QPoint> deplacementsPossible(int idJoueur,Plateau * plateau);
 };
 
