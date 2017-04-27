@@ -47,3 +47,5 @@ QVector<QPoint> Roi::deplacementsPossible(int idJoueur,Plateau * plateau){
         }
         return resultat;
 }
+
+
