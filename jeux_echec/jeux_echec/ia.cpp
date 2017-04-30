@@ -594,7 +594,7 @@ int IA::max(int joueur,piece terrain[8][8],int groupe[8][8],int profondeur, int 
                       break;
                   }
                   for (int i = 0; i < listeCoup.count(); i++)
-                  {
+                  { 
                       // on joue le tour
                       int coup_origin_x = m_coupPrecedent->at(0).x();
                       int coup_origin_y = m_coupPrecedent->at(0).y();
@@ -688,7 +688,7 @@ int IA::max(int joueur,piece terrain[8][8],int groupe[8][8],int profondeur, int 
                                 m_groupe[x][y-1] = 2;
                               }
                               else
-                              {
+                              { 
                                 m_groupe[x][y-1] = 1;
                               }
                           }
