@@ -7,6 +7,7 @@
 
 Pion::Pion()
 {
+    nbCout =0;
 }
 
 
@@ -21,7 +22,10 @@ bool Pion::testDeplacement(Coordonnee coord)
     std::cout <<getCoordonne().getX();std::cout << std::endl;
     std::cout <<abs(coord.getY()-getCoordonne().getY());std::cout << std::endl;
     //a updater pour prendre le deplacement de deux cases quau debut
-    if (coord.getX() == getCoordonne().getX()  && ((abs(coord.getY()-getCoordonne().getY()) == 1) || (abs(coord.getY()-getCoordonne().getY())== 2)))
+    if (coord.getX() == getCoordonne().getX()  && ((abs(coord.getY()-getCoordonne().getY()) <3 )))
+        if((abs(coord.getY()-getCoordonne().getY())== 2) && nbCout==0)
+            verif = true;
+        else if((abs(coord.getY()-getCoordonne().getY())== 1))
             verif = true;
     if(verif==true) {std::cout << "vrai";std::cout << std::endl;}
     else
@@ -30,6 +34,13 @@ bool Pion::testDeplacement(Coordonnee coord)
         std::cout << std::endl;
     }
 	return verif;
+}
+
+void Pion::move(Coordonnee *coord, Coordonnee origin)
+{
+    Piece::move(coord, origin);
+    if(nbCout==0)
+        nbCout+=1;
 }
 
 QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * plateau){
