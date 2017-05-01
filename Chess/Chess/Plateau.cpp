@@ -94,6 +94,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
         //(*joueur2).getPiece(tmp2).afficher();
         std::cout << "je suis 2-2";
         if(b==true){
+            //mettre a jour couleur des cases
             m_coupPrecedent[0][0].setX(coordDepart->getX());
             m_coupPrecedent[0][0].setY(coordDepart->getY());
             m_coupPrecedent[0][1].setX(coordArrivee->getX());

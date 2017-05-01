@@ -506,8 +506,7 @@ QVector<QPoint> deplacements::deplacementPion(const int groupe[8][8],const piece
     // on peut éventuellement avancer de deux cases au debut
     if(noir == true && cas.x() == 1 && groupe[cas.x()+2][cas.y()] == 0 && groupe[cas.x()+1][cas.y()] == 0)
     {
-        resultat.append(QPoint(cas.x()+2,cas.y() ));
-
+        resultat.append(QPoint(cas.x()+2,cas.y()));
     }
     else if(noir == false && cas.x() == 6 && groupe[cas.x()-2][cas.y()] == 0 && groupe[cas.x()-1][cas.y()] == 0)
     {
