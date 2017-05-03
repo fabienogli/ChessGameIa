@@ -418,10 +418,11 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                int idPiece=(joueur->isAnyPiece(Coordonnee(x,y)));
                if(idPiece != (-1)){
                    QVector<QPoint> listeCoup;
+                   /*
                    switch(id=joueur->getDeck()[idPiece]->getId())
                    {
                    case 'P':
-
+                    listeCoup= joueur->getDeck()[idPiece]->deplacement
                        break;
                    case 'R':
 
@@ -438,7 +439,8 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                    default:
 
                        break;
-                   }
+                   }*/
+                   listeCoup = joueur->getDeck()[idPiece]->deplacementsPossible(joueur->getIdJoueur(),plateau);
 
                    for (int i = 0; i < listeCoup.count(); i++)
                    {

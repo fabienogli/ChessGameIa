@@ -38,7 +38,7 @@ QVector<QPoint> Fou::deplacementsPossible(int idJoueur,Plateau * plateau){
     {
         x++;
         y++;
-        if(plateau->getGrille().getCase(x,y).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne.getY()).getCouleur())
+        if(plateau->getGrille().getCase(x,y).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur())
         {
             resultat.append(QPoint(x, y));
         }
