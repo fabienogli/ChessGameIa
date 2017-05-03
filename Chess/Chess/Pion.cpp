@@ -5,8 +5,11 @@
 
 
 
-Pion::Pion()
+Pion::Pion(int i)
 {
+    wayToMove = i;
+    //So wayToMove = 1 la piece descend dans le plateau, sinon elle monte
+    //wayToMove vaut soit 1, soit -1
     nbCout =0;
 }
 
@@ -17,22 +20,30 @@ Pion::~Pion()
 
 bool Pion::testDeplacement(Coordonnee coord)
 { bool verif = false;
-    std::cout << "test deplacement";std::cout << std::endl;
-    std::cout <<coord.getX();std::cout << std::endl;
-    std::cout <<getCoordonne().getX();std::cout << std::endl;
-    std::cout <<abs(coord.getY()-getCoordonne().getY());std::cout << std::endl;
+    std::cout << "test deplacement"<< std::endl;
+    std::cout <<coord.getX()<< std::endl;
+    std::cout <<getCoordonne().getX()<< std::endl;
+    std::cout <<abs(coord.getY()-getCoordonne().getY())<<std::endl;
     //a updater pour prendre le deplacement de deux cases quau debut
     if (coord.getX() == getCoordonne().getX()  && ((abs(coord.getY()-getCoordonne().getY()) <3 )))
-        if((abs(coord.getY()-getCoordonne().getY())== 2) && nbCout==0)
-            verif = true;
-        else if((abs(coord.getY()-getCoordonne().getY())== 1))
-            verif = true;
-    if(verif==true) {std::cout << "vrai";std::cout << std::endl;}
-    else
     {
-        std::cout << "faux";
-        std::cout << std::endl;
+        if(wayToMove==1)
+        {
+            if(coord.getY()-getCoordonne().getY()== 2 && nbCout==0)
+                verif = true;
+            else if(coord.getY()-getCoordonne().getY()== 1)
+                verif = true;
+        }
+        else if(wayToMove==-1)
+        {
+            if((coord.getY()-getCoordonne().getY()== -2) && nbCout==0)
+                verif = true;
+            else if((abs(coord.getY()-getCoordonne().getY())== -1))
+                verif = true;
+        }
     }
+    if(verif==true) {std::cout << "vrai"<< std::endl;}
+    else            {std::cout << "faux"<< std::endl;}
 	return verif;
 }
 
