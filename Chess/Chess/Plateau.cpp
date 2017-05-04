@@ -373,8 +373,49 @@ bool Plateau::testDestination(QPoint *coordcase, int i_piece, int i_joueur)
 }
 
 QVector<QPoint> Plateau::attaquePion(QPoint point){
-    QVector<QPoint> result;
-    return result;
+    QVector<QPoint> resultat;
+        /*bool noir = true;
+        if(groupe[cas.x()][cas.y()] != 1)
+        {
+          noir = false;
+        }
+        //puis apres on avance toujours de devant et on prend sur les cotes
+        if(noir == true)
+        {
+            if(cas.y() > 0)
+            {
+                if(groupe[cas.x()+1][cas.y()-1] != groupe[cas.x()][cas.y()])
+                {
+                    resultat.append(QPoint(cas.x()+1,cas.y()-1));
+                }
+            }
+            if(cas.y() < 8)
+            {
+                if(groupe[cas.x()+1][cas.y()+1] != groupe[cas.x()][cas.y()])
+                {
+                    resultat.append(QPoint(cas.x()+1,cas.y()+1));
+                }
+            }
+        }
+        else
+        {
+            if(cas.y() > 0)
+            {
+                if( groupe[cas.x()-1][cas.y()-1] != groupe[cas.x()][cas.y()])
+                {
+                    resultat.append(QPoint(cas.x()-1,cas.y()-1));
+                }
+            }
+            if(cas.y() < 8)
+            {
+                if( groupe[cas.x()-1][cas.y()+1] != groupe[cas.x()][cas.y()])
+                {
+                    resultat.append(QPoint(cas.x()-1,cas.y()+1));
+                }
+            }
+        }*/
+
+        return resultat;
 }
 //Destructeur du plateau
 Plateau::~Plateau()
