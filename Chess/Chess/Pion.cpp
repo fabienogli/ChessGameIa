@@ -58,10 +58,16 @@ QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * plateau){
     QPoint dest_precedent = plateau->getCoupPrec().at(1);
     QPoint origin_precedent = plateau->getCoupPrec().at(0);
     std::cout<<"Dans la fonction deplacementPossible"<<std::endl;
-
+    std::cout << coordonnee->getX();std::cout << std::endl;
+    std::cout << coordonnee->getY();std::cout << std::endl;
+    /*std::cout << i4;std::cout << std::endl;
+    std::cout << i3;std::cout << std::endl;*/
+    //int b = plateau->getGrille2()->getCase2(coordonnee->getX(),coordonnee->getY()+2)->getCouleur();
     switch(idJoueur){
     case 0:
         //black
+
+        std::cout<<b<<std::endl;
         std::cout<<"dans le switch"<<std::endl;
         if((coordonnee->getY() == 1 || coordonnee->getY()==2) && (plateau->getGrille().getCase(coordonnee->getX(),coordonnee->getY()+2).isOccupied()==false) && (plateau->getGrille().getCase(coordonnee->getX(),coordonnee->getY()+1).isOccupied()==false) )
             {

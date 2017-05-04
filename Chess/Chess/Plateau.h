@@ -17,6 +17,7 @@ public:
     Joueur* getJoueur2();
     void setJoueurActif(Joueur joueur);
     Grille getGrille();
+    Grille* getGrille2();
     void initialize();
     void reinitialize();
     void updateCaseStatus(Piece piece,Coordonnee oldCoord);

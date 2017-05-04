@@ -15,6 +15,7 @@ void Case::setId(char id){
     this->id=id;
 }
 int Case::getCouleur(){
+    std::cout << "dans getcouleur";std::cout << std::endl;
     return couleur;
 }
 void Case::setCouleur(int i){

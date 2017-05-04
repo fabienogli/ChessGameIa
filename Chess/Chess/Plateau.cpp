@@ -194,7 +194,13 @@ void Plateau::setJoueurActif(Joueur  joueur){
 }
 
 Grille Plateau::getGrille(){
+    std::cout << "dans getgrille";std::cout << std::endl;
     return *damier;
+}
+
+Grille* Plateau::getGrille2(){
+    std::cout << "dans getgrille";std::cout << std::endl;
+    return damier;
 }
 
 QVector<QPoint> Plateau::getCoupPrec(){
