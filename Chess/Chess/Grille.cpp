@@ -24,9 +24,9 @@ Grille::~Grille()
 }
 
 //Retourne la case a l abscisse x et a l ordonne y
-Case Grille::getCase(int x, int y)
+Case* Grille::getCase(int x, int y)
 {
-	return *cases[x][y];
+    return cases[x][y];
 }
 
 //Retourne la hauteur de la grille

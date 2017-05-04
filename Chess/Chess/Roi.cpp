@@ -34,7 +34,7 @@ QVector<QPoint> Roi::deplacementsPossible(int idJoueur,Plateau * plateau){
                     // si on sort de la carte ou que c'est notre case (notre piece) on l'ajoute pas
                     if((getCoordonne().getX()+x) < 8 && (getCoordonne().getX()+x) >= 0 && (getCoordonne().getX() != (getCoordonne().getX()+x) || getCoordonne().getY() != (getCoordonne().getY()+y)))
                     {
-                        if(plateau->getGrille()->getCase(getCoordonne().getX()+x,getCoordonne().getY()+y).getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur())
+                        if(plateau->getGrille()->getCase(getCoordonne().getX()+x,getCoordonne().getY()+y)->getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY())->getCouleur())
                         {
                             if(x != 0 || y != 0)
                             {/*
