@@ -91,7 +91,7 @@ void MainWindow::affichSuppInit(Piece * piece, int id,int i){
                 pixmap.load(":/chessicons/bMad.png");
                 break;
             case 1:
-                pixmap.load(":/chessicons/wMad.png");
+                pixmap.load(":/chessicons/wMAd.png");
                 break;
             default:
                 break;

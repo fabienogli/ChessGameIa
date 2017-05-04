@@ -249,7 +249,6 @@ DIST          = /home/neibaf/Qt/5.9/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/qt_config.prf \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/spec_post.prf \
-		../ChessUI/.qmake.stash \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/toolchain.prf \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/default_pre.prf \
@@ -471,7 +470,6 @@ Makefile: ../ChessUI/ChessUI.pro /home/neibaf/Qt/5.9/gcc_64/mkspecs/linux-g++/qm
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/qt_config.prf \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/toolchain.prf \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/default_pre.prf \
@@ -657,7 +655,6 @@ Makefile: ../ChessUI/ChessUI.pro /home/neibaf/Qt/5.9/gcc_64/mkspecs/linux-g++/qm
 /home/neibaf/Qt/5.9/gcc_64/mkspecs/features/qt_config.prf:
 /home/neibaf/Qt/5.9/gcc_64/mkspecs/linux-g++/qmake.conf:
 /home/neibaf/Qt/5.9/gcc_64/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /home/neibaf/Qt/5.9/gcc_64/mkspecs/features/exclusive_builds.prf:
 /home/neibaf/Qt/5.9/gcc_64/mkspecs/features/toolchain.prf:
 /home/neibaf/Qt/5.9/gcc_64/mkspecs/features/default_pre.prf:
@@ -1243,70 +1240,16 @@ mainwindow.o: ../ChessUI/mainwindow.cpp ../ChessUI/mainwindow.h \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qicon.h \
 		ui_mainwindow.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/QVariant \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QAction \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qaction.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qactiongroup.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QApplication \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qapplication.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qcoreapplication.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qeventloop.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qguiapplication.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qinputmethod.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QButtonGroup \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qbuttongroup.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QComboBox \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qcombobox.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qstyleoption.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qvalidator.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qregularexpression.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qslider.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qabstractslider.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qstyle.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qtabbar.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qrubberband.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qframe.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QFrame \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QGraphicsScene \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qpen.h \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QGraphicsView \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qgraphicsview.h \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qpainter.h \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qtextoption.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qpen.h \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qscrollarea.h \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qgraphicsscene.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QGridLayout \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qlayout.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QHBoxLayout \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QHeaderView \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qheaderview.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qabstractitemview.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qitemselectionmodel.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QLabel \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qlabel.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QMenuBar \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qmenubar.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qmenu.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QPushButton \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qpushbutton.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QStatusBar \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qstatusbar.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QTableWidget \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qtablewidget.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qtableview.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QToolBar \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qtoolbar.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QVBoxLayout \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QWidget \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QGraphicsScene \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qframe.h \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QMessageBox \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qmessagebox.h \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qdialog.h \
