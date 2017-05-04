@@ -10,6 +10,8 @@
 #include <QMessageBox>
 #include <QGraphicsPixmapItem>
 #include <iostream>
+#include <QDirIterator>
+#include <QDebug>
 using namespace std;
 
 
@@ -52,6 +54,12 @@ void MainWindow::badMove(){
 void MainWindow::affichSuppInit(Piece * piece, int id,int i){
     //std::cout << "image loaded";
     QPixmap pixmap;
+//    bool verid =pixmap.load(":/chessicons/bKing.png");
+
+//    QDirIterator it(":", QDirIterator::Subdirectories);
+//    while (it.hasNext()) {
+//        qDebug() << it.next();
+//    }
     //pixmap.fill(Qt::transparent);
     /* void MainWindow::afficherInit(){
     QPixmap pixmap;
@@ -61,76 +69,79 @@ void MainWindow::affichSuppInit(Piece * piece, int id,int i){
     QGraphicsScene* scene = new QGraphicsScene;
     scene->addPixmap(pixmap);
     ui->graphicsView->setScene(scene);*/
-if(i==0){
-    std::cout << "jaffiche";std::cout << std::endl;
-    switch((*piece).getId()){
-    case 'R':
-        switch (id) {
-        case 0:
-            pixmap.load("chessicons/bking.svg");
+    if(i==0){
+        std::cout << "jaffiche"<<id;std::cout << std::endl;
+        switch((*piece).getId()){
+        case 'R':
+            switch (id) {
+            case 0:
+                std::cout<<"Roi noir"<<std::endl;
+                pixmap.load(":/chessicons/bKing.png");
+                break;
+            case 1:
+                pixmap.load(":/chessicons/wKing.png");
+                break;
+            default:
+                break;
+            }
             break;
-        case 1:
-            pixmap.load("chessicons/wking.svg");
+        case 'F':
+            switch (id) {
+            case 0:
+                pixmap.load(":/chessicons/bMad.png");
+                break;
+            case 1:
+                pixmap.load(":/chessicons/wMad.png");
+                break;
+            default:
+                break;
+            }
+            break;
+        case 'C':
+            switch (id) {
+            case 0:
+                pixmap.load(":/chessicons/bKnight.png");
+                break;
+            case 1:
+                pixmap.load(":/chessicons/wKnight.png");
+                break;
+            default:
+                break;
+            }
+            break;
+        case 'T':
+            switch (id) {
+            case 0:
+                pixmap.load(":/chessicons/bTower.png");
+                break;
+            case 1:
+                pixmap.load(":/chessicons/wTower.png");
+                break;
+            default:
+                break;
+            }
+            break;
+        case 'P':
+            switch (id) {
+            case 0:
+                pixmap.load(":/chessicons/bPawn.png");
+                break;
+            case 1:
+                pixmap.load(":/chessicons/wPawn.png");
+                break;
+            default:
+                break;
+            }
             break;
         default:
+            pixmap.load(":/chessicons/bKing.png");
             break;
         }
-        break;
-    case 'F':
-        switch (id) {
-        case 0:
-            pixmap.load("chessicons/bbishop.svg");
-            break;
-        case 1:
-            pixmap.load("chessicons/wbishop.svg");
-            break;
-        default:
-            break;
-        }
-        break;
-    case 'C':
-        switch (id) {
-        case 0:
-            pixmap.load("chessicons/bknight.svg");
-            break;
-        case 1:
-            pixmap.load("chessicons/wknight.svg");
-            break;
-        default:
-            break;
-        }
-        break;
-    case 'T':
-        switch (id) {
-        case 0:
-            pixmap.load("chessicons/brook.svg");
-            break;
-        case 1:
-            pixmap.load("chessicons/wrook.svg");
-            break;
-        default:
-            break;
-        }
-        break;
-    case 'P':
-        switch (id) {
-        case 0:
-            pixmap.load("chessicons/bpawn.svg");
-            break;
-        case 1:
-            pixmap.load("chessicons/wpawn.svg");
-            break;
-        default:
-            break;
-        }
-        break;
-    default: break;
-    }
-}else{
-    std::cout << "jefface";std::cout << std::endl;
-    pixmap.load("");
+    }else{
+        std::cout << "jefface";std::cout << std::endl;
+        pixmap.load("");
 
-}
+    }
     pixmap = pixmap.scaled(45,45);
     QGraphicsScene* scene = new QGraphicsScene;
     scene->addPixmap(pixmap);

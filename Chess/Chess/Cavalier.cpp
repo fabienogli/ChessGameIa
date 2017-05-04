@@ -5,6 +5,7 @@
 
 Cavalier::Cavalier()
 {
+    id_piece = 'C';
 }
 
 

@@ -10,6 +10,7 @@ Pion::Pion(int i)
     //So wayToMove = 1 la piece descend dans le plateau, sinon elle monte
     //wayToMove vaut soit 1, soit -1
     nbCout =0;
+    id_piece= 'P';
 }
 
 
@@ -66,8 +67,6 @@ QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * plateau){
     switch(idJoueur){
     case 0:
         //black
-
-        std::cout<<b<<std::endl;
         std::cout<<"dans le switch"<<std::endl;
         if((coordonnee->getY() == 1 || coordonnee->getY()==2) &&
                 (!plateau->caseAtOccupy(coordonnee->getX(),coordonnee->getY()+2) && (!plateau->caseAtOccupy(coordonnee->getX(),coordonnee->getY()+1))))

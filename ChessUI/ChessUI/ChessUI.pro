@@ -32,7 +32,6 @@ SOURCES += main.cpp\
     ../../Chess/Chess/Fou.cpp \
     ../../Chess/Chess/Grille.cpp \
     ../../Chess/Chess/Joueur.cpp \
-    ../../Chess/Chess/main.cpp \
     ../../Chess/Chess/Piece.cpp \
     ../../Chess/Chess/PieceDiagonale.cpp \
     ../../Chess/Chess/Pion.cpp \
@@ -59,3 +58,6 @@ HEADERS  += mainwindow.h \
     ../../Chess/Chess/ia.h
 
 FORMS    += mainwindow.ui
+
+RESOURCES += \
+    ../image.qrc

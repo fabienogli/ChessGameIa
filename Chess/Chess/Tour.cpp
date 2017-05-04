@@ -5,6 +5,7 @@
 
 Tour::Tour()
 {
+    id_piece = 'T';
 }
 
 

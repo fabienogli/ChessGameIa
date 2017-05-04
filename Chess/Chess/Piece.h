@@ -5,6 +5,7 @@ class Plateau;
 #include <iostream>
 #include <QVector>
 #include <vector>
+#include <QPoint>
 
 class Piece
 {
@@ -31,6 +32,7 @@ protected:
 	Coordonnee *coordonnee;
 	bool alive;	
     int couleur;
+    char id_piece;
     /*
      * 100 pour un pion
      * 300 cavalier et fou

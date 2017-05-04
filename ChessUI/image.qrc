@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>chessicons/wTower.png</file>
+        <file>chessicons/wQueen.png</file>
+        <file>chessicons/wPawn.png</file>
+        <file>chessicons/wMAd.png</file>
+        <file>chessicons/wKnight.png</file>
+        <file>chessicons/wKing.png</file>
+        <file>chessicons/bTower.png</file>
+        <file>chessicons/bQueen.png</file>
+        <file>chessicons/bPawn.png</file>
+        <file>chessicons/bMad.png</file>
+        <file>chessicons/bKnight.png</file>
+        <file>chessicons/bKing.png</file>
+    </qresource>
+</RCC>

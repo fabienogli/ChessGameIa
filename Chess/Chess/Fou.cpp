@@ -5,6 +5,7 @@
 
 Fou::Fou()
 {
+    id_piece = 'F';
 }
 
 

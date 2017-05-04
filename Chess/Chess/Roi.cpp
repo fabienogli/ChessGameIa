@@ -9,6 +9,7 @@ Classe du roi
 
 Roi::Roi()
 {
+    id_piece = 'R';
 }
 
 

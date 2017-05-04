@@ -6,6 +6,7 @@
 #include "Tour.h"
 #include "Pion.h"
 #include <vector>
+#include <typeinfo>
 //Initialise la piece
 Piece::Piece()
 {
@@ -152,7 +153,7 @@ Piece::~Piece()
 
 char Piece::getId()
 {
-	return typeid(*this).name()[6];
+    return id_piece;
 }
 
 
