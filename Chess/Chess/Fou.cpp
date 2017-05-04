@@ -22,11 +22,11 @@ QVector<QPoint> Fou::deplacementsPossible(int idJoueur,Plateau * plateau){
     {
         x--;
         y--;
-        if(plateau->getGrille().getCase(x,y).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(), getCoordonne().getY()).getCouleur())
+        if(plateau->getGrille()->getCase(x,y).getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(), getCoordonne().getY()).getCouleur())
         {
             resultat.append(QPoint(x, y));
         }
-        if(plateau->getGrille().getCase(x,y).getCouleur() != -1) // on a rencontre un obstacle ami ou ennemis
+        if(plateau->getGrille()->getCase(x,y).getCouleur() != -1) // on a rencontre un obstacle ami ou ennemis
         {
             x = 0; // on stoppe la boucle
         }
@@ -38,11 +38,11 @@ QVector<QPoint> Fou::deplacementsPossible(int idJoueur,Plateau * plateau){
     {
         x++;
         y++;
-        if(plateau->getGrille().getCase(x,y).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur())
+        if(plateau->getGrille()->getCase(x,y).getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur())
         {
             resultat.append(QPoint(x, y));
         }
-        if(plateau->getGrille().getCase(x,y).getCouleur() != -1) // on a rencontre un obstacle ami ou ennemis
+        if(plateau->getGrille()->getCase(x,y).getCouleur() != -1) // on a rencontre un obstacle ami ou ennemis
         {
             x = 7; // on stoppe la boucle
         }
@@ -53,11 +53,11 @@ QVector<QPoint> Fou::deplacementsPossible(int idJoueur,Plateau * plateau){
     {
         x--;
         y++;
-        if(plateau->getGrille().getCase(x,y).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur())
+        if(plateau->getGrille()->getCase(x,y).getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur())
         {
             resultat.append(QPoint(x, y));
         }
-        if(plateau->getGrille().getCase(x,y).getCouleur() != -1) // on a rencontre un obstacle ami ou ennemi
+        if(plateau->getGrille()->getCase(x,y).getCouleur() != -1) // on a rencontre un obstacle ami ou ennemi
         {
             x = 0; // on stoppe la boucle
         }
@@ -68,11 +68,11 @@ QVector<QPoint> Fou::deplacementsPossible(int idJoueur,Plateau * plateau){
     {
         x++;
         y--;
-        if(plateau->getGrille().getCase(x,y).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur() )
+        if(plateau->getGrille()->getCase(x,y).getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur() )
         {
             resultat.append(QPoint(x, y));
         }
-        if(plateau->getGrille().getCase(x,y).getCouleur() != -1) // on a rencontre un obstacle ami ou ennemi
+        if(plateau->getGrille()->getCase(x,y).getCouleur() != -1) // on a rencontre un obstacle ami ou ennemi
         {
             x = 7; // on stoppe la boucle
         }

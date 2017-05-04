@@ -16,7 +16,7 @@ public:
     Joueur* getJoueur1();
     Joueur* getJoueur2();
     void setJoueurActif(Joueur joueur);
-    Grille getGrille();
+    Grille* getGrille();
     void initialize();
     void reinitialize();
     void updateCaseStatus(Piece piece,Coordonnee oldCoord);
@@ -25,7 +25,7 @@ public:
     bool est_en_echec(QPoint* coordcase, QPoint* coordpion, int i);
     bool testDestination(QPoint *coordcase, int i_piece, int i_joueur);
     QVector<QPoint> attaquePion(QPoint point);
-
+    bool caseAtOccupy(int x, int y);
 	~Plateau();
 private:
 	Grille *damier;

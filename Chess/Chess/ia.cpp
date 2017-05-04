@@ -92,16 +92,16 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
                     bool deplacementSpecialFait = false;
                     if(id == 'P')
                     {
-                        if(listeCoup.at(i).x() != x && plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).isOccupied()==false )
+                        if(listeCoup.at(i).x() != x && plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).isOccupied()==false )
                         {
                             deplacementSpecialFait = true;
                             if(x - listeCoup.at(i).x() > 0)
                             {
-                                plateau->getGrille().getCase(x+1,y).removePiece();
+                                plateau->getGrille()->getCase(x+1,y).removePiece();
                             }
                             else
                             {
-                                plateau->getGrille().getCase(x-1,y).removePiece();
+                                plateau->getGrille()->getCase(x-1,y).removePiece();
                             }
                         }
                     }
@@ -118,9 +118,9 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
                             this->m_Posi_Rois2.setY(listeCoup.at(i).y());
                         }
                     }
-                    plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setId(plateau->getGrille().getCase(x,y).getId()) ;
-                    plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setCouleur(plateau->getGrille().getCase(x,y).getCouleur()) ;
-                    plateau->getGrille().getCase(x,y).removePiece();
+                    plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setId(plateau->getGrille()->getCase(x,y).getId()) ;
+                    plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setCouleur(plateau->getGrille()->getCase(x,y).getCouleur()) ;
+                    plateau->getGrille()->getCase(x,y).removePiece();
                     m_coupPrecedent[0][0].setX(x);
                     m_coupPrecedent[0][0].setY(y);
                     m_coupPrecedent[0][1].setX(listeCoup.at(i).x());
@@ -141,9 +141,9 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
                     m_coupPrecedent[0][0].setY(coup_origin_y);
                     m_coupPrecedent[0][1].setX(coup_dest_x);
                     m_coupPrecedent[0][1].setY(coup_dest_y);
-                    if(plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).getId() == 'R')
+                    if(plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).getId() == 'R')
                     {
-                        if(plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).getCouleur() == 0)
+                        if(plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).getCouleur() == 0)
                         {
                             this->m_Posi_Rois1.setX(x);
                             this->m_Posi_Rois1.setY(y);
@@ -158,36 +158,36 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
                     {
                         if(x - listeCoup.at(i).x() > 0)
                         {
-                            plateau->getGrille().getCase(x-1,y).setPiece();
-                            plateau->getGrille().getCase(x-1,y).setId('P');
+                            plateau->getGrille()->getCase(x-1,y).setPiece();
+                            plateau->getGrille()->getCase(x-1,y).setId('P');
                             if(joueur->getIdJoueur() == 0)
                             {
-                                plateau->getGrille().getCase(x-1,y).setCouleur(1);
+                                plateau->getGrille()->getCase(x-1,y).setCouleur(1);
                             }
                             else
                             {
-                                plateau->getGrille().getCase(x-1,y).setCouleur(0);
+                                plateau->getGrille()->getCase(x-1,y).setCouleur(0);
                             }
                         }
                         else
                         {
-                            plateau->getGrille().getCase(x+1,y).setPiece();
-                            plateau->getGrille().getCase(x+1,y).setId('P');
+                            plateau->getGrille()->getCase(x+1,y).setPiece();
+                            plateau->getGrille()->getCase(x+1,y).setId('P');
                             if(joueur->getIdJoueur() == 0)
                             {
-                                plateau->getGrille().getCase(x+1,y).setCouleur(1);
+                                plateau->getGrille()->getCase(x+1,y).setCouleur(1);
                             }
                             else
                             {
-                                plateau->getGrille().getCase(x+1,y).setCouleur(0);
+                                plateau->getGrille()->getCase(x+1,y).setCouleur(0);
                             }
                         }
                     }
 
-                    plateau->getGrille().getCase(x,y).setId(plateau->getGrille().getCase(x,y).getId());
-                    plateau->getGrille().getCase(x,y).setCouleur(plateau->getGrille().getCase(x,y).getCouleur());
-                    plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setId(tmp.getId());
-                    plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setCouleur(tmp.getCouleur());
+                    plateau->getGrille()->getCase(x,y).setId(plateau->getGrille()->getCase(x,y).getId());
+                    plateau->getGrille()->getCase(x,y).setCouleur(plateau->getGrille()->getCase(x,y).getCouleur());
+                    plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setId(tmp.getId());
+                    plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setCouleur(tmp.getCouleur());
                     if (score > max)
                     {
                         max = score;
@@ -264,16 +264,16 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
                     bool deplacementSpecialFait = false;
                     if(id == 'P')
                     {
-                        if(listeCoup.at(i).x() != x && plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).isOccupied()==false )
+                        if(listeCoup.at(i).x() != x && plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).isOccupied()==false )
                         {
                             deplacementSpecialFait = true;
                             if(x - listeCoup.at(i).x() > 0)
                             {
-                                plateau->getGrille().getCase(x+1,y).removePiece();
+                                plateau->getGrille()->getCase(x+1,y).removePiece();
                             }
                             else
                             {
-                                plateau->getGrille().getCase(x-1,y).removePiece();
+                                plateau->getGrille()->getCase(x-1,y).removePiece();
                             }
                         }
                     }
@@ -290,9 +290,9 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
                             this->m_Posi_Rois2.setY(listeCoup.at(i).y());
                         }
                     }
-                    plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setId(plateau->getGrille().getCase(x,y).getId()) ;
-                    plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setCouleur(plateau->getGrille().getCase(x,y).getCouleur()) ;
-                    plateau->getGrille().getCase(x,y).removePiece();
+                    plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setId(plateau->getGrille()->getCase(x,y).getId()) ;
+                    plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setCouleur(plateau->getGrille()->getCase(x,y).getCouleur()) ;
+                    plateau->getGrille()->getCase(x,y).removePiece();
                     m_coupPrecedent[0][0].setX(x);
                     m_coupPrecedent[0][0].setY(y);
                     m_coupPrecedent[0][1].setX(listeCoup.at(i).x());
@@ -313,9 +313,9 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
                     m_coupPrecedent[0][0].setY(coup_origin_y);
                     m_coupPrecedent[0][1].setX(coup_dest_x);
                     m_coupPrecedent[0][1].setY(coup_dest_y);
-                    if(plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).getId() == 'R')
+                    if(plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).getId() == 'R')
                     {
-                        if(plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).getCouleur() == 0)
+                        if(plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).getCouleur() == 0)
                         {
                             this->m_Posi_Rois1.setX(x);
                             this->m_Posi_Rois1.setY(y);
@@ -330,36 +330,36 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
                     {
                         if(x - listeCoup.at(i).x() > 0)
                         {
-                            plateau->getGrille().getCase(x-1,y).setPiece();
-                            plateau->getGrille().getCase(x-1,y).setId('P');
+                            plateau->getGrille()->getCase(x-1,y).setPiece();
+                            plateau->getGrille()->getCase(x-1,y).setId('P');
                             if(joueur->getIdJoueur() == 0)
                             {
-                                plateau->getGrille().getCase(x-1,y).setCouleur(1);
+                                plateau->getGrille()->getCase(x-1,y).setCouleur(1);
                             }
                             else
                             {
-                                plateau->getGrille().getCase(x-1,y).setCouleur(0);
+                                plateau->getGrille()->getCase(x-1,y).setCouleur(0);
                             }
                         }
                         else
                         {
-                            plateau->getGrille().getCase(x+1,y).setPiece();
-                            plateau->getGrille().getCase(x+1,y).setId('P');
+                            plateau->getGrille()->getCase(x+1,y).setPiece();
+                            plateau->getGrille()->getCase(x+1,y).setId('P');
                             if(joueur->getIdJoueur() == 0)
                             {
-                                plateau->getGrille().getCase(x+1,y).setCouleur(1);
+                                plateau->getGrille()->getCase(x+1,y).setCouleur(1);
                             }
                             else
                             {
-                                plateau->getGrille().getCase(x+1,y).setCouleur(0);
+                                plateau->getGrille()->getCase(x+1,y).setCouleur(0);
                             }
                         }
                     }
 
-                    plateau->getGrille().getCase(x,y).setId(plateau->getGrille().getCase(x,y).getId());
-                    plateau->getGrille().getCase(x,y).setCouleur(plateau->getGrille().getCase(x,y).getCouleur());
-                    plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setId(tmp.getId());
-                    plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setCouleur(tmp.getCouleur());
+                    plateau->getGrille()->getCase(x,y).setId(plateau->getGrille()->getCase(x,y).getId());
+                    plateau->getGrille()->getCase(x,y).setCouleur(plateau->getGrille()->getCase(x,y).getCouleur());
+                    plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setId(tmp.getId());
+                    plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setCouleur(tmp.getCouleur());
                     if (score < min)
                     {
                         min = score;
@@ -407,9 +407,9 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
        {
            for(int x=0;x<8;x++)
            {
-               if(plateau->getGrille().getCase(x,y).getId() == 'R')
+               if(plateau->getGrille()->getCase(x,y).getId() == 'R')
                {
-                        if(plateau->getGrille().getCase(x,y).getCouleur() == 0)
+                        if(plateau->getGrille()->getCase(x,y).getCouleur() == 0)
                    {
                        this->m_Posi_Rois1.setX(x);
                        this->m_Posi_Rois1.setY(y);
@@ -461,16 +461,16 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                        bool deplacementSpecialFait = false;
                        if(id == 'P')
                        {
-                        if(listeCoup.at(i).x() != x && plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).isOccupied()==false )
+                        if(listeCoup.at(i).x() != x && plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).isOccupied()==false )
                            {
                                deplacementSpecialFait = true;
                             if(x - listeCoup.at(i).x() > 0)
                             {
-                                plateau->getGrille().getCase(x+1,y).removePiece();
+                                plateau->getGrille()->getCase(x+1,y).removePiece();
                             }
                             else
                             {
-                                plateau->getGrille().getCase(x-1,y).removePiece();
+                                plateau->getGrille()->getCase(x-1,y).removePiece();
                             }
                            }
                        }
@@ -489,9 +489,9 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                         }
                        }
 
-                    plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setId(plateau->getGrille().getCase(x,y).getId()) ;
-                    plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setCouleur(plateau->getGrille().getCase(x,y).getCouleur()) ;
-                    plateau->getGrille().getCase(x,y).removePiece();
+                    plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setId(plateau->getGrille()->getCase(x,y).getId()) ;
+                    plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setCouleur(plateau->getGrille()->getCase(x,y).getCouleur()) ;
+                    plateau->getGrille()->getCase(x,y).removePiece();
                     m_coupPrecedent[0][0].setX(x);
                     m_coupPrecedent[0][0].setY(y);
                     m_coupPrecedent[0][1].setX(listeCoup.at(i).x());
@@ -512,9 +512,9 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                     m_coupPrecedent[0][0].setY(coup_origin_y);
                     m_coupPrecedent[0][1].setX(coup_dest_x);
                     m_coupPrecedent[0][1].setY(coup_dest_y);
-                    if(plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).getId() == 'R')
+                    if(plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).getId() == 'R')
                     {
-                        if(plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).getCouleur() == 0)
+                        if(plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).getCouleur() == 0)
                         {
                             this->m_Posi_Rois1.setX(x);
                             this->m_Posi_Rois1.setY(y);
@@ -529,36 +529,36 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                     {
                         if(x - listeCoup.at(i).x() > 0)
                         {
-                            plateau->getGrille().getCase(x-1,y).setPiece();
-                            plateau->getGrille().getCase(x-1,y).setId('P');
+                            plateau->getGrille()->getCase(x-1,y).setPiece();
+                            plateau->getGrille()->getCase(x-1,y).setId('P');
                             if(joueur->getIdJoueur() == 0)
                             {
-                                plateau->getGrille().getCase(x-1,y).setCouleur(1);
+                                plateau->getGrille()->getCase(x-1,y).setCouleur(1);
                             }
                             else
                             {
-                                plateau->getGrille().getCase(x-1,y).setCouleur(0);
+                                plateau->getGrille()->getCase(x-1,y).setCouleur(0);
                             }
                         }
                         else
                         {
-                            plateau->getGrille().getCase(x+1,y).setPiece();
-                            plateau->getGrille().getCase(x+1,y).setId('P');
+                            plateau->getGrille()->getCase(x+1,y).setPiece();
+                            plateau->getGrille()->getCase(x+1,y).setId('P');
                             if(joueur->getIdJoueur() == 0)
                             {
-                                plateau->getGrille().getCase(x+1,y).setCouleur(1);
+                                plateau->getGrille()->getCase(x+1,y).setCouleur(1);
                             }
                             else
                             {
-                                plateau->getGrille().getCase(x+1,y).setCouleur(0);
+                                plateau->getGrille()->getCase(x+1,y).setCouleur(0);
                             }
                         }
                     }
 
-                    plateau->getGrille().getCase(x,y).setId(plateau->getGrille().getCase(x,y).getId());
-                    plateau->getGrille().getCase(x,y).setCouleur(plateau->getGrille().getCase(x,y).getCouleur());
-                    plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setId(tmp.getId());
-                    plateau->getGrille().getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setCouleur(tmp.getCouleur());
+                    plateau->getGrille()->getCase(x,y).setId(plateau->getGrille()->getCase(x,y).getId());
+                    plateau->getGrille()->getCase(x,y).setCouleur(plateau->getGrille()->getCase(x,y).getCouleur());
+                    plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setId(tmp.getId());
+                    plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y()).setCouleur(tmp.getCouleur());
                          if(score > max)
                          {
                                max = score;
@@ -586,27 +586,27 @@ int ia::eval(Plateau * plateau){
        {
            for(int y = 0; y < 8; y++)
            {
-               if(plateau->getGrille().getCase(x,y).getId() == 'P' && plateau->getGrille().getCase(x,y).getCouleur() == 0)
+               if(plateau->getGrille()->getCase(x,y).getId() == 'P' && plateau->getGrille()->getCase(x,y).getCouleur() == 0)
                {
                    scoreJoueur1+=100;
                }
-               else if(plateau->getGrille().getCase(x,y).getId() == 'P' && plateau->getGrille().getCase(x,y).getCouleur() == 1)
+               else if(plateau->getGrille()->getCase(x,y).getId() == 'P' && plateau->getGrille()->getCase(x,y).getCouleur() == 1)
                {
                    scoreJoueur2+=100;
                }
-               if((plateau->getGrille().getCase(x,y).getId() == 'F' || plateau->getGrille().getCase(x,y).getId() == 'C') && plateau->getGrille().getCase(x,y).getCouleur() == 0)
+               if((plateau->getGrille()->getCase(x,y).getId() == 'F' || plateau->getGrille()->getCase(x,y).getId() == 'C') && plateau->getGrille()->getCase(x,y).getCouleur() == 0)
                {
                    scoreJoueur1 += 300;
                }
-               else if((plateau->getGrille().getCase(x,y).getId() == 'F' || plateau->getGrille().getCase(x,y).getId() == 'C') && plateau->getGrille().getCase(x,y).getCouleur() == 1)
+               else if((plateau->getGrille()->getCase(x,y).getId() == 'F' || plateau->getGrille()->getCase(x,y).getId() == 'C') && plateau->getGrille()->getCase(x,y).getCouleur() == 1)
                {
                    scoreJoueur2 += 300;
                }
-               if(plateau->getGrille().getCase(x,y).getId() == 'T' && plateau->getGrille().getCase(x,y).getCouleur() == 0)
+               if(plateau->getGrille()->getCase(x,y).getId() == 'T' && plateau->getGrille()->getCase(x,y).getCouleur() == 0)
                {
                    scoreJoueur1 += 500;
                }
-               else if(plateau->getGrille().getCase(x,y).getId() == 'T' && plateau->getGrille().getCase(x,y).getCouleur() == 0)
+               else if(plateau->getGrille()->getCase(x,y).getId() == 'T' && plateau->getGrille()->getCase(x,y).getCouleur() == 0)
                {
                   scoreJoueur2 += 500;
                }

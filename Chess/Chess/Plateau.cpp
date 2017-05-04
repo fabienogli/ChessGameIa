@@ -193,8 +193,8 @@ void Plateau::setJoueurActif(Joueur  joueur){
     *joueurActif=joueur;
 }
 
-Grille Plateau::getGrille(){
-    return *damier;
+Grille* Plateau::getGrille(){
+    return damier;
 }
 
 QVector<QPoint> Plateau::getCoupPrec(){
@@ -203,6 +203,11 @@ QVector<QPoint> Plateau::getCoupPrec(){
 
 void Plateau::setCoupPrec(QVector<QPoint> CoupPrec){
     *m_coupPrecedent=CoupPrec;
+}
+
+bool Plateau::caseAtOccupy(int x, int y)
+{
+    return damier->getCase(x,y).isOccupied();
 }
 
 bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
@@ -216,7 +221,7 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
         {
             for(int y = 0; y < 8; y++)
             {
-                if(getGrille().getCase(x,y).getCouleur() !=  couleur  )
+                if(damier->getCase(x,y).getCouleur() !=  couleur  )
                 {
                     coordtmp.setX(x);
                     coordtmp.setY(y);
@@ -226,7 +231,7 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                     else if(couleur==1)
                     tmp2 = (*joueur1).isAnyPiece(coordtmp);
                     if(tmp1!=-1){
-                    switch(getGrille().getCase(x,y).getId())
+                    switch(damier->getCase(x,y).getId())
                     {
                         case 'P':
                            destination = attaquePion(QPoint(joueur1->getDeck()[tmp1]->getCoordonne().getX(),getJoueur1()->getDeck()[tmp1]->getCoordonne().getY()));
@@ -242,7 +247,7 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                         case 'R':
                             if(coordpion != NULL)
                             {
-                                if(getGrille().getCase(coordpion->x(),coordpion->y()).getId() != 'R') // on rois ne peu pas attaquer un autre rois !
+                                if(damier->getCase(coordpion->x(),coordpion->y()).getId() != 'R') // on rois ne peu pas attaquer un autre rois !
                                 {
                                    // destination = deplacements::deplacementRoi(matricePiece,matriceGroupe,QPoint(x,y));
                                 }
@@ -283,7 +288,7 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                     }
                     }
                     else if(tmp2!=-1){
-                        switch(getGrille().getCase(x,y).getId())
+                        switch(damier->getCase(x,y).getId())
                         {
                             case 'P':
                                destination =  attaquePion(QPoint(joueur1->getDeck()[tmp1]->getCoordonne().getX(),getJoueur1()->getDeck()[tmp1]->getCoordonne().getY()));
@@ -299,7 +304,7 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                             case 'R':
                                 if(coordpion != NULL)
                                 {
-                                    if(getGrille().getCase(coordpion->x(),coordpion->y()).getId() != 'R') // on rois ne peu pas attaquer un autre rois !
+                                    if(damier->getCase(coordpion->x(),coordpion->y()).getId() != 'R') // on rois ne peu pas attaquer un autre rois !
                                     {
                                        // destination = deplacements::deplacementRoi(matricePiece,matriceGroupe,QPoint(x,y));
                                     }

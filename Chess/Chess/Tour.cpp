@@ -23,11 +23,11 @@ QVector<QPoint> Tour::deplacementsPossible(int idJoueur,Plateau * plateau){
         while(x > 0)
         {
             x--;
-            if(plateau->getGrille().getCase(x,getCoordonne().getY()).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur()) // si on rencontre un blanc ou un pion ennemi
+            if(plateau->getGrille()->getCase(x,getCoordonne().getY()).getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur()) // si on rencontre un blanc ou un pion ennemi
             {
                 resultat.append(QPoint(x,getCoordonne().getY()));
             }
-            if(plateau->getGrille().getCase(x,getCoordonne().getY()).getCouleur() != -1) // on a rencontre un obstacle ami ou ennemi
+            if(plateau->getGrille()->getCase(x,getCoordonne().getY()).getCouleur() != -1) // on a rencontre un obstacle ami ou ennemi
             {
                 x = 0; // on stoppe la boucle
             }
@@ -36,11 +36,11 @@ QVector<QPoint> Tour::deplacementsPossible(int idJoueur,Plateau * plateau){
         while(x < 7)
         {
             x++;
-            if(plateau->getGrille().getCase(x,getCoordonne().getY()).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur()) // si on rencontre un blanc ou une piece ennemie
+            if(plateau->getGrille()->getCase(x,getCoordonne().getY()).getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur()) // si on rencontre un blanc ou une piece ennemie
             {
                 resultat.append(QPoint(x, getCoordonne().getY()));
             }
-            if(plateau->getGrille().getCase(x,getCoordonne().getY()).getCouleur() != -1) // on a rencontre un obstacle ami ou ennemi
+            if(plateau->getGrille()->getCase(x,getCoordonne().getY()).getCouleur() != -1) // on a rencontre un obstacle ami ou ennemi
             {
                 x = 7; // on stoppe la boucle
             }
@@ -49,11 +49,11 @@ QVector<QPoint> Tour::deplacementsPossible(int idJoueur,Plateau * plateau){
         while(y > 0)
         {
             y--;
-            if(plateau->getGrille().getCase(x,getCoordonne().getY()).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur()) // si on rencontre un blanc ou une piece ennemie
+            if(plateau->getGrille()->getCase(x,getCoordonne().getY()).getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur()) // si on rencontre un blanc ou une piece ennemie
             {
                 resultat.append(QPoint(getCoordonne().getX(), y));
             }
-            if(plateau->getGrille().getCase(getCoordonne().getX(),y).getCouleur() != -1) // on a rencontre un obsacle ami ou ennemi
+            if(plateau->getGrille()->getCase(getCoordonne().getX(),y).getCouleur() != -1) // on a rencontre un obsacle ami ou ennemi
             {
                 y = 0; // on stoppe la boucle
             }
@@ -62,11 +62,11 @@ QVector<QPoint> Tour::deplacementsPossible(int idJoueur,Plateau * plateau){
         while(y < 7)
         {
             y++;
-            if(plateau->getGrille().getCase(getCoordonne().getX(),y).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur()) // si on rencontre un blanc ou une piece ennemie
+            if(plateau->getGrille()->getCase(getCoordonne().getX(),y).getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur()) // si on rencontre un blanc ou une piece ennemie
             {
                 resultat.append(QPoint(getCoordonne().getX(), y));
             }
-            if(plateau->getGrille().getCase(getCoordonne().getX(),y).getCouleur() != -1) // on a rencontre un obstacle ami ou ennemi
+            if(plateau->getGrille()->getCase(getCoordonne().getX(),y).getCouleur() != -1) // on a rencontre un obstacle ami ou ennemi
             {
                 y = 7; // on stoppe la boucle
             }
