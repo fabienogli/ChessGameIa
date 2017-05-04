@@ -18,7 +18,7 @@ QVector<QPoint> Cavalier::deplacementsPossible(int idJoueur,Plateau * plateau){
 
             if(getCoordonne().getX()>=2)
             {
-                if(plateau->getGrille().getCase(getCoordonne().getX()-2,getCoordonne().getY()-1).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur() )
+                if(plateau->getGrille()->getCase(getCoordonne().getX()-2,getCoordonne().getY()-1)->getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY())->getCouleur() )
                     // sinon est pas sur une piece aliee mais une piece adverse ou un Rien
                 {
                     resultat.append(QPoint(getCoordonne().getX()-2, (getCoordonne().getY()-1)));
@@ -26,7 +26,7 @@ QVector<QPoint> Cavalier::deplacementsPossible(int idJoueur,Plateau * plateau){
             }
             if(getCoordonne().getX() <= 5)
             {
-                if(plateau->getGrille().getCase(getCoordonne().getX()+2,getCoordonne().getY()-1).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur() )
+                if(plateau->getGrille()->getCase(getCoordonne().getX()+2,getCoordonne().getY()-1)->getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY())->getCouleur() )
                 {
                     resultat.append(QPoint(getCoordonne().getX()+2, (getCoordonne().getY()-1)));
                 }
@@ -36,14 +36,14 @@ QVector<QPoint> Cavalier::deplacementsPossible(int idJoueur,Plateau * plateau){
         {
             if(getCoordonne().getX()>=2)
             {
-                if(plateau->getGrille().getCase(getCoordonne().getX()-2,getCoordonne().getY()+1).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur() )
+                if(plateau->getGrille()->getCase(getCoordonne().getX()-2,getCoordonne().getY()+1)->getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY())->getCouleur() )
                 {
                     resultat.append(QPoint(getCoordonne().getX()-2, (getCoordonne().getY()+1)));
                 }
             }
             if(getCoordonne().getX() <= 5)
             {
-                if(plateau->getGrille().getCase(getCoordonne().getX()+2,getCoordonne().getY()+1).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur() )
+                if(plateau->getGrille()->getCase(getCoordonne().getX()+2,getCoordonne().getY()+1)->getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY())->getCouleur() )
                 {
                     resultat.append(QPoint(getCoordonne().getX()+2, (getCoordonne().getY()+1)));
                 }
@@ -53,14 +53,14 @@ QVector<QPoint> Cavalier::deplacementsPossible(int idJoueur,Plateau * plateau){
 
             if(getCoordonne().getX()>=1)
             {
-                if(plateau->getGrille().getCase(getCoordonne().getX()-1,getCoordonne().getY()-2).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur() )
+                if(plateau->getGrille()->getCase(getCoordonne().getX()-1,getCoordonne().getY()-2)->getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY())->getCouleur() )
                 {
                     resultat.append(QPoint(getCoordonne().getX()-1, (getCoordonne().getY()-2)));
                 }
             }
             if(getCoordonne().getX() <= 6)
             {
-                if(plateau->getGrille().getCase(getCoordonne().getX()+1,getCoordonne().getY()-2).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur() )
+                if(plateau->getGrille()->getCase(getCoordonne().getX()+1,getCoordonne().getY()-2)->getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY())->getCouleur() )
                 {
                     resultat.append(QPoint(getCoordonne().getX()+1, (getCoordonne().getY()-2)));
                 }
@@ -70,14 +70,14 @@ QVector<QPoint> Cavalier::deplacementsPossible(int idJoueur,Plateau * plateau){
         {
             if(getCoordonne().getX()>=1)
             {
-                if(plateau->getGrille().getCase(getCoordonne().getX()-1,getCoordonne().getY()+2).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur() )
+                if(plateau->getGrille()->getCase(getCoordonne().getX()-1,getCoordonne().getY()+2)->getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY())->getCouleur() )
                 {
                     resultat.append(QPoint(getCoordonne().getX()-1, (getCoordonne().getY()+2)));
                 }
             }
             if(getCoordonne().getX() <= 6)
             {
-                if(plateau->getGrille().getCase(getCoordonne().getX()+1,getCoordonne().getY()+2).getCouleur() != plateau->getGrille().getCase(getCoordonne().getX(),getCoordonne().getY()).getCouleur() )
+                if(plateau->getGrille()->getCase(getCoordonne().getX()+1,getCoordonne().getY()+2)->getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY())->getCouleur() )
                 {
                     resultat.append(QPoint(getCoordonne().getX()+1, (getCoordonne().getY()+2)));
                 }

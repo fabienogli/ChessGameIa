@@ -24,15 +24,12 @@ Grille::~Grille()
 }
 
 //Retourne la case a l abscisse x et a l ordonne y
-Case Grille::getCase(int x, int y)
+Case* Grille::getCase(int x, int y)
 {
-    std::cout << "dans getcase";std::cout << std::endl;
-	return *cases[x][y];
-}
-Case* Grille::getCase2(int x, int y)
-{
+
     std::cout << "dans getcase";std::cout << std::endl;
     return cases[x][y];
+
 }
 
 //Retourne la hauteur de la grille
