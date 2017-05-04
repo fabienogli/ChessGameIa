@@ -197,26 +197,29 @@ void Plateau::setCoupPrec(QVector<QPoint> CoupPrec){
 bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
     //permet de savoir si une piece dont la couleur est donnée peut etre mangée par le joueur adverse
     QVector<QPoint> destination;
+    //Coordonnee coordtmp = new Coordonnee(0,0);
+    Coordonnee coordtmp(0,0);
         for(int x = 0; x < 8; x++)
         {
             for(int y = 0; y < 8; y++)
             {
                 if(getGrille().getCase(x,y).getCouleur() !=  couleur  )
                 {
+                    coordtmp.setX(x);
+                    coordtmp.setY(y);
                     if(couleur == 0)
                     {//on recherche dans le deck du premier joueur
-                    double tmp1 = (*joueur1).isAnyPiece(*coordDepart);
+                    double tmp1 = (*joueur1).isAnyPiece(coordtmp);
                     }
                     else if(couleur==1){
-                   double tmp1 = (*joueur1).isAnyPiece(*coordDepart);
-
+                   double tmp2 = (*joueur1).isAnyPiece(coordtmp);
                     }
 
-
+                    if(tmp1!=-1){
                     switch(getGrille().getCase(x,y).getId())
                     {
                         case 'P':
-                           destination = getGrille(). attaquePion(matriceGroupe,QPoint(x,y));
+                           destination = attaquePion(QPoint(getJoueur1()->getDeck()[tmp1]->getX(),getJoueur1()->getDeck()[tmp1]->getY()));
                             for(int u = 0; u < destination.count(); u++)
                             {
                                 if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
@@ -241,7 +244,7 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                             }
                             else
                             {
-                                destination = deplacements::deplacementRoi(matricePiece,matriceGroupe,QPoint(x,y));
+                                destination = getJoueur1()->getDeck()[tmp1]->deplacementsPossible(0,this);
                             }
 
                             for(int u = 0; u < destination.count(); u++)
@@ -255,7 +258,7 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                         break;
 
                         case 'F':
-                            destination = deplacements::deplacementFou(matriceGroupe,QPoint(x,y));
+                            destination = getJoueur1()->getDeck()[tmp1]->deplacementsPossible(0,this);
                             for(int u = 0; u < destination.count(); u++)
                             {
                                 if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
@@ -266,7 +269,7 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                             destination.clear();
                         break;
                         case 'T':
-                            destination =  deplacements::deplacementTour(matriceGroupe,QPoint(x,y));
+                            destination =  getJoueur1()->getDeck()[tmp1]->deplacementsPossible(0,this);
                             for(int u = 0; u < destination.count(); u++)
                             {
                                 if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
@@ -277,7 +280,7 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                             destination.clear();
                         break;
                         case 'C':
-                            destination = deplacements::deplacementCavalier(matriceGroupe,QPoint(x,y));
+                            destination = getJoueur1()->getDeck()[tmp1]->deplacementsPossible(0,this);
                             for(int u = 0; u < destination.count(); u++)
                             {
                                 if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
@@ -289,10 +292,96 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                         break;
 
                     }
+                    }
+                    else if(tmp2!=-1){
+                        switch(getGrille().getCase(x,y).getId())
+                        {
+                            case 'P':
+                               destination =  attaquePion(QPoint(getJoueur1()->getDeck()[tmp1]->getX(),getJoueur1()->getDeck()[tmp1]->getY()));
+                                for(int u = 0; u < destination.count(); u++)
+                                {
+                                    if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
+                                    {
+                                        return true;
+                                    }
+                                }
+                                destination.clear();
+                            break;
+                            case 'R':
+                                if(coordpion != NULL)
+                                {
+                                    if(getGrille().getCase(coordpion->x(),coordpion->y()).getId() != 'R') // on rois ne peu pas attaquer un autre rois !
+                                    {
+                                       // destination = deplacements::deplacementRoi(matricePiece,matriceGroupe,QPoint(x,y));
+                                    }
+                                    else
+                                    {
+                                        //on ne peut simplement ignorer l'autre roi, il faut calculer si on peut etre sur la piece
+                                    }
+
+                                }
+                                else
+                                {
+                                    destination = getJoueur2()->getDeck()[tmp2]->deplacementsPossible(1,this);
+                                }
+
+                                for(int u = 0; u < destination.count(); u++)
+                                {
+                                    if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
+                                    {
+                                        return true;
+                                    }
+                                }
+                                destination.clear();
+                            break;
+
+                            case 'F':
+                                destination = getJoueur2()->getDeck()[tmp2]->deplacementsPossible(1,this);
+                                for(int u = 0; u < destination.count(); u++)
+                                {
+                                    if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
+                                    {
+                                        return true;
+                                    }
+                                }
+                                destination.clear();
+                            break;
+                            case 'T':
+                                destination =  getJoueur2()->getDeck()[tmp2]->deplacementsPossible(1,this);
+                                for(int u = 0; u < destination.count(); u++)
+                                {
+                                    if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
+                                    {
+                                        return true;
+                                    }
+                                }
+                                destination.clear();
+                            break;
+                            case 'C':
+                                destination = getJoueur2()->getDeck()[tmp2]->deplacementsPossible(1,this);
+                                for(int u = 0; u < destination.count(); u++)
+                                {
+                                    if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
+                                    {
+                                        return true;
+                                    }
+                                }
+                                destination.clear();
+                            break;
+
+                        }
+
+                    }
                 }
             }
         }
         return false;
+}
+
+QVector<QPoint> Plateau::attaquePion(QPoint point){
+
+    QVector<QPoint> result;
+    return tmp;
 }
 //Destructeur du plateau
 Plateau::~Plateau()
