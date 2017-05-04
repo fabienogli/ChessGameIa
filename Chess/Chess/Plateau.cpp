@@ -203,10 +203,19 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
             {
                 if(getGrille().getCase(x,y).getCouleur() !=  couleur  )
                 {
+                    if(couleur == 0)
+                    {//on recherche dans le deck du premier joueur
+                    double tmp1 = (*joueur1).isAnyPiece(*coordDepart);}
+                    else if(couleur==1){
+
+
+                    }
+
+
                     switch(getGrille().getCase(x,y).getId())
                     {
                         case 'P':
-                           // destination = deplacements::attaquePion(matriceGroupe,QPoint(x,y));
+                           destination = getGrille(). attaquePion(matriceGroupe,QPoint(x,y));
                             for(int u = 0; u < destination.count(); u++)
                             {
                                 if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
