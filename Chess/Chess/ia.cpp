@@ -58,6 +58,7 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
             int idPiece=(joueur->isAnyPiece(Coordonnee(x,y)));
             if(idPiece != (-1)){
                 QVector<QPoint> listeCoup;
+                /*
                 switch(id=joueur->getDeck()[idPiece]->getId())
                 {
                 case 'P':
@@ -78,7 +79,9 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
                 default:
 
                     break;
-                }
+                }*/
+                listeCoup = joueur->getDeck()[idPiece]->deplacementsPossible(joueur->getIdJoueur(),plateau);
+
                 for(int i=0;i<listeCoup.size();i++){
                     int coup_origin_x = plateau->getCoupPrec().at(0).x();
                     int coup_origin_y =plateau->getCoupPrec().at(0).y();
@@ -227,6 +230,7 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
             int idPiece=(joueur->isAnyPiece(Coordonnee(x,y)));
             if(idPiece != (-1)){
                 QVector<QPoint> listeCoup;
+                /*
                 switch(id=joueur->getDeck()[idPiece]->getId())
                 {
                 case 'P':
@@ -247,7 +251,9 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
                 default:
 
                     break;
-                }
+                }*/
+                listeCoup = joueur->getDeck()[idPiece]->deplacementsPossible(joueur->getIdJoueur(),plateau);
+
                 for(int i=0;i<listeCoup.count();i++){
                     int coup_origin_x = plateau->getCoupPrec().at(0).x();
                     int coup_origin_y =plateau->getCoupPrec().at(0).y();
@@ -610,7 +616,183 @@ int ia::eval(Plateau * plateau){
 }
 QVector<QPoint> ia::calc_echec_et_mat(int joueur,QPoint pos_rois_joueur){
 
-    QVector<QPoint> tmp;
-    return tmp;
+    int score;
+
+        QVector<QPoint> result;
+        /*
+        for(int x = 0; x < 8; x++)
+        {
+            for(int y = 0; y < 8; y++)
+            {
+                if(m_groupe[x][y] == joueur)
+                {
+                    QVector<QPoint> listeCoup;
+                    switch(m_terrain[x][y])
+                    {
+                        case Pion:
+                            listeCoup = deplacements::deplacementPion(m_groupe,this->m_terrain,QPoint(x,y),m_coupPrecedent);
+                        break;
+                        case Rois:
+                            listeCoup = deplacements::deplacementRoi(m_terrain,m_groupe,QPoint(x,y));
+                            if(deplacements::grandRoguePossible(m_groupe[x][y],m_groupe,m_deplacement,m_terrain))
+                            {
+                                if(m_groupe[x][y] == 1)
+                                {
+                                    listeCoup.append(QPoint(0,2));
+                                }
+                                else
+                                {
+                                    listeCoup.append(QPoint(7,2));
+                                }
+                            }
+                            if(deplacements::petitRoguePossible(m_groupe[x][y],m_groupe,m_deplacement,m_terrain))
+                            {
+                                if(m_groupe[x][y] == 1)
+                                {
+                                    listeCoup.append(QPoint(0,6));
+                                }
+                                else
+                                {
+                                    listeCoup.append(QPoint(7,6));
+                                }
+                            }
+                        break;
+                        case Reine:
+                            listeCoup = deplacements::deplacementReine(m_groupe,QPoint(x,y));
+                        break;
+                        case Fous:
+                            listeCoup = deplacements::deplacementFou(m_groupe,QPoint(x,y));
+                        break;
+                        case Tour:
+                            listeCoup = deplacements::deplacementTour(m_groupe,QPoint(x,y));
+                        break;
+                        case Cavalier:
+                            listeCoup = deplacements::deplacementCavalier(m_groupe,QPoint(x,y));
+                        break;
+                        case Rien:
+                            listeCoup = QVector<QPoint>();
+                        break;
+                    }
+
+                    for (int i = 0; i < listeCoup.count(); i++)
+                    {
+                        int coup_origin_x = m_coupPrecedent->at(0).x();
+                        int coup_origin_y = m_coupPrecedent->at(0).y();
+                        int coup_dest_x = m_coupPrecedent->at(1).x();
+                        int coup_dest_y = m_coupPrecedent->at(1).y();
+                        // on joue le tour
+                        piece tempPiece = m_terrain[listeCoup.at(i).x()][listeCoup.at(i).y()];
+                        int tempGroupe = m_groupe[listeCoup.at(i).x()][listeCoup.at(i).y()];
+
+                        ///////// SI LE ROI PEUT SE DEPLACER C'EST QU'IL PEUT S'ECHAPPER LE BOUGRE !
+                        if(m_terrain[x][y] ==  Rois)
+                        {
+                          result.append(QPoint(x,y));
+                          result.append(listeCoup.at(i));
+                        }
+                        else
+                        {
+                            ///////// GERER LA CAPTURE D'UN PION A LA VOLE !!!
+                            bool deplacementSpecialFait = false;
+                            if(m_terrain[x][y] == Pion)
+                            {
+                                if(listeCoup.at(i).y() != y && m_terrain[listeCoup.at(i).x()][listeCoup.at(i).y()] == Rien )
+                                {
+                                    deplacementSpecialFait = true;
+                                    if(y - listeCoup.at(i).y() > 0)
+                                    {
+                                        m_terrain[x][y-1] = Rien;
+                                        m_groupe[x][y-1] = 0;
+                                    }
+                                    else
+                                    {
+                                        m_terrain[x][y+1] = Rien;
+                                        m_groupe[x][y+1] = 0;
+                                    }
+                                }
+                            }
+
+
+                            m_terrain[listeCoup.at(i).x()][listeCoup.at(i).y()] = m_terrain[x][y];
+                            m_terrain[x][y] = Rien;
+                            m_groupe[listeCoup.at(i).x()][listeCoup.at(i).y()] = m_groupe[x][y];
+                            m_groupe[x][y] = 0;
+
+                            m_coupPrecedent[0][0].setX(x);
+                            m_coupPrecedent[0][0].setY(y);
+                            m_coupPrecedent[0][1].setX(listeCoup.at(i).x());
+                            m_coupPrecedent[0][1].setY(listeCoup.at(i).y());
+
+
+
+
+
+                            if(deplacements::estEnEchec(m_terrain,m_groupe,joueur,QPoint(pos_rois_joueur.x(),pos_rois_joueur.y())))
+                            {
+                                score = -1000;
+                            }
+                            else
+                            {
+                                score =  1000;
+                            }
+
+
+
+                            if(score > -500) // si on peut eviter un echec et mat un score superieur a -1000 devrai apparaitre
+                            {
+                                // on a sacrifie une piece pour sauver le roi \o/ longue vie au roi !
+                                result.append(QPoint(x,y));
+                                result.append(listeCoup.at(i));
+                            }
+
+
+
+
+                            m_coupPrecedent[0][0].setX(coup_origin_x);
+                            m_coupPrecedent[0][0].setY(coup_origin_y);
+                            m_coupPrecedent[0][1].setX(coup_dest_x);
+                            m_coupPrecedent[0][1].setY(coup_dest_y);
+
+                            if(deplacementSpecialFait)
+                            {
+                                if(y - listeCoup.at(i).y() > 0)
+                                {
+                                    m_terrain[x][y-1] = Pion;
+                                    if(joueur == 1)
+                                    {
+                                      m_groupe[x][y-1] = 2;
+                                    }
+                                    else
+                                    {
+                                      m_groupe[x][y-1] = 1;
+                                    }
+                                }
+                                else
+                                {
+                                    m_terrain[x][y+1] = Pion;
+                                    if(joueur == 1)
+                                    {
+                                      m_groupe[x][y+1] = 2;
+                                    }
+                                    else
+                                    {
+                                      m_groupe[x][y+1] = 1;
+                                    }
+                                }
+                            }
+
+
+
+                              m_terrain[x][y] = m_terrain[listeCoup.at(i).x()][listeCoup.at(i).y()];
+                              m_terrain[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempPiece;
+
+                              m_groupe[x][y] = m_groupe[listeCoup.at(i).x()][listeCoup.at(i).y()] ;
+                              m_groupe[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempGroupe;
+                        }
+                    }
+                }
+            }
+        }*/
+        return result;
 }
 
