@@ -5,6 +5,7 @@
 
 Tour::Tour()
 {
+    poids=500;
 }
 
 
