@@ -1,10 +1,13 @@
 #include "Joueur.h"
 
-
+int Joueur::wayToMove =0;
 //Methode constructeur de la classe joueur
 //prend en parametre le nom du joueur et un int qui determine la position du joueur sur le plateau
 Joueur::Joueur(std::string nom, int i)
 {
+    wayToMove+=1;
+    if(wayToMove==2)
+        wayToMove=-1;
 	nomJoueur = nom;
 	setOrigin(i);
     id = i ;
@@ -48,13 +51,12 @@ void Joueur::generateDeck()
 {
 	for (int i = 0; i < 8; i++)
 	{
-		Pion *pion = new Pion();
+        Pion *pion = new Pion(wayToMove);
 		int j = int(abs((*origin).getY() - (2 - i % 2)));
 		(*pion).setCoordonnee(new Coordonnee(i,j));
         pion->setCouleur(id);
 		deck.push_back(pion);
 	}
-
 	Tour *tour = new Tour();
 	int y = (*origin).getY();
 	(*tour).setCoordonnee(new Coordonnee(0, y));

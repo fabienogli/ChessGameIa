@@ -1,0 +1,18 @@
+#include "Dame.h"
+
+
+
+Dame::Dame()
+{
+    poids = 900;
+}
+
+
+Dame::~Dame()
+{
+}
+
+bool Dame::testDeplacement(Coordonnee coord)
+{
+	return(Piece::testDiagonal(coord) || Piece::testHorizontal(coord) || Piece::testVertical(coord));
+}

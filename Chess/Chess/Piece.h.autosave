@@ -27,7 +27,7 @@ public:
     void setCouleur(int i);
 	~Piece();
 	char getId();
-private:
+protected:
 	Coordonnee *coordonnee;
 	bool alive;	
     int couleur;

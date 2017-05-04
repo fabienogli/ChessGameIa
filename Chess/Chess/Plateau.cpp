@@ -205,9 +205,10 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                 {
                     if(couleur == 0)
                     {//on recherche dans le deck du premier joueur
-                    double tmp1 = (*joueur1).isAnyPiece(*coordDepart);}
+                    double tmp1 = (*joueur1).isAnyPiece(*coordDepart);
+                    }
                     else if(couleur==1){
-
+                   double tmp1 = (*joueur1).isAnyPiece(*coordDepart);
 
                     }
 

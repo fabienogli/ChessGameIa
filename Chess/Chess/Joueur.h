@@ -30,6 +30,7 @@ private:
 	std::string nomJoueur;
     int id;
 	static int const nombrePiece = 6;
+    static int wayToMove;
 	std::vector<Piece*> deck;
 };
 
