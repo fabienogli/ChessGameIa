@@ -134,7 +134,6 @@ void MainWindow::affichSuppInit(Piece * piece, int id,int i){
             }
             break;
         default:
-            pixmap.load(":/chessicons/bKing.png");
             break;
         }
     }else{

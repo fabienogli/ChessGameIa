@@ -11,9 +11,9 @@ public:
     ia();
     void setLevel(int i);
     int getLevel();
-    QVector<QPoint> calc_echec_et_mat(int joueur,QPoint pos_rois_joueur,,Plateau * plateau);
     QVector<QPoint> jouer(Joueur *joueur,int profondeur,Plateau *plateau);
     int eval(Plateau * plateau );
+    QVector<QPoint>calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Plateau * plateau);
     int max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta);
     int min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta);
     int gagnant(int idJoueur,Plateau * Plateau);

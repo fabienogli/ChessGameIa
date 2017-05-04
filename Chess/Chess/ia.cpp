@@ -11,22 +11,22 @@ ia::ia()
 int ia::gagnant(int idJoueur,Plateau * plateau){
     if(idJoueur == 0)
     {
-        if(this->calc_echec_et_mat(plateau->getJoueur1(),this->m_Posi_Rois1,plateau).count() == 0)
+        if(calc_echec_et_mat(plateau->getJoueur1(),this->m_Posi_Rois1,plateau).size() == 0)
         {
             return -1000;
         }
-        if(this->calc_echec_et_mat(plateau->getJoueur2(),this->m_Posi_Rois2,plateau).count() == 0)
+        if(this->calc_echec_et_mat(plateau->getJoueur2(),this->m_Posi_Rois2,plateau).size() == 0)
         {
             return 1000;
         }
     }
     else
     {
-        if(this->calc_echec_et_mat(plateau->getJoueur2(),this->m_Posi_Rois2,plateau).count() == 0)
+        if(this->calc_echec_et_mat(plateau->getJoueur2(),this->m_Posi_Rois2,plateau).size() == 0)
         {
             return -1000;
         }
-        if(this->calc_echec_et_mat(plateau->getJoueur1(),this->m_Posi_Rois1,plateau).count() == 0)
+        if(this->calc_echec_et_mat(plateau->getJoueur1(),this->m_Posi_Rois1,plateau).size() == 0)
         {
             return 1000;
         }
@@ -37,9 +37,9 @@ int ia::gagnant(int idJoueur,Plateau * plateau){
 }
 int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
 {
-    int retour=0  ;
+    int retour=gagnant(joueur->getIdJoueur(),plateau)  ;
     int max = -10000;
-    if(profondeur <= 0 || (retour = gagnant(joueur->getIdJoueur())) != 0)
+    if(profondeur <= 0 || (retour != 0))
     {
         if(profondeur <= 0)
         {
@@ -209,9 +209,9 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
     return max;
 }
 int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
-    int retour=0  ;
+    int retour=gagnant(joueur->getIdJoueur(),plateau)  ;
     int min = 10000;
-    if(profondeur <= 0 || (retour = gagnant(joueur->getIdJoueur())) != 0)
+    if(profondeur <= 0 || (retour != 0))
     {
         if(profondeur <= 0)
         {
@@ -420,8 +420,9 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                     this->m_Posi_Rois2.setY(y);
                 }
             }
-            char id=joueur->getDeck()[idPiece]->getId();
             int idPiece=(joueur->isAnyPiece(Coordonnee(x,y)));
+
+            char id = joueur->getDeck()[idPiece]->getId();
             if(idPiece != (-1)){
                 QVector<QPoint> listeCoup;
                 /*
@@ -629,6 +630,7 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
                 Coordonnee coordtmp(0,0);
                 coordtmp.setX(x);
                 coordtmp.setY(y);
+                int tmp;
                 if(joueur->getIdJoueur() == 0)
                     //on recherche dans le deck du premier joueur
                     tmp = plateau->getJoueur1()->isAnyPiece(coordtmp);
@@ -691,7 +693,7 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
                     else
                     {
                         bool deplacementSpecialFait = false;
-                        if(id == 'P')
+                        if(idPiece == 'P')
                         {
                             if(listeCoup.at(i).x() != x && !plateau->caseAtOccupy(listeCoup.at(i).x(),listeCoup.at(i).y()))
                             {
