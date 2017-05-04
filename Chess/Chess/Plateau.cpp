@@ -194,6 +194,96 @@ void Plateau::setCoupPrec(QVector<QPoint> CoupPrec){
     *m_coupPrecedent=CoupPrec;
 }
 
+bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
+    //permet de savoir si une piece dont la couleur est donnée peut etre mangée par le joueur adverse
+    QVector<QPoint> destination;
+        for(int x = 0; x < 8; x++)
+        {
+            for(int y = 0; y < 8; y++)
+            {
+                if(getGrille().getCase(x,y).getCouleur() !=  couleur  )
+                {
+                    switch(getGrille().getCase(x,y).getId())
+                    {
+                        case 'P':
+                           // destination = deplacements::attaquePion(matriceGroupe,QPoint(x,y));
+                            for(int u = 0; u < destination.count(); u++)
+                            {
+                                if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
+                                {
+                                    return true;
+                                }
+                            }
+                            destination.clear();
+                        break;
+                        case 'R':
+                            if(coordpion != NULL)
+                            {
+                                if(getGrille().getCase(coordpion->x(),coordpion->y()).getId() != 'R') // on rois ne peu pas attaquer un autre rois !
+                                {
+                                   // destination = deplacements::deplacementRoi(matricePiece,matriceGroupe,QPoint(x,y));
+                                }
+                                else
+                                {
+                                    //on ne peut simplement ignorer l'autre roi, il faut calculer si on peut etre sur la piece
+                                }
+
+                            }
+                            else
+                            {
+                                destination = deplacements::deplacementRoi(matricePiece,matriceGroupe,QPoint(x,y));
+                            }
+
+                            for(int u = 0; u < destination.count(); u++)
+                            {
+                                if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
+                                {
+                                    return true;
+                                }
+                            }
+                            destination.clear();
+                        break;
+
+                        case 'F':
+                            destination = deplacements::deplacementFou(matriceGroupe,QPoint(x,y));
+                            for(int u = 0; u < destination.count(); u++)
+                            {
+                                if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
+                                {
+                                    return true;
+                                }
+                            }
+                            destination.clear();
+                        break;
+                        case 'T':
+                            destination =  deplacements::deplacementTour(matriceGroupe,QPoint(x,y));
+                            for(int u = 0; u < destination.count(); u++)
+                            {
+                                if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
+                                {
+                                    return true;
+                                }
+                            }
+                            destination.clear();
+                        break;
+                        case 'C':
+                            destination = deplacements::deplacementCavalier(matriceGroupe,QPoint(x,y));
+                            for(int u = 0; u < destination.count(); u++)
+                            {
+                                if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
+                                {
+                                    return true;
+                                }
+                            }
+                            destination.clear();
+                        break;
+
+                    }
+                }
+            }
+        }
+        return false;
+}
 //Destructeur du plateau
 Plateau::~Plateau()
 {
