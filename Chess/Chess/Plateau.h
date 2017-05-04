@@ -23,6 +23,7 @@ public:
     QVector<QPoint> getCoupPrec();
     void setCoupPrec(QVector<QPoint> CoupPrec);
     bool est_en_echec(QPoint* coordcase, QPoint* coordpion, int i);
+    bool testDestination(QPoint *coordcase, int i_piece, int i_joueur);
     QVector<QPoint> attaquePion(QPoint point);
 
 	~Plateau();
