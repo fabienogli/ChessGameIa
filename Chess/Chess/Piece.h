@@ -27,11 +27,10 @@ public:
     void setCouleur(int i);
 	~Piece();
 	char getId();
-private:
+protected:
 	Coordonnee *coordonnee;
 	bool alive;	
     int couleur;
-    int poids;
     /*
      * 100 pour un pion
      * 300 cavalier et fou
@@ -40,4 +39,5 @@ private:
      * 0 roi
      * */
 };
+
 

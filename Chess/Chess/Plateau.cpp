@@ -63,6 +63,19 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
         std::cout << tmp1;std::cout << std::endl;
         (*joueur1).getDeck()[tmp1]->afficher();
         //(*joueur1).getPiece(int(tmp1)).move(coordArrivee,(*joueur1).getOrigin());
+
+        //DEBUT TEST DEPLACEMENT
+        Piece* tmpt = (*joueur1).getDeck()[tmp1];
+        std::cout<<"Piece prise"<<std::endl;
+        QVector<QPoint> listeCoups = tmpt->deplacementsPossible((*joueur1).getIdJoueur(),this);
+        std::cout<<"Liste déplacement"<<std::endl;
+        for (int i =0; i<listeCoups.size();i++)
+        {
+            std::cout<<"x = "<<listeCoups[i].x()<<" et y="<<listeCoups[i].y()<<std::endl;
+        }
+        std::cout<<"fin de liste déplacement"<<std::endl;
+        //FIN DEPLACEMENT
+
         bool b=(*joueur1).getDeck()[tmp1]->move(coordArrivee,(*joueur1).getOrigin());
         (*joueur1).getDeck()[tmp1]->afficher();
         std::cout << "je suis 1-2";std::cout << std::endl;

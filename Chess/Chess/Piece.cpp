@@ -155,10 +155,6 @@ char Piece::getId()
 	return typeid(*this).name()[6];
 }
 
-int Piece::getPoids()
-{
-    return poids;
-}
 
 
 

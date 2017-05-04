@@ -4,6 +4,9 @@
 /**
 Classe du roi
 */
+
+
+
 Roi::Roi()
 {
 }

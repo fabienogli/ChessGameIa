@@ -582,29 +582,28 @@ int ia::eval(Plateau * plateau){
            {
                if(plateau->getGrille().getCase(x,y).getId() == 'P' && plateau->getGrille().getCase(x,y).getCouleur() == 0)
                {
-                   scoreJoueur1++;
+                   scoreJoueur1+=100;
                }
                else if(plateau->getGrille().getCase(x,y).getId() == 'P' && plateau->getGrille().getCase(x,y).getCouleur() == 1)
                {
-                   scoreJoueur2++;
+                   scoreJoueur2+=100;
                }
                if((plateau->getGrille().getCase(x,y).getId() == 'F' || plateau->getGrille().getCase(x,y).getId() == 'C') && plateau->getGrille().getCase(x,y).getCouleur() == 0)
                {
-                   scoreJoueur1 += 3;
+                   scoreJoueur1 += 300;
                }
                else if((plateau->getGrille().getCase(x,y).getId() == 'F' || plateau->getGrille().getCase(x,y).getId() == 'C') && plateau->getGrille().getCase(x,y).getCouleur() == 1)
                {
-                   scoreJoueur2 += 3;
+                   scoreJoueur2 += 300;
                }
                if(plateau->getGrille().getCase(x,y).getId() == 'T' && plateau->getGrille().getCase(x,y).getCouleur() == 0)
                {
-                   scoreJoueur1 += 5;
+                   scoreJoueur1 += 500;
                }
                else if(plateau->getGrille().getCase(x,y).getId() == 'T' && plateau->getGrille().getCase(x,y).getCouleur() == 0)
                {
-                  scoreJoueur2 += 5;
+                  scoreJoueur2 += 500;
                }
-
            }
        }
        return  scoreJoueur1 - scoreJoueur2;
