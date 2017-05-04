@@ -38,7 +38,7 @@ bool Pion::testDeplacement(Coordonnee coord)
         {
             if((coord.getY()-coordonnee->getY()== -2) && nbCout==0)
                 verif = true;
-            else if((abs(coord.getY()-coordonnee->getY())== -1))
+            else if(coord.getY()-coordonnee->getY()== -1)
                 verif = true;
         }
     }
