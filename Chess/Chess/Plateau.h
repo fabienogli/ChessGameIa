@@ -22,7 +22,7 @@ public:
     void updateCaseStatus(Piece piece,Coordonnee oldCoord);
     QVector<QPoint> getCoupPrec();
     void setCoupPrec(QVector<QPoint> CoupPrec);
-    bool est_en_echec(QPoint* coordcase, QPoint* coordpion);
+    bool est_en_echec(QPoint* coordcase, QPoint* coordpion, int i);
     QVector<QPoint> attaquePion(QPoint point);
 
 	~Plateau();
