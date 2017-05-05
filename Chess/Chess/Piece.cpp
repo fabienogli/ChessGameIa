@@ -55,7 +55,7 @@ void Piece::afficher()
 }
 
 //Methode pour tester un deplacement
-bool Piece::testDeplacement(Coordonnee coord)
+bool Piece::testDeplacement(Coordonnee coord, Plateau * plateau)
 {
     bool verif = false;
     return verif;
@@ -127,7 +127,7 @@ bool Piece::move(Coordonnee * coord, Coordonnee origin, Plateau* plateau)
     std::cout << "je suis ici";std::cout << std::endl;
    // Coordonnee test(origin.getX() - (*coord).getX(), origin.getY() - (*coord).getY());
     //if (testDeplacement(test)) {
-    if (testDeplacement(*coord)==true) {
+    if (testDeplacement(*coord, plateau)==true) {
        // setCoordonnee(new Coordonnee(*coord));
         //on test si il y a une autre piece sur la case
         if(plateau->caseAtOccupy(coord->getX(),coord->getY()))

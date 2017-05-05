@@ -16,14 +16,15 @@ Pion::~Pion()
 {
 }
 
-bool Pion::testDeplacement(Coordonnee coord)
-{ bool verif = false;
+bool Pion::testDeplacement(Coordonnee coord, Plateau* plateau)
+{
+    bool verif = false;
     std::cout << "test deplacement"<< std::endl;
     std::cout <<coord.getX()<< std::endl;
     std::cout <<coordonnee->getX()<< std::endl;
     std::cout <<abs(coord.getY()-coordonnee->getY())<<std::endl;
     //a updater pour prendre le deplacement de deux cases quau debut
-    if (coord.getX() == coordonnee->getX()  && ((abs(coord.getY()-coordonnee->getY()) <3 )))
+    if (coord.getX() == coordonnee->getX()  && ((abs(coord.getY()-coordonnee->getY()) <3 ))&& !plateau->caseAtOccupy(coord.getX(), coord.getY()))
     {
         if(wayToMove==1)
         {
@@ -39,6 +40,13 @@ bool Pion::testDeplacement(Coordonnee coord)
             else if(coord.getY()-coordonnee->getY()== -1)
                 verif = true;
         }
+    }
+    else if((coord.getX() == coordonnee->getX()-1 ||coord.getX() == coordonnee->getX()+1)&&coord.getY()==coordonnee->getY()+wayToMove && plateau->caseAtOccupy(coord.getX(), coord.getY()))
+    {
+        if(plateau->getPiece(&coord)->getCouleur()!=couleur)
+            verif =true;
+        else
+            verif =false;
     }
     if(verif==true) {std::cout << "vrai"<< std::endl;}
     else            {std::cout << "faux"<< std::endl;}
