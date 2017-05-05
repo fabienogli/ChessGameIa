@@ -104,6 +104,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
         std::cout << "je suis 1-2bis";std::cout << std::endl;
         emit affichSuppInit((*joueur).getDeck()[tmpActif],(*joueur).getIdJoueur(),0);
         emit affichSuppInit(aSupprimer,(*joueur).getIdJoueur(),1);
+        getGrille()->putPiece((*joueur).getDeck()[tmpActif]);
         getGrille()->removePiece(coordDepart);
     }else{
 
