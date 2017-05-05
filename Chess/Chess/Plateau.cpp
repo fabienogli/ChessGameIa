@@ -96,14 +96,15 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     std::cout << "je suis 1-2";std::cout << std::endl;
     if(b==true){
 
-            //mettre a jour couleur des cases
-            m_coupPrecedent[0][0].setX(coordDepart->getX());
-            m_coupPrecedent[0][0].setY(coordDepart->getY());
-            m_coupPrecedent[0][1].setX(coordArrivee->getX());
-            m_coupPrecedent[0][1].setY(coordArrivee->getY());
+        //mettre a jour couleur des cases
+        m_coupPrecedent[0][0].setX(coordDepart->getX());
+        m_coupPrecedent[0][0].setY(coordDepart->getY());
+        m_coupPrecedent[0][1].setX(coordArrivee->getX());
+        m_coupPrecedent[0][1].setY(coordArrivee->getY());
         std::cout << "je suis 1-2bis";std::cout << std::endl;
         emit affichSuppInit((*joueur).getDeck()[tmpActif],(*joueur).getIdJoueur(),0);
         emit affichSuppInit(aSupprimer,(*joueur).getIdJoueur(),1);
+        getGrille()->removePiece(coordDepart);
     }else{
 
         std::cout << "deplacement non autorise";std::cout << std::endl;
@@ -225,147 +226,147 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
     Coordonnee coordtmp(0,0);
     double tmp1;
     double tmp2;
-        for(int x = 0; x < 8; x++)
+    for(int x = 0; x < 8; x++)
+    {
+        for(int y = 0; y < 8; y++)
         {
-            for(int y = 0; y < 8; y++)
+            if(damier->getCase(x,y)->getCouleur() !=  couleur  )
             {
-                if(damier->getCase(x,y)->getCouleur() !=  couleur  )
-                {
-                    coordtmp.setX(x);
-                    coordtmp.setY(y);
-                    if(couleur == 0)
+                coordtmp.setX(x);
+                coordtmp.setY(y);
+                if(couleur == 0)
                     //on recherche dans le deck du premier joueur
                     tmp1 = (*joueur1).isAnyPiece(coordtmp);
-                    else if(couleur==1)
+                else if(couleur==1)
                     tmp2 = (*joueur1).isAnyPiece(coordtmp);
-                    if(tmp1!=-1){
+                if(tmp1!=-1){
                     switch(damier->getCase(x,y)->getId())
                     {
-                        case 'P':
-                           destination = attaquePion(QPoint(joueur1->getDeck()[tmp1]->getCoordonne().getX(),getJoueur1()->getDeck()[tmp1]->getCoordonne().getY()));
-                            for(int u = 0; u < destination.size(); u++)
+                    case 'P':
+                        destination = attaquePion(QPoint(joueur1->getDeck()[tmp1]->getCoordonne().getX(),getJoueur1()->getDeck()[tmp1]->getCoordonne().getY()));
+                        for(int u = 0; u < destination.size(); u++)
+                        {
+                            if(destination[u].x() == coordcase->x() && destination[u].y() == coordcase->y() )
                             {
-                                if(destination[u].x() == coordcase->x() && destination[u].y() == coordcase->y() )
-                                {
-                                    return true;
-                                }
+                                return true;
                             }
-                            destination.clear();
+                        }
+                        destination.clear();
                         break;
-                        case 'R':
-                            if(coordpion != NULL)
+                    case 'R':
+                        if(coordpion != NULL)
+                        {
+                            if(damier->getCase(coordpion->x(),coordpion->y())->getId() != 'R') // on rois ne peu pas attaquer un autre rois !
                             {
-                                if(damier->getCase(coordpion->x(),coordpion->y())->getId() != 'R') // on rois ne peu pas attaquer un autre rois !
-                                {
-                                   // destination = deplacements::deplacementRoi(matricePiece,matriceGroupe,QPoint(x,y));
-                                }
-                                else
-                                {
-                                    //on ne peut simplement ignorer l'autre roi, il faut calculer si on peut etre sur la piece
-                                }
-
+                                // destination = deplacements::deplacementRoi(matricePiece,matriceGroupe,QPoint(x,y));
                             }
                             else
                             {
-                                destination = getJoueur1()->getDeck()[tmp1]->deplacementsPossible(0,this);
+                                //on ne peut simplement ignorer l'autre roi, il faut calculer si on peut etre sur la piece
                             }
-
-                            for(int u = 0; u < destination.size(); u++)
-                            {
-                                if(destination[u].x() == coordcase->x() && destination[u].y() == coordcase->y() )
-                                {
-                                    return true;
-                                }
-                            }
-                            destination.clear();
-                        break;
-
-                        case 'F':
-                            if(testDestination(coordcase, tmp1,0))
-                                return true;
-                        break;
-                        case 'T':
-                            if(testDestination(coordcase, tmp1,0))
-                                return true;
-                        break;
-                        case 'C':
-                            if(testDestination(coordcase, tmp1,0))
-                                return true;
-                        break;
-
-                    }
-                    }
-                    else if(tmp2!=-1){
-                        switch(damier->getCase(x,y)->getId())
-                        {
-                            case 'P':
-                               destination =  attaquePion(QPoint(joueur1->getDeck()[tmp1]->getCoordonne().getX(),getJoueur1()->getDeck()[tmp1]->getCoordonne().getY()));
-                                for(int u = 0; u < destination.size(); u++)
-                                {
-                                    if(destination[u].x() == coordcase->x() && destination[u].y() == coordcase->y() )
-                                    {
-                                        return true;
-                                    }
-                                }
-                                destination.clear();
-                            break;
-                            case 'R':
-                                if(coordpion != NULL)
-                                {
-                                    if(damier->getCase(coordpion->x(),coordpion->y())->getId() != 'R') // on rois ne peu pas attaquer un autre rois !
-                                    {
-                                       // destination = deplacements::deplacementRoi(matricePiece,matriceGroupe,QPoint(x,y));
-                                    }
-                                    else
-                                    {
-                                        //on ne peut simplement ignorer l'autre roi, il faut calculer si on peut etre sur la piece
-                                    }
-
-                                }
-                                else
-                                {
-                                    destination = joueur2->getDeck()[tmp2]->deplacementsPossible(1,this);
-                                }
-
-                                for(int u = 0; u < destination.size(); u++)
-                                {
-                                    if(destination[u].x() == coordcase->x() && destination[u].y() == coordcase->y() )
-                                    {
-                                        return true;
-                                    }
-                                }
-                                destination.clear();
-                            break;
-
-                            case 'F':
-                                if(testDestination(coordcase, tmp2,1))
-                                    return true;
-                            break;
-                            case 'T':
-                                if(testDestination(coordcase, tmp2,1))
-                                    return true;
-                            break;
-                            case 'C':
-                                if(testDestination(coordcase, tmp2,1))
-                                    return true;
-                            break;
 
                         }
+                        else
+                        {
+                            destination = getJoueur1()->getDeck()[tmp1]->deplacementsPossible(0,this);
+                        }
+
+                        for(int u = 0; u < destination.size(); u++)
+                        {
+                            if(destination[u].x() == coordcase->x() && destination[u].y() == coordcase->y() )
+                            {
+                                return true;
+                            }
+                        }
+                        destination.clear();
+                        break;
+
+                    case 'F':
+                        if(testDestination(coordcase, tmp1,0))
+                            return true;
+                        break;
+                    case 'T':
+                        if(testDestination(coordcase, tmp1,0))
+                            return true;
+                        break;
+                    case 'C':
+                        if(testDestination(coordcase, tmp1,0))
+                            return true;
+                        break;
 
                     }
                 }
+                else if(tmp2!=-1){
+                    switch(damier->getCase(x,y)->getId())
+                    {
+                    case 'P':
+                        destination =  attaquePion(QPoint(joueur1->getDeck()[tmp1]->getCoordonne().getX(),getJoueur1()->getDeck()[tmp1]->getCoordonne().getY()));
+                        for(int u = 0; u < destination.size(); u++)
+                        {
+                            if(destination[u].x() == coordcase->x() && destination[u].y() == coordcase->y() )
+                            {
+                                return true;
+                            }
+                        }
+                        destination.clear();
+                        break;
+                    case 'R':
+                        if(coordpion != NULL)
+                        {
+                            if(damier->getCase(coordpion->x(),coordpion->y())->getId() != 'R') // on rois ne peu pas attaquer un autre rois !
+                            {
+                                // destination = deplacements::deplacementRoi(matricePiece,matriceGroupe,QPoint(x,y));
+                            }
+                            else
+                            {
+                                //on ne peut simplement ignorer l'autre roi, il faut calculer si on peut etre sur la piece
+                            }
+
+                        }
+                        else
+                        {
+                            destination = joueur2->getDeck()[tmp2]->deplacementsPossible(1,this);
+                        }
+
+                        for(int u = 0; u < destination.size(); u++)
+                        {
+                            if(destination[u].x() == coordcase->x() && destination[u].y() == coordcase->y() )
+                            {
+                                return true;
+                            }
+                        }
+                        destination.clear();
+                        break;
+
+                    case 'F':
+                        if(testDestination(coordcase, tmp2,1))
+                            return true;
+                        break;
+                    case 'T':
+                        if(testDestination(coordcase, tmp2,1))
+                            return true;
+                        break;
+                    case 'C':
+                        if(testDestination(coordcase, tmp2,1))
+                            return true;
+                        break;
+
+                    }
+
+                }
             }
         }
-        return false;
+    }
+    return false;
 }
 
 bool Plateau::testDestination(QPoint *coordcase, int i_piece, int i_joueur)
 {
     QVector<QPoint> destination;
     if(i_joueur==0)
-       destination =joueur1->getDeck()[i_piece]->deplacementsPossible(i_joueur,this);
+        destination =joueur1->getDeck()[i_piece]->deplacementsPossible(i_joueur,this);
     else
-       destination =joueur2->getDeck()[i_piece]->deplacementsPossible(i_joueur,this);
+        destination =joueur2->getDeck()[i_piece]->deplacementsPossible(i_joueur,this);
     bool verif = false;
     for(int u = 0; u < destination.size(); u++)
     {
@@ -380,48 +381,48 @@ bool Plateau::testDestination(QPoint *coordcase, int i_piece, int i_joueur)
 
 QVector<QPoint> Plateau::attaquePion(QPoint cas){
     QVector<QPoint> resultat;
-        bool noir = true;
-        if(getGrille()->getCase(cas.x(),cas.y())->getCouleur() != 0)
+    bool noir = true;
+    if(getGrille()->getCase(cas.x(),cas.y())->getCouleur() != 0)
+    {
+        noir = false;
+    }
+    //puis apres on avance toujours de devant et on prend sur les cotes
+    if(noir == true)
+    {
+        if(cas.y() > 0)
         {
-          noir = false;
-        }
-        //puis apres on avance toujours de devant et on prend sur les cotes
-        if(noir == true)
-        {
-              if(cas.y() > 0)
+            if(damier->getCase(cas.x()+1,cas.y()-1)->getCouleur() != damier->getCase(cas.x(),cas.y())->getCouleur())
             {
-                if(damier->getCase(cas.x()+1,cas.y()-1)->getCouleur() != damier->getCase(cas.x(),cas.y())->getCouleur())
-                {
-                    resultat.append(QPoint(cas.x()+1,cas.y()-1));
-                }
-            }
-            if(cas.y() < 8)
-            {
-                if(damier->getCase(cas.x()+1,cas.y()+1)->getCouleur() != damier->getCase(cas.x(),cas.y())->getCouleur())
-                {
-                    resultat.append(QPoint(cas.x()+1,cas.y()+1));
-                }
+                resultat.append(QPoint(cas.x()+1,cas.y()-1));
             }
         }
-        else
+        if(cas.y() < 8)
         {
-            if(cas.y() > 0)
+            if(damier->getCase(cas.x()+1,cas.y()+1)->getCouleur() != damier->getCase(cas.x(),cas.y())->getCouleur())
             {
-                if( damier->getCase(cas.x()-1,cas.y()-1)->getCouleur() != damier->getCase(cas.x(),cas.y())->getCouleur())
-                {
-                    resultat.append(QPoint(cas.x()-1,cas.y()-1));
-                }
-            }
-            if(cas.y() < 8)
-            {
-                if( damier->getCase(cas.x()-1,cas.y()+1)->getCouleur() != damier->getCase(cas.x(),cas.y())->getCouleur())
-                {
-                    resultat.append(QPoint(cas.x()-1,cas.y()+1));
-                }
+                resultat.append(QPoint(cas.x()+1,cas.y()+1));
             }
         }
+    }
+    else
+    {
+        if(cas.y() > 0)
+        {
+            if( damier->getCase(cas.x()-1,cas.y()-1)->getCouleur() != damier->getCase(cas.x(),cas.y())->getCouleur())
+            {
+                resultat.append(QPoint(cas.x()-1,cas.y()-1));
+            }
+        }
+        if(cas.y() < 8)
+        {
+            if( damier->getCase(cas.x()-1,cas.y()+1)->getCouleur() != damier->getCase(cas.x(),cas.y())->getCouleur())
+            {
+                resultat.append(QPoint(cas.x()-1,cas.y()+1));
+            }
+        }
+    }
 
-        return resultat;
+    return resultat;
 }
 //Destructeur du plateau
 Plateau::~Plateau()

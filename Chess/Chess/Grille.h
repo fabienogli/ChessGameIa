@@ -11,7 +11,7 @@ public:
 	int getHauteur();
 	int getLargeur();
 	void putPiece(Piece * piece);
-    void removePiece(Coordonnee coord);
+    void removePiece(Coordonnee* coord);
 private:
 	static int const hauteur = 8;
 	static int const largeur = 8;
