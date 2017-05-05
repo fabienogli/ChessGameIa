@@ -43,14 +43,14 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     std::cout << i4;std::cout << std::endl;
     std::cout << i3;std::cout << std::endl;
     //prendre la piece en i1,i2 et l'envoyer en i3,i4
-    std::cout << "je suis 3";std::cout << std::endl;
+    std::cout << "je suis 3"<< std::endl;
     coordDepart->setX(i2);
     coordDepart->setY(i1);
     coordArrivee->setX(i4);
     coordArrivee->setY(i3);
-    std::cout << coordDepart->getX();std::cout << std::endl;
-    std::cout << coordDepart->getY();std::cout << std::endl;
-    std::cout << "je suis 3bis";std::cout << std::endl;
+    std::cout << coordDepart->getX()<< std::endl;
+    std::cout << coordDepart->getY()<< std::endl;
+    std::cout << "je suis 3bis"<< std::endl;
     (*aSupprimer).setCoordonnee(new Coordonnee(coordDepart->getX(),coordDepart->getY()));
     //on recherche dans le deck du premier joueur
     double tmp1 = (*joueur1).isAnyPiece(*coordDepart);
@@ -58,23 +58,27 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     double tmp2 = (*joueur2).isAnyPiece(*coordDepart);
     Joueur* joueur;
     double tmpActif;
+    //double kmp;
     if (tmp1 != -1)
     {
-        joueurActif = joueur1;
+        joueur = joueur1;
         tmpActif = tmp1;
+        //kmp = joueur2->isAnyPiece(*coordArrivee);
 
     }
     //sinon c'est forcement occupe par une piece du joueur 2
     else if(tmp2 != -1)
     {
-        joueurActif = joueur2;
+        joueur = joueur2;
         tmpActif = tmp2;
+        //kmp = joueur1->isAnyPiece(*coordArrivee);
     }
+
     std::cout << "je suis 1-1";std::cout << std::endl;
     std::cout << tmpActif;std::cout << std::endl;
-    bool b=(*joueur).getDeck()[tmpActif]->move(coordArrivee,(*joueur).getOrigin());
+    bool b=(*joueur).getDeck()[tmpActif]->move(coordArrivee,(*joueur).getOrigin(), this);
     (*joueur).getDeck()[tmpActif]->afficher();
-    //(*joueur).getPiece(int(tmpActif)).move(coordArrivee,(*joueur).getOrigin());
+    //(*joueur).getPiece(int(tmpActif)).move(coordArrivee,(*joueur).getOrigin(), this);
 
     //DEBUT TEST DEPLACEMENT
     Piece* tmpt = (*joueur).getDeck()[tmpActif];
@@ -91,6 +95,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     (*joueur).getDeck()[tmpActif]->afficher();
     std::cout << "je suis 1-2";std::cout << std::endl;
     if(b==true){
+
             //mettre a jour couleur des cases
             m_coupPrecedent[0][0].setX(coordDepart->getX());
             m_coupPrecedent[0][0].setY(coordDepart->getY());
@@ -124,6 +129,20 @@ void Plateau::sentDisplayPlayerId(){
 /**
  * @brief Plateau::displayPiece affiche une piece dans le GUI
  */
+
+//récupérer une case a une coordonne x, y
+Piece* Plateau::getPiece(Coordonnee* coord)
+{
+    Piece* piece;
+    double i1= joueur1->isAnyPiece(*coord);
+    double i2= joueur2->isAnyPiece(*coord);
+    if(i1!=-1)
+        piece =joueur1->getDeck()[i1];
+    else{
+        piece = joueur2->getDeck()[i2];
+    }
+    return piece;
+}
 
 //Affichage du plateau dans la console
 void Plateau::afficher()
@@ -175,14 +194,15 @@ Joueur* Plateau::getJoueur1(){
 Joueur* Plateau::getJoueur2(){
     return joueur2;
 }
+
 void Plateau::setJoueurActif(Joueur  joueur){
     *joueurActif=joueur;
 }
+
 Grille* Plateau::getGrille(){
     std::cout << "dans getgrille";std::cout << std::endl;
     return damier;
 }
-
 
 
 QVector<QPoint> Plateau::getCoupPrec(){

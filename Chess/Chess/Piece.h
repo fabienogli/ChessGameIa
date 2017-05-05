@@ -15,14 +15,14 @@ public:
 	Coordonnee getCoordonne();
 	void setCoordonnee(Coordonnee *coord);
     void setCoordonne(int x,int y);
-	void kill(Piece& piece);
+    void kill(Piece *piece);
 	bool isAlive();
 	void afficher();
 	virtual bool testDeplacement(Coordonnee coord);
 	bool testDiagonal(Coordonnee coord);
 	bool testVertical(Coordonnee coord);
 	bool testHorizontal(Coordonnee coord);
-    bool move(Coordonnee *coord, Coordonnee origin);
+    bool move(Coordonnee *coord, Coordonnee origin, Plateau* plateau);
     virtual QVector<QPoint> deplacementsPossible(int idJoueur,Plateau * plateau);
     int getCouleur();
     void setCouleur(int i);

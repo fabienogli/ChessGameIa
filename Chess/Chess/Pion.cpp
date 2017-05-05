@@ -1,6 +1,4 @@
 #include "Pion.h"
-#include "Plateau.h"
-#include "Coordonnee.h"
 #include <vector>
 
 
@@ -47,9 +45,10 @@ bool Pion::testDeplacement(Coordonnee coord)
     return verif;
 }
 
-void Pion::move(Coordonnee *coord, Coordonnee origin)
+
+void Pion::move(Coordonnee *coord, Coordonnee origin, Plateau* plateau)
 {
-    Piece::move(coord, origin);
+    Piece::move(coord, origin, plateau);
     if(nbCout==0)
         nbCout+=1;
 }

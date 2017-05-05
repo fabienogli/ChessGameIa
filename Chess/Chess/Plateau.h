@@ -26,6 +26,7 @@ public:
     bool testDestination(QPoint *coordcase, int i_piece, int i_joueur);
     QVector<QPoint> attaquePion(QPoint point);
     bool caseAtOccupy(int x, int y);
+    Piece* getPiece(Coordonnee* coord);
 	~Plateau();
 private:
 	Grille *damier;

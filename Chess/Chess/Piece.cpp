@@ -1,12 +1,6 @@
 #include "Piece.h"
 #include "Plateau.h"
-#include "Roi.h"
-#include "Cavalier.h"
-#include "Fou.h"
-#include "Tour.h"
-#include "Pion.h"
-#include <vector>
-#include <typeinfo>
+
 //Initialise la piece
 Piece::Piece()
 {
@@ -37,9 +31,9 @@ void Piece::setCoordonne(int x,int y){
 }
 
 //Methode lorsqu une piece mange une autre
-void Piece::kill(Piece & piece)
+void Piece::kill(Piece * piece)
 {
-	piece.~Piece();
+    piece->~Piece();
 }
 
 QVector<QPoint> Piece::deplacementsPossible(int idJoueur,Plateau * plateau){
@@ -127,7 +121,7 @@ bool Piece::testHorizontal(Coordonnee coord)
 }
 
 //Methode de deplacement de la piece, si le test retourne vrai, la piece peut se deplacer
-bool Piece::move(Coordonnee * coord, Coordonnee origin)
+bool Piece::move(Coordonnee * coord, Coordonnee origin, Plateau* plateau)
 {
     bool verif =false;
     std::cout << "je suis ici";std::cout << std::endl;
@@ -135,10 +129,16 @@ bool Piece::move(Coordonnee * coord, Coordonnee origin)
     //if (testDeplacement(test)) {
     if (testDeplacement(*coord)==true) {
        // setCoordonnee(new Coordonnee(*coord));
+        //on test si il y a une autre piece sur la case
+        if(plateau->caseAtOccupy(coord->getX(),coord->getY()))
+        {
+            if(couleur!=plateau->getGrille()->getCase(coord->getX(),coord->getY())->getCouleur())
+                kill(plateau->getPiece(coord));
+            else return false;
+        }
         setCoordonne(coord->getX(),coord->getY());
-
         afficher();
-        std::cout << "j'ai update les coord";std::cout << std::endl;
+        std::cout << "j'ai update les coord"<< std::endl;
         verif=true;
 	}
     return verif;
