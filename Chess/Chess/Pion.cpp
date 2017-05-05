@@ -24,7 +24,8 @@ bool Pion::testDeplacement(Coordonnee coord, Plateau* plateau)
     std::cout <<coordonnee->getX()<< std::endl;
     std::cout <<abs(coord.getY()-coordonnee->getY())<<std::endl;
     //a updater pour prendre le deplacement de deux cases quau debut
-    if (coord.getX() == coordonnee->getX()  && ((abs(coord.getY()-coordonnee->getY()) <3 ))&& !plateau->caseAtOccupy(coord.getX(), coord.getY()))
+    if(!plateau->caseAtOccupy(coord.getX(), coord.getY()))
+    {if (coord.getX() == coordonnee->getX()  && ((abs(coord.getY()-coordonnee->getY()) <3 )))
     {
         if(wayToMove==1)
         {
@@ -40,6 +41,7 @@ bool Pion::testDeplacement(Coordonnee coord, Plateau* plateau)
             else if(coord.getY()-coordonnee->getY()== -1)
                 verif = true;
         }
+    }
     }
     else if((coord.getX() == coordonnee->getX()-1 ||coord.getX() == coordonnee->getX()+1)&&coord.getY()==coordonnee->getY()+wayToMove && plateau->caseAtOccupy(coord.getX(), coord.getY()))
     {

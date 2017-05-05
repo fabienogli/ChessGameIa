@@ -20,7 +20,7 @@ Roi::~Roi()
 bool Roi::testDeplacement(Coordonnee coord, Plateau * plateau)
 {
     if (abs(coord.getX() - getCoordonne().getX()) < 2 && abs(coord.getY() - getCoordonne().getY()) < 2){
-        return(testVertical(coord) || testHorizontal(coord));
+        return(testVertical(coord, plateau) || testHorizontal(coord, plateau));
     }
 }
 

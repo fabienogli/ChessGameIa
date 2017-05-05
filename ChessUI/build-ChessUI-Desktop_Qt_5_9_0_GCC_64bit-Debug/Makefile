@@ -60,7 +60,6 @@ SOURCES       = ../ChessUI/main.cpp \
 		../../Chess/Chess/Grille.cpp \
 		../../Chess/Chess/Joueur.cpp \
 		../../Chess/Chess/Piece.cpp \
-		../../Chess/Chess/PieceDiagonale.cpp \
 		../../Chess/Chess/Pion.cpp \
 		../../Chess/Chess/Plateau.cpp \
 		../../Chess/Chess/Roi.cpp \
@@ -79,7 +78,6 @@ OBJECTS       = main.o \
 		Grille.o \
 		Joueur.o \
 		Piece.o \
-		PieceDiagonale.o \
 		Pion.o \
 		Plateau.o \
 		Roi.o \
@@ -249,6 +247,7 @@ DIST          = /home/neibaf/Qt/5.9/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/qt_config.prf \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/spec_post.prf \
+		../ChessUI/.qmake.stash \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/toolchain.prf \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/default_pre.prf \
@@ -277,7 +276,6 @@ DIST          = /home/neibaf/Qt/5.9/gcc_64/mkspecs/features/spec_pre.prf \
 		../../Chess/Chess/Grille.h \
 		../../Chess/Chess/Joueur.h \
 		../../Chess/Chess/Piece.h \
-		../../Chess/Chess/PieceDiagonale.h \
 		../../Chess/Chess/Pion.h \
 		../../Chess/Chess/Plateau.h \
 		../../Chess/Chess/Roi.h \
@@ -292,7 +290,6 @@ DIST          = /home/neibaf/Qt/5.9/gcc_64/mkspecs/features/spec_pre.prf \
 		../../Chess/Chess/Grille.cpp \
 		../../Chess/Chess/Joueur.cpp \
 		../../Chess/Chess/Piece.cpp \
-		../../Chess/Chess/PieceDiagonale.cpp \
 		../../Chess/Chess/Pion.cpp \
 		../../Chess/Chess/Plateau.cpp \
 		../../Chess/Chess/Roi.cpp \
@@ -470,6 +467,7 @@ Makefile: ../ChessUI/ChessUI.pro /home/neibaf/Qt/5.9/gcc_64/mkspecs/linux-g++/qm
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/qt_config.prf \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/toolchain.prf \
 		/home/neibaf/Qt/5.9/gcc_64/mkspecs/features/default_pre.prf \
@@ -655,6 +653,7 @@ Makefile: ../ChessUI/ChessUI.pro /home/neibaf/Qt/5.9/gcc_64/mkspecs/linux-g++/qm
 /home/neibaf/Qt/5.9/gcc_64/mkspecs/features/qt_config.prf:
 /home/neibaf/Qt/5.9/gcc_64/mkspecs/linux-g++/qmake.conf:
 /home/neibaf/Qt/5.9/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /home/neibaf/Qt/5.9/gcc_64/mkspecs/features/exclusive_builds.prf:
 /home/neibaf/Qt/5.9/gcc_64/mkspecs/features/toolchain.prf:
 /home/neibaf/Qt/5.9/gcc_64/mkspecs/features/default_pre.prf:
@@ -695,8 +694,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../image.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /home/neibaf/Qt/5.9/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../ChessUI/mainwindow.h ../../Chess/Chess/Case.h ../../Chess/Chess/Cavalier.h ../../Chess/Chess/Coordonnee.h ../../Chess/Chess/Dame.h ../../Chess/Chess/Fou.h ../../Chess/Chess/Grille.h ../../Chess/Chess/Joueur.h ../../Chess/Chess/Piece.h ../../Chess/Chess/PieceDiagonale.h ../../Chess/Chess/Pion.h ../../Chess/Chess/Plateau.h ../../Chess/Chess/Roi.h ../../Chess/Chess/Tour.h ../../Chess/Chess/ia.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../ChessUI/main.cpp ../ChessUI/mainwindow.cpp ../../Chess/Chess/Case.cpp ../../Chess/Chess/Cavalier.cpp ../../Chess/Chess/Coordonnee.cpp ../../Chess/Chess/Dame.cpp ../../Chess/Chess/Fou.cpp ../../Chess/Chess/Grille.cpp ../../Chess/Chess/Joueur.cpp ../../Chess/Chess/Piece.cpp ../../Chess/Chess/PieceDiagonale.cpp ../../Chess/Chess/Pion.cpp ../../Chess/Chess/Plateau.cpp ../../Chess/Chess/Roi.cpp ../../Chess/Chess/Tour.cpp ../../Chess/Chess/TypePiece.cpp ../../Chess/Chess/ia.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../ChessUI/mainwindow.h ../../Chess/Chess/Case.h ../../Chess/Chess/Cavalier.h ../../Chess/Chess/Coordonnee.h ../../Chess/Chess/Dame.h ../../Chess/Chess/Fou.h ../../Chess/Chess/Grille.h ../../Chess/Chess/Joueur.h ../../Chess/Chess/Piece.h ../../Chess/Chess/Pion.h ../../Chess/Chess/Plateau.h ../../Chess/Chess/Roi.h ../../Chess/Chess/Tour.h ../../Chess/Chess/ia.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../ChessUI/main.cpp ../ChessUI/mainwindow.cpp ../../Chess/Chess/Case.cpp ../../Chess/Chess/Cavalier.cpp ../../Chess/Chess/Coordonnee.cpp ../../Chess/Chess/Dame.cpp ../../Chess/Chess/Fou.cpp ../../Chess/Chess/Grille.cpp ../../Chess/Chess/Joueur.cpp ../../Chess/Chess/Piece.cpp ../../Chess/Chess/Pion.cpp ../../Chess/Chess/Plateau.cpp ../../Chess/Chess/Roi.cpp ../../Chess/Chess/Tour.cpp ../../Chess/Chess/TypePiece.cpp ../../Chess/Chess/ia.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../ChessUI/mainwindow.ui $(DISTDIR)/
 
 
@@ -960,10 +959,11 @@ moc_Plateau.cpp: ../../Chess/Chess/Grille.h \
 		../../Chess/Chess/Cavalier.h \
 		../../Chess/Chess/Dame.h \
 		../../Chess/Chess/Pion.h \
-		../../Chess/Chess/Fou.h \
-		../../Chess/Chess/Tour.h \
+		../../Chess/Chess/Plateau.h \
 		../../Chess/Chess/ia.h \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/QObject \
+		../../Chess/Chess/Fou.h \
+		../../Chess/Chess/Tour.h \
 		../../Chess/Chess/Plateau.h \
 		moc_predefs.h \
 		/home/neibaf/Qt/5.9/gcc_64/bin/moc
@@ -1240,16 +1240,70 @@ mainwindow.o: ../ChessUI/mainwindow.cpp ../ChessUI/mainwindow.h \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qicon.h \
 		ui_mainwindow.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QGraphicsScene \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qgraphicsscene.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qpen.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/QVariant \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QAction \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qaction.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qactiongroup.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QApplication \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qapplication.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qeventloop.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qguiapplication.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qinputmethod.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QButtonGroup \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QComboBox \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qcombobox.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qvalidator.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qregularexpression.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qslider.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qstyle.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qframe.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QFrame \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QGraphicsView \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qgraphicsview.h \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qpainter.h \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qtextoption.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qpen.h \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qscrollarea.h \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qframe.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QGridLayout \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qlayout.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QHeaderView \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qheaderview.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QLabel \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qlabel.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QMenuBar \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qmenubar.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qmenu.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QPushButton \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QStatusBar \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qstatusbar.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QTableWidget \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qtablewidget.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qtableview.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QToolBar \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qtoolbar.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QWidget \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QGraphicsScene \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/QMessageBox \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qmessagebox.h \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtWidgets/qdialog.h \
@@ -1710,6 +1764,47 @@ Joueur.o: ../../Chess/Chess/Joueur.cpp ../../Chess/Chess/Joueur.h \
 		../../Chess/Chess/Cavalier.h \
 		../../Chess/Chess/Dame.h \
 		../../Chess/Chess/Pion.h \
+		../../Chess/Chess/Plateau.h \
+		../../Chess/Chess/Grille.h \
+		../../Chess/Chess/Case.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/QPixmap \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qpixmap.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qtgui-config.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qrect.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qmargins.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qsize.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qcolor.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qrgb.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qrgba64.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qshareddata.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qhash.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qobject.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qcoreevent.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qmetatype.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qobject_impl.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qimage.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qpixelformat.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qtransform.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qmatrix.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qpolygon.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qregion.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qdatastream.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qiodevice.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qline.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtGui/qpainterpath.h \
+		../../Chess/Chess/ia.h \
+		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/QObject \
 		../../Chess/Chess/Fou.h \
 		../../Chess/Chess/Tour.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Joueur.o ../../Chess/Chess/Joueur.cpp
@@ -1806,52 +1901,6 @@ Piece.o: ../../Chess/Chess/Piece.cpp ../../Chess/Chess/Piece.h \
 		../../Chess/Chess/ia.h \
 		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/QObject
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Piece.o ../../Chess/Chess/Piece.cpp
-
-PieceDiagonale.o: ../../Chess/Chess/PieceDiagonale.cpp ../../Chess/Chess/PieceDiagonale.h \
-		../../Chess/Chess/Piece.h \
-		../../Chess/Chess/Coordonnee.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/QVector \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qvector.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qalgorithms.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qglobal.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qconfig.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qtcore-config.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qsystemdetection.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qprocessordetection.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qcompilerdetection.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qtypeinfo.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qsysinfo.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qlogging.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qflags.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qatomic.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qbasicatomic.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qgenericatomic.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qatomic_cxx11.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qatomic_msvc.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qglobalstatic.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qmutex.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qnumeric.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qversiontagging.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qiterator.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qlist.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qrefcount.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qarraydata.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qhashfunctions.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qchar.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qpair.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qbytearraylist.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qbytearray.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qnamespace.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qstring.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qstringbuilder.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qstringlist.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qregexp.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qstringmatcher.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/qpoint.h \
-		/home/neibaf/Qt/5.9/gcc_64/include/QtCore/QPoint
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PieceDiagonale.o ../../Chess/Chess/PieceDiagonale.cpp
 
 Pion.o: ../../Chess/Chess/Pion.cpp ../../Chess/Chess/Pion.h \
 		../../Chess/Chess/Piece.h \

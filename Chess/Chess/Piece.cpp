@@ -61,31 +61,38 @@ bool Piece::testDeplacement(Coordonnee coord, Plateau * plateau)
     return verif;
 }
 
-bool Piece::testDiagonal(Coordonnee coord)
+bool Piece::testDiagonal(Coordonnee coord, Plateau * plateau)
 {
-	int x = coord.getX();
-	int y = coord.getY();
+    int x = coord.getX();
+    int y = coord.getY();
 
     int i = getCoordonne().getX();
     int j = getCoordonne().getY();
 
-	if (x < i)
-		i = -i;
-	if (y < j)
-		j = -j;
-	bool moveAble = false;
-	while (!moveAble || i < x&&j < y) {
-		if (x == i && y == j)
-			moveAble = true;
-		else {
-			i += 1;
-			j += 1;
-		}
-	}
-	return moveAble;
+    int operationX, operationY;
+
+    if (x < i)
+        operationX = -1;
+    else
+        operationX = 1;
+    if (y < j)
+        operationY = -1;
+    else
+        operationY = 1;
+    bool moveAble = false;
+    while (!moveAble && (i != x+operationX||j!= y+operationY )) {
+        std::cout<<"i= "<<i<<" et j= "<<j<<std::endl;
+        if (x == i && y == j)
+            moveAble = true;
+        else {
+            i += operationX;
+            j += operationY;
+        }
+    }
+    return moveAble;
 }
 
-bool Piece::testVertical(Coordonnee coord)
+bool Piece::testVertical(Coordonnee coord, Plateau * plateau)
 {
 	int y = getCoordonne().getY();
     int j = coord.getY();
@@ -101,7 +108,7 @@ bool Piece::testVertical(Coordonnee coord)
 	return moveAble;
 }
 
-bool Piece::testHorizontal(Coordonnee coord)
+bool Piece::testHorizontal(Coordonnee coord, Plateau * plateau)
 {
 	int x = getCoordonne().getX();
     int i = coord.getX();

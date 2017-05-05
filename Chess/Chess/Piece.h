@@ -19,9 +19,9 @@ public:
 	bool isAlive();
 	void afficher();
     virtual bool testDeplacement(Coordonnee coord, Plateau *Plateau);
-	bool testDiagonal(Coordonnee coord);
-	bool testVertical(Coordonnee coord);
-	bool testHorizontal(Coordonnee coord);
+    bool testDiagonal(Coordonnee coord, Plateau * plateau);
+    bool testVertical(Coordonnee coord, Plateau * plateau);
+    bool testHorizontal(Coordonnee coord, Plateau * plateau);
     bool move(Coordonnee *coord, Coordonnee origin, Plateau* plateau);
     virtual QVector<QPoint> deplacementsPossible(int idJoueur,Plateau * plateau);
     int getCouleur();
