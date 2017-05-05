@@ -13,7 +13,7 @@ Tour::~Tour()
 {
 }
 
-bool Tour::testDeplacement(Coordonnee coord)
+bool Tour::testDeplacement(Coordonnee coord, Plateau * plateau)
 {
 	return Piece::testHorizontal(coord) || Piece::testVertical(coord);
 }

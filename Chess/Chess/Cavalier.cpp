@@ -87,7 +87,7 @@ QVector<QPoint> Cavalier::deplacementsPossible(int idJoueur,Plateau * plateau){
         return resultat;
 }
 
-bool Cavalier::testDeplacement(Coordonnee coord)
+bool Cavalier::testDeplacement(Coordonnee coord, Plateau * plateau)
 {
 	int x = coord.getX();
 	int y = coord.getY();

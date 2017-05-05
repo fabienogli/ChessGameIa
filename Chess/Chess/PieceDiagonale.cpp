@@ -11,7 +11,7 @@ PieceDiagonale::~PieceDiagonale()
 {
 }
 
-bool PieceDiagonale::testDeplacement(Coordonnee coord)
+bool PieceDiagonale::testDeplacement(Coordonnee coord, Plateau * plateau)
 {
 	int x = coord.getX();
 	int y = coord.getY();

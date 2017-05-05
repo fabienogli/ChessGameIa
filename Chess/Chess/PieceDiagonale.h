@@ -5,6 +5,6 @@ class PieceDiagonale : public Piece
 public:
 	PieceDiagonale();
 	~PieceDiagonale();
-	bool testDeplacement(Coordonnee coord);
+    bool testDeplacement(Coordonnee coord, Plateau * plateau);
 };
 

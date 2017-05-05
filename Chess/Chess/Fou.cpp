@@ -82,7 +82,7 @@ QVector<QPoint> Fou::deplacementsPossible(int idJoueur,Plateau * plateau){
 
 }
 
-bool Fou::testDeplacement(Coordonnee coord)
+bool Fou::testDeplacement(Coordonnee coord, Plateau * plateau)
 {
 	return Piece::testDiagonal(coord);
 }
