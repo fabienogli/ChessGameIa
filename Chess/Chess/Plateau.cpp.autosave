@@ -60,14 +60,14 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     double tmpActif;
     if (tmp1 != -1)
     {
-        joueurActif = joueur1;
+        joueur = joueur1;
         tmpActif = tmp1;
 
     }
     //sinon c'est forcement occupe par une piece du joueur 2
     else if(tmp2 != -1)
     {
-        joueurActif = joueur2;
+        joueur = joueur2;
         tmpActif = tmp2;
     }
     std::cout << "je suis 1-1";std::cout << std::endl;
