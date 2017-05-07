@@ -17,6 +17,7 @@ void Plateau::initialize(){
     coordDepart = new Coordonnee(0,0);
     coordArrivee= new Coordonnee(0,0);
     aSupprimer=new Piece();
+    IA = new ia();
     m_coupPrecedent = new QVector<QPoint>();
     m_coupPrecedent->append(QPoint(0,0));
     m_coupPrecedent->append(QPoint(0,0));
@@ -24,6 +25,81 @@ void Plateau::initialize(){
 }
 void Plateau::reinitialize(){
 
+}
+
+void Plateau::jouerIA(){
+ QVector<QPoint> dep = IA->jouer(joueur1,IA->getLevel(),this);
+ int usePion;
+     if(dep.count() != 2)
+     {
+         usePion = qrand() % ((dep.count()/2)-1);
+     }
+     else
+     {
+         usePion = 0;
+     }
+     int pion_ori = usePion * 2;
+     int pion_dest = (usePion * 2)+1;
+     if(getGrille()->getCase(dep.at(pion_ori).x(),dep.at(pion_ori).y())->getId() == 'P')
+         {
+
+             if(dep.at(pion_dest).y() != dep.at(pion_ori).y() && getGrille()->getCase(dep.at(pion_dest).x(),dep.at(pion_dest).y())->getId() == 'N' )
+             {
+                 coordArrivee->setX(dep.at(pion_dest).x());
+                 coordArrivee->setY(dep.at(pion_dest).y()-1);
+                // m_interface->addtoScore(Pion, 1);
+                 getGrille()->removePiece(coordArrivee);
+
+             }
+         }
+     if(getGrille()->getCase(dep.at(pion_ori).x(),dep.at(pion_ori).y())->getId() == 'R')
+         {
+             m_Posi_Rois1.setX(dep.at(pion_dest).x());
+             m_Posi_Rois1.setY(dep.at(pion_dest).y());
+         }
+         m_coupPrecedent[0][0].setX(dep.at(pion_ori).x());
+         m_coupPrecedent[0][0].setY(dep.at(pion_ori).y());
+         m_coupPrecedent[0][1].setX(dep.at(pion_dest).x());
+         m_coupPrecedent[0][1].setY(dep.at(pion_dest).y());
+
+         if(getGrille()->getCase(dep.at(pion_dest).x(),dep.at(pion_dest).y()) != 'N')
+             {
+                // m_interface->addtoScore(m_matricePiece[dep.at(pion_dest).x()][dep.at(pion_dest).y()], 1);
+             }
+             m_matriceDeplacement[dep.at(pion_ori).x()][dep.at(pion_ori).y()] = 0;
+             int i1=dep.at(pion_ori).x();
+             int i2=dep.at(pion_ori).y();
+             int i3=dep.at(pion_dest).x();
+             int i4=dep.at(pion_dest).y();
+             movePiece(i1,i2,i3,i4);
+             CaseDeplacementPossible =  IA->calc_echec_et_mat(joueur2,m_Posi_Rois2,this);
+             /*if(CaseDeplacementPossible.count() == 0)
+                 {
+                     int ret = QMessageBox::question(this,"Pauvre noob Partie Perdu","L'IA a gagnier la partie ! \nVoulez vous rejouer ?",QMessageBox::Yes | QMessageBox::No);
+                     if(ret == QMessageBox::Yes)
+                     {
+                         this->reinitialisation();
+                     }
+                     else
+                     {
+                         this->destroyed();
+                     }
+                 }*/
+             // augmentation du nombre de tours jouer
+                // m_tourno++;
+             //Detection de fin de partie par manque de nombre de tours
+                /* if(m_nbTourMax <= m_tourno)
+                 {
+                     int ret = QMessageBox::question(this,"Match Nul","Le nombre de tour maximum est dépasser Math Nul ! \nVoulez vous rejouer ?",QMessageBox::Yes | QMessageBox::No);
+                     if(ret == QMessageBox::Yes)
+                     {
+                         this->reinitialisation();
+                     }
+                     else
+                     {
+                         this->destroyed();
+                     }
+                 }*/
 }
 //Positionne les pieces des differentes piece des joueurs dans le plateau
 void Plateau::initiatePosInGrid()
@@ -63,6 +139,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     {
         joueur = joueur1;
         tmpActif = tmp1;
+
         //kmp = joueur2->isAnyPiece(*coordArrivee);
 
     }
@@ -113,6 +190,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     }
     std::cout << "je suis 1-3";std::cout << std::endl;
     std::cout << "jai fini";std::cout << std::endl;
+
 }
 //slot pour affichage gui des pieces
 void Plateau::displayPlateau(){

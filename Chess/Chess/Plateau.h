@@ -27,6 +27,7 @@ public:
     QVector<QPoint> attaquePion(QPoint point);
     bool caseAtOccupy(int x, int y);
     Piece* getPiece(Coordonnee* coord);
+    void jouerIA();
 	~Plateau();
 private:
 	Grille *damier;
@@ -36,7 +37,10 @@ private:
     Coordonnee *coordDepart;
     Piece *aSupprimer;
     QVector<QPoint> *m_coupPrecedent;
-
+    QVector<QPoint> CaseDeplacementPossible;
+    QPoint m_Posi_Rois1;
+    QPoint m_Posi_Rois2;
+    int m_matriceDeplacement[8][8]; // permet de savoir si une piece a bouger ou pas, toute les pieces a 1 n'ont pas ete bouger sinon 0
     ia *IA;
 signals:
     void affichSuppInit(Piece * piece,int id,int i);
