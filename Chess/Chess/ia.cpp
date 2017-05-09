@@ -4,9 +4,10 @@
 #include "Piece.h"
 #include <QVector>
 
-ia::ia()
+ia::ia(QVector<QPoint> * coupPrecedent)
 {
     this->level = 4;
+    this->m_coupPrecedent=coupPrecedent;
 }
 int ia::gagnant(int idJoueur,Plateau * plateau){
     if(idJoueur == 0)
@@ -209,8 +210,11 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
     return max;
 }
 int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
+    std::cout << "dans jouer de la classe min1";std::cout << std::endl;
     int retour=gagnant(joueur->getIdJoueur(),plateau)  ;
+    std::cout << "dans jouer de la classe min2";std::cout << std::endl;
     int min = 10000;
+     std::cout << "dans jouer de la classe min3";std::cout << std::endl;
     if(profondeur <= 0 || (retour != 0))
     {
         if(profondeur <= 0)
@@ -407,6 +411,7 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
     {
         for(int x=0;x<8;x++)
         {
+            std::cout << "dans jouer de la classe IA";std::cout << std::endl;
             if(plateau->getGrille()->getCase(x,y)->getId() == 'R')
             {
                 if(plateau->getGrille()->getCase(x,y)->getCouleur() == 0)
@@ -420,6 +425,7 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                     this->m_Posi_Rois2.setY(y);
                 }
             }
+            std::cout << "dans jouer de la classe IA 1";std::cout << std::endl;
             int idPiece=(joueur->isAnyPiece(Coordonnee(x,y)));
 
             char id = joueur->getDeck()[idPiece]->getId();
@@ -448,13 +454,15 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                        break;
                    }*/
                 listeCoup = joueur->getDeck()[idPiece]->deplacementsPossible(joueur->getIdJoueur(),plateau);
-
+                std::cout << "dans jouer de la classe IA2";std::cout << std::endl;
                 for (int i = 0; i < listeCoup.count(); i++)
                 {
+
                     int coup_origin_x = m_coupPrecedent->at(0).x();
                     int coup_origin_y = m_coupPrecedent->at(0).y();
                     int coup_dest_x = m_coupPrecedent->at(1).x();
                     int coup_dest_y = m_coupPrecedent->at(1).y();
+                    std::cout << "dans jouer de la classe IA3";std::cout << std::endl;
                     // on joue le tour
                     Piece tmp = joueur->getPiece(idPiece);
 
@@ -475,7 +483,7 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                             }
                         }
                     }
-
+            std::cout << "dans jouer de la classe IA4";std::cout << std::endl;
                     if(id == 'R')
                     {
                         if(joueur->getIdJoueur() == 0)
@@ -493,22 +501,28 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                     plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(plateau->getGrille()->getCase(x,y)->getId()) ;
                     plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(plateau->getGrille()->getCase(x,y)->getCouleur()) ;
                     plateau->getGrille()->getCase(x,y)->removePiece();
+                    std::cout << "dans jouer de la classe IA5";std::cout << std::endl;
                     m_coupPrecedent[0][0].setX(x);
                     m_coupPrecedent[0][0].setY(y);
                     m_coupPrecedent[0][1].setX(listeCoup.at(i).x());
                     m_coupPrecedent[0][1].setY(listeCoup.at(i).y());
                     score = 0;
+                    std::cout << "dans jouer de la classe IA6";std::cout << std::endl;
                     // on relance l'appel
 
                     if(joueur->getIdJoueur() == 0)
                     {
+                         std::cout << "dans jouer de la classe IA7";std::cout << std::endl;
                         score = min(plateau->getJoueur2(),plateau,profondeur-1,-10000,100000);
+                         std::cout << "dans jouer de la classe IA7-1";std::cout << std::endl;
                     }
                     else
                     {
+                         std::cout << "dans jouer de la classe IA8";std::cout << std::endl;
                         score = min(plateau->getJoueur1(),plateau,profondeur-1,-10000,100000);
+                         std::cout << "dans jouer de la classe IA8-1";std::cout << std::endl;
                     }
-
+                     std::cout << "dans jouer de la classe IA9";std::cout << std::endl;
                     m_coupPrecedent[0][0].setX(coup_origin_x);
                     m_coupPrecedent[0][0].setY(coup_origin_y);
                     m_coupPrecedent[0][1].setX(coup_dest_x);

@@ -27,7 +27,7 @@ Grille::~Grille()
 Case* Grille::getCase(int x, int y)
 {
 
-    std::cout << "dans getcase";std::cout << std::endl;
+   // std::cout << "dans getcase";std::cout << std::endl;
     return cases[x][y];
 
 }

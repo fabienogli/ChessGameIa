@@ -8,7 +8,7 @@ class Joueur;
 class ia
 {
 public:
-    ia();
+    ia(QVector<QPoint> * coupPrecedent);
     void setLevel(int i);
     int getLevel();
     QVector<QPoint> jouer(Joueur *joueur,int profondeur,Plateau *plateau);

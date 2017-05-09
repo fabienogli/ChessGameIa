@@ -126,6 +126,11 @@ Piece Joueur::getPiece(int i)
 	return *deck[i];
 }
 
+Piece* Joueur::getPiece2(int i)
+{
+    return deck[i];
+}
+
 int Joueur::getDeckSize()
 {
 	return deck.size();

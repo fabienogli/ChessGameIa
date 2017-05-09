@@ -31,7 +31,8 @@ public:
 	~Plateau();
 private:
 	Grille *damier;
-	Joueur *joueurActif;
+    Joueur *joueurActif;
+    int idJoueurActif;
 	Joueur *joueur1,*joueur2;
     Coordonnee *coordArrivee;
     Coordonnee *coordDepart;
