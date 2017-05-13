@@ -1,5 +1,5 @@
 #include "Pion.h"
-
+#include "Joueur.h"
 
 Pion::Pion(int i)
 {

@@ -2,7 +2,6 @@
 #include "Plateau.h"
 #include "Joueur.h"
 #include "Piece.h"
-#include <QVector>
 
 ia::ia(QVector<QPoint> * coupPrecedent)
 {

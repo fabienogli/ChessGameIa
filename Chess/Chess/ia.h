@@ -3,9 +3,8 @@
 #include <QVector>
 #include <QPoint>
 class Plateau;
-class Joueur;
-
-class ia
+#include "Joueur.h"
+class ia : public Joueur
 {
 public:
     ia(QVector<QPoint> * coupPrecedent);

@@ -2,6 +2,7 @@
 #include "mainwindow.h"
 #include "Coordonnee.h"
 #include <stddef.h>
+#include "ia.h"
 //Constructeur du plateau
 Plateau::Plateau() :QObject()
 {

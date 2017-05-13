@@ -1,9 +1,8 @@
 #pragma once
 #include "Grille.h"
-#include "Joueur.h"
-#include "Piece.h"
-#include "ia.h"
-#include <QObject>
+
+class ia;
+class Joueur;
 class Plateau : public QObject
 {
     Q_OBJECT
