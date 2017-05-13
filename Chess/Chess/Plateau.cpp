@@ -198,6 +198,15 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
         emit affichSuppInit(aSupprimer,(*joueur).getIdJoueur(),1);
         getGrille()->putPiece((*joueur).getDeck()[tmpActif]);
         getGrille()->removePiece(coordDepart);
+        if(joueurActif->getIdJoueur()==0){
+            //idJoueurActif = 2;
+            joueurActif = joueur2;
+        }
+        else{
+            joueurActif = joueur1;
+            //idJoueurActif = 1;
+        }
+        emit displayPlayerId(1);
     }else{
 
         std::cout << "deplacement non autorise";std::cout << std::endl;
