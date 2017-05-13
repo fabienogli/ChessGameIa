@@ -1,8 +1,6 @@
 #pragma once
 #include "Piece.h"
 #include "Plateau.h"
-#include <vector>
-#include <QVector>
 class Pion : public Piece
 {
 public:

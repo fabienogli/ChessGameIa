@@ -1,7 +1,5 @@
 #pragma once
 #include "Piece.h"
-#include <QVector>
-class Plateau;
 class Roi : public Piece 
 {
 public:

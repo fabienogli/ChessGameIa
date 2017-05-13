@@ -1,5 +1,4 @@
 #include "Fou.h"
-#include <QVector>
 #include "Plateau.h"
 
 

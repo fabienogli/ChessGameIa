@@ -1,5 +1,4 @@
 #include "Cavalier.h"
-#include <QVector>
 #include "Plateau.h"
 
 

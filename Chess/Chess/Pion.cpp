@@ -1,5 +1,4 @@
 #include "Pion.h"
-#include <vector>
 
 
 Pion::Pion(int i)

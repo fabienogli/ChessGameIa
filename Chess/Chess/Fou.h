@@ -1,7 +1,6 @@
 #pragma once
 #include "Piece.h"
-#include <QVector>
-class Fou : public Piece 
+class Fou : public Piece
 {
 public:
 	Fou();

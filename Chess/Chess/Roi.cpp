@@ -1,5 +1,4 @@
 #include "Roi.h"
-#include <QVector>
 #include "Plateau.h"
 /**
 Classe du roi

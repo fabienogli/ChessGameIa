@@ -1,5 +1,4 @@
 #include "Tour.h"
-#include <QVector>
 #include "Plateau.h"
 
 
