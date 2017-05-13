@@ -4,6 +4,7 @@
 #include "../../Chess/Chess/Coordonnee.h"
 #include "../../Chess/Chess/Case.h"
 #include "../../Chess/Chess/Grille.h"
+#include "../../Chess/Chess/Joueur.h"
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QPixmap>
@@ -46,7 +47,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 void MainWindow::displayPlayerId(int id){
-    ui->label_2->setText(QString::number(id));
+    ui->label_2->setText(QString::fromStdString(plateau->getJoueurActif()->getNomjoueur()));
 }
 void MainWindow::badMove(){
     QMessageBox::critical(this, "Mauvais déplacement", "Ce déplacement n'est pas autorisé!");

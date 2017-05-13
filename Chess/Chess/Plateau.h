@@ -11,7 +11,7 @@ public:
 	Plateau();
 	void initiatePosInGrid();
 	void afficher();
-    Joueur getJoueurActif();
+    Joueur* getJoueurActif();
     Joueur* getJoueur1();
     Joueur* getJoueur2();
     void setJoueurActif(Joueur joueur);

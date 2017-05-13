@@ -14,7 +14,7 @@ void Plateau::initialize(){
     damier = new Grille();
     joueur1 = new Joueur("joueur 1",0);
     joueur2 = new Joueur("joueur 2",1);
-    joueurActif = new Joueur();
+    joueurActif = joueur1;
     idJoueurActif=1;
     coordDepart = new Coordonnee(0,0);
     coordArrivee= new Coordonnee(0,0);
@@ -22,7 +22,8 @@ void Plateau::initialize(){
     m_coupPrecedent = new QVector<QPoint>();
     m_coupPrecedent->append(QPoint(0,0));
     m_coupPrecedent->append(QPoint(0,0));
-    IA = new ia(m_coupPrecedent);
+    IA = new ia(1,4);
+    IA->setCoupPrecedent(m_coupPrecedent);
     initiatePosInGrid();
 }
 void Plateau::reinitialize(){
@@ -281,9 +282,9 @@ void Plateau::updateCaseStatus(Piece piece,Coordonnee oldCoord){
 }
 
 //Retourne le pointeur du joueur actif
-Joueur Plateau::getJoueurActif()
+Joueur* Plateau::getJoueurActif()
 {
-    return *joueurActif;
+    return joueurActif;
 }
 
 Joueur* Plateau::getJoueur1(){
