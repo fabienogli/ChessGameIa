@@ -15,7 +15,7 @@ Tour::~Tour()
 
 bool Tour::testDeplacement(Coordonnee coord, Plateau * plateau)
 {
-    return Piece::testHorizontal(coord,plateau) || Piece::testVertical(coord,plateau);
+    return (testHorizontal(coord,plateau) || testVertical(coord,plateau));
 }
 
 QVector<QPoint> Tour::deplacementsPossible(int idJoueur,Plateau * plateau){

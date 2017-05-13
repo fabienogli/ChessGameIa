@@ -203,7 +203,10 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     }
     std::cout << "je suis 1-3";std::cout << std::endl;
     std::cout << "jai fini";std::cout << std::endl;
-    this->jouerIA();
+    /*Erreur dans
+     * this->jouerIA();
+     *
+     */
 }
 }
 //slot pour affichage gui des pieces
@@ -527,4 +530,5 @@ Plateau::~Plateau()
     delete coordArrivee;
     delete coordDepart;
     delete aSupprimer;
+    delete IA;
 }

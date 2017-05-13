@@ -63,6 +63,7 @@ bool Piece::testDeplacement(Coordonnee coord, Plateau * plateau)
 
 bool Piece::testDiagonal(Coordonnee coord, Plateau * plateau)
 {
+    int nbIter = 0;
     int x = coord.getX();
     int y = coord.getY();
 
@@ -80,50 +81,85 @@ bool Piece::testDiagonal(Coordonnee coord, Plateau * plateau)
     else
         operationY = 1;
     bool moveAble = false;
-    while (!moveAble && (i != x+operationX||j!= y+operationY )) {
-        std::cout<<"i= "<<i<<" et j= "<<j<<std::endl;
+    while (!moveAble && (i != x+operationX && j!= y+operationY )) {
         if (x == i && y == j)
             moveAble = true;
+        else if(nbIter!=0 && plateau->caseAtOccupy(i,j))
+            break;
         else {
             i += operationX;
             j += operationY;
+            if(nbIter==0)
+                nbIter =1;
         }
     }
+    nbIter =0;
     return moveAble;
 }
 
 bool Piece::testVertical(Coordonnee coord, Plateau * plateau)
 {
+    int nbIter = 0;
 	int y = getCoordonne().getY();
+    int i = coord.getX();
     int j = coord.getY();
+    int operation;
 	if (j > y)
-		j = -j;
+        operation = -1;
+    else
+        operation = 1;
 	bool moveAble = false;
-	while (!moveAble || j < y) {
-		if (y == j)
-			moveAble = true;
-		else
-			j++;
-	}
+    if(i==coordonnee->getX())
+    {
+        while (!moveAble && j != y+operation ) {
+            std::cout<<"I = "<<i<<" ET J ="<<j<<std::endl;
+            if (y == j)
+                moveAble = true;
+            else if(nbIter !=0&&plateau->caseAtOccupy(i,j)){
+                    break;
+            }
+            else{
+                if(nbIter==0){
+                        nbIter =1;
+                }
+                j+=operation;
+            }
+
+        }
+    }
+    nbIter =0;
 	return moveAble;
 }
 
 bool Piece::testHorizontal(Coordonnee coord, Plateau * plateau)
 {
+    int nbIter = 0;
 	int x = getCoordonne().getX();
     int i = coord.getX();
-
-	if (i > x)
-		i = -i;
+    int j = coord.getY();
+    int operation;
+    if (i > x)
+        operation = -1;
+    else
+        operation = 1;
 	bool moveAble = false;
-	while (!moveAble || i < x) {
-		if (x == i)
-			moveAble = true;
-		else
-		{
-			i += 1;
-		}
-	}
+    if(j==coordonnee->getY())
+    {
+        while (!moveAble && i != x+operation ) {
+            if (x == i)
+                moveAble = true;
+            else if(nbIter!=0&&plateau->caseAtOccupy(i,j)){
+                        break;
+            }
+            else
+            {
+                if(nbIter==0)
+                    nbIter =1;
+                i += operation;
+            }
+        }
+    }
+    nbIter =0;
 	return moveAble;
 }
 
