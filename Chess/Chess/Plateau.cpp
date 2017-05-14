@@ -154,7 +154,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     {
         joueur = joueur1;
         tmpActif = tmp1;
-
+        std::cout << "joueur 1"<< std::endl;
         //kmp = joueur2->isAnyPiece(*coordArrivee);
 
     }
@@ -163,6 +163,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     {
         joueur = joueur2;
         tmpActif = tmp2;
+        std::cout << "joueur 2"<< std::endl;
         //kmp = joueur1->isAnyPiece(*coordArrivee);
     }
 
@@ -177,6 +178,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     std::cout<<"Piece prise"<<std::endl;
     QVector<QPoint> listeCoups = tmpt->deplacementsPossible((*joueur).getIdJoueur(),this);
     std::cout<<"Liste déplacement"<<std::endl;
+
     for (int i =0; i<listeCoups.size();i++)
     {
         std::cout<<"x = "<<listeCoups[i].x()<<" et y="<<listeCoups[i].y()<<std::endl;
@@ -206,6 +208,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
             joueurActif = joueur1;
             //idJoueurActif = 1;
         }
+
         emit displayPlayerId(1);
         this->jouerIA();
     }else{
@@ -215,6 +218,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     }
     std::cout << "je suis 1-3";std::cout << std::endl;
     std::cout << "jai fini";std::cout << std::endl;
+    delete tmpt;
     /*Erreur dans
      * this->jouerIA();
      *
@@ -346,7 +350,7 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                     //on recherche dans le deck du premier joueur
                     tmp1 = (*joueur1).isAnyPiece(coordtmp);
                 else if(couleur==1)
-                    tmp2 = (*joueur1).isAnyPiece(coordtmp);
+                    tmp2 = (*joueur2).isAnyPiece(coordtmp);
                 if(tmp1!=-1){
                     switch(damier->getCase(x,y)->getId())
                     {
@@ -419,10 +423,11 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                     {
                     case 'P':
                         std::cout << "dans estenechec11";std::cout << std::endl;
-                        destination =  attaquePion(QPoint(joueur1->getDeck()[tmp1]->getCoordonne().getX(),getJoueur1()->getDeck()[tmp1]->getCoordonne().getY()));
+                        destination =  attaquePion(QPoint(joueur2->getDeck()[tmp2]->getCoordonne().getX(),getJoueur1()->getDeck()[tmp2]->getCoordonne().getY()));
                         std::cout << "dans estenechec12";std::cout << std::endl;
                         for(int u = 0; u < destination.size(); u++)
                         {
+                             std::cout << "dans estenechec13";std::cout << std::endl;
                             if(destination[u].x() == coordcase->x() && destination[u].y() == coordcase->y() )
                             {
                                 return true;
@@ -431,6 +436,7 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                         destination.clear();
                         break;
                     case 'R':
+                         std::cout << "dans estenechec14";std::cout << std::endl;
                         if(coordpion != NULL)
                         {
                             if(damier->getCase(coordpion->x(),coordpion->y())->getId() != 'R') // on rois ne peu pas attaquer un autre rois !
@@ -445,11 +451,13 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                         }
                         else
                         {
+                             std::cout << "dans estenechec15";std::cout << std::endl;
                             destination = joueur2->getDeck()[tmp2]->deplacementsPossible(1,this);
                         }
 
                         for(int u = 0; u < destination.size(); u++)
                         {
+                             std::cout << "dans estenechec16";std::cout << std::endl;
                             if(destination[u].x() == coordcase->x() && destination[u].y() == coordcase->y() )
                             {
                                 return true;
@@ -459,14 +467,17 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                         break;
 
                     case 'F':
+                         std::cout << "dans estenechec17";std::cout << std::endl;
                         if(testDestination(coordcase, tmp2,1))
                             return true;
                         break;
                     case 'T':
+                         std::cout << "dans estenechec18";std::cout << std::endl;
                         if(testDestination(coordcase, tmp2,1))
                             return true;
                         break;
                     case 'C':
+                         std::cout << "dans estenechec19";std::cout << std::endl;
                         if(testDestination(coordcase, tmp2,1))
                             return true;
                         break;

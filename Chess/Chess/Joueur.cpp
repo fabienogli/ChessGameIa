@@ -10,23 +10,44 @@ Joueur::Joueur(std::string nom, int i)
         wayToMove=-1;
 	nomJoueur = nom;
 	setOrigin(i);
+    
     id = i ;
 	generateDeck();
 }
+
 Joueur::Joueur(){}
 //Retourne le nom du joueur
 std::string Joueur::getNomjoueur()
 {
 	return nomJoueur;
 }
+
+/**
+ * @brief Joueur::getIdJoueur
+ *  id= 0 ce qui correspond au joueur noir
+ *  id= 1 ce qui correspond au joueur blanc
+ * @return id
+ */
 int Joueur::getIdJoueur(){
     return id;
 }
 
+/**
+ * @brief Joueur::getOrigin
+ * @return Coordonnee d origine du joueur
+ */
 Coordonnee Joueur::getOrigin(){
     return *origin;
 }
 
+/**
+ * @brief Joueur::isAnyPiece
+ * Methode qui permet de savoir si le joueur dispose d une piece
+ * au coordonne coord
+ * @param coord Coordonnee recherchee
+ * @return indice de la piece dans le vecteur deck ou -1 si aucune piece
+ * n est trouvee
+ */
 double Joueur::isAnyPiece(Coordonnee coord)
 {
 	bool found = false;
@@ -46,7 +67,10 @@ double Joueur::isAnyPiece(Coordonnee coord)
 		return -1;
 	}
 }
-//Genere les differentes pieces dans un vecteur
+/**
+ * @brief Joueur::generateDeck
+ * Genere les differentes pieces des joueurs dans le vecteur deck
+ */
 void Joueur::generateDeck()
 {
 	for (int i = 0; i < 8; i++)
@@ -116,11 +140,20 @@ void Joueur::setOrigin(int i)
 	}
 }
 
+/**
+ * @brief Joueur::getDeck
+ * @return le vecteur deck 
+ */
 std::vector<Piece*> Joueur::getDeck()
 {
 	return deck;
 }
 
+/**
+ * @brief Joueur::getPiece
+ * @param i indice de la piece
+ * @return piece du deck a la position i
+ */
 Piece Joueur::getPiece(int i)
 {
 	return *deck[i];
@@ -131,6 +164,10 @@ Piece* Joueur::getPiece2(int i)
     return deck[i];
 }
 
+/**
+ * @brief Joueur::getDeckSize
+ * @return taille du deck 
+ */
 int Joueur::getDeckSize()
 {
 	return deck.size();

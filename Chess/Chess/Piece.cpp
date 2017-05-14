@@ -61,6 +61,12 @@ bool Piece::testDeplacement(Coordonnee coord, Plateau * plateau)
     return verif;
 }
 
+/**
+ * @brief Piece::testDiagonal
+ * @param coord
+ * @param plateau
+ * @return vrai si la coordonne se trouve dans la diagonal de la piece
+ */
 bool Piece::testDiagonal(Coordonnee coord, Plateau * plateau)
 {
     int nbIter = 0;
@@ -97,6 +103,12 @@ bool Piece::testDiagonal(Coordonnee coord, Plateau * plateau)
     return moveAble;
 }
 
+/**
+ * @brief Piece::testVertical
+ * @param coord
+ * @param plateau
+ * @return vrai si la coordonne se trouve dans la verticale de la piece
+ */
 bool Piece::testVertical(Coordonnee coord, Plateau * plateau)
 {
     int nbIter = 0;
@@ -131,6 +143,12 @@ bool Piece::testVertical(Coordonnee coord, Plateau * plateau)
 	return moveAble;
 }
 
+/**
+ * @brief Piece::testHorizontal
+ * @param coord
+ * @param plateau
+ * @return vrai si la coordonne se trouve dans l horizontale de la piece 
+ */
 bool Piece::testHorizontal(Coordonnee coord, Plateau * plateau)
 {
     int nbIter = 0;
@@ -194,6 +212,10 @@ Piece::~Piece()
 	delete coordonnee;
 }
 
+/**
+ * @brief Piece::getId
+ * @return id de la piece 
+ */
 char Piece::getId()
 {
     return id_piece;
