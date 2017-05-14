@@ -207,6 +207,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
             //idJoueurActif = 1;
         }
         emit displayPlayerId(1);
+        this->jouerIA();
     }else{
 
         std::cout << "deplacement non autorise";std::cout << std::endl;
@@ -350,7 +351,9 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                     switch(damier->getCase(x,y)->getId())
                     {
                     case 'P':
+                        std::cout << "dans estenechec1";std::cout << std::endl;
                         destination = attaquePion(QPoint(joueur1->getDeck()[tmp1]->getCoordonne().getX(),getJoueur1()->getDeck()[tmp1]->getCoordonne().getY()));
+                        std::cout << "dans estenechec2";std::cout << std::endl;
                         for(int u = 0; u < destination.size(); u++)
                         {
                             if(destination[u].x() == coordcase->x() && destination[u].y() == coordcase->y() )
@@ -361,6 +364,7 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                         destination.clear();
                         break;
                     case 'R':
+                        std::cout << "dans estenechec3";std::cout << std::endl;
                         if(coordpion != NULL)
                         {
                             if(damier->getCase(coordpion->x(),coordpion->y())->getId() != 'R') // on rois ne peu pas attaquer un autre rois !
@@ -375,13 +379,17 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                         }
                         else
                         {
+                            std::cout << "dans estenechec4";std::cout << std::endl;
                             destination = getJoueur1()->getDeck()[tmp1]->deplacementsPossible(0,this);
+                            std::cout << "dans estenechec5";std::cout << std::endl;
                         }
 
                         for(int u = 0; u < destination.size(); u++)
                         {
+                            std::cout << "dans estenechec6";std::cout << std::endl;
                             if(destination[u].x() == coordcase->x() && destination[u].y() == coordcase->y() )
                             {
+                                std::cout << "dans estenechec7";std::cout << std::endl;
                                 return true;
                             }
                         }
@@ -389,14 +397,17 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                         break;
 
                     case 'F':
+                        std::cout << "dans estenechec8";std::cout << std::endl;
                         if(testDestination(coordcase, tmp1,0))
                             return true;
                         break;
                     case 'T':
+                        std::cout << "dans estenechec9";std::cout << std::endl;
                         if(testDestination(coordcase, tmp1,0))
                             return true;
                         break;
                     case 'C':
+                        std::cout << "dans estenechec10";std::cout << std::endl;
                         if(testDestination(coordcase, tmp1,0))
                             return true;
                         break;
@@ -407,7 +418,9 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                     switch(damier->getCase(x,y)->getId())
                     {
                     case 'P':
+                        std::cout << "dans estenechec11";std::cout << std::endl;
                         destination =  attaquePion(QPoint(joueur1->getDeck()[tmp1]->getCoordonne().getX(),getJoueur1()->getDeck()[tmp1]->getCoordonne().getY()));
+                        std::cout << "dans estenechec12";std::cout << std::endl;
                         for(int u = 0; u < destination.size(); u++)
                         {
                             if(destination[u].x() == coordcase->x() && destination[u].y() == coordcase->y() )
