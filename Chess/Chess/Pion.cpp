@@ -177,14 +177,18 @@ QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * plateau){
                 tabDep.append(QPoint(coordonnee->getX()-1,coordonnee->getY()-1));
             }
         }
+
         std::cout<<"dans le switch 4"<<std::endl;
         if(coordonnee->getX() < 7)
         {
-            std::cout<<"dans le switch4 1"<<std::endl;
-            if(plateau->getJoueur2()->isAnyPiece(Coordonnee(coordonnee->getX()+1,coordonnee->getY()-1)) == -1 && plateau->caseAtOccupy(coordonnee->getX()+1,coordonnee->getY()-1))
+            int tt= plateau->getJoueur2()->isAnyPiece(Coordonnee(coordonnee->getX()+1,coordonnee->getY()-1));
+            std::cout<<tt<<std::endl;
+            std::cout<<"dans le switch4 1"<< plateau->getJoueur2()->isAnyPiece(Coordonnee(coordonnee->getX()+1,coordonnee->getY()-1))<<std::endl;
+            if((plateau->getJoueur2()->isAnyPiece(Coordonnee(coordonnee->getX()+1,coordonnee->getY()-1)) == -1) && plateau->caseAtOccupy(coordonnee->getX()+1,coordonnee->getY()-1))
             {
+                std::cout<<"dans le switch4 2"<<std::endl;
                 tabDep.append(QPoint(coordonnee->getX()+1,coordonnee->getY()-1));
-                std::cout<<"dans le switch 4 2"<<std::endl;
+                std::cout<<"dans le switch 4 3"<<std::endl;
             }
         }
         //si c'est un pion qui c'est deplace : l'attaque est possible

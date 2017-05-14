@@ -24,8 +24,8 @@ std::string Joueur::getNomjoueur()
 
 /**
  * @brief Joueur::getIdJoueur
- *  id= 0 ce qui correspond au joueur noir
- *  id= 1 ce qui correspond au joueur blanc
+ *  id= 1 ce qui correspond au joueur noir
+ *  id= 0 ce qui correspond au joueur blanc
  * @return id
  */
 int Joueur::getIdJoueur(){
@@ -50,21 +50,33 @@ Coordonnee Joueur::getOrigin(){
  */
 double Joueur::isAnyPiece(Coordonnee coord)
 {
+
+    std::cout<<"t1"<<std::endl;
 	bool found = false;
 	int i = 0;
 	while (!found && i < deck.size())
 	{
+        std::cout<<i<<std::endl;
+        std::cout<<deck.size()<<std::endl;
+        std::cout<<"t2"<<std::endl;
 		if (coord.getX() == (*deck[i]).getCoordonne().getX() && coord.getY() == (*deck[i]).getCoordonne().getY())
 		{
+            std::cout<<"t3"<<std::endl;
 			found = true;
 		}
-		else
-			i++;
+        else{
+            i++;
+        std::cout<<i<<std::endl;
+        }
+        std::cout<<"t4"<<std::endl;
 	}
+    std::cout<<"t5"<<std::endl;
 	if (found)
 		return i;
 	else {
+        std::cout<<"t6"<<std::endl;
 		return -1;
+
 	}
 }
 /**
@@ -129,10 +141,10 @@ void Joueur::setOrigin(int i)
 {
 	switch (i)
 	{
-	case 0:
+    case 0:
 		origin = new Coordonnee(0, 0);
 		break;
-	case 1:
+    case 1:
 		origin = new Coordonnee(7, 7);
 		break;
 	default:
