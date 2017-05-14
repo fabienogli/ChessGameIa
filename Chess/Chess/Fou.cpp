@@ -2,7 +2,7 @@
 #include "Plateau.h"
 
 
-Fou::Fou()
+Fou::Fou() :Piece()
 {
     id_piece = 'F';
 }
@@ -15,14 +15,14 @@ QVector<QPoint> Fou::deplacementsPossible(int idJoueur,Plateau * plateau){
 
  QVector<QPoint> resultat;
 
-    int x = getCoordonne().getX();
-    int y = getCoordonne().getY();
+    int x = getCoordonne()->getX();
+    int y = getCoordonne()->getY();
 
     while (x > 0 && y > 0)
     {
         x--;
         y--;
-        if(plateau->getGrille()->getCase(x,y)->getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(), getCoordonne().getY())->getCouleur())
+        if(plateau->getGrille()->getCase(x,y)->getCouleur() != plateau->getGrille()->getCase(getCoordonne()->getX(), getCoordonne()->getY())->getCouleur())
         {
             resultat.append(QPoint(x, y));
         }
@@ -31,14 +31,14 @@ QVector<QPoint> Fou::deplacementsPossible(int idJoueur,Plateau * plateau){
             x = 0; // on stoppe la boucle
         }
     }
-    x = getCoordonne().getX();
+    x = getCoordonne()->getX();
 
-    y = getCoordonne().getY();
+    y = getCoordonne()->getY();
     while (x != 7 && y != 7)
     {
         x++;
         y++;
-        if(plateau->getGrille()->getCase(x,y)->getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY())->getCouleur())
+        if(plateau->getGrille()->getCase(x,y)->getCouleur() != plateau->getGrille()->getCase(getCoordonne()->getX(),getCoordonne()->getY())->getCouleur())
         {
             resultat.append(QPoint(x, y));
         }
@@ -47,13 +47,13 @@ QVector<QPoint> Fou::deplacementsPossible(int idJoueur,Plateau * plateau){
             x = 7; // on stoppe la boucle
         }
     }
-    x = getCoordonne().getX();
-    y = getCoordonne().getY();
+    x = getCoordonne()->getX();
+    y = getCoordonne()->getY();
     while (x > 0 && y < 7)
     {
         x--;
         y++;
-        if(plateau->getGrille()->getCase(x,y)->getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY())->getCouleur())
+        if(plateau->getGrille()->getCase(x,y)->getCouleur() != plateau->getGrille()->getCase(getCoordonne()->getX(),getCoordonne()->getY())->getCouleur())
         {
             resultat.append(QPoint(x, y));
         }
@@ -62,13 +62,13 @@ QVector<QPoint> Fou::deplacementsPossible(int idJoueur,Plateau * plateau){
             x = 0; // on stoppe la boucle
         }
     }
-    x = getCoordonne().getX();
-    y = getCoordonne().getY();
+    x = getCoordonne()->getX();
+    y = getCoordonne()->getY();
     while (x < 7 && y > 0)
     {
         x++;
         y--;
-        if(plateau->getGrille()->getCase(x,y)->getCouleur() != plateau->getGrille()->getCase(getCoordonne().getX(),getCoordonne().getY())->getCouleur() )
+        if(plateau->getGrille()->getCase(x,y)->getCouleur() != plateau->getGrille()->getCase(getCoordonne()->getX(),getCoordonne()->getY())->getCouleur() )
         {
             resultat.append(QPoint(x, y));
         }

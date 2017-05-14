@@ -46,9 +46,9 @@ int Grille::getLargeur()
 
 void Grille::putPiece(Piece *piece)
 {
-    cases[(*piece).getCoordonne().getX()][(*piece).getCoordonne().getY()]->setPiece();
-    cases[(*piece).getCoordonne().getX()][(*piece).getCoordonne().getY()]->setId(piece->getId());
-    cases[(*piece).getCoordonne().getX()][(*piece).getCoordonne().getY()]->setCouleur(piece->getCouleur());
+    cases[(*piece).getCoordonne()->getX()][(*piece).getCoordonne()->getY()]->setPiece();
+    cases[(*piece).getCoordonne()->getX()][(*piece).getCoordonne()->getY()]->setId(piece->getId());
+    cases[(*piece).getCoordonne()->getX()][(*piece).getCoordonne()->getY()]->setCouleur(piece->getCouleur());
 }
 
 void Grille::removePiece(Coordonnee* coordOrigin){

@@ -22,7 +22,7 @@ void Plateau::initialize(){
     m_coupPrecedent = new QVector<QPoint>();
     m_coupPrecedent->append(QPoint(0,0));
     m_coupPrecedent->append(QPoint(0,0));
-    IA = new ia(1,4);
+    IA = new ia(4);
     IA->setCoupPrecedent(m_coupPrecedent);
     initiatePosInGrid();
 }
@@ -79,6 +79,7 @@ void Plateau::jouerIA(){
              coordDepart->setX(i1);
              coordDepart->setY(i2);
              (*aSupprimer).setCoordonnee(new Coordonnee(i1,i2));
+
              joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i1,i2)))->setCoordonne(i3,i4);
              CaseDeplacementPossible =  IA->calc_echec_et_mat(joueur2,m_Posi_Rois2,this);
              emit affichSuppInit(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i1,i2))),0,0);
@@ -129,7 +130,9 @@ void Plateau::initiatePosInGrid()
 //deplacer une piece
 void Plateau::movePiece(int i1, int i2, int i3, int i4){
     if(idJoueurActif==1)
-   { std::cout << i2;std::cout << std::endl;
+   {
+    std::cout<<joueur2->getDeck()[7]->getCoordonne()->getX()<<std::endl;
+    std::cout << i2;std::cout << std::endl;
     std::cout << i1;std::cout << std::endl;
     std::cout << i4;std::cout << std::endl;
     std::cout << i3;std::cout << std::endl;
@@ -218,6 +221,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     }
     std::cout << "je suis 1-3";std::cout << std::endl;
     std::cout << "jai fini";std::cout << std::endl;
+   // joueur2->getDeck()[7]->afficher();
     delete tmpt;
     /*Erreur dans
      * this->jouerIA();
@@ -356,7 +360,7 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                     {
                     case 'P':
                         std::cout << "dans estenechec1";std::cout << std::endl;
-                        destination = attaquePion(QPoint(joueur1->getDeck()[tmp1]->getCoordonne().getX(),getJoueur1()->getDeck()[tmp1]->getCoordonne().getY()));
+                        destination = attaquePion(QPoint(joueur1->getDeck()[tmp1]->getCoordonne()->getX(),getJoueur1()->getDeck()[tmp1]->getCoordonne()->getY()));
                         std::cout << "dans estenechec2";std::cout << std::endl;
                         for(int u = 0; u < destination.size(); u++)
                         {
@@ -423,7 +427,7 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                     {
                     case 'P':
                         std::cout << "dans estenechec11";std::cout << std::endl;
-                        destination =  attaquePion(QPoint(joueur2->getDeck()[tmp2]->getCoordonne().getX(),getJoueur1()->getDeck()[tmp2]->getCoordonne().getY()));
+                        destination =  attaquePion(QPoint(joueur2->getDeck()[tmp2]->getCoordonne()->getX(),getJoueur1()->getDeck()[tmp2]->getCoordonne()->getY()));
                         std::cout << "dans estenechec12";std::cout << std::endl;
                         for(int u = 0; u < destination.size(); u++)
                         {

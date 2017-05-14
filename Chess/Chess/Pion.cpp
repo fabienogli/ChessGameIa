@@ -1,7 +1,7 @@
 #include "Pion.h"
 #include "Joueur.h"
 
-Pion::Pion(int i)
+Pion::Pion(int i) :Piece()
 {
     wayToMove = i;
     //So wayToMove = 1 la piece descend dans le plateau, sinon elle monte

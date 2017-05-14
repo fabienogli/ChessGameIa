@@ -5,6 +5,7 @@ int Joueur::wayToMove =0;
 //prend en parametre le nom du joueur et un int qui determine la position du joueur sur le plateau
 Joueur::Joueur(std::string nom, int i)
 {
+    //deck=new std::vector<Piece*>;
     wayToMove+=1;
     if(wayToMove==2)
         wayToMove=-1;
@@ -58,8 +59,13 @@ double Joueur::isAnyPiece(Coordonnee coord)
 	{
         std::cout<<i<<std::endl;
         std::cout<<deck.size()<<std::endl;
+        int tmp1=getDeck()[i]->getCoordonne()->getY();
+        int tmp2=getDeck()[i]->getCoordonne()->getX();
+        std::cout<<tmp1<<std::endl;
+        std::cout<<tmp2<<std::endl;
+
         std::cout<<"t2"<<std::endl;
-		if (coord.getX() == (*deck[i]).getCoordonne().getX() && coord.getY() == (*deck[i]).getCoordonne().getY())
+        if (coord.getX() == getDeck()[i]->getCoordonne()->getX() && coord.getY() == getDeck()[i]->getCoordonne()->getY())
 		{
             std::cout<<"t3"<<std::endl;
 			found = true;
@@ -92,6 +98,7 @@ void Joueur::generateDeck()
 		(*pion).setCoordonnee(new Coordonnee(i,j));
         pion->setCouleur(id);
 		deck.push_back(pion);
+        //delete pion;
 	}
 	Tour *tour = new Tour();
 	int y = (*origin).getY();

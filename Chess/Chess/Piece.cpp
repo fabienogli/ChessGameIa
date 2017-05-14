@@ -4,14 +4,15 @@
 //Initialise la piece
 Piece::Piece()
 {
+    coordonnee= new Coordonnee(0,0);
 	alive = true;
     couleur = -1;
 }
 
 //Retourne les coordonne de la piece
-Coordonnee Piece::getCoordonne()
+Coordonnee* Piece::getCoordonne()
 {
-	return *coordonnee;
+    return coordonnee;
 }
 int Piece::getCouleur(){
     return couleur;
@@ -51,7 +52,7 @@ bool Piece::isAlive()
 //retourne son abscisse, son ordonnee et le nom de la piece
 void Piece::afficher()
 {
-	std::cout <<"x= "<< getCoordonne().getX() << " et y= " << getCoordonne().getY() << " " << getId()<< std::endl;
+    std::cout <<"x= "<< getCoordonne()->getX() << " et y= " << getCoordonne()->getY() << " " << getId()<< std::endl;
 }
 
 //Methode pour tester un deplacement
@@ -73,8 +74,8 @@ bool Piece::testDiagonal(Coordonnee coord, Plateau * plateau)
     int x = coord.getX();
     int y = coord.getY();
 
-    int i = getCoordonne().getX();
-    int j = getCoordonne().getY();
+    int i = getCoordonne()->getX();
+    int j = getCoordonne()->getY();
 
     int operationX, operationY;
 
@@ -112,7 +113,7 @@ bool Piece::testDiagonal(Coordonnee coord, Plateau * plateau)
 bool Piece::testVertical(Coordonnee coord, Plateau * plateau)
 {
     int nbIter = 0;
-	int y = getCoordonne().getY();
+    int y = getCoordonne()->getY();
     int i = coord.getX();
     int j = coord.getY();
     int operation;
@@ -152,7 +153,7 @@ bool Piece::testVertical(Coordonnee coord, Plateau * plateau)
 bool Piece::testHorizontal(Coordonnee coord, Plateau * plateau)
 {
     int nbIter = 0;
-	int x = getCoordonne().getX();
+    int x = getCoordonne()->getX();
     int i = coord.getX();
     int j = coord.getY();
     int operation;

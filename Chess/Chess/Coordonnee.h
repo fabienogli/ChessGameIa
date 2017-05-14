@@ -3,7 +3,7 @@ class Coordonnee
 {
 public:
 	Coordonnee(int a, int b);
-    Coordonnee( Coordonnee const& coord);
+    //Coordonnee( Coordonnee const& coord);
 	~Coordonnee();
 	int getX();
 	int getY();

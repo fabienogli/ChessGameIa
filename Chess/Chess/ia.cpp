@@ -3,11 +3,16 @@
 #include "Joueur.h"
 #include "Piece.h"
 
+/*
 ia::ia(int i_joueur, int level) : Joueur("IA",i_joueur)
 {
     this->level = level;
-}
+}*/
 
+ia::ia(int level)
+{
+    this->level = level;
+}
 void ia::setCoupPrecedent(QVector<QPoint> * coupPrecedent)
 {
     this->m_coupPrecedent=coupPrecedent;

@@ -7,7 +7,8 @@ class Plateau;
 class ia : public Joueur
 {
 public:
-    ia(int i_joueur, int level);
+    //ia(int i_joueur, int level);
+    ia(int level);
     void setCoupPrecedent(QVector<QPoint> * coupPrecedent);
     void setLevel(int i);
     int getLevel();

@@ -1,25 +1,23 @@
 #include "Coordonnee.h"
 
-
-
 Coordonnee::Coordonnee(int a, int b)
 {
 	x = a;
 	y = b;
 }
-Coordonnee::Coordonnee(Coordonnee const& coord){
+/*Coordonnee::Coordonnee(Coordonnee const& coord){
     x=coord.x;
     y=coord.y;
-}
+}*/
 
 int Coordonnee::getX()
 {
-	return x;
+    return this->x;
 }
 
 int Coordonnee::getY()
 {
-	return y;
+    return this->y;
 }
 void Coordonnee::setX(int x){
     this->x=x;

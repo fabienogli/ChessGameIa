@@ -12,7 +12,7 @@ class Piece
 
 public:
 	Piece();
-	Coordonnee getCoordonne();
+    Coordonnee* getCoordonne();
 	void setCoordonnee(Coordonnee *coord);
     void setCoordonne(int x,int y);
     void kill(Piece *piece);
