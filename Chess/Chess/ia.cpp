@@ -610,11 +610,9 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
             }
         }
     }
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 876b862db8c56ca30a4db9dc793b040979efcacb
+
+
     return result;
 
 }
