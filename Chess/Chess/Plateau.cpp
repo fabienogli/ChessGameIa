@@ -15,7 +15,6 @@ void Plateau::initialize(){
     joueur1 = new Joueur("joueur 1",0);
     joueur2 = new Joueur("joueur 2",1);
     joueurActif = joueur2;
-    idJoueurActif=2;
     coordDepart = new Coordonnee(0,0);
     coordArrivee= new Coordonnee(0,0);
     aSupprimer=new Piece();
@@ -86,9 +85,8 @@ void Plateau::jouerIA(){
 //             std::cout << "IA emet signal d'affichage"<< std::endl;
 //             getGrille()->putPiece(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i1,i2))));
 //             getGrille()->removePiece(coordDepart);
-             std::cout<<"DEPLACEMENT IA : origine x="<<i1<<" y="<<i2<<" arrive x="<<i3<<" y="<<i4;
-             movePiece(i1,i2,i3,i4);
-             this->idJoueurActif=2;
+             std::cout<<"DEPLACEMENT IA : origine x="<<i2<<" y="<<i1<<" arrive x="<<i4<<" y="<<i3;
+             movePiece(i2,i1,i4,i3);
              /*if(CaseDeplacementPossible.count() == 0)
                  {
                      int ret = QMessageBox::question(this,"Pauvre noob Partie Perdu","L'IA a gagnier la partie ! \nVoulez vous rejouer ?",QMessageBox::Yes | QMessageBox::No);
@@ -130,8 +128,7 @@ void Plateau::initiatePosInGrid()
 }
 //deplacer une piece
 void Plateau::movePiece(int i1, int i2, int i3, int i4){
-    if(idJoueurActif==1)
-   {
+
     //std::cout << getPiece(new Coordonnee(7,6))->;std::cout << std::endl;
     std::cout<<joueur2->getDeck()[7]->getCoordonne()->getX()<<std::endl;
     std::cout<<joueur2->getDeck()[7]->getCoordonne()->getY()<<std::endl;
@@ -212,6 +209,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
         }
         else{
             joueurActif = joueur1;
+            idJoueurActif =1;
             this->jouerIA();
 
             //idJoueurActif = 1;
@@ -231,7 +229,6 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
      * this->jouerIA();
      *
      */
-}
 }
 //slot pour affichage gui des pieces
 void Plateau::displayPlateau(){
