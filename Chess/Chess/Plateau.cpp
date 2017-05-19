@@ -22,7 +22,7 @@ void Plateau::initialize(){
     m_coupPrecedent = new QVector<QPoint>();
     m_coupPrecedent->append(QPoint(0,0));
     m_coupPrecedent->append(QPoint(0,0));
-    IA = new ia(4);
+    IA = new ia(2);
     IA->setCoupPrecedent(m_coupPrecedent);
     initiatePosInGrid();
 }
