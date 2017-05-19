@@ -610,6 +610,7 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
             }
         }
     }
+    
     return result;
 
 }
@@ -622,11 +623,11 @@ int ia::eval(Plateau * plateau){
         {
             if(plateau->getGrille()->getCase(x,y)->getId() == 'P' && plateau->getGrille()->getCase(x,y)->getCouleur() == 0)
             {
-                scoreJoueur1+=100;
+                scoreJoueur1+= 100;
             }
             else if(plateau->getGrille()->getCase(x,y)->getId() == 'P' && plateau->getGrille()->getCase(x,y)->getCouleur() == 1)
             {
-                scoreJoueur2+=100;
+                scoreJoueur2+= 100;
             }
             if((plateau->getGrille()->getCase(x,y)->getId() == 'F' || plateau->getGrille()->getCase(x,y)->getId() == 'C') && plateau->getGrille()->getCase(x,y)->getCouleur() == 0)
             {
