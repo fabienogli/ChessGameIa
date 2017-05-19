@@ -10,8 +10,7 @@ Joueur::Joueur(std::string nom, int i)
     if(wayToMove==2)
         wayToMove=-1;
 	nomJoueur = nom;
-	setOrigin(i);
-    
+	setOrigin(i); 
     id = i ;
 	generateDeck();
 }
@@ -52,15 +51,15 @@ Coordonnee Joueur::getOrigin(){
 double Joueur::isAnyPiece(Coordonnee coord)
 {
 
-    std::cout<<"t1"<<std::endl;
+    //std::cout<<"t1"<<std::endl;
 	bool found = false;
 	int i = 0;
 	while (!found && i < deck.size())
 	{
         std::cout<<i<<std::endl;
         std::cout<<deck.size()<<std::endl;
-        int tmp1=getDeck()[i]->getCoordonne()->getY();
-        int tmp2=getDeck()[i]->getCoordonne()->getX();
+        int tmp1=getDeck()[i]->getCoordonne()->getX();
+        int tmp2=getDeck()[i]->getCoordonne()->getY();
         std::cout<<tmp1<<std::endl;
         std::cout<<tmp2<<std::endl;
 

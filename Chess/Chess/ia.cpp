@@ -32,11 +32,11 @@ int ia::gagnant(int idJoueur,Plateau * plateau){
     }
     else
     {
-        if(this->calc_echec_et_mat(plateau->getJoueur2(),this->m_Posi_Rois2,plateau).size() == 0)
+        if(this->calc_echec_et_mat(plateau->getJoueur2(),this->m_Posi_Rois2,plateau).count() == 0)
         {
             return -1000;
         }
-        if(this->calc_echec_et_mat(plateau->getJoueur1(),this->m_Posi_Rois1,plateau).size() == 0)
+        if(this->calc_echec_et_mat(plateau->getJoueur1(),this->m_Posi_Rois1,plateau).count() == 0)
         {
             return 1000;
         }

@@ -7,8 +7,8 @@ Compose d objet de la classe case
 //Constructeur de Grille
 Grille::Grille()
 {
-	for (int y = 0; y < hauteur; y++) {
-		for (int x = 0; x < largeur; x++) {
+    for (int x = 0; x < hauteur; x++) {
+        for (int y = 0; y < largeur; y++) {
 			cases[x][y] = new Case(x, y);
 
 		}
@@ -46,9 +46,9 @@ int Grille::getLargeur()
 
 void Grille::putPiece(Piece *piece)
 {
-    cases[(*piece).getCoordonne()->getX()][(*piece).getCoordonne()->getY()]->setPiece();
-    cases[(*piece).getCoordonne()->getX()][(*piece).getCoordonne()->getY()]->setId(piece->getId());
-    cases[(*piece).getCoordonne()->getX()][(*piece).getCoordonne()->getY()]->setCouleur(piece->getCouleur());
+    cases[piece->getCoordonne()->getX()][piece->getCoordonne()->getY()]->setPiece();
+    cases[piece->getCoordonne()->getX()][piece->getCoordonne()->getY()]->setId(piece->getId());
+    cases[piece->getCoordonne()->getX()][piece->getCoordonne()->getY()]->setCouleur(piece->getCouleur());
 }
 
 void Grille::removePiece(Coordonnee* coordOrigin){
