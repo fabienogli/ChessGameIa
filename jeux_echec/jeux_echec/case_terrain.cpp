@@ -38,27 +38,27 @@ void case_terrain::resizeEvent ( QResizeEvent * event )
 {
     if(this->m_couleurCase == 1)
     {
-        QPixmap img(":/jeux/case_noir.png");
+        QPixmap img("case_noir.png");
         if(m_pieceSurLaCase != Rien)
         {
            img =  superpositionImage(img, m_imagePiece);
         }
         if(m_selected)
         {
-           img =  superpositionImage(img, QPixmap(":/jeux/halo.png"));
+           img =  superpositionImage(img, QPixmap("halo.png"));
         }
         this->setPixmap(img.scaled(event->size().width(),event->size().height(),Qt::IgnoreAspectRatio));
     }
     else
     {
-        QPixmap img(":/jeux/case_blanche.png");
+        QPixmap img("case_blanche.png");
         if(m_pieceSurLaCase != Rien)
         {
            img =  superpositionImage(img, m_imagePiece);
         }
         if(m_selected)
         {
-           img =  superpositionImage(img, QPixmap(":/jeux/halo.png"));
+           img =  superpositionImage(img, QPixmap("halo.png"));
         }
         this->setPixmap(img.scaled(event->size().width(),event->size().height(),Qt::IgnoreAspectRatio));
     }
@@ -111,7 +111,7 @@ void case_terrain::deselect()
 void case_terrain::select()
 {
     m_selected = true;
-    this->setPixmap(superpositionImage(*this->pixmap(), QPixmap(":/jeux/halo.png")));
+    this->setPixmap(superpositionImage(*this->pixmap(), QPixmap("halo.png")));
     setMinimumSize(40,40);
 }
 /**
@@ -126,13 +126,13 @@ void case_terrain::setCouleur(int couleur)
     this->m_selected = false;
     if(m_couleurCase == 1)
     {
-        QPixmap img(":/jeux/case_noir.png");
+        QPixmap img("case_noir.png");
         m_imageCouleurCase = img;
         this->setPixmap(img.scaled(this->width(),this->height(),Qt::IgnoreAspectRatio));
     }
     else
     {
-        QPixmap img(":/jeux/case_blanche.png");
+        QPixmap img("case_blanche.png");
         m_imageCouleurCase = img;
         this->setPixmap(img.scaled(this->width(),this->height(),Qt::IgnoreAspectRatio));
     }
@@ -154,22 +154,22 @@ void case_terrain::setPiece(piece ma_piece,int groupe)
         switch(ma_piece)
         {
             case Pion:
-                m_imagePiece.load(":/jeux/pieces/noir_pion.png");
+                m_imagePiece.load("pieces/noir_pion.png");
             break;
             case Rois:
-                m_imagePiece.load(":/jeux/pieces/noir_roi.png");
+                m_imagePiece.load("pieces/noir_roi.png");
             break;
             case Reine:
-                m_imagePiece.load(":/jeux/pieces/noir_reine.png");
+                m_imagePiece.load("pieces/noir_reine.png");
             break;
             case Fous:
-                m_imagePiece.load(":/jeux/pieces/noir_fou.png");
+                m_imagePiece.load("pieces/noir_fou.png");
             break;
             case Tour:
-                m_imagePiece.load(":/jeux/pieces/noir_tour.png");
+                m_imagePiece.load("pieces/noir_tour.png");
             break;
             case Cavalier:
-                m_imagePiece.load(":/jeux/pieces/noir_cavalier.png");
+                m_imagePiece.load("pieces/noir_cavalier.png");
             break;
             case Rien:
                 setCouleur(m_couleurCase);
@@ -182,22 +182,22 @@ void case_terrain::setPiece(piece ma_piece,int groupe)
         switch(ma_piece)
         {
             case Pion:
-                m_imagePiece.load(":/jeux/pieces/blanc_pion.png");
+                m_imagePiece.load("pieces/blanc_pion.png");
             break;
             case Rois:
-                m_imagePiece.load(":/jeux/pieces/blanc_roi.png");
+                m_imagePiece.load("pieces/blanc_roi.png");
             break;
             case Reine:
-                m_imagePiece.load(":/jeux/pieces/blanc_reine.png");
+                m_imagePiece.load("pieces/blanc_reine.png");
             break;
             case Fous:
-                m_imagePiece.load(":/jeux/pieces/blanc_fou.png");
+                m_imagePiece.load("pieces/blanc_fou.png");
             break;
             case Tour:
-                m_imagePiece.load(":/jeux/pieces/blanc_tour.png");
+                m_imagePiece.load("pieces/blanc_tour.png");
             break;
             case Cavalier:
-                m_imagePiece.load(":/jeux/pieces/blanc_cavalier.png");
+                m_imagePiece.load("pieces/blanc_cavalier.png");
             break;
             case Rien:
                 setCouleur(m_couleurCase);

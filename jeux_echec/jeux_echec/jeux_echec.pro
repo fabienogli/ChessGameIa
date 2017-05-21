@@ -28,5 +28,5 @@ HEADERS  += mainwindow.h \
     Definement.h \
     ia.h
 
-RESOURCES += \
-    Image.qrc
+
+

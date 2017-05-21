@@ -20,7 +20,7 @@ public:
 	void afficherPiece();
 	void setOrigin(int i);
     int getIdJoueur();
-	std::vector<Piece*> getDeck();
+    std::vector<Piece*> getDeck();
 	Piece getPiece(int i);
     Coordonnee getOrigin();
 	int getDeckSize();
@@ -31,6 +31,6 @@ private:
     int id;
 	static int const nombrePiece = 6;
     static int wayToMove;
-	std::vector<Piece*> deck;
+    std::vector<Piece*> deck;
 };
 

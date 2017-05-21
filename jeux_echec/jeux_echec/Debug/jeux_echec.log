@@ -1,0 +1,24 @@
+﻿Build started 20/05/2017 23:51:11.
+     1>Project "C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\jeux_echec\jeux_echec\jeux_echec.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt case_terrain.cpp deplacements.cpp fenetre_option.cpp ia.cpp main.cpp mainwindow.cpp terrain.cpp
+         terrain.cpp
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\jeux_echec\jeux_echec\terrain.h(4): fatal error C1083: Cannot open include file: 'QWidget': No such file or directory
+         mainwindow.cpp
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\jeux_echec\jeux_echec\mainwindow.h(4): fatal error C1083: Cannot open include file: 'QMainWindow': No such file or directory
+         main.cpp
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\jeux_echec\jeux_echec\mainwindow.h(4): fatal error C1083: Cannot open include file: 'QMainWindow': No such file or directory
+         ia.cpp
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\jeux_echec\jeux_echec\ia.h(3): fatal error C1083: Cannot open include file: 'QObject': No such file or directory
+         fenetre_option.cpp
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\jeux_echec\jeux_echec\fenetre_option.h(3): fatal error C1083: Cannot open include file: 'QWidget': No such file or directory
+         deplacements.cpp
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\jeux_echec\jeux_echec\deplacements.h(3): fatal error C1083: Cannot open include file: 'QPoint': No such file or directory
+         case_terrain.cpp
+     1>c:\users\markk\onedrive\dossiersgit\chessgameia\jeux_echec\jeux_echec\case_terrain.h(4): fatal error C1083: Cannot open include file: 'QLabel': No such file or directory
+         Generating Code...
+     1>Done Building Project "C:\Users\markk\OneDrive\DossiersGit\ChessGameIa\jeux_echec\jeux_echec\jeux_echec.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:02.71

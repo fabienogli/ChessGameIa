@@ -77,14 +77,14 @@ void Plateau::jouerIA(){
              std::cout << "IA a fait son choix"<< std::endl;
              coordDepart->setX(i1);
              coordDepart->setY(i2);
-             //(*aSupprimer).setCoordonnee(new Coordonnee(i1,i2));
-             //joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i1,i2)))->setCoordonne(i3,i4);
-             //CaseDeplacementPossible =  IA->calc_echec_et_mat(joueur2,m_Posi_Rois2,this);
-//             emit affichSuppInit(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i1,i2))),0,0);
-//             emit affichSuppInit(aSupprimer,0,1);
-//             std::cout << "IA emet signal d'affichage"<< std::endl;
-//             getGrille()->putPiece(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i1,i2))));
-//             getGrille()->removePiece(coordDepart);
+             (*aSupprimer).setCoordonnee(new Coordonnee(i1,i2));
+             joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i1,i2)))->setCoordonne(i3,i4);
+             CaseDeplacementPossible =  IA->calc_echec_et_mat(joueur2,m_Posi_Rois2,this);
+             emit affichSuppInit(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i1,i2))),0,0);
+             emit affichSuppInit(aSupprimer,0,1);
+             std::cout << "IA emet signal d'affichage"<< std::endl;
+             getGrille()->putPiece(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i1,i2))));
+             getGrille()->removePiece(coordDepart);
              std::cout<<"DEPLACEMENT IA : origine x="<<i2<<" y="<<i1<<" arrive x="<<i4<<" y="<<i3;
              movePiece(i2,i1,i4,i3);
              /*if(CaseDeplacementPossible.count() == 0)
@@ -130,8 +130,8 @@ void Plateau::initiatePosInGrid()
 void Plateau::movePiece(int i1, int i2, int i3, int i4){
 
     //std::cout << getPiece(new Coordonnee(7,6))->;std::cout << std::endl;
-    std::cout<<joueur2->getDeck()[7]->getCoordonne()->getX()<<std::endl;
-    std::cout<<joueur2->getDeck()[7]->getCoordonne()->getY()<<std::endl;
+    std::cout<<"X="<<joueur2->getDeck()[7]->getCoordonne()->getX()<<std::endl;
+    std::cout<<"Y="<<joueur2->getDeck()[7]->getCoordonne()->getY()<<std::endl;
     std::cout << i2;std::cout << std::endl;
     std::cout << i1;std::cout << std::endl;
     std::cout << i4;std::cout << std::endl;
@@ -188,7 +188,6 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     }
     std::cout<<"fin de liste déplacement"<<std::endl;
     //FIN DEPLACEMENT
-
     (*joueur).getDeck()[tmpActif]->afficher();
     std::cout << "je suis 1-2";std::cout << std::endl;
     if(b==true){
@@ -209,8 +208,8 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
         }
         else{
             joueurActif = joueur1;
-            idJoueurActif =1;
-            this->jouerIA();
+           // idJoueurActif =1;
+           this->jouerIA();
 
             //idJoueurActif = 1;
         }
@@ -341,12 +340,14 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
     QVector<QPoint> destination;
     //Coordonnee coordtmp = new Coordonnee(0,0);
 
-    double tmp1;
-    double tmp2;
+//    double tmp1=-1;
+//    double tmp2=-1;
     for(int x = 0; x < 8; x++)
     {
         for(int y = 0; y < 8; y++)
         {
+            double tmp1=-1;
+            double tmp2=-1;
             std::cout << x;std::cout << std::endl;
             std::cout << y;std::cout << std::endl;
             Coordonnee coordtmp(x,y);
@@ -358,11 +359,16 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                 std::cout << coordtmp.getX();std::cout << std::endl;
                 std::cout << coordtmp.getY();std::cout << std::endl;
                 std::cout << "dans estenechecprim";std::cout << std::endl;
-                if(couleur == 0)
+                if(damier->getCase(x,y)->getCouleur() == 1){
                     //on recherche dans le deck du premier joueur
+                    std::cout<<"dans le joueur2"<<std::endl;
                     tmp1 = (*joueur2).isAnyPiece(coordtmp);
-                else if(couleur==1)
+                }
+                else if(damier->getCase(x,y)->getCouleur() == 0){
+                    std::cout<<"dans le joueur1"<<std::endl;
                     tmp2 = (*joueur1).isAnyPiece(coordtmp);
+                }
+                std::cout<<"tmp1= "<<tmp1<<" tmp2="<<tmp2<<std::endl;
                 std::cout << "dans estenechecprim2";std::cout << std::endl;
                 if(tmp2!=-1){
                     switch(damier->getCase(x,y)->getId())

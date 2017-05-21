@@ -2,8 +2,8 @@
 
 Coordonnee::Coordonnee(int a, int b)
 {
-	x = a;
-	y = b;
+    x = a;
+    y = b;
 }
 /*Coordonnee::Coordonnee(Coordonnee const& coord){
     x=coord.x;
@@ -12,19 +12,19 @@ Coordonnee::Coordonnee(int a, int b)
 
 int Coordonnee::getX()
 {
-    return this->x;
+    return x;
 }
 
 int Coordonnee::getY()
 {
-    return this->y;
+    return y;
 }
-void Coordonnee::setX(int x){
-    this->x=x;
+void Coordonnee::setX(int x1){
+    x=x1;
 }
 
-void Coordonnee::setY(int y){
-    this->y=y;
+void Coordonnee::setY(int y1){
+    y=y1;
 }
 Coordonnee::~Coordonnee()
 {

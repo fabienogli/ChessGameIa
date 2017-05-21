@@ -398,9 +398,9 @@ void MainWindow::initialisation()
 
    m_player = new QMediaPlayer;
    QDir var;
-   m_playlist = new QMediaPlaylist; 
-   if(QFile::exists(var.absoluteFilePath("1.mp3")))
-        m_playlist->addMedia(QUrl::fromLocalFile(var.absoluteFilePath("1.mp3")));
+   m_playlist = new QMediaPlaylist;
+   if(QFile::exists(var.absoluteFilePath("son/1.mp3")))
+        m_playlist->addMedia(QUrl::fromLocalFile(var.absoluteFilePath("1.mp3")));/*
    if(QFile::exists(var.absoluteFilePath("2.mp3")))
         m_playlist->addMedia(QUrl::fromLocalFile(var.absoluteFilePath("2.mp3")));
    if(QFile::exists(var.absoluteFilePath("3.mp3")))
@@ -414,7 +414,7 @@ void MainWindow::initialisation()
    if(QFile::exists(var.absoluteFilePath("7.mp3")))
         m_playlist->addMedia(QUrl::fromLocalFile(var.absoluteFilePath("7.mp3")));
    if(QFile::exists(var.absoluteFilePath("8.mp3")))
-        m_playlist->addMedia(QUrl::fromLocalFile(var.absoluteFilePath("8.mp3")));
+        m_playlist->addMedia(QUrl::fromLocalFile(var.absoluteFilePath("8.mp3")));*/
 
 
    m_playlist->setPlaybackMode(QMediaPlaylist::Random);

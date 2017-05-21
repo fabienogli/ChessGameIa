@@ -47,14 +47,20 @@ int ia::gagnant(int idJoueur,Plateau * plateau){
 }
 int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
 {
+
+     std::cout<<"dans le max"<<std::endl;
    // QPoint *coordtmp1 = new QPoint(0,0);
     Piece* tmp = new Piece();
     int retour=gagnant(joueur->getIdJoueur(),plateau)  ;
+    std::cout<<"jai fini le calcul du retour gagnant"<<std::endl;
+    std::cout<<"retour="<<retour<<std::endl;
     int max = -10000;
     if(profondeur <= 0 || (retour != 0))
+        //if(profondeur <= 0 )
     {
         if(profondeur <= 0)
         {
+            std::cout << "jevalue le plateau";std::cout << std::endl;
             return eval(plateau);
         }
         else
@@ -93,7 +99,6 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
                     break;
                 }*/
                 listeCoup = joueur->getDeck()[idPiece]->deplacementsPossible(joueur->getIdJoueur(),plateau);
-
                 for(int i=0;i<listeCoup.size();i++){
                     int coup_origin_x = plateau->getCoupPrec().at(0).x();
                     int coup_origin_y =plateau->getCoupPrec().at(0).y();
@@ -142,10 +147,12 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
 
                     if(joueur->getIdJoueur() == 0)
                     {
+                        std::cout << "pronfondeur max="<<profondeur-1;std::cout << std::endl;
                         score = min(plateau->getJoueur2(),plateau,profondeur-1,alpha,beta);
                     }
                     else
                     {
+                        std::cout << "pronfondeur max="<<profondeur-1;std::cout << std::endl;
                         score = min(plateau->getJoueur1(),plateau,profondeur-1,alpha,beta);
                     }
 
@@ -229,9 +236,11 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
     int min = 10000;
      std::cout << "dans jouer de la classe min3";std::cout << std::endl;
     if(profondeur <= 0 || (retour != 0))
+         //if(profondeur <= 0 )
     {
         if(profondeur <= 0)
         {
+             std::cout << "jevalue le plateau";std::cout << std::endl;
             return eval(plateau);
         }
         else
@@ -319,10 +328,12 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
 
                     if(joueur->getIdJoueur() == 0)
                     {
+                        std::cout << "pronfondeur="<<profondeur-1;std::cout << std::endl;
                         score = max(plateau->getJoueur2(),plateau,profondeur-1,alpha,beta);
                     }
                     else
                     {
+                        std::cout << "pronfondeur="<<profondeur-1;std::cout << std::endl;
                         score = max(plateau->getJoueur1(),plateau,profondeur-1,alpha,beta);
                     }
 
@@ -531,12 +542,14 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                     if(joueur->getIdJoueur() == 0)
                     {
                          std::cout << "dans jouer de la classe IA7";std::cout << std::endl;
+                         std::cout << "profondeur min="<<profondeur-1;std::cout << std::endl;
                         score = min(plateau->getJoueur2(),plateau,profondeur-1,-10000,100000);
                          std::cout << "dans jouer de la classe IA7-1";std::cout << std::endl;
                     }
                     else
                     {
                          std::cout << "dans jouer de la classe IA8";std::cout << std::endl;
+                            std::cout << "profondeur min="<<profondeur-1;std::cout << std::endl;
                         score = min(plateau->getJoueur1(),plateau,profondeur-1,-10000,100000);
                          std::cout << "dans jouer de la classe IA8-1";std::cout << std::endl;
                     }
@@ -855,8 +868,8 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
 
     }
      std::cout << "fin calc echec mat ";std::cout << std::endl;
-delete tmp;
-delete coordtmp1;
+//delete tmp;
+//delete coordtmp1;
     return result;
 }
 

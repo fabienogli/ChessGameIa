@@ -54,15 +54,20 @@ double Joueur::isAnyPiece(Coordonnee coord)
     //std::cout<<"t1"<<std::endl;
 	bool found = false;
 	int i = 0;
-	while (!found && i < deck.size())
+    while (!found && i < deck.size())
 	{
-        std::cout<<i<<std::endl;
-        std::cout<<deck.size()<<std::endl;
-        int tmp1=getDeck()[i]->getCoordonne()->getX();
-        int tmp2=getDeck()[i]->getCoordonne()->getY();
-        std::cout<<tmp1<<std::endl;
-        std::cout<<tmp2<<std::endl;
+        //std::cout<<i<<std::endl;
+        //std::cout<<deck.size()<<std::endl;
 
+        //int tmp1=getDeck()[i]->getCoordonne()->getX();
+        //int tmp2=getDeck()[i]->getCoordonne()->getY();
+        //int tmp3=getDeck().at(7)->getCoordonne()->getX();
+        int tmp3=getDeck().at(7)->getCoordonne()->getX();
+        int tmp4=getDeck().at(7)->getCoordonne()->getY();
+        //std::cout<<tmp1<<std::endl;
+        //std::cout<<tmp2<<std::endl;
+        std::cout<<tmp3<<std::endl;
+        std::cout<<tmp4<<std::endl;
         std::cout<<"t2"<<std::endl;
         if (coord.getX() == getDeck()[i]->getCoordonne()->getX() && coord.getY() == getDeck()[i]->getCoordonne()->getY())
 		{
@@ -71,7 +76,7 @@ double Joueur::isAnyPiece(Coordonnee coord)
 		}
         else{
             i++;
-        std::cout<<i<<std::endl;
+        std::cout<<"i="<<i<<std::endl;
         }
         std::cout<<"t4"<<std::endl;
 	}
@@ -96,36 +101,36 @@ void Joueur::generateDeck()
 		int j = int(abs((*origin).getY() - (2 - i % 2)));
 		(*pion).setCoordonnee(new Coordonnee(i,j));
         pion->setCouleur(id);
-		deck.push_back(pion);
+        deck.push_back(pion);
         //delete pion;
 	}
 	Tour *tour = new Tour();
 	int y = (*origin).getY();
 	(*tour).setCoordonnee(new Coordonnee(0, y));
     tour->setCouleur(id);
-	deck.push_back(tour);
+    deck.push_back(tour);
 
 	Fou *fou = new Fou();
 	(*fou).setCoordonnee(new Coordonnee(2, y));
     fou->setCouleur(id);
-	deck.push_back(fou);
+    deck.push_back(fou);
 
 	Roi *roi = new Roi();
 	(*roi).setCoordonnee(new Coordonnee(4, y));
     roi->setCouleur(id);
-	deck.push_back(roi);
+    deck.push_back(roi);
 
 	Cavalier *cavalier = new Cavalier();
 	(*cavalier).setCoordonnee(new Coordonnee(6, y));
     cavalier->setCouleur(id);
-	deck.push_back(cavalier);
+    deck.push_back(cavalier);
 
 }
 
 //Affiche pour chaque piece ses coordonne et le nom de la piece
 void Joueur::afficherPiece()
 {
-	for (int i = 0; i < deck.size(); i++)
+    for (int i = 0; i < deck.size(); i++)
 	{
 		(*deck[i]).afficher();
 	}
@@ -134,9 +139,9 @@ void Joueur::afficherPiece()
 //Destructeur du joueur 
 Joueur::~Joueur()
 {
-	for (int i =0; i < deck.size(); i++)
+    for (int i =0; i < deck.size(); i++)
 	{
-		delete deck[i];
+        delete deck[i];
 		std::cout << i << std::endl;
 	}
 	delete origin;
@@ -164,7 +169,7 @@ void Joueur::setOrigin(int i)
  */
 std::vector<Piece*> Joueur::getDeck()
 {
-	return deck;
+    return deck;
 }
 
 /**
@@ -174,7 +179,7 @@ std::vector<Piece*> Joueur::getDeck()
  */
 Piece Joueur::getPiece(int i)
 {
-	return *deck[i];
+    return *deck[i];
 }
 
 Piece* Joueur::getPiece2(int i)
@@ -188,7 +193,7 @@ Piece* Joueur::getPiece2(int i)
  */
 int Joueur::getDeckSize()
 {
-	return deck.size();
+    return deck.size();
 }
 
 

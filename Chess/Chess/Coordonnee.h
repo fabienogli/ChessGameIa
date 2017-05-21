@@ -7,8 +7,8 @@ public:
 	~Coordonnee();
 	int getX();
 	int getY();
-    void setX(int x);
-    void setY(int y);
+    void setX(int x1);
+    void setY(int y1);
 private:
     int x;
     int y;
