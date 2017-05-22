@@ -79,15 +79,17 @@ void Plateau::jouerIA(){
              coordDepart->setX(i1);
              coordDepart->setY(i2);
              (*aSupprimer).setCoordonnee(new Coordonnee(i1,i2));
+             std::cout << "idpiece1="<<joueur1->isAnyPiece(Coordonnee(i1,i2))<<std::endl;
              joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i1,i2)))->setCoordonne(i3,i4);
              //CaseDeplacementPossible =  IA->calc_echec_et_mat(joueur2,m_Posi_Rois2,this);
-             emit affichSuppInit(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i1,i2))),0,0);
+              std::cout << "idpiece1="<<joueur1->isAnyPiece(Coordonnee(i1,i2))<<std::endl;
+             emit affichSuppInit(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i3,i4))),0,0);
              emit affichSuppInit(aSupprimer,0,1);
              std::cout << "IA emet signal d'affichage"<< std::endl;
-             getGrille()->putPiece(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i1,i2))));
+             getGrille()->putPiece(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i3,i4))));
              getGrille()->removePiece(coordDepart);
              std::cout<<"DEPLACEMENT IA : origine x="<<i2<<" y="<<i1<<" arrive x="<<i4<<" y="<<i3;
-             movePiece(i2,i1,i4,i3);
+             //movePiece(i2,i1,i4,i3);
              /*if(CaseDeplacementPossible.count() == 0)
                  {
                      int ret = QMessageBox::question(this,"Pauvre noob Partie Perdu","L'IA a gagnier la partie ! \nVoulez vous rejouer ?",QMessageBox::Yes | QMessageBox::No);
