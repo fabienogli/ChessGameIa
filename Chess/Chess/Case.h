@@ -8,6 +8,7 @@ class Case
 
 public:
 	Case(int x, int y);
+    void setOccupied(bool t);
 	void setCoord(Coordonnee coord);
 	Coordonnee getCoordonee();
 	bool isOccupied();
@@ -23,8 +24,5 @@ private:
 	bool occupied;
     int couleur;
     char id;
-
-
-
 };
 

@@ -106,7 +106,10 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
                     int coup_origin_y =plateau->getCoupPrec().at(0).y();
                     int coup_dest_x = plateau->getCoupPrec().at(1).x();
                     int coup_dest_y = plateau->getCoupPrec().at(1).y();
-                    tmp = plateau->getPiece(new Coordonnee(listeCoup.at(i).x(),listeCoup.at(i).y()));
+                    //tmp = plateau->getPiece(new Coordonnee(listeCoup.at(i).x(),listeCoup.at(i).y()));
+                    bool occupiedtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->isOccupied();
+                    char idtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getId();
+                    int couleurtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getCouleur();
                     // GERER LA CAPTURE D'UN PION A LA VOLE !!!
                     bool deplacementSpecialFait = false;
                     if(id == 'P')
@@ -140,6 +143,7 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
                     plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(plateau->getGrille()->getCase(x,y)->getId()) ;
                     plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(plateau->getGrille()->getCase(x,y)->getCouleur()) ;
                     plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setPiece();
+                    //plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setOccupied();
                     //plateau->getGrille()->getCase(x,y)->removePiece();
                     plateau->getGrille()->removePiece(new Coordonnee(x,y));
                     m_coupPrecedent[0][0].setX(x);
@@ -210,9 +214,10 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
                     plateau->getGrille()->getCase(x,y)->setId(plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getId());
                     plateau->getGrille()->getCase(x,y)->setCouleur(plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getCouleur());
                      plateau->getGrille()->getCase(x,y)->setPiece();
-                    //plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(tmp->getId());
-                    //plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(tmp->getCouleur());
-                     plateau->getGrille()->putPiece(tmp);
+                    plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(idtmp);
+                    plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(couleurtmp);
+                    plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setOccupied(occupiedtmp);
+                     //plateau->getGrille()->putPiece(tmp);
                     if (score > max)
                     {
                         max = score;
@@ -293,7 +298,10 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
                     int coup_origin_y =plateau->getCoupPrec().at(0).y();
                     int coup_dest_x = plateau->getCoupPrec().at(1).x();
                     int coup_dest_y = plateau->getCoupPrec().at(1).y();
-                    tmp = plateau->getPiece(new Coordonnee(listeCoup.at(i).x(),listeCoup.at(i).y()));
+                   // tmp = plateau->getPiece(new Coordonnee(listeCoup.at(i).x(),listeCoup.at(i).y()));
+                    bool occupiedtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->isOccupied();
+                    char idtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getId();
+                    int couleurtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getCouleur();
                     // GERER LA CAPTURE D'UN PION A LA VOLE !!!
                     bool deplacementSpecialFait = false;
                     if(id == 'P')
@@ -327,7 +335,7 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
                     plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(plateau->getGrille()->getCase(x,y)->getId()) ;
                     plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(plateau->getGrille()->getCase(x,y)->getCouleur()) ;
                     plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setPiece();
-                    //plateau->getGrille()->getCase(x,y)->removePiece();
+                  //plateau->getGrille()->getCase(x,y)->removePiece();
                     plateau->getGrille()->removePiece(new Coordonnee(x,y));
                     m_coupPrecedent[0][0].setX(x);
                     m_coupPrecedent[0][0].setY(y);
@@ -335,7 +343,6 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
                     m_coupPrecedent[0][1].setY(listeCoup.at(i).y());
                     int score = 0;
                     // on relance l'appel
-
                     if(joueur->getIdJoueur() == 0)
                     {
                         std::cout << "profondeur min="<<profondeur-1;std::cout << std::endl;
@@ -396,10 +403,13 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
 
                     plateau->getGrille()->getCase(x,y)->setId(plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getId());
                     plateau->getGrille()->getCase(x,y)->setCouleur(plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getCouleur());
-                     plateau->getGrille()->getCase(x,y)->setPiece();
-                    //plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(tmp->getId());
-                    //plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(tmp->getCouleur());
-                     plateau->getGrille()->putPiece(tmp);
+                    plateau->getGrille()->getCase(x,y)->setPiece();
+                  //plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(tmp->getId());
+                  //plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(tmp->getCouleur());
+                    //plateau->getGrille()->putPiece(tmp);
+                    plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(idtmp);
+                    plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(couleurtmp);
+                    plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setOccupied(occupiedtmp);
                     if (score < min)
                     {
                         min = score;
@@ -509,7 +519,10 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                     int coup_dest_y = m_coupPrecedent->at(1).y();
                     std::cout << "dans jouer de la classe IA3";std::cout << std::endl;
                     // on joue le tour
-                      tmp = plateau->getPiece(new Coordonnee(listeCoup.at(i).x(),listeCoup.at(i).y()));
+                     // tmp = plateau->getPiece(new Coordonnee(listeCoup.at(i).x(),listeCoup.at(i).y()));
+                    bool occupiedtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->isOccupied();
+                    char idtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getId();
+                    int couleurtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getCouleur();
                      std::cout <<"idpiece="<<tmp->getId() ;std::cout << std::endl;
 
                    /* ///////// GERER LA CAPTURE D'UN PION A LA VOLE !!!
@@ -625,7 +638,10 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                      plateau->getGrille()->getCase(x,y)->setPiece();
                     //plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(tmp->getId());
                     //plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(tmp->getCouleur());
-                     plateau->getGrille()->putPiece(tmp);
+                    // plateau->getGrille()->putPiece(tmp);
+                     plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(idtmp);
+                     plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(couleurtmp);
+                     plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setOccupied(occupiedtmp);
                     if(score > max)
                     {
                         max = score;
@@ -772,7 +788,10 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
                     int coup_dest_y = m_coupPrecedent->at(1).y();
                     // on joue le tour
                     std::cout << "dans calc echec mat 6";std::cout << std::endl;
-                     tmp = plateau->getPiece(new Coordonnee(listeCoup.at(i).x(),listeCoup.at(i).y()));
+                    bool occupiedtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->isOccupied();
+                    char idtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getId();
+                    int couleurtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getCouleur();
+                     //tmp = plateau->getPiece(new Coordonnee(listeCoup.at(i).x(),listeCoup.at(i).y()));
 
                     ///////// SI LE ROI PEUT SE DEPLACER C'EST QU'IL PEUT S'ECHAPPER LE BOUGRE !
                     std::cout << "dans calc echec mat 7";std::cout << std::endl;
@@ -870,7 +889,10 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
                          plateau->getGrille()->getCase(x,y)->setPiece();
                         //plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(tmp->getId());
                         //plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(tmp->getCouleur());
-                         plateau->getGrille()->putPiece(tmp);
+                       //  plateau->getGrille()->putPiece(tmp);
+                         plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(idtmp);
+                         plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(couleurtmp);
+                         plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setOccupied(occupiedtmp);
                          /*std::cout << "dans calc echec mat 11";std::cout << std::endl;
                         plateau->getGrille()->getCase(x,y)->setId(plateau->getGrille()->getCase(x,y)->getId());
                          std::cout << "dans calc echec mat 12";std::cout << std::endl;

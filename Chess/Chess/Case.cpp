@@ -53,6 +53,10 @@ void Case::setPiece()
 {
 	occupied = true;
 }
+void Case::setOccupied(bool t)
+{
+    occupied = t;
+}
 
 void Case::removePiece()
 {

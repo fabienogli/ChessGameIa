@@ -32,6 +32,12 @@ void Plateau::reinitialize(){
 void Plateau::jouerIA(){
     std::cout << "je fais jouer IA"<< std::endl;
  QVector<QPoint> dep = IA->jouer(joueur1,IA->getLevel(),this);
+ std::cout << "fin jeu IA"<< std::endl;
+ for(int i=0;i<dep.count();i++){
+     std::cout << "x="<<dep.at(i).x()<<std::endl;
+     std::cout << "y="<<dep.at(i).y()<<std::endl;
+
+ }
  std::cout << "fin retour IA"<< std::endl;
  int usePion;
      if(dep.count() != 2)
@@ -49,6 +55,7 @@ void Plateau::jouerIA(){
 
              if(dep.at(pion_dest).y() != dep.at(pion_ori).y() && getGrille()->getCase(dep.at(pion_dest).x(),dep.at(pion_dest).y())->getId() == 'N' )
              {
+                  std::cout <<"IF 2 IA"<< std::endl;
                  coordArrivee->setX(dep.at(pion_dest).x());
                  coordArrivee->setY(dep.at(pion_dest).y()-1);
                 // m_interface->addtoScore(Pion, 1);
@@ -76,6 +83,10 @@ void Plateau::jouerIA(){
              int i3=dep.at(pion_dest).x();
              int i4=dep.at(pion_dest).y();
              std::cout << "IA a fait son choix"<< std::endl;
+              std::cout << "IA i1="<<i1<< std::endl;
+               std::cout << "IA i2="<<i2 <<std::endl;
+                std::cout << "IA i3="<<i3 <<std::endl;
+                 std::cout << "IA i4="<<i4<< std::endl;
              coordDepart->setX(i1);
              coordDepart->setY(i2);
              (*aSupprimer).setCoordonnee(new Coordonnee(i1,i2));
@@ -88,7 +99,8 @@ void Plateau::jouerIA(){
              std::cout << "IA emet signal d'affichage"<< std::endl;
              getGrille()->putPiece(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i3,i4))));
              getGrille()->removePiece(coordDepart);
-             std::cout<<"DEPLACEMENT IA : origine x="<<i2<<" y="<<i1<<" arrive x="<<i4<<" y="<<i3;
+             joueurActif = joueur2;
+             std::cout<<"DEPLACEMENT IA : origine x="<<i1<<" y="<<i2<<" arrive x="<<i3<<" y="<<i4;
              //movePiece(i2,i1,i4,i3);
              /*if(CaseDeplacementPossible.count() == 0)
                  {
@@ -211,7 +223,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
             //idJoueurActif = 2;
             joueurActif = joueur2;
         }
-        else{
+        else if(joueurActif->getIdJoueur()==1){
             joueurActif = joueur1;
            // idJoueurActif =1;
            this->jouerIA();
