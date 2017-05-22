@@ -7,6 +7,7 @@ Piece::Piece()
     coordonnee= new Coordonnee(0,0);
 	alive = true;
     couleur = -1;
+    id_piece='N';
 }
 
 //Retourne les coordonne de la piece

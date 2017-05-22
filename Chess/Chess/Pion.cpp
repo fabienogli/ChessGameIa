@@ -82,6 +82,7 @@ QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * plateau){
         if((coordonnee->getY() == 1 || coordonnee->getY()==2) &&
                 (!plateau->caseAtOccupy(coordonnee->getX(),coordonnee->getY()+2) && (!plateau->caseAtOccupy(coordonnee->getX(),coordonnee->getY()+1))))
         {
+            std::cout << "premier dep";std::cout << std::endl;
             tabDep.append(QPoint(coordonnee->getX(),coordonnee->getY()+2));
         }
         if(coordonnee->getY() < 7)

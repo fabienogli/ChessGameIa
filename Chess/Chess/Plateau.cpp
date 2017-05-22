@@ -32,6 +32,7 @@ void Plateau::reinitialize(){
 void Plateau::jouerIA(){
     std::cout << "je fais jouer IA"<< std::endl;
  QVector<QPoint> dep = IA->jouer(joueur1,IA->getLevel(),this);
+ std::cout << "fin retour IA"<< std::endl;
  int usePion;
      if(dep.count() != 2)
      {
@@ -223,7 +224,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     std::cout << "je suis 1-3";std::cout << std::endl;
     std::cout << "jai fini";std::cout << std::endl;
    // joueur2->getDeck()[7]->afficher();
-    delete tmpt;
+   // delete tmpt;
     /*Erreur dans
      * this->jouerIA();
      *
@@ -250,14 +251,17 @@ void Plateau::sentDisplayPlayerId(){
 //récupérer une case a une coordonne x, y
 Piece* Plateau::getPiece(Coordonnee* coord)
 {
-    Piece* piece;
+    Piece* piece= new Piece();
     double i1= joueur1->isAnyPiece(*coord);
     double i2= joueur2->isAnyPiece(*coord);
+    std::cout <<"i1="<<i1;std::cout << std::endl;
+    std::cout <<"i2="<<i2;std::cout << std::endl;
     if(i1!=-1)
         piece =joueur1->getDeck()[i1];
-    else{
+    else if(i2!=-1){
         piece = joueur2->getDeck()[i2];
     }
+    std::cout <<"jai fini"<<std::endl;
     return piece;
 }
 

@@ -51,7 +51,7 @@ Coordonnee Joueur::getOrigin(){
 double Joueur::isAnyPiece(Coordonnee coord)
 {
 
-    //std::cout<<"t1"<<std::endl;
+    std::cout<<"je suis dans anypiece"<<std::endl;
 	bool found = false;
 	int i = 0;
     while (!found && i < deck.size())
@@ -85,6 +85,7 @@ double Joueur::isAnyPiece(Coordonnee coord)
 		return i;
 	else {
         std::cout<<"t6"<<std::endl;
+        std::cout<<"je sors de anypiece"<<std::endl;
 		return -1;
 
 	}
