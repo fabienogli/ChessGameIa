@@ -80,7 +80,7 @@ void Plateau::jouerIA(){
              coordDepart->setY(i2);
              (*aSupprimer).setCoordonnee(new Coordonnee(i1,i2));
              joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i1,i2)))->setCoordonne(i3,i4);
-             CaseDeplacementPossible =  IA->calc_echec_et_mat(joueur2,m_Posi_Rois2,this);
+             //CaseDeplacementPossible =  IA->calc_echec_et_mat(joueur2,m_Posi_Rois2,this);
              emit affichSuppInit(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i1,i2))),0,0);
              emit affichSuppInit(aSupprimer,0,1);
              std::cout << "IA emet signal d'affichage"<< std::endl;

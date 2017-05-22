@@ -52,12 +52,13 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
    // QPoint *coordtmp1 = new QPoint(0,0);
     Piece* tmp;
     // = new Piece();
-    int retour=gagnant(joueur->getIdJoueur(),plateau)  ;
+    //int retour=gagnant(joueur->getIdJoueur(),plateau)  ;
+    int retour=0;
     std::cout<<"jai fini le calcul du retour gagnant"<<std::endl;
     std::cout<<"retour="<<retour<<std::endl;
     int max = -10000;
-    if(profondeur <= 0 || (retour != 0))
-        //if(profondeur <= 0 )
+    //if(profondeur <= 0 || (retour != 0))
+      if(profondeur <= 0 )
     {
         if(profondeur <= 0)
         {
@@ -237,12 +238,13 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
     std::cout << "dans le min";std::cout << std::endl;
     Piece* tmp ;//= new Piece();
     std::cout << "dans jouer de la classe min1";std::cout << std::endl;
-    int retour=gagnant(joueur->getIdJoueur(),plateau)  ;
+    //int retour=gagnant(joueur->getIdJoueur(),plateau)  ;
+    int retour=0;
     std::cout << "dans jouer de la classe min2";std::cout << std::endl;
     int min = 10000;
      std::cout << "dans jouer de la classe min3";std::cout << std::endl;
-    if(profondeur <= 0 || (retour != 0))
-         //if(profondeur <= 0 )
+  //if(profondeur <= 0 || (retour != 0))
+  if(profondeur <= 0 )
     {
         if(profondeur <= 0)
         {
