@@ -173,11 +173,6 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
         //kmp = joueur1->isAnyPiece(*coordArrivee);
     }
 
-    std::cout << "je suis 1-1";std::cout << std::endl;
-    std::cout << tmpActif;std::cout << std::endl;
-    bool b=(*joueur).getDeck()[tmpActif]->move(coordArrivee,(*joueur).getOrigin(), this);
-    (*joueur).getDeck()[tmpActif]->afficher();
-    //(*joueur).getPiece(int(tmpActif)).move(coordArrivee,(*joueur).getOrigin(), this);
 
     //DEBUT TEST DEPLACEMENT
     Piece* tmpt = (*joueur).getDeck()[tmpActif];
@@ -191,7 +186,14 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     }
     std::cout<<"fin de liste déplacement"<<std::endl;
     //FIN DEPLACEMENT
+    (*joueur).afficherPiece();
+
+    std::cout << "je suis 1-1";std::cout << std::endl;
+    std::cout << tmpActif;std::cout << std::endl;
+    bool b=(*joueur).getDeck()[tmpActif]->move(coordArrivee,(*joueur).getOrigin(), this);
     (*joueur).getDeck()[tmpActif]->afficher();
+    //(*joueur).getPiece(int(tmpActif)).move(coordArrivee,(*joueur).getOrigin(), this);
+
     std::cout << "je suis 1-2";std::cout << std::endl;
     if(b==true){
 

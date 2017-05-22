@@ -53,7 +53,8 @@ bool Piece::isAlive()
 //retourne son abscisse, son ordonnee et le nom de la piece
 void Piece::afficher()
 {
-    std::cout <<"x= "<< getCoordonne()->getX() << " et y= " << getCoordonne()->getY() << " " << getId()<< std::endl;
+    std::cout<<"Piece "<<getId()<<" de couleur "<<getCouleur()<<std::endl;
+    std::cout<<"Coordonne : x= "<< getCoordonne()->getX() << " et y= " << getCoordonne()->getY()<<std::endl;
 }
 
 //Methode pour tester un deplacement
