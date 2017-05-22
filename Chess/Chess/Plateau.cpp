@@ -3,6 +3,7 @@
 #include "Coordonnee.h"
 #include <stddef.h>
 #include "ia.h"
+#include "Joueur.h"
 //Constructeur du plateau
 Plateau::Plateau() :QObject()
 {

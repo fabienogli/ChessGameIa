@@ -4,11 +4,15 @@
 #include "Piece.h"
 #include <QVector>
 
-ia::ia(QVector<QPoint> * coupPrecedent)
+ia::ia(int level)
 {
-    this->level = 4;
-    this->m_coupPrecedent=coupPrecedent;
+    this->level = level;
 }
+
+void ia::setCoupPrecedent(QVector<QPoint> * coupPrecedent){
+    this->m_coupPrecedent= coupPrecedent;
+}
+
 int ia::gagnant(int idJoueur,Plateau * plateau){
     if(idJoueur == 0)
     {
