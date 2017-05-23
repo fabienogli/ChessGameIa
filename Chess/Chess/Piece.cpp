@@ -41,6 +41,16 @@ void Piece::kill(Piece * piece)
 QVector<QPoint> Piece::deplacementsPossible(int idJoueur,Plateau * plateau){
 
     QVector<QPoint> listDep;
+    for(int x =0; x<8; x++){
+        for(int y =0; y< 8; y++){
+            Coordonnee coord(x,y);
+            if(testDeplacement(coord,plateau)){
+                QPoint tmp(x,y);
+                listDep.append(tmp);
+                coord.~Coordonnee();
+            }
+        }
+    }
     return listDep;
 }
 

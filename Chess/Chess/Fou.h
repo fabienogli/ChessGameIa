@@ -6,7 +6,7 @@ public:
 	Fou();
 	~Fou();
     virtual bool testDeplacement(Coordonnee coord, Plateau * plateau);
-    virtual QVector<QPoint> deplacementsPossible(int idJoueur,Plateau * plateau);
+    //virtual QVector<QPoint> deplacementsPossible(int idJoueur,Plateau * plateau);
 
 };
 

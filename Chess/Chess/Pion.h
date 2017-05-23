@@ -8,7 +8,7 @@ public:
 	~Pion();
     void move(Coordonnee *coord, Coordonnee origin, Plateau * plateau);
     virtual bool testDeplacement(Coordonnee coord, Plateau* Plateau);
-    virtual QVector<QPoint> deplacementsPossible(int idJoueur,Plateau * plateau);
+    //virtual QVector<QPoint> deplacementsPossible(int idJoueur,Plateau * plateau);
 private:
     int nbCout;
     int wayToMove;
