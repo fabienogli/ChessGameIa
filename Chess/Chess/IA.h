@@ -4,7 +4,7 @@
 #include <QPoint>
 class Plateau;
 #include "Joueur.h"
-class ia
+class ia : public Joueur
 {
 public:
     //ia(int i_joueur, int level);

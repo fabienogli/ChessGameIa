@@ -1,0 +1,10 @@
+diff a/Chess/Chess/IA.h b/Chess/Chess/IA.h	(rejected hunks)
+@@ -4,7 +4,7 @@
+ #include <QPoint>
+ class Plateau;
+ #include "Joueur.h"
+-class ia : public Joueur
++class ia
+ {
+ public:
+     //ia(int i_joueur, int level);
