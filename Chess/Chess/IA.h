@@ -17,12 +17,12 @@ public:
     QVector<QPoint>calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Plateau * plateau);
     int max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta);
     int min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta);
-    int gagnant(int idJoueur,Plateau * Plateau);
+    int gagnantEnCours(int idJoueur,Plateau * Plateau);
 private:
     int level;//represente la profondeur
     QVector<QPoint> *m_coupPrecedent;
-    QPoint m_Posi_Rois1;
-    QPoint m_Posi_Rois2;
+    QPoint m_Posi_Rois1;//position du roi 1
+    QPoint m_Posi_Rois2;//position du roi 2
 };
 
 #endif // IA_H
