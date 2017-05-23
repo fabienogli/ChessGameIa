@@ -635,7 +635,7 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
 
                     plateau->getGrille()->getCase(x,y)->setId(plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getId());
                     plateau->getGrille()->getCase(x,y)->setCouleur(plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getCouleur());
-                     plateau->getGrille()->getCase(x,y)->setPiece();
+                    plateau->getGrille()->getCase(x,y)->setPiece();
                     //plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(tmp->getId());
                     //plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(tmp->getCouleur());
                     // plateau->getGrille()->putPiece(tmp);
@@ -887,9 +887,7 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
                         plateau->getGrille()->getCase(x,y)->setId(plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getId());
                         plateau->getGrille()->getCase(x,y)->setCouleur(plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getCouleur());
                          plateau->getGrille()->getCase(x,y)->setPiece();
-                        //plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(tmp->getId());
-                        //plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(tmp->getCouleur());
-                       //  plateau->getGrille()->putPiece(tmp);
+
                          plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(idtmp);
                          plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(couleurtmp);
                          plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setOccupied(occupiedtmp);
