@@ -10,6 +10,8 @@ Plateau::Plateau() :QObject()
     //setJoueurActif(*joueur1);
 }
 
+
+
 void Plateau::initialize(){
     damier = new Grille();
     joueur1 = new Joueur("joueur 1",0);
@@ -256,6 +258,12 @@ void Plateau::displayPlateau(){
     }
 
 }
+
+void Plateau::setLevel(int level)
+{
+    IA->setLevel(level);
+}
+
 void Plateau::sentDisplayPlayerId(){
     emit displayPlayerId((*joueurActif).getIdJoueur());
 }

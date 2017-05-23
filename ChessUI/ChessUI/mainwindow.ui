@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>761</width>
-    <height>543</height>
+    <width>796</width>
+    <height>576</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>10</y>
+      <x>540</x>
+      <y>40</y>
       <width>191</width>
       <height>431</height>
      </rect>
@@ -42,8 +42,8 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>450</y>
+      <x>70</x>
+      <y>470</y>
       <width>601</width>
       <height>31</height>
      </rect>
@@ -257,10 +257,10 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>40</x>
       <y>10</y>
-      <width>421</width>
-      <height>431</height>
+      <width>481</width>
+      <height>446</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -466,19 +466,6 @@
        </property>
       </widget>
      </item>
-     <item row="8" column="1">
-      <widget class="QGraphicsView" name="graphicsView_9">
-       <property name="maximumSize">
-        <size>
-         <width>50</width>
-         <height>50</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(108, 108, 108);</string>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="7">
       <widget class="QGraphicsView" name="graphicsView_14">
        <property name="maximumSize">
@@ -525,49 +512,6 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
-      <widget class="QGraphicsView" name="graphicsView_4">
-       <property name="maximumSize">
-        <size>
-         <width>50</width>
-         <height>50</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="1">
-      <widget class="QGraphicsView" name="graphicsView_6">
-       <property name="maximumSize">
-        <size>
-         <width>50</width>
-         <height>50</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QGraphicsView" name="graphicsView_5">
-       <property name="maximumSize">
-        <size>
-         <width>50</width>
-         <height>50</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(108, 108, 108);</string>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="1">
-      <widget class="QGraphicsView" name="graphicsView_8">
-       <property name="maximumSize">
-        <size>
-         <width>50</width>
-         <height>50</height>
-        </size>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="3">
       <widget class="QGraphicsView" name="graphicsView_2">
        <property name="maximumSize">
@@ -578,16 +522,6 @@
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(108, 108, 108);</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QGraphicsView" name="graphicsView">
-       <property name="maximumSize">
-        <size>
-         <width>50</width>
-         <height>50</height>
-        </size>
        </property>
       </widget>
      </item>
@@ -1071,7 +1005,24 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
+     <item row="3" column="10">
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QGraphicsView" name="graphicsView">
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
       <widget class="QGraphicsView" name="graphicsView_3">
        <property name="maximumSize">
         <size>
@@ -1084,7 +1035,76 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="1" colspan="9">
+     <item row="3" column="2">
+      <widget class="QGraphicsView" name="graphicsView_4">
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="2">
+      <widget class="QGraphicsView" name="graphicsView_5">
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(108, 108, 108);</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2">
+      <widget class="QGraphicsView" name="graphicsView_6">
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2">
+      <widget class="QGraphicsView" name="graphicsView_7">
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(108, 108, 108);</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="2">
+      <widget class="QGraphicsView" name="graphicsView_8">
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="2">
+      <widget class="QGraphicsView" name="graphicsView_9">
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(108, 108, 108);</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2" colspan="8">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item alignment="Qt::AlignHCenter">
         <widget class="QLabel" name="label_12">
@@ -1169,46 +1189,13 @@
        </item>
       </layout>
      </item>
-     <item row="6" column="1">
-      <widget class="QGraphicsView" name="graphicsView_7">
-       <property name="maximumSize">
-        <size>
-         <width>50</width>
-         <height>50</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(108, 108, 108);</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="10">
-      <widget class="Line" name="line">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-     </item>
     </layout>
-   </widget>
-   <widget class="QPushButton" name="initButton">
-    <property name="geometry">
-     <rect>
-      <x>690</x>
-      <y>70</y>
-      <width>61</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Init</string>
-    </property>
    </widget>
    <widget class="QPushButton" name="ok_button">
     <property name="geometry">
      <rect>
-      <x>700</x>
-      <y>450</y>
+      <x>720</x>
+      <y>480</y>
       <width>41</width>
       <height>23</height>
      </rect>
@@ -1220,7 +1207,6 @@
    <zorder>layoutWidget</zorder>
    <zorder>tableWidget</zorder>
    <zorder>gridLayoutWidget</zorder>
-   <zorder>initButton</zorder>
    <zorder>ok_button</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -1228,10 +1214,33 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>761</width>
+     <width>796</width>
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuLancer_Partie">
+    <property name="title">
+     <string>Lancer Partie</string>
+    </property>
+    <widget class="QMenu" name="menuNiveau_IA">
+     <property name="title">
+      <string>Niveau IA</string>
+     </property>
+     <widget class="QMenu" name="menuChoisir_niveau">
+      <property name="title">
+       <string>Choisir niveau</string>
+      </property>
+      <addaction name="actionniveau1"/>
+      <addaction name="actionniveau_2"/>
+      <addaction name="actionniveau_3"/>
+     </widget>
+     <addaction name="actionPar_d_faut"/>
+     <addaction name="menuChoisir_niveau"/>
+    </widget>
+    <addaction name="menuNiveau_IA"/>
+    <addaction name="actionLancer_Partie"/>
+   </widget>
+   <addaction name="menuLancer_Partie"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -1242,17 +1251,65 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionIA_niveau_2">
+   <property name="text">
+    <string>IA niveau 2</string>
+   </property>
+  </action>
+  <action name="actionIA_niveau_3">
+   <property name="text">
+    <string>IA niveau 3</string>
+   </property>
+  </action>
+  <action name="actionPar_d_faut">
+   <property name="text">
+    <string>Par défaut</string>
+   </property>
+  </action>
+  <action name="actionIA_niveau_5">
+   <property name="text">
+    <string>IA niveau 3</string>
+   </property>
+  </action>
+  <action name="actionniveau1">
+   <property name="text">
+    <string>niveau 1</string>
+   </property>
+  </action>
+  <action name="actionniveau_2">
+   <property name="text">
+    <string>niveau 2</string>
+   </property>
+  </action>
+  <action name="actionniveau_3">
+   <property name="text">
+    <string>niveau 3</string>
+   </property>
+  </action>
+  <action name="actionniveau_4">
+   <property name="text">
+    <string>niveau 4</string>
+   </property>
+  </action>
+  <action name="actionniveau_5">
+   <property name="text">
+    <string>niveau 5</string>
+   </property>
+  </action>
+  <action name="actionniveau_6">
+   <property name="text">
+    <string>niveau 6</string>
+   </property>
+  </action>
+  <action name="actionLancer_Partie">
+   <property name="text">
+    <string>Lancer Partie</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
   <tabstop>graphicsView_2</tabstop>
-  <tabstop>graphicsView_3</tabstop>
-  <tabstop>graphicsView_4</tabstop>
-  <tabstop>graphicsView_5</tabstop>
-  <tabstop>graphicsView_6</tabstop>
-  <tabstop>graphicsView_7</tabstop>
-  <tabstop>graphicsView_8</tabstop>
-  <tabstop>graphicsView_9</tabstop>
   <tabstop>graphicsView_10</tabstop>
   <tabstop>graphicsView_11</tabstop>
   <tabstop>graphicsView_12</tabstop>
@@ -1309,7 +1366,6 @@
   <tabstop>graphicsView_66</tabstop>
   <tabstop>graphicsView_67</tabstop>
   <tabstop>tableWidget</tabstop>
-  <tabstop>graphicsView</tabstop>
  </tabstops>
  <resources/>
  <connections/>
