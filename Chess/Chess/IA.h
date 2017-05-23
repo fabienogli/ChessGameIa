@@ -3,15 +3,15 @@
 #include <QVector>
 #include <QPoint>
 class Plateau;
-class Joueur;
-
-class ia
+#include "Joueur.h"
+class ia : public Joueur
 {
 public:
+    //ia(int i_joueur, int level);
     ia(int level);
+    void setCoupPrecedent(QVector<QPoint> * coupPrecedent);
     void setLevel(int i);
     int getLevel();
-    void setCoupPrecedent(QVector<QPoint> * coupPrecedent);
     QVector<QPoint> jouer(Joueur *joueur,int profondeur,Plateau *plateau);
     int eval(Plateau * plateau );
     QVector<QPoint>calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Plateau * plateau);

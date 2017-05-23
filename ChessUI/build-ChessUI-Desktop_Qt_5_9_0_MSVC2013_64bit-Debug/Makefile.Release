@@ -12,8 +12,8 @@ MAKEFILE      = Makefile.Release
 CC            = cl
 CXX           = cl
 DEFINES       = -DUNICODE -DWIN32 -DWIN64 -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DNDEBUG
-CFLAGS        = -nologo -Zc:wchar_t -FS -O2 -MD -Zc:strictStrings -W3 $(DEFINES)
-CXXFLAGS      = -nologo -Zc:wchar_t -FS -O2 -MD -Zc:strictStrings -W3 -w34100 -w34189 -w44996 -EHsc $(DEFINES)
+CFLAGS        = -nologo -Zc:wchar_t -FS -Zc:strictStrings -O2 -MD -W3 -w44456 -w44457 -w44458 $(DEFINES)
+CXXFLAGS      = -nologo -Zc:wchar_t -FS -Zc:strictStrings -Zc:throwingNew -O2 -MD -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -EHsc $(DEFINES)
 INCPATH       = -I..\ChessUI -I. -IC:\Qt\5.9\msvc2015_64\include -IC:\Qt\5.9\msvc2015_64\include\QtWidgets -IC:\Qt\5.9\msvc2015_64\include\QtGui -IC:\Qt\5.9\msvc2015_64\include\QtANGLE -IC:\Qt\5.9\msvc2015_64\include\QtCore -Irelease -I. -IC:\Qt\5.9\msvc2015_64\mkspecs\win32-msvc 
 LINKER        = link
 LFLAGS        = /NOLOGO /DYNAMICBASE /NXCOMPAT /INCREMENTAL:NO /SUBSYSTEM:WINDOWS "/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'"
@@ -262,7 +262,7 @@ compiler_moc_predefs_make_all: release\moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) release\moc_predefs.h
 release\moc_predefs.h: C:\Qt\5.9\msvc2015_64\mkspecs\features\data\dummy.cpp
-	cl -BxC:\Qt\5.9\msvc2015_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -O2 -MD -Zc:strictStrings -W3 -w34100 -w34189 -w44996 -E -Za C:\Qt\5.9\msvc2015_64\mkspecs\features\data\dummy.cpp 2>NUL >release\moc_predefs.h
+	cl -BxC:\Qt\5.9\msvc2015_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:strictStrings -Zc:throwingNew -O2 -MD -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E -Za C:\Qt\5.9\msvc2015_64\mkspecs\features\data\dummy.cpp 2>NUL >release\moc_predefs.h
 
 compiler_moc_header_make_all: release\moc_mainwindow.cpp release\moc_Plateau.cpp
 compiler_moc_header_clean:
@@ -381,11 +381,7 @@ release\moc_mainwindow.cpp: ..\..\Chess\Chess\Plateau.h \
 		..\ChessUI\mainwindow.h \
 		release\moc_predefs.h \
 		C:\Qt\5.9\msvc2015_64\bin\moc.exe
-<<<<<<< HEAD
-	C:\Qt\5.9\msvc2015_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include release/moc_predefs.h -IC:/Qt/5.9/msvc2015_64/mkspecs/win32-msvc -IC:/Users/Fabien/Desktop/ChessGameIa/ChessUI/ChessUI -IC:/Qt/5.9/msvc2015_64/include -IC:/Qt/5.9/msvc2015_64/include/QtWidgets -IC:/Qt/5.9/msvc2015_64/include/QtGui -IC:/Qt/5.9/msvc2015_64/include/QtANGLE -IC:/Qt/5.9/msvc2015_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\8.1\include\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\winrt" ..\ChessUI\mainwindow.h -o release\moc_mainwindow.cpp
-=======
-	C:\Qt\5.9\msvc2015_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include release/moc_predefs.h -IC:/Qt/5.9/msvc2015_64/mkspecs/win32-msvc -IC:/Users/Fabien/Documents/Projet/ChessGameIa/ChessUI/ChessUI -IC:/Qt/5.9/msvc2015_64/include -IC:/Qt/5.9/msvc2015_64/include/QtWidgets -IC:/Qt/5.9/msvc2015_64/include/QtGui -IC:/Qt/5.9/msvc2015_64/include/QtANGLE -IC:/Qt/5.9/msvc2015_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\8.1\include\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\winrt" ..\ChessUI\mainwindow.h -o release\moc_mainwindow.cpp
->>>>>>> recupia
+	C:\Qt\5.9\msvc2015_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include release/moc_predefs.h -IC:/Qt/5.9/msvc2015_64/mkspecs/win32-msvc -IC:/Users/Fabien/Desktop/ChessGameIa/ChessUI/ChessUI -IC:/Qt/5.9/msvc2015_64/include -IC:/Qt/5.9/msvc2015_64/include/QtWidgets -IC:/Qt/5.9/msvc2015_64/include/QtGui -IC:/Qt/5.9/msvc2015_64/include/QtANGLE -IC:/Qt/5.9/msvc2015_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" ..\ChessUI\mainwindow.h -o release\moc_mainwindow.cpp
 
 release\moc_Plateau.cpp: ..\..\Chess\Chess\Grille.h \
 		..\..\Chess\Chess\Case.h \
@@ -471,11 +467,7 @@ release\moc_Plateau.cpp: ..\..\Chess\Chess\Grille.h \
 		..\..\Chess\Chess\Plateau.h \
 		release\moc_predefs.h \
 		C:\Qt\5.9\msvc2015_64\bin\moc.exe
-<<<<<<< HEAD
-	C:\Qt\5.9\msvc2015_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include release/moc_predefs.h -IC:/Qt/5.9/msvc2015_64/mkspecs/win32-msvc -IC:/Users/Fabien/Desktop/ChessGameIa/ChessUI/ChessUI -IC:/Qt/5.9/msvc2015_64/include -IC:/Qt/5.9/msvc2015_64/include/QtWidgets -IC:/Qt/5.9/msvc2015_64/include/QtGui -IC:/Qt/5.9/msvc2015_64/include/QtANGLE -IC:/Qt/5.9/msvc2015_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\8.1\include\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\winrt" ..\..\Chess\Chess\Plateau.h -o release\moc_Plateau.cpp
-=======
-	C:\Qt\5.9\msvc2015_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include release/moc_predefs.h -IC:/Qt/5.9/msvc2015_64/mkspecs/win32-msvc -IC:/Users/Fabien/Documents/Projet/ChessGameIa/ChessUI/ChessUI -IC:/Qt/5.9/msvc2015_64/include -IC:/Qt/5.9/msvc2015_64/include/QtWidgets -IC:/Qt/5.9/msvc2015_64/include/QtGui -IC:/Qt/5.9/msvc2015_64/include/QtANGLE -IC:/Qt/5.9/msvc2015_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\8.1\include\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\winrt" ..\..\Chess\Chess\Plateau.h -o release\moc_Plateau.cpp
->>>>>>> recupia
+	C:\Qt\5.9\msvc2015_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include release/moc_predefs.h -IC:/Qt/5.9/msvc2015_64/mkspecs/win32-msvc -IC:/Users/Fabien/Desktop/ChessGameIa/ChessUI/ChessUI -IC:/Qt/5.9/msvc2015_64/include -IC:/Qt/5.9/msvc2015_64/include/QtWidgets -IC:/Qt/5.9/msvc2015_64/include/QtGui -IC:/Qt/5.9/msvc2015_64/include/QtANGLE -IC:/Qt/5.9/msvc2015_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" ..\..\Chess\Chess\Plateau.h -o release\moc_Plateau.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -731,69 +723,6 @@ release\mainwindow.obj: ..\ChessUI\mainwindow.cpp ../ChessUI/mainwindow.h \
 		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qtabwidget.h \
 		C:\Qt\5.9\msvc2015_64\include\QtGui\qicon.h \
 		ui_mainwindow.h \
-		C:\Qt\5.9\msvc2015_64\include\QtCore\QVariant \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QAction \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qaction.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qactiongroup.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QApplication \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qapplication.h \
-		C:\Qt\5.9\msvc2015_64\include\QtCore\qcoreapplication.h \
-		C:\Qt\5.9\msvc2015_64\include\QtCore\qeventloop.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qdesktopwidget.h \
-		C:\Qt\5.9\msvc2015_64\include\QtGui\qguiapplication.h \
-		C:\Qt\5.9\msvc2015_64\include\QtGui\qinputmethod.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QButtonGroup \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qbuttongroup.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QComboBox \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qcombobox.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qabstractitemdelegate.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qstyleoption.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qabstractspinbox.h \
-		C:\Qt\5.9\msvc2015_64\include\QtGui\qvalidator.h \
-		C:\Qt\5.9\msvc2015_64\include\QtCore\qregularexpression.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qslider.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qabstractslider.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qstyle.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qtabbar.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qrubberband.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qframe.h \
-		C:\Qt\5.9\msvc2015_64\include\QtCore\qabstractitemmodel.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QFrame \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QGraphicsView \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qgraphicsview.h \
-		C:\Qt\5.9\msvc2015_64\include\QtGui\qpainter.h \
-		C:\Qt\5.9\msvc2015_64\include\QtGui\qtextoption.h \
-		C:\Qt\5.9\msvc2015_64\include\QtGui\qpen.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qscrollarea.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qabstractscrollarea.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qgraphicsscene.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QGridLayout \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qgridlayout.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qlayout.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qlayoutitem.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qboxlayout.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QHBoxLayout \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QHeaderView \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qheaderview.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qabstractitemview.h \
-		C:\Qt\5.9\msvc2015_64\include\QtCore\qitemselectionmodel.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QLabel \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qlabel.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QMenuBar \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qmenubar.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qmenu.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QPushButton \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qpushbutton.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qabstractbutton.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QStatusBar \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qstatusbar.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QTableWidget \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qtablewidget.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qtableview.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QToolBar \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qtoolbar.h \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QVBoxLayout \
-		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QWidget \
 		../../Chess/Chess/Joueur.h \
 		../../Chess/Chess/Roi.h \
 		../../Chess/Chess/Cavalier.h \
@@ -802,6 +731,15 @@ release\mainwindow.obj: ..\ChessUI\mainwindow.cpp ../ChessUI/mainwindow.h \
 		../../Chess/Chess/Fou.h \
 		../../Chess/Chess/Tour.h \
 		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QGraphicsScene \
+		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qgraphicsscene.h \
+		C:\Qt\5.9\msvc2015_64\include\QtGui\qpen.h \
+		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QGraphicsView \
+		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qgraphicsview.h \
+		C:\Qt\5.9\msvc2015_64\include\QtGui\qpainter.h \
+		C:\Qt\5.9\msvc2015_64\include\QtGui\qtextoption.h \
+		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qscrollarea.h \
+		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qframe.h \
 		C:\Qt\5.9\msvc2015_64\include\QtWidgets\QMessageBox \
 		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qmessagebox.h \
 		C:\Qt\5.9\msvc2015_64\include\QtWidgets\qdialog.h \
