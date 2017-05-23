@@ -359,7 +359,6 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
     //permet de savoir si une piece dont la couleur est donnée peut etre mangée par le joueur adverse
     QVector<QPoint> destination;
     //Coordonnee coordtmp = new Coordonnee(0,0);
-
 //    double tmp1=-1;
 //    double tmp2=-1;
     for(int x = 0; x < 8; x++)
@@ -564,7 +563,7 @@ QVector<QPoint> Plateau::attaquePion(QPoint cas){
     {
         noir = false;
     }
-    //puis apres on avance toujours de devant et on prend sur les cotes
+    //puis apres on avance toujours de devant et on mange sur les diagonales
     if(noir == true)
     {
         std::cout << "dans attaquepion2";std::cout << std::endl;

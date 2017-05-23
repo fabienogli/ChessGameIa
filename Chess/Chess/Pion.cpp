@@ -102,7 +102,8 @@ QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * plateau){
             std::cout<<plateau->getGrille()->getCase(coordonnee->getX()-1,coordonnee->getY()+1)->isOccupied()<<std::endl;
 
 
-            if(plateau->getJoueur1()->isAnyPiece(Coordonnee(coordonnee->getX()-1,coordonnee->getY()+1)) == -1 && plateau->caseAtOccupy(coordonnee->getX()-1,coordonnee->getY()+1)==true)
+            if(plateau->getJoueur1()->isAnyPiece(Coordonnee(coordonnee->getX()-1,coordonnee->getY()+1)) == -1 && plateau->caseAtOccupy(coordonnee->getX()-1,coordonnee->getY()+1)==true && plateau->getGrille()->getCase(coordonnee->getX()-1,coordonnee->getY()+1)->getCouleur()!=
+                    this->couleur)
             {
                 std::cout<<"premier if special 2"<<std::endl;
                 std::cout<<coordonnee->getX()-1<<std::endl;
@@ -117,7 +118,8 @@ QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * plateau){
         {
             std::cout<<"premier if"<<std::endl;
 
-            if(plateau->getJoueur1()->isAnyPiece(Coordonnee(coordonnee->getX()+1,coordonnee->getY()+1)) == -1 && plateau->caseAtOccupy(coordonnee->getX()+1,coordonnee->getY()+1)==true)
+            if(plateau->getJoueur1()->isAnyPiece(Coordonnee(coordonnee->getX()+1,coordonnee->getY()+1)) == -1 && plateau->caseAtOccupy(coordonnee->getX()+1,coordonnee->getY()+1)==true &&
+                    plateau->getGrille()->getCase(coordonnee->getX()+1,coordonnee->getY()+1)->getCouleur()!=this->couleur)
             {
                 std::cout<<"premier if"<<std::endl;
 
@@ -130,12 +132,12 @@ QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * plateau){
         {
             std::cout<<"premier if"<<std::endl;
 
-            // si le pion fait pas parti de mon groupe
+            // si le pion fait pas parti de mon deck
             if(plateau->getGrille()->getCase(dest_precedent.x(),dest_precedent.y())->getCouleur() != 0)
             {
                 std::cout<<"premier if"<<std::endl;
 
-                //si il a fait le deplacement qui m'interesse
+                //si il a fait le bon deplacement
                 if ((dest_precedent.y() - origin_precedent.y()) == -2)
                 {
                     std::cout<<"premier if"<<std::endl;
@@ -180,7 +182,8 @@ QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * plateau){
         if(coordonnee->getX() > 0)
         {
             std::cout<<"dans le switch3 1"<<std::endl;
-            if(plateau->getJoueur2()->isAnyPiece(Coordonnee(coordonnee->getX()-1,coordonnee->getY()-1)) == -1 && plateau->caseAtOccupy(coordonnee->getX()-1,coordonnee->getY()-1)==true)
+            if(plateau->getJoueur2()->isAnyPiece(Coordonnee(coordonnee->getX()-1,coordonnee->getY()-1)) == -1 && plateau->caseAtOccupy(coordonnee->getX()-1,coordonnee->getY()-1)==true && plateau->getGrille()->getCase(coordonnee->getX()-1,coordonnee->getY()-1)->getCouleur()!=
+                    this->couleur)
             {
                 std::cout<<"dans le switch3 2"<<std::endl;
                 tabDep.append(QPoint(coordonnee->getX()-1,coordonnee->getY()-1));
@@ -193,7 +196,9 @@ QVector<QPoint> Pion::deplacementsPossible(int idJoueur,Plateau * plateau){
             int tt= plateau->getJoueur2()->isAnyPiece(Coordonnee(coordonnee->getX()+1,coordonnee->getY()-1));
             std::cout<<tt<<std::endl;
             std::cout<<"dans le switch4 1"<< plateau->getJoueur2()->isAnyPiece(Coordonnee(coordonnee->getX()+1,coordonnee->getY()-1))<<std::endl;
-            if((plateau->getJoueur2()->isAnyPiece(Coordonnee(coordonnee->getX()+1,coordonnee->getY()-1)) == -1) && plateau->caseAtOccupy(coordonnee->getX()+1,coordonnee->getY()-1)==true)
+            if((plateau->getJoueur2()->isAnyPiece(Coordonnee(coordonnee->getX()+1,coordonnee->getY()-1)) == -1) && plateau->caseAtOccupy(coordonnee->getX()+1,coordonnee->getY()-1)==true &&
+                    plateau->getGrille()->getCase(coordonnee->getX()+1,coordonnee->getY()-1)->getCouleur()!=
+                                        this->couleur)
             {
                 std::cout<<"dans le switch4 2"<<std::endl;
                 tabDep.append(QPoint(coordonnee->getX()+1,coordonnee->getY()-1));

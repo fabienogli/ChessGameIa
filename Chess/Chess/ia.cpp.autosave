@@ -77,7 +77,6 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
                         int coup_origin_y =plateau->getCoupPrec().at(0).y();
                         int coup_dest_x = plateau->getCoupPrec().at(1).x();
                         int coup_dest_y = plateau->getCoupPrec().at(1).y();
-                        //tmp = plateau->getPiece(new Coordonnee(listeCoup.at(i).x(),listeCoup.at(i).y()));
                         bool occupiedtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->isOccupied();
                         char idtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getId();
                         int couleurtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getCouleur();
