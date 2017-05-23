@@ -381,7 +381,11 @@ release\moc_mainwindow.cpp: ..\..\Chess\Chess\Plateau.h \
 		..\ChessUI\mainwindow.h \
 		release\moc_predefs.h \
 		C:\Qt\5.9\msvc2015_64\bin\moc.exe
+<<<<<<< HEAD
 	C:\Qt\5.9\msvc2015_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include release/moc_predefs.h -IC:/Qt/5.9/msvc2015_64/mkspecs/win32-msvc -IC:/Users/Fabien/Desktop/ChessGameIa/ChessUI/ChessUI -IC:/Qt/5.9/msvc2015_64/include -IC:/Qt/5.9/msvc2015_64/include/QtWidgets -IC:/Qt/5.9/msvc2015_64/include/QtGui -IC:/Qt/5.9/msvc2015_64/include/QtANGLE -IC:/Qt/5.9/msvc2015_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\8.1\include\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\winrt" ..\ChessUI\mainwindow.h -o release\moc_mainwindow.cpp
+=======
+	C:\Qt\5.9\msvc2015_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include release/moc_predefs.h -IC:/Qt/5.9/msvc2015_64/mkspecs/win32-msvc -IC:/Users/Fabien/Documents/Projet/ChessGameIa/ChessUI/ChessUI -IC:/Qt/5.9/msvc2015_64/include -IC:/Qt/5.9/msvc2015_64/include/QtWidgets -IC:/Qt/5.9/msvc2015_64/include/QtGui -IC:/Qt/5.9/msvc2015_64/include/QtANGLE -IC:/Qt/5.9/msvc2015_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\8.1\include\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\winrt" ..\ChessUI\mainwindow.h -o release\moc_mainwindow.cpp
+>>>>>>> recupia
 
 release\moc_Plateau.cpp: ..\..\Chess\Chess\Grille.h \
 		..\..\Chess\Chess\Case.h \
@@ -467,7 +471,11 @@ release\moc_Plateau.cpp: ..\..\Chess\Chess\Grille.h \
 		..\..\Chess\Chess\Plateau.h \
 		release\moc_predefs.h \
 		C:\Qt\5.9\msvc2015_64\bin\moc.exe
+<<<<<<< HEAD
 	C:\Qt\5.9\msvc2015_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include release/moc_predefs.h -IC:/Qt/5.9/msvc2015_64/mkspecs/win32-msvc -IC:/Users/Fabien/Desktop/ChessGameIa/ChessUI/ChessUI -IC:/Qt/5.9/msvc2015_64/include -IC:/Qt/5.9/msvc2015_64/include/QtWidgets -IC:/Qt/5.9/msvc2015_64/include/QtGui -IC:/Qt/5.9/msvc2015_64/include/QtANGLE -IC:/Qt/5.9/msvc2015_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\8.1\include\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\winrt" ..\..\Chess\Chess\Plateau.h -o release\moc_Plateau.cpp
+=======
+	C:\Qt\5.9\msvc2015_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include release/moc_predefs.h -IC:/Qt/5.9/msvc2015_64/mkspecs/win32-msvc -IC:/Users/Fabien/Documents/Projet/ChessGameIa/ChessUI/ChessUI -IC:/Qt/5.9/msvc2015_64/include -IC:/Qt/5.9/msvc2015_64/include/QtWidgets -IC:/Qt/5.9/msvc2015_64/include/QtGui -IC:/Qt/5.9/msvc2015_64/include/QtANGLE -IC:/Qt/5.9/msvc2015_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\8.1\include\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\winrt" ..\..\Chess\Chess\Plateau.h -o release\moc_Plateau.cpp
+>>>>>>> recupia
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
