@@ -17,6 +17,7 @@ public:
     void setJoueurActif(Joueur joueur);
     Grille* getGrille();
     void initialize();
+
     void reinitialize();
     void updateCaseStatus(Piece piece,Coordonnee oldCoord);
     QVector<QPoint> getCoupPrec();
@@ -47,6 +48,7 @@ signals:
     void displayPlayerId(int id);
     void badMove();
 public slots:
+    void setLevel(int level);
     void sentDisplayPlayerId();
     void displayPlateau();
     void movePiece(int i1,int i2,int i3,int i4);

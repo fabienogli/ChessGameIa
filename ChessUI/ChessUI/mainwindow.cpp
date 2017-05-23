@@ -30,9 +30,17 @@ MainWindow::MainWindow(QWidget *parent) :
     //afficher idJoueur
     QObject::connect(plateau,SIGNAL(displayPlayerId(int)),this,SLOT(displayPlayerId(int)),Qt::UniqueConnection);
     //QObject::connect(plateau,SIGNAL(),this,SLOT());
+
     //initialiser plateau
-    QObject::connect(ui->initButton,SIGNAL(clicked(bool)),plateau,SLOT(displayPlateau()),Qt::UniqueConnection);
-    QObject::connect(ui->initButton,SIGNAL(clicked(bool)),plateau,SLOT(sentDisplayPlayerId()),Qt::UniqueConnection);
+    QObject::connect(ui->actionLancer_Partie,SIGNAL(triggered(bool)),plateau,SLOT(displayPlateau()),Qt::UniqueConnection);
+    QObject::connect(ui->actionLancer_Partie,SIGNAL(clicked(bool)),plateau,SLOT(sentDisplayPlayerId()),Qt::UniqueConnection);
+
+    //Choix niveau IA
+    QObject::connect(ui->actionniveau1,SIGNAL(triggered(bool)),plateau,SLOT(setLevel(1)),Qt::UniqueConnection);
+    QObject::connect(ui->actionniveau_3,SIGNAL(triggered(bool)),plateau,SLOT(setLevel(3)),Qt::UniqueConnection);
+    QObject::connect(ui->actionniveau_2,SIGNAL(triggered(bool)),plateau,SLOT(setLevel(2)),Qt::UniqueConnection);
+    QObject::connect(ui->actionPar_d_faut,SIGNAL(triggered(bool)),plateau,SLOT(setLevel(2)),Qt::UniqueConnection);
+
     //deplacer une piece
     QObject::connect(ui->ok_button,SIGNAL(clicked(bool)),this,SLOT(on_ok_button_clicked()),Qt::UniqueConnection);
     QObject::connect(this,SIGNAL(movePiece(int,int,int,int)),plateau,SLOT(movePiece(int,int,int,int)),Qt::UniqueConnection);

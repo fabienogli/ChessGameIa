@@ -21,6 +21,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
@@ -34,6 +35,17 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionIA_niveau_2;
+    QAction *actionIA_niveau_3;
+    QAction *actionPar_d_faut;
+    QAction *actionIA_niveau_5;
+    QAction *actionniveau1;
+    QAction *actionniveau_2;
+    QAction *actionniveau_3;
+    QAction *actionniveau_4;
+    QAction *actionniveau_5;
+    QAction *actionniveau_6;
+    QAction *actionLancer_Partie;
     QWidget *centralWidget;
     QTableWidget *tableWidget;
     QWidget *gridLayoutWidget;
@@ -66,17 +78,11 @@ public:
     QLabel *label_10;
     QLabel *label_11;
     QGraphicsView *graphicsView_21;
-    QGraphicsView *graphicsView_9;
     QGraphicsView *graphicsView_14;
     QGraphicsView *graphicsView_15;
     QGraphicsView *graphicsView_13;
     QGraphicsView *graphicsView_12;
-    QGraphicsView *graphicsView_4;
-    QGraphicsView *graphicsView_6;
-    QGraphicsView *graphicsView_5;
-    QGraphicsView *graphicsView_8;
     QGraphicsView *graphicsView_2;
-    QGraphicsView *graphicsView;
     QGraphicsView *graphicsView_28;
     QGraphicsView *graphicsView_22;
     QGraphicsView *graphicsView_26;
@@ -118,7 +124,15 @@ public:
     QGraphicsView *graphicsView_67;
     QGraphicsView *graphicsView_40;
     QGraphicsView *graphicsView_42;
+    QFrame *line;
+    QGraphicsView *graphicsView;
     QGraphicsView *graphicsView_3;
+    QGraphicsView *graphicsView_4;
+    QGraphicsView *graphicsView_5;
+    QGraphicsView *graphicsView_6;
+    QGraphicsView *graphicsView_7;
+    QGraphicsView *graphicsView_8;
+    QGraphicsView *graphicsView_9;
     QHBoxLayout *horizontalLayout;
     QLabel *label_12;
     QLabel *label_13;
@@ -128,11 +142,11 @@ public:
     QLabel *label_17;
     QLabel *label_18;
     QLabel *label_19;
-    QGraphicsView *graphicsView_7;
-    QFrame *line;
-    QPushButton *initButton;
     QPushButton *ok_button;
     QMenuBar *menuBar;
+    QMenu *menuLancer_Partie;
+    QMenu *menuNiveau_IA;
+    QMenu *menuChoisir_niveau;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -140,20 +154,42 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(761, 543);
+        MainWindow->resize(796, 576);
+        actionIA_niveau_2 = new QAction(MainWindow);
+        actionIA_niveau_2->setObjectName(QStringLiteral("actionIA_niveau_2"));
+        actionIA_niveau_3 = new QAction(MainWindow);
+        actionIA_niveau_3->setObjectName(QStringLiteral("actionIA_niveau_3"));
+        actionPar_d_faut = new QAction(MainWindow);
+        actionPar_d_faut->setObjectName(QStringLiteral("actionPar_d_faut"));
+        actionIA_niveau_5 = new QAction(MainWindow);
+        actionIA_niveau_5->setObjectName(QStringLiteral("actionIA_niveau_5"));
+        actionniveau1 = new QAction(MainWindow);
+        actionniveau1->setObjectName(QStringLiteral("actionniveau1"));
+        actionniveau_2 = new QAction(MainWindow);
+        actionniveau_2->setObjectName(QStringLiteral("actionniveau_2"));
+        actionniveau_3 = new QAction(MainWindow);
+        actionniveau_3->setObjectName(QStringLiteral("actionniveau_3"));
+        actionniveau_4 = new QAction(MainWindow);
+        actionniveau_4->setObjectName(QStringLiteral("actionniveau_4"));
+        actionniveau_5 = new QAction(MainWindow);
+        actionniveau_5->setObjectName(QStringLiteral("actionniveau_5"));
+        actionniveau_6 = new QAction(MainWindow);
+        actionniveau_6->setObjectName(QStringLiteral("actionniveau_6"));
+        actionLancer_Partie = new QAction(MainWindow);
+        actionLancer_Partie->setObjectName(QStringLiteral("actionLancer_Partie"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         tableWidget = new QTableWidget(centralWidget);
         if (tableWidget->columnCount() < 3)
             tableWidget->setColumnCount(3);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(490, 10, 191, 431));
+        tableWidget->setGeometry(QRect(540, 40, 191, 431));
         tableWidget->setMaximumSize(QSize(250, 16777215));
         tableWidget->setLineWidth(1);
         tableWidget->setColumnCount(3);
         gridLayoutWidget = new QWidget(centralWidget);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(80, 450, 601, 31));
+        gridLayoutWidget->setGeometry(QRect(70, 470, 601, 31));
         gridLayout_2 = new QGridLayout(gridLayoutWidget);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -197,7 +233,7 @@ public:
 
         layoutWidget = new QWidget(centralWidget);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(50, 10, 421, 431));
+        layoutWidget->setGeometry(QRect(40, 10, 481, 446));
         gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setSpacing(0);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -324,13 +360,6 @@ public:
 
         gridLayout->addWidget(graphicsView_21, 2, 3, 1, 1);
 
-        graphicsView_9 = new QGraphicsView(layoutWidget);
-        graphicsView_9->setObjectName(QStringLiteral("graphicsView_9"));
-        graphicsView_9->setMaximumSize(QSize(50, 50));
-        graphicsView_9->setStyleSheet(QStringLiteral("background-color: rgb(108, 108, 108);"));
-
-        gridLayout->addWidget(graphicsView_9, 8, 1, 1, 1);
-
         graphicsView_14 = new QGraphicsView(layoutWidget);
         graphicsView_14->setObjectName(QStringLiteral("graphicsView_14"));
         graphicsView_14->setMaximumSize(QSize(50, 50));
@@ -357,43 +386,12 @@ public:
 
         gridLayout->addWidget(graphicsView_12, 1, 5, 1, 1);
 
-        graphicsView_4 = new QGraphicsView(layoutWidget);
-        graphicsView_4->setObjectName(QStringLiteral("graphicsView_4"));
-        graphicsView_4->setMaximumSize(QSize(50, 50));
-
-        gridLayout->addWidget(graphicsView_4, 3, 1, 1, 1);
-
-        graphicsView_6 = new QGraphicsView(layoutWidget);
-        graphicsView_6->setObjectName(QStringLiteral("graphicsView_6"));
-        graphicsView_6->setMaximumSize(QSize(50, 50));
-
-        gridLayout->addWidget(graphicsView_6, 5, 1, 1, 1);
-
-        graphicsView_5 = new QGraphicsView(layoutWidget);
-        graphicsView_5->setObjectName(QStringLiteral("graphicsView_5"));
-        graphicsView_5->setMaximumSize(QSize(50, 50));
-        graphicsView_5->setStyleSheet(QStringLiteral("background-color: rgb(108, 108, 108);"));
-
-        gridLayout->addWidget(graphicsView_5, 4, 1, 1, 1);
-
-        graphicsView_8 = new QGraphicsView(layoutWidget);
-        graphicsView_8->setObjectName(QStringLiteral("graphicsView_8"));
-        graphicsView_8->setMaximumSize(QSize(50, 50));
-
-        gridLayout->addWidget(graphicsView_8, 7, 1, 1, 1);
-
         graphicsView_2 = new QGraphicsView(layoutWidget);
         graphicsView_2->setObjectName(QStringLiteral("graphicsView_2"));
         graphicsView_2->setMaximumSize(QSize(50, 50));
         graphicsView_2->setStyleSheet(QStringLiteral("background-color: rgb(108, 108, 108);"));
 
         gridLayout->addWidget(graphicsView_2, 1, 3, 1, 1);
-
-        graphicsView = new QGraphicsView(layoutWidget);
-        graphicsView->setObjectName(QStringLiteral("graphicsView"));
-        graphicsView->setMaximumSize(QSize(50, 50));
-
-        gridLayout->addWidget(graphicsView, 1, 1, 1, 1);
 
         graphicsView_28 = new QGraphicsView(layoutWidget);
         graphicsView_28->setObjectName(QStringLiteral("graphicsView_28"));
@@ -668,12 +666,64 @@ public:
 
         gridLayout->addWidget(graphicsView_42, 8, 8, 1, 1);
 
+        line = new QFrame(layoutWidget);
+        line->setObjectName(QStringLiteral("line"));
+        line->setFrameShape(QFrame::VLine);
+        line->setFrameShadow(QFrame::Sunken);
+
+        gridLayout->addWidget(line, 3, 10, 1, 1);
+
+        graphicsView = new QGraphicsView(layoutWidget);
+        graphicsView->setObjectName(QStringLiteral("graphicsView"));
+        graphicsView->setMaximumSize(QSize(50, 50));
+
+        gridLayout->addWidget(graphicsView, 1, 2, 1, 1);
+
         graphicsView_3 = new QGraphicsView(layoutWidget);
         graphicsView_3->setObjectName(QStringLiteral("graphicsView_3"));
         graphicsView_3->setMaximumSize(QSize(50, 50));
         graphicsView_3->setStyleSheet(QStringLiteral("background-color: rgb(108, 108, 108);"));
 
-        gridLayout->addWidget(graphicsView_3, 2, 1, 1, 1);
+        gridLayout->addWidget(graphicsView_3, 2, 2, 1, 1);
+
+        graphicsView_4 = new QGraphicsView(layoutWidget);
+        graphicsView_4->setObjectName(QStringLiteral("graphicsView_4"));
+        graphicsView_4->setMaximumSize(QSize(50, 50));
+
+        gridLayout->addWidget(graphicsView_4, 3, 2, 1, 1);
+
+        graphicsView_5 = new QGraphicsView(layoutWidget);
+        graphicsView_5->setObjectName(QStringLiteral("graphicsView_5"));
+        graphicsView_5->setMaximumSize(QSize(50, 50));
+        graphicsView_5->setStyleSheet(QStringLiteral("background-color: rgb(108, 108, 108);"));
+
+        gridLayout->addWidget(graphicsView_5, 4, 2, 1, 1);
+
+        graphicsView_6 = new QGraphicsView(layoutWidget);
+        graphicsView_6->setObjectName(QStringLiteral("graphicsView_6"));
+        graphicsView_6->setMaximumSize(QSize(50, 50));
+
+        gridLayout->addWidget(graphicsView_6, 5, 2, 1, 1);
+
+        graphicsView_7 = new QGraphicsView(layoutWidget);
+        graphicsView_7->setObjectName(QStringLiteral("graphicsView_7"));
+        graphicsView_7->setMaximumSize(QSize(50, 50));
+        graphicsView_7->setStyleSheet(QStringLiteral("background-color: rgb(108, 108, 108);"));
+
+        gridLayout->addWidget(graphicsView_7, 6, 2, 1, 1);
+
+        graphicsView_8 = new QGraphicsView(layoutWidget);
+        graphicsView_8->setObjectName(QStringLiteral("graphicsView_8"));
+        graphicsView_8->setMaximumSize(QSize(50, 50));
+
+        gridLayout->addWidget(graphicsView_8, 7, 2, 1, 1);
+
+        graphicsView_9 = new QGraphicsView(layoutWidget);
+        graphicsView_9->setObjectName(QStringLiteral("graphicsView_9"));
+        graphicsView_9->setMaximumSize(QSize(50, 50));
+        graphicsView_9->setStyleSheet(QStringLiteral("background-color: rgb(108, 108, 108);"));
+
+        gridLayout->addWidget(graphicsView_9, 8, 2, 1, 1);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
@@ -728,37 +778,25 @@ public:
         horizontalLayout->addWidget(label_19, 0, Qt::AlignHCenter);
 
 
-        gridLayout->addLayout(horizontalLayout, 0, 1, 1, 9);
+        gridLayout->addLayout(horizontalLayout, 0, 2, 1, 8);
 
-        graphicsView_7 = new QGraphicsView(layoutWidget);
-        graphicsView_7->setObjectName(QStringLiteral("graphicsView_7"));
-        graphicsView_7->setMaximumSize(QSize(50, 50));
-        graphicsView_7->setStyleSheet(QStringLiteral("background-color: rgb(108, 108, 108);"));
-
-        gridLayout->addWidget(graphicsView_7, 6, 1, 1, 1);
-
-        line = new QFrame(layoutWidget);
-        line->setObjectName(QStringLiteral("line"));
-        line->setFrameShape(QFrame::VLine);
-        line->setFrameShadow(QFrame::Sunken);
-
-        gridLayout->addWidget(line, 3, 10, 1, 1);
-
-        initButton = new QPushButton(centralWidget);
-        initButton->setObjectName(QStringLiteral("initButton"));
-        initButton->setGeometry(QRect(690, 70, 61, 23));
         ok_button = new QPushButton(centralWidget);
         ok_button->setObjectName(QStringLiteral("ok_button"));
-        ok_button->setGeometry(QRect(700, 450, 41, 23));
+        ok_button->setGeometry(QRect(720, 480, 41, 23));
         MainWindow->setCentralWidget(centralWidget);
         layoutWidget->raise();
         tableWidget->raise();
         gridLayoutWidget->raise();
-        initButton->raise();
         ok_button->raise();
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 761, 21));
+        menuBar->setGeometry(QRect(0, 0, 796, 21));
+        menuLancer_Partie = new QMenu(menuBar);
+        menuLancer_Partie->setObjectName(QStringLiteral("menuLancer_Partie"));
+        menuNiveau_IA = new QMenu(menuLancer_Partie);
+        menuNiveau_IA->setObjectName(QStringLiteral("menuNiveau_IA"));
+        menuChoisir_niveau = new QMenu(menuNiveau_IA);
+        menuChoisir_niveau->setObjectName(QStringLiteral("menuChoisir_niveau"));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -766,14 +804,7 @@ public:
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
-        QWidget::setTabOrder(graphicsView_2, graphicsView_3);
-        QWidget::setTabOrder(graphicsView_3, graphicsView_4);
-        QWidget::setTabOrder(graphicsView_4, graphicsView_5);
-        QWidget::setTabOrder(graphicsView_5, graphicsView_6);
-        QWidget::setTabOrder(graphicsView_6, graphicsView_7);
-        QWidget::setTabOrder(graphicsView_7, graphicsView_8);
-        QWidget::setTabOrder(graphicsView_8, graphicsView_9);
-        QWidget::setTabOrder(graphicsView_9, graphicsView_10);
+        QWidget::setTabOrder(graphicsView_2, graphicsView_10);
         QWidget::setTabOrder(graphicsView_10, graphicsView_11);
         QWidget::setTabOrder(graphicsView_11, graphicsView_12);
         QWidget::setTabOrder(graphicsView_12, graphicsView_13);
@@ -829,7 +860,15 @@ public:
         QWidget::setTabOrder(graphicsView_65, graphicsView_66);
         QWidget::setTabOrder(graphicsView_66, graphicsView_67);
         QWidget::setTabOrder(graphicsView_67, tableWidget);
-        QWidget::setTabOrder(tableWidget, graphicsView);
+
+        menuBar->addAction(menuLancer_Partie->menuAction());
+        menuLancer_Partie->addAction(menuNiveau_IA->menuAction());
+        menuLancer_Partie->addAction(actionLancer_Partie);
+        menuNiveau_IA->addAction(actionPar_d_faut);
+        menuNiveau_IA->addAction(menuChoisir_niveau->menuAction());
+        menuChoisir_niveau->addAction(actionniveau1);
+        menuChoisir_niveau->addAction(actionniveau_2);
+        menuChoisir_niveau->addAction(actionniveau_3);
 
         retranslateUi(MainWindow);
 
@@ -842,6 +881,17 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
+        actionIA_niveau_2->setText(QApplication::translate("MainWindow", "IA niveau 2", Q_NULLPTR));
+        actionIA_niveau_3->setText(QApplication::translate("MainWindow", "IA niveau 3", Q_NULLPTR));
+        actionPar_d_faut->setText(QApplication::translate("MainWindow", "Par d\303\251faut", Q_NULLPTR));
+        actionIA_niveau_5->setText(QApplication::translate("MainWindow", "IA niveau 3", Q_NULLPTR));
+        actionniveau1->setText(QApplication::translate("MainWindow", "niveau 1", Q_NULLPTR));
+        actionniveau_2->setText(QApplication::translate("MainWindow", "niveau 2", Q_NULLPTR));
+        actionniveau_3->setText(QApplication::translate("MainWindow", "niveau 3", Q_NULLPTR));
+        actionniveau_4->setText(QApplication::translate("MainWindow", "niveau 4", Q_NULLPTR));
+        actionniveau_5->setText(QApplication::translate("MainWindow", "niveau 5", Q_NULLPTR));
+        actionniveau_6->setText(QApplication::translate("MainWindow", "niveau 6", Q_NULLPTR));
+        actionLancer_Partie->setText(QApplication::translate("MainWindow", "Lancer Partie", Q_NULLPTR));
         label->setText(QApplication::translate("MainWindow", "Joueur :", Q_NULLPTR));
         label_2->setText(QString());
         label_3->setText(QApplication::translate("MainWindow", "Coup \303\240 jouer :", Q_NULLPTR));
@@ -905,8 +955,10 @@ public:
         label_17->setText(QApplication::translate("MainWindow", "6", Q_NULLPTR));
         label_18->setText(QApplication::translate("MainWindow", "7", Q_NULLPTR));
         label_19->setText(QApplication::translate("MainWindow", "8", Q_NULLPTR));
-        initButton->setText(QApplication::translate("MainWindow", "Init", Q_NULLPTR));
         ok_button->setText(QApplication::translate("MainWindow", "OK", Q_NULLPTR));
+        menuLancer_Partie->setTitle(QApplication::translate("MainWindow", "Lancer Partie", Q_NULLPTR));
+        menuNiveau_IA->setTitle(QApplication::translate("MainWindow", "Niveau IA", Q_NULLPTR));
+        menuChoisir_niveau->setTitle(QApplication::translate("MainWindow", "Choisir niveau", Q_NULLPTR));
     } // retranslateUi
 
 };
