@@ -33,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //initialiser plateau
     QObject::connect(ui->actionLancer_Partie,SIGNAL(triggered(bool)),plateau,SLOT(displayPlateau()),Qt::UniqueConnection);
-    QObject::connect(ui->actionLancer_Partie,SIGNAL(clicked(bool)),plateau,SLOT(sentDisplayPlayerId()),Qt::UniqueConnection);
+    QObject::connect(ui->actionLancer_Partie,SIGNAL(triggered(bool)),plateau,SLOT(sentDisplayPlayerId()),Qt::UniqueConnection);
 
     //Choix niveau IA
     QObject::connect(ui->actionniveau1,SIGNAL(triggered(bool)),plateau,SLOT(setLevel(1)),Qt::UniqueConnection);
