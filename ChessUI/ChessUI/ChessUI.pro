@@ -37,8 +37,7 @@ SOURCES += main.cpp\
     ../../Chess/Chess/Plateau.cpp \
     ../../Chess/Chess/Roi.cpp \
     ../../Chess/Chess/Tour.cpp \
-    ../../Chess/Chess/TypePiece.cpp \
-    ../../Chess/Chess/ia.cpp
+    ../../Chess/Chess/TypePiece.cpp
 
 HEADERS  += mainwindow.h \
     ../../Chess/Chess/Case.h \
@@ -52,8 +51,7 @@ HEADERS  += mainwindow.h \
     ../../Chess/Chess/Pion.h \
     ../../Chess/Chess/Plateau.h \
     ../../Chess/Chess/Roi.h \
-    ../../Chess/Chess/Tour.h \
-    ../../Chess/Chess/ia.h
+    ../../Chess/Chess/Tour.h
 
 FORMS    += mainwindow.ui
 
