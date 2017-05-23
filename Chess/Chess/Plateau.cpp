@@ -33,78 +33,78 @@ void Plateau::reinitialize(){
 
 void Plateau::jouerIA(){
     std::cout << "je fais jouer IA"<< std::endl;
- QVector<QPoint> dep = IA->jouer(joueur1,IA->getLevel(),this);
- std::cout << "fin jeu IA"<< std::endl;
- for(int i=0;i<dep.count();i++){
-     std::cout << "x="<<dep.at(i).x()<<std::endl;
-     std::cout << "y="<<dep.at(i).y()<<std::endl;
+    QVector<QPoint> dep = IA->jouer(joueur1,IA->getLevel(),this);
+    std::cout << "fin jeu IA"<< std::endl;
+    for(int i=0;i<dep.count();i++){
+        std::cout << "x="<<dep.at(i).x()<<std::endl;
+        std::cout << "y="<<dep.at(i).y()<<std::endl;
 
- }
- std::cout << "fin retour IA"<< std::endl;
- int usePion;
-     if(dep.count() != 2)
-     {
-         usePion = qrand() % ((dep.count()/2)-1);
-     }
-     else
-     {
-         usePion = 0;
-     }
-     int pion_ori = usePion * 2;
-     int pion_dest = (usePion * 2)+1;
-     if(getGrille()->getCase(dep.at(pion_ori).x(),dep.at(pion_ori).y())->getId() == 'P')
-         {
+    }
+    std::cout << "fin retour IA"<< std::endl;
+    int usePion;
+    if(dep.count() != 2)
+    {
+        usePion = qrand() % ((dep.count()/2)-1);
+    }
+    else
+    {
+        usePion = 0;
+    }
+    int pion_ori = usePion * 2;
+    int pion_dest = (usePion * 2)+1;
+    if(getGrille()->getCase(dep.at(pion_ori).x(),dep.at(pion_ori).y())->getId() == 'P')
+    {
 
-             if(dep.at(pion_dest).y() != dep.at(pion_ori).y() && getGrille()->getCase(dep.at(pion_dest).x(),dep.at(pion_dest).y())->getId() == 'N' )
-             {
-                  std::cout <<"IF 2 IA"<< std::endl;
-                 coordArrivee->setX(dep.at(pion_dest).x());
-                 coordArrivee->setY(dep.at(pion_dest).y()-1);
-                // m_interface->addtoScore(Pion, 1);
-                 //getGrille()->removePiece(coordArrivee);
+        if(dep.at(pion_dest).y() != dep.at(pion_ori).y() && getGrille()->getCase(dep.at(pion_dest).x(),dep.at(pion_dest).y())->getId() == 'N' )
+        {
+            std::cout <<"IF 2 IA"<< std::endl;
+            coordArrivee->setX(dep.at(pion_dest).x());
+            coordArrivee->setY(dep.at(pion_dest).y()-1);
+            // m_interface->addtoScore(Pion, 1);
+            //getGrille()->removePiece(coordArrivee);
 
-             }
-         }
-     if(getGrille()->getCase(dep.at(pion_ori).x(),dep.at(pion_ori).y())->getId() == 'R')
-         {
-             m_Posi_Rois1.setX(dep.at(pion_dest).x());
-             m_Posi_Rois1.setY(dep.at(pion_dest).y());
-         }
-         m_coupPrecedent[0][0].setX(dep.at(pion_ori).x());
-         m_coupPrecedent[0][0].setY(dep.at(pion_ori).y());
-         m_coupPrecedent[0][1].setX(dep.at(pion_dest).x());
-         m_coupPrecedent[0][1].setY(dep.at(pion_dest).y());
+        }
+    }
+    if(getGrille()->getCase(dep.at(pion_ori).x(),dep.at(pion_ori).y())->getId() == 'R')
+    {
+        m_Posi_Rois1.setX(dep.at(pion_dest).x());
+        m_Posi_Rois1.setY(dep.at(pion_dest).y());
+    }
+    m_coupPrecedent[0][0].setX(dep.at(pion_ori).x());
+    m_coupPrecedent[0][0].setY(dep.at(pion_ori).y());
+    m_coupPrecedent[0][1].setX(dep.at(pion_dest).x());
+    m_coupPrecedent[0][1].setY(dep.at(pion_dest).y());
 
-         if(getGrille()->getCase(dep.at(pion_dest).x(),dep.at(pion_dest).y())->getId() != 'N')
-             {
-                // m_interface->addtoScore(m_matricePiece[dep.at(pion_dest).x()][dep.at(pion_dest).y()], 1);
-             }
-             m_matriceDeplacement[dep.at(pion_ori).x()][dep.at(pion_ori).y()] = 0;
-             int i1=dep.at(pion_ori).x();
-             int i2=dep.at(pion_ori).y();
-             int i3=dep.at(pion_dest).x();
-             int i4=dep.at(pion_dest).y();
-             std::cout << "IA a fait son choix"<< std::endl;
-              std::cout << "IA i1="<<i1<< std::endl;
-               std::cout << "IA i2="<<i2 <<std::endl;
-                std::cout << "IA i3="<<i3 <<std::endl;
-                 std::cout << "IA i4="<<i4<< std::endl;
-             coordDepart->setX(i1);
-             coordDepart->setY(i2);
-             (*aSupprimer).setCoordonnee(new Coordonnee(i1,i2));
-             std::cout << "idpiece1="<<joueur1->isAnyPiece(Coordonnee(i1,i2))<<std::endl;
-             joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i1,i2)))->setCoordonne(i3,i4);
-             //CaseDeplacementPossible =  IA->calc_echec_et_mat(joueur2,m_Posi_Rois2,this);
-              std::cout << "idpiece1="<<joueur1->isAnyPiece(Coordonnee(i1,i2))<<std::endl;
-             emit affichSuppInit(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i3,i4))),0,0);
-             emit affichSuppInit(aSupprimer,0,1);
-             std::cout << "IA emet signal d'affichage"<< std::endl;
-             getGrille()->putPiece(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i3,i4))));
-             getGrille()->removePiece(coordDepart);
-             joueurActif = joueur2;
-             std::cout<<"DEPLACEMENT IA : origine x="<<i1<<" y="<<i2<<" arrive x="<<i3<<" y="<<i4;
-             //movePiece(i2,i1,i4,i3);
-             /*if(CaseDeplacementPossible.count() == 0)
+    if(getGrille()->getCase(dep.at(pion_dest).x(),dep.at(pion_dest).y())->getId() != 'N')
+    {
+        // m_interface->addtoScore(m_matricePiece[dep.at(pion_dest).x()][dep.at(pion_dest).y()], 1);
+    }
+    m_matriceDeplacement[dep.at(pion_ori).x()][dep.at(pion_ori).y()] = 0;
+    int i1=dep.at(pion_ori).x();
+    int i2=dep.at(pion_ori).y();
+    int i3=dep.at(pion_dest).x();
+    int i4=dep.at(pion_dest).y();
+    std::cout << "IA a fait son choix"<< std::endl;
+    std::cout << "IA i1="<<i1<< std::endl;
+    std::cout << "IA i2="<<i2 <<std::endl;
+    std::cout << "IA i3="<<i3 <<std::endl;
+    std::cout << "IA i4="<<i4<< std::endl;
+    coordDepart->setX(i1);
+    coordDepart->setY(i2);
+    (*aSupprimer).setCoordonnee(new Coordonnee(i1,i2));
+    std::cout << "idpiece1="<<joueur1->isAnyPiece(Coordonnee(i1,i2))<<std::endl;
+    joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i1,i2)))->setCoordonne(i3,i4);
+    //CaseDeplacementPossible =  IA->calc_echec_et_mat(joueur2,m_Posi_Rois2,this);
+    std::cout << "idpiece1="<<joueur1->isAnyPiece(Coordonnee(i1,i2))<<std::endl;
+    emit affichSuppInit(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i3,i4))),0,0);
+    emit affichSuppInit(aSupprimer,0,1);
+    std::cout << "IA emet signal d'affichage"<< std::endl;
+    getGrille()->putPiece(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i3,i4))));
+    getGrille()->removePiece(coordDepart);
+    joueurActif = joueur2;
+    std::cout<<"DEPLACEMENT IA : origine x="<<i1<<" y="<<i2<<" arrive x="<<i3<<" y="<<i4;
+    //movePiece(i2,i1,i4,i3);
+    /*if(CaseDeplacementPossible.count() == 0)
                  {
                      int ret = QMessageBox::question(this,"Pauvre noob Partie Perdu","L'IA a gagnier la partie ! \nVoulez vous rejouer ?",QMessageBox::Yes | QMessageBox::No);
                      if(ret == QMessageBox::Yes)
@@ -116,10 +116,10 @@ void Plateau::jouerIA(){
                          this->destroyed();
                      }
                  }*/
-             // augmentation du nombre de tours jouer
-                // m_tourno++;
-             //Detection de fin de partie par manque de nombre de tours
-                /* if(m_nbTourMax <= m_tourno)
+    // augmentation du nombre de tours jouer
+    // m_tourno++;
+    //Detection de fin de partie par manque de nombre de tours
+    /* if(m_nbTourMax <= m_tourno)
                  {
                      int ret = QMessageBox::question(this,"Match Nul","Le nombre de tour maximum est dépasser Math Nul ! \nVoulez vous rejouer ?",QMessageBox::Yes | QMessageBox::No);
                      if(ret == QMessageBox::Yes)
@@ -227,8 +227,8 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
         }
         else if(joueurActif->getIdJoueur()==1){
             joueurActif = joueur1;
-           // idJoueurActif =1;
-           this->jouerIA();
+            // idJoueurActif =1;
+            this->jouerIA();
 
             //idJoueurActif = 1;
         }
@@ -241,8 +241,8 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     }
     std::cout << "je suis 1-3";std::cout << std::endl;
     std::cout << "jai fini";std::cout << std::endl;
-   // joueur2->getDeck()[7]->afficher();
-   // delete tmpt;
+    // joueur2->getDeck()[7]->afficher();
+    // delete tmpt;
     /*Erreur dans
      * this->jouerIA();
      *
@@ -345,7 +345,7 @@ void Plateau::setJoueurActif(Joueur  joueur){
 }
 
 Grille* Plateau::getGrille(){
-   // std::cout << "dans getgrille";std::cout << std::endl;
+    // std::cout << "dans getgrille";std::cout << std::endl;
     return damier;
 }
 
@@ -367,8 +367,8 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
     //permet de savoir si une piece dont la couleur est donnée peut etre mangée par le joueur adverse
     QVector<QPoint> destination;
     //Coordonnee coordtmp = new Coordonnee(0,0);
-//    double tmp1=-1;
-//    double tmp2=-1;
+    //    double tmp1=-1;
+    //    double tmp2=-1;
     for(int x = 0; x < 8; x++)
     {
         for(int y = 0; y < 8; y++)
@@ -469,11 +469,11 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                     {
                     case 'P':
                         std::cout << "dans estenechec11";std::cout << std::endl;
-                        destination =  attaquePion(QPoint(joueur2->getDeck()[tmp1]->getCoordonne()->getX(),getJoueur1()->getDeck()[tmp1]->getCoordonne()->getY()));
+                        destination =  attaquePion(QPoint(joueur2->getDeck()[tmp1]->getCoordonne()->getX(),joueur2->getDeck()[tmp1]->getCoordonne()->getY()));
                         std::cout << "dans estenechec12";std::cout << std::endl;
                         for(int u = 0; u < destination.size(); u++)
                         {
-                             std::cout << "dans estenechec13";std::cout << std::endl;
+                            std::cout << "dans estenechec13";std::cout << std::endl;
                             if(destination[u].x() == coordcase->x() && destination[u].y() == coordcase->y() )
                             {
                                 return true;
@@ -482,7 +482,7 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                         destination.clear();
                         break;
                     case 'R':
-                         std::cout << "dans estenechec14";std::cout << std::endl;
+                        std::cout << "dans estenechec14";std::cout << std::endl;
                         if(coordpion != NULL)
                         {
                             if(damier->getCase(coordpion->x(),coordpion->y())->getId() != 'R') // on rois ne peu pas attaquer un autre rois !
@@ -497,13 +497,13 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                         }
                         else
                         {
-                             std::cout << "dans estenechec15";std::cout << std::endl;
+                            std::cout << "dans estenechec15";std::cout << std::endl;
                             destination = joueur2->getDeck()[tmp1]->deplacementsPossible(1,this);
                         }
 
                         for(int u = 0; u < destination.size(); u++)
                         {
-                             std::cout << "dans estenechec16";std::cout << std::endl;
+                            std::cout << "dans estenechec16";std::cout << std::endl;
                             if(destination[u].x() == coordcase->x() && destination[u].y() == coordcase->y() )
                             {
                                 return true;
@@ -513,22 +513,22 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
                         break;
 
                     case 'F':
-                         std::cout << "dans estenechec17";std::cout << std::endl;
+                        std::cout << "dans estenechec17";std::cout << std::endl;
                         if(testDestination(coordcase, tmp1,1)){
                             std::cout << "dans estenechec18";std::cout << std::endl;
                             return true;
                         }
                         break;
                     case 'T':
-                         std::cout << "dans estenechec18";std::cout << std::endl;
+                        std::cout << "dans estenechec18";std::cout << std::endl;
                         if(testDestination(coordcase, tmp1,1))
                         {
-                                                    std::cout << "dans estenechec18";std::cout << std::endl;
-                                                    return true;
-                                                }
+                            std::cout << "dans estenechec18";std::cout << std::endl;
+                            return true;
+                        }
                         break;
                     case 'C':
-                         std::cout << "dans estenechec19";std::cout << std::endl;
+                        std::cout << "dans estenechec19";std::cout << std::endl;
                         if(testDestination(coordcase, tmp1,1))
                             return true;
                         break;
@@ -546,10 +546,10 @@ bool Plateau::est_en_echec(QPoint *coordcase, QPoint *coordpion,int couleur){
 bool Plateau::testDestination(QPoint *coordcase, int i_piece, int i_joueur)
 {
     QVector<QPoint> destination;
-     std::cout << "dans estenechectest";std::cout << std::endl;
+    std::cout << "dans estenechectest";std::cout << std::endl;
     if(i_joueur==0)
         destination =joueur1->getDeck()[i_piece]->deplacementsPossible(i_joueur,this);
-    else
+    else if(i_joueur==1)
         destination =joueur2->getDeck()[i_piece]->deplacementsPossible(i_joueur,this);
     std::cout << "dans estenechectest2";std::cout << std::endl;
     bool verif = false;
@@ -587,7 +587,7 @@ QVector<QPoint> Plateau::attaquePion(QPoint cas){
         std::cout << "dans attaquepion5";std::cout << std::endl;
         if(cas.x() < 7)
         {
-std::cout << "dans attaquepion6";std::cout << std::endl;
+            std::cout << "dans attaquepion6";std::cout << std::endl;
             if(damier->getCase(cas.x()+1,cas.y()+1)->getCouleur() != damier->getCase(cas.x(),cas.y())->getCouleur())
             {
                 std::cout << "dans attaquepion7";std::cout << std::endl;
