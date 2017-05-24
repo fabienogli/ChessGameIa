@@ -25,7 +25,7 @@ int ia::gagnantEnCours(int idJoueur,Plateau * plateau){
             return 1000;
         }
     }
-    else
+    else if(idJoueur == 1)
     {
         if(this->calc_echec_et_mat(plateau->getJoueur2(),this->m_Posi_Rois2,plateau).count() == 0)
         {
@@ -44,12 +44,12 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
 {
     std::cout<<"dans le max"<<std::endl;
     int retour=gagnantEnCours(joueur->getIdJoueur(),plateau)  ;
-    //int retour=0;
+   // int retour=0;
     std::cout<<"jai fini le calcul du retour gagnantEnCours"<<std::endl;
     std::cout<<"retour="<<retour<<std::endl;
     int max = -10000;
+    //if(profondeur <= 0 )
     if(profondeur <= 0 || (retour != 0))
-        // if(profondeur <= 0 )
     {
         if(profondeur <= 0)
         {
@@ -208,8 +208,8 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
     std::cout << "dans jouer de la classe min2";std::cout << std::endl;
     int min = 10000;
     std::cout << "dans jouer de la classe min3";std::cout << std::endl;
-    if(profondeur <= 0 || (retour != 0))
-        //   if(profondeur <= 0 )
+     //   if(profondeur <= 0 )
+   if(profondeur <= 0 || (retour != 0))
     {
         if(profondeur <= 0)
         {
@@ -732,7 +732,9 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
                             coordtmp1->setX(pos_rois_joueur.x());
                             coordtmp1->setY(pos_rois_joueur.y());
                             std::cout << "dans calc echec mat 9";std::cout << std::endl;
-                            if(plateau->est_en_echec(coordtmp1,NULL,joueur->getIdJoueur()))
+                           // bool b=plateau->est_en_echec(coordtmp1,NULL,joueur->getIdJoueur());
+                            bool b = false;
+                            if(b==false)
                             {
                                  std::cout << "la piece est en echec";std::cout << std::endl;
                                 score = -1000;
