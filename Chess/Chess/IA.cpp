@@ -43,13 +43,13 @@ int ia::gagnantEnCours(int idJoueur,Plateau * plateau){
 int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
 {
     std::cout<<"dans le max"<<std::endl;
-   // int retour=gagnantEnCours(joueur->getIdJoueur(),plateau)  ;
-    int retour=0;
+   int retour=gagnantEnCours(joueur->getIdJoueur(),plateau)  ;
+    //int retour=0;
     std::cout<<"jai fini le calcul du retour gagnantEnCours"<<std::endl;
     std::cout<<"retour="<<retour<<std::endl;
     int max = -10000;
-    //if(profondeur <= 0 || (retour != 0))
-        if(profondeur <= 0 )
+    if(profondeur <= 0 || (retour != 0))
+       // if(profondeur <= 0 )
     {
         if(profondeur <= 0)
         {
@@ -203,13 +203,13 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
 int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
     std::cout << "dans le min";std::cout << std::endl;
     std::cout << "dans jouer de la classe min1";std::cout << std::endl;
-    //int retour=gagnantEnCours(joueur->getIdJoueur(),plateau)  ;
-    int retour=0;
+    int retour=gagnantEnCours(joueur->getIdJoueur(),plateau)  ;
+    //int retour=0;
     std::cout << "dans jouer de la classe min2";std::cout << std::endl;
     int min = 10000;
     std::cout << "dans jouer de la classe min3";std::cout << std::endl;
-    //if(profondeur <= 0 || (retour != 0))
-        if(profondeur <= 0 )
+    if(profondeur <= 0 || (retour != 0))
+     //   if(profondeur <= 0 )
     {
         if(profondeur <= 0)
         {
