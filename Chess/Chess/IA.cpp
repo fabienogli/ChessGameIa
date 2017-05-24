@@ -610,12 +610,13 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
 
     QVector<QPoint> result;
     QPoint *coordtmp1 = new QPoint(0,0);
+    int nbit=0;
 
     for(int x = 0; x < 8; x++)
     {
         std::cout << "dans calc echec mat tmp";std::cout << std::endl;
         for(int y = 0; y < 8; y++)
-        {
+        {   nbit++;
             std::cout << "dans calc echec mat tmpt";std::cout << std::endl;
             std::cout << x <<"et"<< y;std::cout << std::endl;
             std::cout <<"couleur case =" <<plateau->getGrille()->getCase(x,y)->getCouleur();std::cout << std::endl;
@@ -733,10 +734,12 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
                             std::cout << "dans calc echec mat 9";std::cout << std::endl;
                             if(plateau->est_en_echec(coordtmp1,NULL,joueur->getIdJoueur()))
                             {
+                                 std::cout << "la piece est en echec";std::cout << std::endl;
                                 score = -1000;
                             }
                             else
                             {
+                                std::cout << "la piece n'est pas en echec";std::cout << std::endl;
                                 score =  1000;
                             }
                             std::cout << "dans calc echec mat 10";std::cout << std::endl;
@@ -805,10 +808,8 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
             std::cout << "calc echec mat 18";std::cout << std::endl;
         }
         std::cout << "calc echec mat 19";std::cout << std::endl;
-
-
-
     }
+    std::cout << "nbit="<<nbit;std::cout << std::endl;
     std::cout << "fin calc echec mat ";std::cout << std::endl;
     //delete tmp;
     //delete coordtmp1;
