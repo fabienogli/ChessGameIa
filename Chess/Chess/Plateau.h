@@ -25,7 +25,7 @@ public:
     void setCoupPrec(QVector<QPoint> CoupPrec);
     bool est_en_echec(QPoint coordcase, QPoint* coordpion, int i);
     bool testDestination(QPoint coordcase, int i_piece, int i_joueur);
-    QVector<QPoint> attaquePion(QPoint point);
+    QVector<QPoint> listeAttaquePion(QPoint point);
     bool caseAtOccupy(int x, int y);
     Piece* getPiece(Coordonnee* coord);
     void jouerIA();

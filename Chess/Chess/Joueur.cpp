@@ -64,37 +64,19 @@ int Joueur::isAnyPiece(Coordonnee coord)
 	int i = 0;
     while (found==false && i < deck.size())
 	{
-        //std::cout<<i<<std::endl;
-        //std::cout<<deck.size()<<std::endl;
 
-        //int tmp1=getDeck()[i]->getCoordonne()->getX();
-        //int tmp2=getDeck()[i]->getCoordonne()->getY();
-        //int tmp3=getDeck().at(7)->getCoordonne()->getX();
-        int tmp3=getDeck().at(7)->getCoordonne()->getX();
-        int tmp4=getDeck().at(7)->getCoordonne()->getY();
-        //std::cout<<tmp1<<std::endl;
-        //std::cout<<tmp2<<std::endl;
-        std::cout<<tmp3<<std::endl;
-        std::cout<<tmp4<<std::endl;
-        std::cout<<"t2"<<std::endl;
         if (coord.getX() == getDeck()[i]->getCoordonne()->getX() && coord.getY() == getDeck()[i]->getCoordonne()->getY())
 		{
-            std::cout<<"t3"<<std::endl;
 			found = true;
 		}
         else{
             i++;
-        std::cout<<"i="<<i<<std::endl;
         }
-        std::cout<<"t4"<<std::endl;
 	}
-    std::cout<<"t5"<<std::endl;
     if (found==true){
-        std::cout<<"jai trouve la piece"<<std::endl;
         return i;
     }
 	else {
-        std::cout<<"t6"<<std::endl;
         std::cout<<"je sors de anypiece"<<std::endl;
 		return -1;
 
@@ -110,41 +92,18 @@ int Joueur::isAnyPiece2(Coordonnee coord)
     for(i =0;i<deck.size();i++)
    // while (found==false && i < deck.size())
     {
-        //std::cout<<i<<std::endl;
-        //std::cout<<deck.size()<<std::endl;
 
-        //int tmp1=getDeck()[i]->getCoordonne()->getX();
-        //int tmp2=getDeck()[i]->getCoordonne()->getY();
-        //int tmp3=getDeck().at(7)->getCoordonne()->getX();
-        int tmp3=getDeck().at(7)->getCoordonne()->getX();
-        int tmp4=getDeck().at(7)->getCoordonne()->getY();
-        //std::cout<<tmp1<<std::endl;
-        //std::cout<<tmp2<<std::endl;
-        std::cout<<tmp3<<std::endl;
-        std::cout<<tmp4<<std::endl;
-        std::cout<<"t2"<<std::endl;
+
         if (coord.getX() == getDeck()[i]->getCoordonne()->getX() && coord.getY() == getDeck()[i]->getCoordonne()->getY())
         {
             std::cout<<"t3"<<std::endl;
             return i;
             //found = true;
-        }/*
-        else{
-            i++;
-        std::cout<<"i="<<i<<std::endl;
-        }*/
+        }
         std::cout<<"t4"<<std::endl;
     }
     std::cout<<"t5"<<std::endl;
-   /* if (found==true){
-        std::cout<<"jai trouve la piece"<<std::endl;
 
-    }
-    else {
-        std::cout<<"t6"<<std::endl;
-        std::cout<<"je sors de anypiece"<<std::endl;
-        return -1;
-    }*/
     return -1;
 }
 
