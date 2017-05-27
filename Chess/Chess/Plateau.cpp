@@ -413,45 +413,28 @@ bool Plateau::caseAtOccupy(int x, int y)
 bool Plateau::est_en_echec(QPoint coordcase, QPoint *coordpion,int couleur){
     //permet de savoir si une piece dont la couleur est donnée peut etre mangée par le joueur adverse
     QVector<QPoint> destination;
-    //Coordonnee coordtmp = new Coordonnee(0,0);
-    //    int tmp1=-1;
-    //    int tmp2=-1;
+
     int nbit=0;
-    for(int x = 0; x < 8; x++)
-    {
-        for(int y = 0; y < 8; y++)
-        {
-            int tmp1=-1;
-            int tmp2=-1;
-            std::cout << x;std::cout << std::endl;
-            std::cout << y;std::cout << std::endl;
-            Coordonnee coordtmp(x,y);
-            std::cout << damier->getCase(x,y)->getCouleur()<<"et"<<couleur;std::cout << std::endl;
-            if((damier->getCase(x,y)->getCouleur() != couleur) && (damier->getCase(x,y)->getCouleur() !=  -1) )
-            {
+    Joueur * joueur;
+    int idJoueur;
+
+            if(couleur == 0)
+            {joueur= getJoueur2();
+            idJoueur = 1;}
+            else {joueur=getJoueur1();
+            idJoueur=0;}
+            for(int i=0;i<joueur->getDeckSize();i++){
                 nbit++;
                 //coordtmp.setX(x);
                 //coordtmp.setY(y);
                 std::cout <<"XTEMP="<<coordtmp.getX();std::cout << std::endl;
                 std::cout <<"YTEMP="<<coordtmp.getY();std::cout << std::endl;
                 std::cout << "dans estenechecprim";std::cout << std::endl;
-                if(damier->getCase(x,y)->getCouleur() == 1){
-                    //on recherche dans le deck du premier joueur
-                    std::cout<<"dans le joueur2 estenechec"<<std::endl;
-                    tmp1 = joueur2->isAnyPiece2(coordtmp);
-                }
-                else if(damier->getCase(x,y)->getCouleur() == 0){
-                    std::cout<<"dans le joueur1 estenechec"<<std::endl;
-                    tmp2 = joueur1->isAnyPiece2(coordtmp);
-                }
-                std::cout<<"tmp1= "<<tmp1<<" tmp2="<<tmp2<<std::endl;
-                std::cout << "dans estenechecprim2";std::cout << std::endl;
-                if(tmp2!=-1){
-                    switch(damier->getCase(x,y)->getId())
+                    switch(joueur->getDeck()[i]->getId())
                     {
                     case 'P':
                        std::cout << "dans estenechec1";std::cout << std::endl;
-                       destination = listeAttaquePion(QPoint(joueur1->getDeck()[tmp2]->getCoordonne()->getX(),joueur1->getDeck()[tmp2]->getCoordonne()->getY()));
+                       destination = listeAttaquePion(QPoint(joueur->getDeck()[i]->getCoordonne()->getX(),joueur->getDeck()[i]->getCoordonne()->getY()));
                         std::cout << "dans estenechec2";std::cout << std::endl;
                         std::cout << "nbelements="<<destination.count();std::cout << std::endl;
                         for(int u = 0; u < destination.count(); u++)
@@ -469,13 +452,13 @@ bool Plateau::est_en_echec(QPoint coordcase, QPoint *coordpion,int couleur){
                         {
                             if(damier->getCase(coordpion->x(),coordpion->y())->getId() != 'R') // on rois ne peu pas attaquer un autre rois !
                             {
-                                destination =getJoueur1()->getDeck()[tmp2]->deplacementsPossible(0,this);
+                                destination =getJoueur1()->getDeck()[tmp2]->deplacementsPossible(idJoueur,this);
                             }
                         }
                         else
                         {
                             std::cout << "dans estenechec4";std::cout << std::endl;
-                            destination = getJoueur1()->getDeck()[tmp2]->deplacementsPossible(0,this);
+                            destination = joueur->getDeck()[i]->deplacementsPossible(idJoueur,this);
                             std::cout << "dans estenechec5";std::cout << std::endl;
                         }
 
@@ -493,97 +476,25 @@ bool Plateau::est_en_echec(QPoint coordcase, QPoint *coordpion,int couleur){
 
                     case 'F':
                         std::cout << "dans estenechec8";std::cout << std::endl;
-                                               if(testDestination(coordcase, tmp2,0)==true)return true;
+                                               if(testDestination(coordcase, i,idJoueur)==true)return true;
 
                         break;
                     case 'T':
                         std::cout << "dans estenechec9";std::cout << std::endl;
-                                              if(testDestination(coordcase, tmp2,0)==true)return true;
+                                              if(testDestination(coordcase, i,idJoueur)==true)return true;
 
                         break;
                     case 'C':
                         std::cout << "dans estenechec10";std::cout << std::endl;
-                                               if(testDestination(coordcase, tmp2,0)==true)return true;
+                                               if(testDestination(coordcase, i,idJoueur)==true)return true;
 
                         break;
                     default:break;
 
                     }
-                }
-                else if(tmp1 != -1){
-                    switch(damier->getCase(x,y)->getId())
-                    {
-                    case 'P':
-                        std::cout << "dans estenechec11";std::cout << std::endl;
-                        destination =  listeAttaquePion(QPoint(joueur2->getDeck()[tmp1]->getCoordonne()->getX(),joueur2->getDeck()[tmp1]->getCoordonne()->getY()));
-                        std::cout << "dans estenechec12";std::cout << std::endl;
-                        std::cout << "nbelements="<<destination.count();std::cout << std::endl;
-                        for(int u = 0; u < destination.count(); u++)
-                        {
-                            std::cout << "dans estenechec13";std::cout << std::endl;
-                            if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
-                            {
-                                return true;
-                            }
-                        }
-                        destination.clear();
-                        break;
-                    case 'R':
-                        std::cout << "dans estenechec14";std::cout << std::endl;
-                        if(coordpion != NULL)
-                        {
-                            if(damier->getCase(coordpion->x(),coordpion->y())->getId() != 'R') // on rois ne peu pas attaquer un autre rois !
-                            {
-                                destination = joueur2->getDeck()[tmp1]->deplacementsPossible(1,this);
-                            }
 
-                        }
-                        else
-                        {
-                            std::cout << "dans estenechec15";std::cout << std::endl;
-                            destination = joueur2->getDeck()[tmp1]->deplacementsPossible(1,this);
-                        }
-
-                        for(int u = 0; u < destination.count(); u++)
-                        {
-                            std::cout << "dans estenechec16";std::cout << std::endl;
-                            if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
-                            {
-                                return true;
-                            }
-                        }
-                        destination.clear();
-                        break;
-
-                    case 'F':
-                                                std::cout << "dans estenechec17";std::cout << std::endl;
-                                                if(testDestination(coordcase, tmp1,1)==true){
-                                                    std::cout << "dans estenechec18";std::cout << std::endl;
-                                                    return true;
-                                                }
-                        break;
-                    case 'T':
-                        std::cout << "dans estenechec18";std::cout << std::endl;
-                                                if(testDestination(coordcase, tmp1,1)==true)
-                                                {
-                                                    std::cout << "dans estenechec18";std::cout << std::endl;
-                                                    return true;
-                                                }
-                                                break;
-                    case 'C':
-                        std::cout << "dans estenechec19";std::cout << std::endl;
-                                                if(testDestination(coordcase, tmp1,1)==true)
-                                                    return true;
-                        break;
-                    default:break;
-
-                    }
-
-                }
             }
             //coordtmp.~Coordonnee();
-        }
-    }
     std::cout << "nbit estenechec="<<nbit;std::cout << std::endl;
     return false;
 }
