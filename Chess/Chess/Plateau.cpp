@@ -412,7 +412,7 @@ bool Plateau::caseAtOccupy(int x, int y)
  */
 bool Plateau::est_en_echec(QPoint coordcase, QPoint *coordpion,int couleur){
     //permet de savoir si une piece dont la couleur est donnée peut etre mangée par le joueur adverse
-    QVector<QPoint> destination;
+    QVector<QPoint> destination(0);
 
     int nbit=0;
     Joueur * joueur;
@@ -425,10 +425,6 @@ bool Plateau::est_en_echec(QPoint coordcase, QPoint *coordpion,int couleur){
             idJoueur=0;}
             for(int i=0;i<joueur->getDeckSize();i++){
                 nbit++;
-                //coordtmp.setX(x);
-                //coordtmp.setY(y);
-                std::cout <<"XTEMP="<<coordtmp.getX();std::cout << std::endl;
-                std::cout <<"YTEMP="<<coordtmp.getY();std::cout << std::endl;
                 std::cout << "dans estenechecprim";std::cout << std::endl;
                     switch(joueur->getDeck()[i]->getId())
                     {
@@ -452,7 +448,7 @@ bool Plateau::est_en_echec(QPoint coordcase, QPoint *coordpion,int couleur){
                         {
                             if(damier->getCase(coordpion->x(),coordpion->y())->getId() != 'R') // on rois ne peu pas attaquer un autre rois !
                             {
-                                destination =getJoueur1()->getDeck()[tmp2]->deplacementsPossible(idJoueur,this);
+                                destination =joueur->getDeck()[i]->deplacementsPossible(idJoueur,this);
                             }
                         }
                         else
