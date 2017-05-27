@@ -60,6 +60,18 @@ void MainWindow::displayPlayerId(int id){
 void MainWindow::badMove(){
     QMessageBox::critical(this, "Mauvais déplacement", "Ce déplacement n'est pas autorisé!");
 }
+void MainWindow::loseSignal(){
+
+    int ret = QMessageBox::question(this,"Pauvre noob Partie Perdu","L'IA a gagnier la partie ! \nVoulez vous rejouer ?",QMessageBox::Yes | QMessageBox::No);
+    if(ret == QMessageBox::Yes)
+    {
+       // this->reinitialisation();
+    }
+    else
+    {
+       // this->destroyed();
+    }
+}
 void MainWindow::affichSuppInit(Piece * piece, int id,int i){
     //std::cout << "image loaded";
     QPixmap pixmap;

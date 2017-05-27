@@ -15,7 +15,8 @@ public:
     Joueur();
 	std::string getNomjoueur();
     Piece* getPiece2(int i);
-	double isAnyPiece(Coordonnee coord);
+    int isAnyPiece(Coordonnee coord);
+    int isAnyPiece2(Coordonnee coord);
 	void generateDeck();
 	void afficherPiece();
 	void setOrigin(int i);

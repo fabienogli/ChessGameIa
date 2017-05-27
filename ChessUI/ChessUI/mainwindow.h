@@ -29,6 +29,7 @@ public slots:
  void affichSuppInit(Piece * piece,int id,int i);
 // mauvais deplacement();
  void badMove();
+ void loseSignal();
 
 private:
     Ui::MainWindow *ui;

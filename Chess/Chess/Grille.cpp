@@ -4,7 +4,10 @@
 Compose d objet de la classe case
 */
 
-//Constructeur de Grille
+/**
+ * @brief Grille::Grille
+ * Constructeur de Grille
+ */
 Grille::Grille()
 {
     for (int x = 0; x < hauteur; x++) {
@@ -15,7 +18,11 @@ Grille::Grille()
 	}
 }
 
-//Destructeur de Grille
+
+/**
+ * @brief Grille::~Grille
+ * Destructeur de Grille
+ */
 Grille::~Grille()
 {
 	for (int i = 0; i < hauteur; i++)
@@ -23,7 +30,13 @@ Grille::~Grille()
 			delete cases[i][j];
 }
 
-//Retourne la case a l abscisse x et a l ordonne y
+/**
+ * @brief Grille::getCase
+ * Retourne la case a l abscisse x et a l ordonne y
+ * @param x abscisse x
+ * @param y ordonne y
+ * @return un pointeur sur la pièce demandée
+ */
 Case* Grille::getCase(int x, int y)
 {
 
@@ -32,18 +45,29 @@ Case* Grille::getCase(int x, int y)
 
 }
 
-//Retourne la hauteur de la grille
+/**
+ * @brief Grille::getHauteur
+ * @return la hauteur de la grille
+ */
 int Grille::getHauteur()
 {
 	return hauteur;
 }
 
-//Retourne la largeur de la grille
+/**
+ * @brief Grille::getLargeur
+ * @return la largeur de la grille
+ */
 int Grille::getLargeur()
 {
 	return largeur;
 }
 
+/**
+ * @brief Grille::putPiece
+ * fonction permettant de placer une pièce dans une case
+ * @param piece pointeur sur la pièce à mettre dans la case
+ */
 void Grille::putPiece(Piece *piece)
 {
     cases[piece->getCoordonne()->getX()][piece->getCoordonne()->getY()]->setPiece();
@@ -51,6 +75,11 @@ void Grille::putPiece(Piece *piece)
     cases[piece->getCoordonne()->getX()][piece->getCoordonne()->getY()]->setCouleur(piece->getCouleur());
 }
 
+/**
+ * @brief Grille::removePiece
+ * fonction permettant d'enlever une pièce d'une case
+ * @param coordOrigin pointeur sur les coordonnées de la pièce à enlever
+ */
 void Grille::removePiece(Coordonnee* coordOrigin){
     cases[coordOrigin->getX()][coordOrigin->getY()]->removePiece();
     cases[coordOrigin->getX()][coordOrigin->getY()]->setId('N');

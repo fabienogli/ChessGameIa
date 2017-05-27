@@ -1,8 +1,13 @@
 #include "Joueur.h"
 
 int Joueur::wayToMove =0;
-//Methode constructeur de la classe joueur
-//prend en parametre le nom du joueur et un int qui determine la position du joueur sur le plateau
+
+/**
+ * @brief Joueur::Joueur
+ * Methode constructeur de la classe joueur
+ * @param nom le nom du joueur
+ * @param i un int qui determine la position du joueur sur le plateau
+ */
 Joueur::Joueur(std::string nom, int i)
 {
     //deck=new std::vector<Piece*>;
@@ -14,7 +19,10 @@ Joueur::Joueur(std::string nom, int i)
     id = i ;
 	generateDeck();
 }
-
+/**
+ * @brief Joueur::Joueur
+ * constructeur sans paramètre du joueur
+ */
 Joueur::Joueur(){}
 //Retourne le nom du joueur
 std::string Joueur::getNomjoueur()
@@ -48,13 +56,13 @@ Coordonnee Joueur::getOrigin(){
  * @return indice de la piece dans le vecteur deck ou -1 si aucune piece
  * n est trouvee
  */
-double Joueur::isAnyPiece(Coordonnee coord)
+int Joueur::isAnyPiece(Coordonnee coord)
 {
 
     std::cout<<"je suis dans anypiece"<<std::endl;
 	bool found = false;
 	int i = 0;
-    while (!found && i < deck.size())
+    while (found==false && i < deck.size())
 	{
         //std::cout<<i<<std::endl;
         //std::cout<<deck.size()<<std::endl;
@@ -81,8 +89,10 @@ double Joueur::isAnyPiece(Coordonnee coord)
         std::cout<<"t4"<<std::endl;
 	}
     std::cout<<"t5"<<std::endl;
-	if (found)
-		return i;
+    if (found==true){
+        std::cout<<"jai trouve la piece"<<std::endl;
+        return i;
+    }
 	else {
         std::cout<<"t6"<<std::endl;
         std::cout<<"je sors de anypiece"<<std::endl;
@@ -90,6 +100,54 @@ double Joueur::isAnyPiece(Coordonnee coord)
 
 	}
 }
+
+int Joueur::isAnyPiece2(Coordonnee coord)
+{
+
+    std::cout<<"je suis dans anypiece"<<std::endl;
+    //bool found = false;
+    int i = 0;
+    for(i =0;i<deck.size();i++)
+   // while (found==false && i < deck.size())
+    {
+        //std::cout<<i<<std::endl;
+        //std::cout<<deck.size()<<std::endl;
+
+        //int tmp1=getDeck()[i]->getCoordonne()->getX();
+        //int tmp2=getDeck()[i]->getCoordonne()->getY();
+        //int tmp3=getDeck().at(7)->getCoordonne()->getX();
+        int tmp3=getDeck().at(7)->getCoordonne()->getX();
+        int tmp4=getDeck().at(7)->getCoordonne()->getY();
+        //std::cout<<tmp1<<std::endl;
+        //std::cout<<tmp2<<std::endl;
+        std::cout<<tmp3<<std::endl;
+        std::cout<<tmp4<<std::endl;
+        std::cout<<"t2"<<std::endl;
+        if (coord.getX() == getDeck()[i]->getCoordonne()->getX() && coord.getY() == getDeck()[i]->getCoordonne()->getY())
+        {
+            std::cout<<"t3"<<std::endl;
+            return i;
+            //found = true;
+        }/*
+        else{
+            i++;
+        std::cout<<"i="<<i<<std::endl;
+        }*/
+        std::cout<<"t4"<<std::endl;
+    }
+    std::cout<<"t5"<<std::endl;
+   /* if (found==true){
+        std::cout<<"jai trouve la piece"<<std::endl;
+
+    }
+    else {
+        std::cout<<"t6"<<std::endl;
+        std::cout<<"je sors de anypiece"<<std::endl;
+        return -1;
+    }*/
+    return -1;
+}
+
 /**
  * @brief Joueur::generateDeck
  * Genere les differentes pieces des joueurs dans le vecteur deck
@@ -128,7 +186,11 @@ void Joueur::generateDeck()
 
 }
 
-//Affiche pour chaque piece ses coordonne et le nom de la piece
+
+/**
+ * @brief Joueur::afficherPiece
+ * Affiche pour chaque piece ses coordonne et le nom de la piece
+ */
 void Joueur::afficherPiece()
 {
     for (int i = 0; i < deck.size(); i++)
@@ -148,7 +210,11 @@ Joueur::~Joueur()
 	delete origin;
 }
 
-//Definie la position du joueur dans le plateau
+/**
+ * @brief Joueur::setOrigin
+ * Definie la position du joueur dans le plateau
+ * @param i entier qui définit la position du joueur
+ */
 void Joueur::setOrigin(int i)
 {
 	switch (i)

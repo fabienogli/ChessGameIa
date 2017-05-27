@@ -17,13 +17,14 @@ public:
     void setJoueurActif(Joueur joueur);
     Grille* getGrille();
     void initialize();
-
+    bool checkPetitRoque(Joueur *joueur);
+    bool checkGrandRoque(Joueur *joueur);
     void reinitialize();
     void updateCaseStatus(Piece piece,Coordonnee oldCoord);
     QVector<QPoint> getCoupPrec();
     void setCoupPrec(QVector<QPoint> CoupPrec);
-    bool est_en_echec(QPoint* coordcase, QPoint* coordpion, int i);
-    bool testDestination(QPoint *coordcase, int i_piece, int i_joueur);
+    bool est_en_echec(QPoint coordcase, QPoint* coordpion, int i);
+    bool testDestination(QPoint coordcase, int i_piece, int i_joueur);
     QVector<QPoint> attaquePion(QPoint point);
     bool caseAtOccupy(int x, int y);
     Piece* getPiece(Coordonnee* coord);
@@ -47,6 +48,7 @@ signals:
     void affichSuppInit(Piece * piece,int id,int i);
     void displayPlayerId(int id);
     void badMove();
+    void loseSignal();
 public slots:
     void setLevel(int level);
     void sentDisplayPlayerId();

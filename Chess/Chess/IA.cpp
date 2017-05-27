@@ -3,57 +3,95 @@
 #include "Joueur.h"
 #include "Piece.h"
 
-
+/**
+ * @brief ia::ia
+ * constructeur de l'IA
+ * @param level représente le niveau de difficulté de l'IA
+ */
 ia::ia(int level)
 {
-    this->level = level;
+    setLevel(level);
 }
+/**
+ * @brief ia::setCoupPrecedent
+ * setter du coup précédent
+ * @param coupPrecedent représente un vector de QPoint contenant le coup précédent
+ */
 void ia::setCoupPrecedent(QVector<QPoint> * coupPrecedent)
 {
     this->m_coupPrecedent=coupPrecedent;
 }
-
+/**
+ * @brief ia::gagnantEnCours
+ * permet de savoir quelle joueur est gagnant
+ * @param idJoueur id du joueur en cours
+ * @param plateau pointeur sur le plateau
+ * @return 0 si la partie n'est pas fini -1000 si le joueur a perdu et 1000 si il a gagne
+ */
 int ia::gagnantEnCours(int idJoueur,Plateau * plateau){
+    int retour =0;
     if(idJoueur == 0)
     {
-        if(calc_echec_et_mat(plateau->getJoueur1(),this->m_Posi_Rois1,plateau).size() == 0)
-        {
-            return -1000;
-        }
-        if(this->calc_echec_et_mat(plateau->getJoueur2(),this->m_Posi_Rois2,plateau).size() == 0)
-        {
-            return 1000;
-        }
-    }
-    else
-    {
-        if(this->calc_echec_et_mat(plateau->getJoueur2(),this->m_Posi_Rois2,plateau).count() == 0)
-        {
-            return -1000;
-        }
-        if(this->calc_echec_et_mat(plateau->getJoueur1(),this->m_Posi_Rois1,plateau).count() == 0)
-        {
-            return 1000;
-        }
-    }
+        if((this->calc_echec_et_mat(plateau->getJoueur1(),this->m_Posi_Rois1,plateau)).count() == 0)
+        //if((this->calc_echec_et_mat(plateau->getJoueur1(),this->m_Posi_Rois1,plateau)) == 0)
 
-    return 0;
+        {
+            std::cout<<"dans gagnant jeux 1"<<std::endl;
+            retour=-1000;
+        }
+        if((this->calc_echec_et_mat(plateau->getJoueur2(),this->m_Posi_Rois2,plateau)).count() == 0)
+       //     if((this->calc_echec_et_mat(plateau->getJoueur2(),this->m_Posi_Rois2,plateau)) == 0)
+
+        {
+             std::cout<<"dans gagnant jeux 2"<<std::endl;
+            retour=1000;
+        }
+    }
+    else if (idJoueur == 1)
+    {
+        //if((this->calc_echec_et_mat(plateau->getJoueur2(),this->m_Posi_Rois2,plateau)) == 0)
+
+        if((this->calc_echec_et_mat(plateau->getJoueur2(),this->m_Posi_Rois2,plateau)).count() == 0)
+        {
+             std::cout<<"dans gagnant jeux 3"<<std::endl;
+            retour= -1000;
+        }
+        //if((this->calc_echec_et_mat(plateau->getJoueur1(),this->m_Posi_Rois1,plateau)) == 0)
+
+        if((this->calc_echec_et_mat(plateau->getJoueur1(),this->m_Posi_Rois1,plateau)).count() == 0)
+        {
+            std::cout<<"dans gagnant jeux 4"<<std::endl;
+            retour= 1000;
+        }
+    }
+ std::cout<<"dans gagnant jeux 5"<<std::endl;
+    return retour;
 
 }
+/**
+ * @brief ia::max
+ * fonction max permettant de simuler le coup de l'IA
+ * @param joueur pointeur sur le joueur que fait jouer l'IA
+ * @param plateau pointeur sur le plateau
+ * @param profondeur nombre de coup
+ * @param alpha entier alpha
+ * @param beta entier beta avec alpha < beta
+ * @return valeur final du jeu ou valeur gagnant si fin de partie
+ */
 int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
 {
     std::cout<<"dans le max"<<std::endl;
-   // int retour=gagnantEnCours(joueur->getIdJoueur(),plateau)  ;
-    int retour=0;
-    std::cout<<"jai fini le calcul du retour gagnantEnCours"<<std::endl;
+    int retour=gagnantEnCours(joueur->getIdJoueur(),plateau)  ;
+    //int retour=0;
+    std::cout<<"jai fini le calcul du retour gagnantEnCours dans max"<<std::endl;
     std::cout<<"retour="<<retour<<std::endl;
     int max = -10000;
-    //if(profondeur <= 0 || (retour != 0))
-        if(profondeur <= 0 )
+    if(profondeur <= 0 || (retour != 0))
+    //if(profondeur <= 0 )
     {
         if(profondeur <= 0)
         {
-            std::cout << "jevalue le plateau";std::cout << std::endl;
+            std::cout << "jevalue le plateau dans max";std::cout << std::endl;
             return eval(plateau);
         }
         else
@@ -65,11 +103,12 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
     {
         for(int x=0;x<8;x++)
         {
-            char id='N';
+            //char id=plateau->getGrille()->getCase(x,y)->getId();;
             if(plateau->getGrille()->getCase(x,y)->getCouleur() == joueur->getIdJoueur())
             {
                 int idPiece=(joueur->isAnyPiece(Coordonnee(x,y)));
                 if(idPiece != (-1)){
+                    char id = joueur->getDeck()[idPiece]->getId();
                     QVector<QPoint> listeCoup;
                     listeCoup = joueur->getDeck()[idPiece]->deplacementsPossible(joueur->getIdJoueur(),plateau);
                     for(int i=0;i<listeCoup.size();i++){
@@ -80,13 +119,12 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
                         bool occupiedtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->isOccupied();
                         char idtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getId();
                         int couleurtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getCouleur();
-                        // GERER LA CAPTURE D'UN PION A LA VOLE !!!
-                        bool deplacementSpecialFait = false;
+                        bool specialMoveDone = false;
                         if(id == 'P')
                         {
                             //                        if(listeCoup.at(i).x() != x && !plateau->caseAtOccupy(listeCoup.at(i).x(),listeCoup.at(i).y()))
                             //                        {
-                            //                            deplacementSpecialFait = true;
+                            //                            specialMoveDone = true;
                             //                            if(x - listeCoup.at(i).x() > 0)
                             //                            {
                             //                                plateau->getGrille()->getCase(x+1,y)->removePiece();
@@ -110,6 +148,7 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
                                 this->m_Posi_Rois2.setY(listeCoup.at(i).y());
                             }
                         }
+                        //on simule le coup
                         plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(plateau->getGrille()->getCase(x,y)->getId()) ;
                         plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(plateau->getGrille()->getCase(x,y)->getCouleur()) ;
                         plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setPiece();
@@ -149,7 +188,7 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
                                 this->m_Posi_Rois2.setY(y);
                             }
                         }
-                        //                    if(deplacementSpecialFait)
+                        //                    if(specialMoveDone)
                         //                    {
                         //                        if(x - listeCoup.at(i).x() > 0)
                         //                        {
@@ -178,7 +217,7 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
                         //                            }
                         //                        }
                         //                    }
-
+                        //on reset les cases modifiées
                         plateau->getGrille()->getCase(x,y)->setId(plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getId());
                         plateau->getGrille()->getCase(x,y)->setCouleur(plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getCouleur());
                         plateau->getGrille()->getCase(x,y)->setPiece();
@@ -207,20 +246,30 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
 
     return max;
 }
+/**
+ * @brief ia::min
+ * fonction permettant de simuler le coup de l'adversaire
+ * @param joueur pointeur sur le joueur adverse
+ * @param plateau pointeur sur le plateau
+ * @param profondeur nombre de coup
+ * @param alpha entier alpha
+ * @param beta entier beta
+ * @return valeur final du jeu ou valeur gagnant si fin de partie
+ */
 int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
     std::cout << "dans le min";std::cout << std::endl;
     std::cout << "dans jouer de la classe min1";std::cout << std::endl;
-    //int retour=gagnantEnCours(joueur->getIdJoueur(),plateau)  ;
-    int retour=0;
+    int retour=gagnantEnCours(joueur->getIdJoueur(),plateau)  ;
+    //int retour=0;
     std::cout << "dans jouer de la classe min2";std::cout << std::endl;
     int min = 10000;
     std::cout << "dans jouer de la classe min3";std::cout << std::endl;
-    //if(profondeur <= 0 || (retour != 0))
-        if(profondeur <= 0 )
+    if(profondeur <= 0 || (retour != 0))
+    //if(profondeur <= 0 )
     {
         if(profondeur <= 0)
         {
-            std::cout << "jevalue le plateau";std::cout << std::endl;
+            std::cout << "jevalue le plateau dans min";std::cout << std::endl;
             return eval(plateau);
         }
         else
@@ -232,11 +281,11 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
     {
         for(int x=0;x<8;x++)
         {
-            char id='N';
             if(plateau->getGrille()->getCase(x,y)->getCouleur() == joueur->getIdJoueur())
             {
                 int idPiece=(joueur->isAnyPiece(Coordonnee(x,y)));
                 if(idPiece != (-1)){
+                    char id = joueur->getDeck()[idPiece]->getId();
                     QVector<QPoint> listeCoup;
                     listeCoup = joueur->getDeck()[idPiece]->deplacementsPossible(joueur->getIdJoueur(),plateau);
 
@@ -248,13 +297,13 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
                         bool occupiedtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->isOccupied();
                         char idtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getId();
                         int couleurtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getCouleur();
-                        // GERER LA CAPTURE D'UN PION A LA VOLE !!!
-                        bool deplacementSpecialFait = false;
+
+                        bool specialMoveDone = false;
                         if(id == 'P')
                         {
                             //                        if(listeCoup.at(i).x() != x && !plateau->caseAtOccupy(listeCoup.at(i).x(),listeCoup.at(i).y()))
                             //                        {
-                            //                            deplacementSpecialFait = true;
+                            //                            specialMoveDone = true;
                             //                            if(x - listeCoup.at(i).x() > 0)
                             //                            {
                             //                                plateau->getGrille()->getCase(x+1,y)->removePiece();
@@ -316,7 +365,7 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
                                 this->m_Posi_Rois2.setY(y);
                             }
                         }
-                        //                    if(deplacementSpecialFait)
+                        //                    if(specialMoveDone)
                         //                    {
                         //                                                if(x - listeCoup.at(i).x() > 0)
                         //                                                {
@@ -371,6 +420,11 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
     }
     return min;
 }
+/**
+ * @brief ia::setLevel
+ * setter du niveau de difficulté de l'IA
+ * @param i i est le niveau de difficulté
+ */
 void ia::setLevel(int i){
     if(i == 1)
     {
@@ -389,9 +443,16 @@ int ia::getLevel(){
     return level;
 }
 
+/**
+ * @brief ia::jouer
+ * fait jouer l'IA
+ * @param joueur pointeur
+ * @param profondeur nombre de coups
+ * @param plateau pointeur sur le plateau
+ * @return retourne une vecteur de coups possibles
+ */
 QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
 {
-
     int max = -10000;
     int score;
     QVector<QPoint> result;
@@ -416,7 +477,7 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
             if(plateau->getGrille()->getCase(x,y)->getCouleur() == joueur->getIdJoueur())
             {
                 std::cout << "dans jouer de la classe IA 1";std::cout << std::endl;
-                double idPiece=(joueur->isAnyPiece(Coordonnee(x,y)));
+                int idPiece=(joueur->isAnyPiece(Coordonnee(x,y)));
                 std::cout << "dans jouer de la classe IA 1-1";std::cout << std::endl;
                 std::cout << "dans jouer de la classe IA 1-2";std::cout << std::endl;
                 if(idPiece != (-1)){
@@ -438,13 +499,13 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                         bool occupiedtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->isOccupied();
                         char idtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getId();
                         int couleurtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getCouleur();
-                        /* ///////// GERER LA CAPTURE D'UN PION A LA VOLE !!!
-                    bool deplacementSpecialFait = false;
+                        /* ///////
+                    bool specialMoveDone = false;
                     if(id == 'P')
                     {
                         if(listeCoup.at(i).x() != x && !plateau->caseAtOccupy(listeCoup.at(i).x(),listeCoup.at(i).y()))
                         {
-                            deplacementSpecialFait = true;
+                            specialMoveDone = true;
                             if(x - listeCoup.at(i).x() > 0)
                             {
                                 plateau->getGrille()->getCase(x+1,y)->removePiece();
@@ -469,7 +530,7 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                                 this->m_Posi_Rois2.setY(listeCoup.at(i).y());
                             }
                         }
-
+//on simule le coup
                         plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(plateau->getGrille()->getCase(x,y)->getId()) ;
                         plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(plateau->getGrille()->getCase(x,y)->getCouleur()) ;
                         plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setPiece();
@@ -508,14 +569,14 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                             {
                                 this->m_Posi_Rois1.setX(x);
                                 this->m_Posi_Rois1.setY(y);
-                            }
+                             }
                             else
                             {
                                 this->m_Posi_Rois2.setX(x);
                                 this->m_Posi_Rois2.setY(y);
                             }
                         }
-                        //                    if(deplacementSpecialFait)
+                        //                    if(specialMoveDone)
                         //                    {
                         //                        if(x - listeCoup.at(i).x() > 0)
                         //                        {
@@ -544,7 +605,7 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                         //                            }
                         //                        }
                         //                    }
-
+//on reset les cases déplacées
                         plateau->getGrille()->getCase(x,y)->setId(plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getId());
                         plateau->getGrille()->getCase(x,y)->setCouleur(plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getCouleur());
                         plateau->getGrille()->getCase(x,y)->setPiece();
@@ -577,6 +638,12 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
     return result;
 
 }
+/**
+ * @brief ia::eval
+ * fonction d'evaluation du plateau
+ * @param plateau pointeur sur le plateau
+ * @return Difference des valeurs des pieces de chaque joueur
+ */
 int ia::eval(Plateau * plateau){
     int scoreJoueur1 = 0;
     int scoreJoueur2 = 0;
@@ -612,18 +679,30 @@ int ia::eval(Plateau * plateau){
     }
     return  scoreJoueur1 - scoreJoueur2;
 }
+
+/**
+ * @brief ia::calc_echec_et_mat
+ * fonction permettant de calculer l'echec et mat
+ * @param joueur pointeur sur le joueur courant
+ * @param pos_rois_joueur position du roi du joueur
+ * @param plateau pointeur sur le plateaju
+ * @return
+ */
 QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Plateau * plateau){
+    //int ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Plateau * plateau){
+
 
     int score;
 
-    QVector<QPoint> result;
-    QPoint *coordtmp1 = new QPoint(0,0);
-
+    QVector<QPoint> result(0);
+    int nbDep=0;
+    int nbit=0;
     for(int x = 0; x < 8; x++)
     {
         std::cout << "dans calc echec mat tmp";std::cout << std::endl;
         for(int y = 0; y < 8; y++)
         {
+            score=0;
             std::cout << "dans calc echec mat tmpt";std::cout << std::endl;
             std::cout << x <<"et"<< y;std::cout << std::endl;
             std::cout <<"couleur case =" <<plateau->getGrille()->getCase(x,y)->getCouleur();std::cout << std::endl;
@@ -632,29 +711,29 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
             std::cout << "dans calc echec mat tmp1";std::cout << std::endl;
             if((plateau->getGrille()->getCase(x,y)->getCouleur()) == joueur->getIdJoueur())
             {
+                nbit++;
+                std::cout << "nbitcalc="<<nbit;std::cout << std::endl;
+               // joueur->afficherPiece();
                 std::cout << "dans calc echec mat tmp2";std::cout << std::endl;
                 std::cout << x <<"et"<<y;std::cout << std::endl;
                 std::cout <<"couleur case =" <<plateau->getGrille()->getCase(x,y)->getCouleur();std::cout << std::endl;
                 std::cout <<"idjoueur =" <<joueur->getIdJoueur();std::cout << std::endl;
                 //coordtmp.setX(x);
                 //coordtmp.setY(y);
-                double tmpt;
+                int tmpt=0;
                 std::cout << "dans calc echec mat tmp3";std::cout << std::endl;
-                /*if(joueur->getIdJoueur() == 0)
-                    //on recherche dans le deck du premier joueur
-                    tmpt = plateau->getJoueur1()->isAnyPiece(Coordonnee(x,y));
-                else if(joueur->getIdJoueur()==1)
-                    tmpt = plateau->getJoueur2()->isAnyPiece(Coordonnee(x,y));*/
-                tmpt=joueur->isAnyPiece(Coordonnee(x,y));
+                tmpt=joueur->isAnyPiece2(Coordonnee(x,y));
                 std::cout << tmpt;std::cout << std::endl;
                 QVector<QPoint> listeCoup;
                 if(tmpt != -1){
+                    char id = joueur->getDeck()[tmpt]->getId();
                     std::cout << "dans calc echec mat 1";std::cout << std::endl;
                     listeCoup = joueur->getDeck()[tmpt]->deplacementsPossible(joueur->getIdJoueur(),plateau);
                     std::cout << "dans calc echec mat 2";std::cout << std::endl;
-                    //int idPiece=(joueur->isAnyPiece(Coordonnee(x,y)));
                     std::cout << "dans calc echec mat 3";std::cout << std::endl;
-                    switch(plateau->getGrille()->getCase(x,y)->getId())
+                    std::cout << "IDPIECE="<<id;std::cout << std::endl;
+                    std::cout << "x="<<x<<"et y="<<y;std::cout << std::endl;
+                    switch(id)
                     {
                     case 'R':
                         /*
@@ -688,6 +767,7 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
                     std::cout << "dans calc echec mat 4";std::cout << std::endl;
                     for (int i = 0; i < listeCoup.count(); i++)
                     {
+
                         std::cout << "dans calc echec mat 5";std::cout << std::endl;
                         int coup_origin_x = m_coupPrecedent->at(0).x();
                         int coup_origin_y = m_coupPrecedent->at(0).y();
@@ -698,24 +778,24 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
                         bool occupiedtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->isOccupied();
                         char idtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getId();
                         int couleurtmp=plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->getCouleur();
-                        //tmp = plateau->getPiece(new Coordonnee(listeCoup.at(i).x(),listeCoup.at(i).y()));
-
                         ///////// SI LE ROI PEUT SE DEPLACER C'EST QU'IL PEUT S'ECHAPPER LE BOUGRE !
                         std::cout << "dans calc echec mat 7";std::cout << std::endl;
-                        if(plateau->getGrille()->getCase(x,y)->getId() ==  'R')
+
+                        if(id=='R')
                         {
                             std::cout << "dans calc echec mat 7-1";std::cout << std::endl;
                             result.append(QPoint(x,y));
                             result.append(listeCoup.at(i));
+                            nbDep++;
                         }
                         else
                         {
-                            bool deplacementSpecialFait = false;
-                            if(plateau->getGrille()->getCase(x,y)->getId() == 'P')
+                            bool specialMoveDone = false;
+                            if(id == 'P')
                             {
                                 //                            if(listeCoup.at(i).x() != x && !plateau->caseAtOccupy(listeCoup.at(i).x(),listeCoup.at(i).y()))
                                 //                            {
-                                //                                deplacementSpecialFait = true;
+                                //                                specialMoveDone = true;
                                 //                                if(x - listeCoup.at(i).x() > 0)
                                 //                                {
                                 //                                    plateau->getGrille()->getCase(x+1,y)->removePiece();
@@ -736,31 +816,32 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
                             m_coupPrecedent[0][0].setY(y);
                             m_coupPrecedent[0][1].setX(listeCoup.at(i).x());
                             m_coupPrecedent[0][1].setY(listeCoup.at(i).y());
-                            coordtmp1->setX(pos_rois_joueur.x());
-                            coordtmp1->setY(pos_rois_joueur.y());
+
                             std::cout << "dans calc echec mat 9";std::cout << std::endl;
-                            if(plateau->est_en_echec(coordtmp1,NULL,joueur->getIdJoueur()))
+                           bool b=plateau->est_en_echec(pos_rois_joueur,NULL,joueur->getIdJoueur());
+                            //bool b =false;
+                            if(b==true)
                             {
                                 score = -1000;
+                                //result.append(QPoint(x,y));
+                                //result.append(listeCoup.at(i));
                             }
                             else
                             {
                                 score =  1000;
+                                //result.append(QPoint(x,y));
+                                //result.append(listeCoup.at(i));
+                               // nbDep++;
+                                // on a sacrifie une piece pour sauver le roi
                             }
                             std::cout << "dans calc echec mat 10";std::cout << std::endl;
-                            if(score > -500) // si on peut eviter un echec et mat un score superieur a -1000 devrai apparaitre
-                            {
-                                // on a sacrifie une piece pour sauver le roi \o/ longue vie au roi !
-                                result.append(QPoint(x,y));
-                                result.append(listeCoup.at(i));
-                            }
-
+                            std::cout << "score="<<score;std::cout << std::endl;
                             m_coupPrecedent[0][0].setX(coup_origin_x);
                             m_coupPrecedent[0][0].setY(coup_origin_y);
                             m_coupPrecedent[0][1].setX(coup_dest_x);
                             m_coupPrecedent[0][1].setY(coup_dest_y);
 
-                            if(deplacementSpecialFait)
+                            if(specialMoveDone)
                             {/*
                                 if(x - listeCoup.at(i).x() > 0)
                                 {
@@ -796,20 +877,15 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
                             plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(idtmp);
                             plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(couleurtmp);
                             plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setOccupied(occupiedtmp);
-                            /*std::cout << "dans calc echec mat 11";std::cout << std::endl;
-                        plateau->getGrille()->getCase(x,y)->setId(plateau->getGrille()->getCase(x,y)->getId());
-                         std::cout << "dans calc echec mat 12";std::cout << std::endl;
-                        plateau->getGrille()->getCase(x,y)->setCouleur(plateau->getGrille()->getCase(x,y)->getCouleur());
-                         std::cout << "dans calc echec mat 13";std::cout << std::endl;
-                        plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(tmp->getId());
-                         std::cout << "dans calc echec mat 14";std::cout << std::endl;
-                        plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(tmp->getCouleur());*/
+                            std::cout << "dans calc echec mat 11";std::cout << std::endl;
+
                             //delete coordtmp1;
                             std::cout << "dans calc echec mat 15";std::cout << std::endl;
 
                         }
                         std::cout << "calc echec mat 16";std::cout << std::endl;
                         //delete tmp;
+
                     }
                 }
                 std::cout << "calc echec mat 17";std::cout << std::endl;
@@ -818,14 +894,16 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
             std::cout << "calc echec mat 18";std::cout << std::endl;
         }
         std::cout << "calc echec mat 19";std::cout << std::endl;
-
-
-
     }
+    std::cout << "nbit="<<nbit;std::cout << std::endl;
     std::cout << "fin calc echec mat ";std::cout << std::endl;
     //delete tmp;
     //delete coordtmp1;
     return result;
+   // return nbDep;
 }
 
+ia::~ia()
+{
 
+}

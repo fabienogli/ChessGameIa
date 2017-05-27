@@ -18,6 +18,11 @@ Case::Case(int x, int y)
 char Case::getId(){
     return id;
 }
+/**
+ * @brief Case::setId
+ * setter de l'id de la case
+ * @param id un entier 0, 1 ou -1
+ */
 void Case::setId(char id){
     this->id=id;
 }
@@ -27,12 +32,17 @@ void Case::setId(char id){
  * couleur =0 : la case est occupe par une piece noire
  * couleur =1 : la case est occupe par une piece blanche
  * couleur =-1 : la case est innocupee
- * @return 
+ * @return  la couleur
  */
 int Case::getCouleur(){
    // std::cout << "dans getcouleur";std::cout << std::endl;
     return couleur;
 }
+/**
+ * @brief Case::setCouleur
+ * setter de la couleur de la case
+ * @param i
+ */
 void Case::setCouleur(int i){
     this->couleur=i;
 }
@@ -49,20 +59,37 @@ bool Case::isOccupied()
 	return occupied;
 }
 
+/**
+ * @brief Case::setPiece
+ * met l'attribut occupied à true
+ */
 void Case::setPiece()
 {
 	occupied = true;
 }
+/**
+ * @brief Case::setOccupied
+ * met l'attribut occupied à t
+ * @param t un booleen
+ */
 void Case::setOccupied(bool t)
 {
     occupied = t;
 }
-
+/**
+ * @brief Case::removePiece
+ * met l'attribut occupied à false
+ */
 void Case::removePiece()
 {
 	occupied = false;
 }
 
+/**
+ * @brief Case::setCoord
+ * setter des coordonnées
+ * @param coord
+ */
 void Case::setCoord(Coordonnee coord)
 {
 	*coordonnee = coord;
