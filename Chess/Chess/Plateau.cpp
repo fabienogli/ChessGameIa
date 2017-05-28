@@ -242,7 +242,8 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
 
         emit displayPlayerId(1);
     }else{
-
+        std::cout<<"depart de "<<coordDepart->getX()<<" et "<<coordDepart->getY();
+        std::cout<<" arrive a "<<coordArrivee->getX()<<" et "<<coordArrivee->getY()<<std::endl;
         std::cout << "deplacement non autorise";std::cout << std::endl;
         emit badMove();
     }

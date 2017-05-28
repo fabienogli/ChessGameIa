@@ -36,6 +36,8 @@ MainWindow::MainWindow(QWidget *parent) :
 //    QObject::connect(ui->actionLancer_Partie,SIGNAL(triggered(bool)),plateau,SLOT(sentDisplayPlayerId()),Qt::UniqueConnection);
     QAction * launch = ui->actionLancer_Partie->addAction("Lancement");
     connect(launch,SIGNAL(triggered(bool)), plateau, SLOT(displayPlateau()),Qt::UniqueConnection);
+    connect(launch,SIGNAL(triggered(bool)), plateau, SLOT(sentDisplayPlayerId()),Qt::UniqueConnection);
+
     //Choix niveau IA
     QObject::connect(ui->actionniveau1_2,SIGNAL(triggered(bool)),plateau,SLOT(setLevel(1)),Qt::UniqueConnection);
     QObject::connect(ui->actionniveau_7,SIGNAL(triggered(bool)),plateau,SLOT(setLevel(3)),Qt::UniqueConnection);
