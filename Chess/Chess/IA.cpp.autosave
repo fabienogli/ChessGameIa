@@ -131,8 +131,8 @@ int ia::max(int idJoueur,int profondeur,int alpha,int beta)
                     int coup_dest_x = m_coupPrecedent->at(1).x();
                     int coup_dest_y = m_coupPrecedent->at(1).y();
 
-                    char tempPiece = idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()];
-                    int tempGroupe = couleur[listeCoup.at(i).x()][listeCoup.at(i).y()];
+                    char tempId = idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()];
+                    int tempCouleur = couleur[listeCoup.at(i).x()][listeCoup.at(i).y()];
 /*
                     /////// GERER LA CAPTURE D'UN 'P' A LA VOLE !!!
                     bool deplacementSpecialFait = false;
@@ -238,10 +238,10 @@ int ia::max(int idJoueur,int profondeur,int alpha,int beta)
                     }*/
 
                     idPiece[x][y] = idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()];
-                    idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempPiece;
+                    idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempId;
 
                     couleur[x][y] = couleur[listeCoup.at(i).x()][listeCoup.at(i).y()] ;
-                    couleur[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempGroupe;
+                    couleur[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempCouleur;
 
                     if (score > max)
                     {
@@ -324,8 +324,8 @@ int ia::min(int idJoueur,int profondeur,int alpha,int beta){
                           int coup_dest_x = m_coupPrecedent->at(1).x();
                           int coup_dest_y = m_coupPrecedent->at(1).y();
                           // on joue le 'T'
-                          char tempPiece = idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()];
-                          int tempGroupe = couleur[listeCoup.at(i).x()][listeCoup.at(i).y()];
+                          char tempId = idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()];
+                          int tempCouleur = couleur[listeCoup.at(i).x()][listeCoup.at(i).y()];
 /*
                           ///////// GERER LA CAPTURE D'UN 'P' A LA VOLE !!!
                           bool deplacementSpecialFait = false;
@@ -431,10 +431,10 @@ int ia::min(int idJoueur,int profondeur,int alpha,int beta){
                           }
 */
                           idPiece[x][y] = idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()];
-                          idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempPiece;
+                          idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempId;
 
                           couleur[x][y] = couleur[listeCoup.at(i).x()][listeCoup.at(i).y()] ;
-                          couleur[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempGroupe;
+                          couleur[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempCouleur;
 
                           if (score < min)
                           {
@@ -540,8 +540,8 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                         int coup_dest_x = m_coupPrecedent->at(1).x();
                         int coup_dest_y = m_coupPrecedent->at(1).y();
                         // on joue le 'T'
-                        char tempPiece = idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()];
-                        int tempGroupe = couleur[listeCoup.at(i).x()][listeCoup.at(i).y()];
+                        char tempId = idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()];
+                        int tempCouleur = couleur[listeCoup.at(i).x()][listeCoup.at(i).y()];
 /*
                         ///////// GERER LA CAPTURE D'UN 'P' A LA VOLE !!!
                         bool deplacementSpecialFait = false;
@@ -647,10 +647,10 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
 */
 
                         idPiece[x][y] = idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()];
-                        idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempPiece;
+                        idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempId;
 
                         couleur[x][y] = couleur[listeCoup.at(i).x()][listeCoup.at(i).y()] ;
-                        couleur[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempGroupe;
+                        couleur[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempCouleur;
 
                           if(score > max)
                           {
@@ -785,8 +785,8 @@ QVector<QPoint> ia::calc_echec_et_mat(int idJoueur,QPoint pos_roi){
                     int coup_dest_x = m_coupPrecedent->at(1).x();
                     int coup_dest_y = m_coupPrecedent->at(1).y();
                     // on joue le 'T'
-                    char tempPiece = idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()];
-                    int tempGroupe = couleur[listeCoup.at(i).x()][listeCoup.at(i).y()];
+                    char tempId = idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()];
+                    int tempCouleur = couleur[listeCoup.at(i).x()][listeCoup.at(i).y()];
 
                     ///////// SI LE ROI PEUT SE DEPLACER C'EST QU'IL PEUT S'ECHAPPER LE BOUGRE !
                     if(idPiece[x][y] ==  'R')
@@ -882,10 +882,10 @@ QVector<QPoint> ia::calc_echec_et_mat(int idJoueur,QPoint pos_roi){
 
 
                         idPiece[x][y] = idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()];
-                        idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempPiece;
+                        idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempId;
 
                         couleur[x][y] = couleur[listeCoup.at(i).x()][listeCoup.at(i).y()] ;
-                        couleur[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempGroupe;
+                        couleur[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempCouleur;
                     }
                 }
             }
