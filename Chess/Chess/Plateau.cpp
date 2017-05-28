@@ -101,9 +101,10 @@ void Plateau::jouerIA(){
 //    std::cout << "IA emet signal d'affichage"<< std::endl;
 //    getGrille()->putPiece(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i3,i4))));
 //    getGrille()->removePiece(coordDepart);
-    joueurActif = joueur1;
+
     std::cout<<"DEPLACEMENT IA : origine x="<<i1<<" y="<<i2<<" arrive x="<<i3<<" y="<<i4;
     movePiece(i2,i1,i4,i3);
+    joueurActif = joueur2;
     /*if(CaseDeplacementPossible.count() == 0)
                  {
                      int ret = QMessageBox::question(this,"Pauvre noob Partie Perdu","L'IA a gagnier la partie ! \nVoulez vous rejouer ?",QMessageBox::Yes | QMessageBox::No);
@@ -210,7 +211,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
 
     std::cout << "je suis 1-1";std::cout << std::endl;
     std::cout << tmpActif<< std::endl;
-    bool b=(*joueur).getDeck()[tmpActif]->move(coordArrivee,(*joueur).getOrigin(), this);
+    bool b = (*joueur).getDeck()[tmpActif]->move(coordArrivee,(*joueur).getOrigin(), this);
     (*joueur).getDeck()[tmpActif]->afficher();
     //(*joueur).getPiece(int(tmpActif)).move(coordArrivee,(*joueur).getOrigin(), this);
 
@@ -444,6 +445,7 @@ bool Plateau::parcours(int x, int y,QVector<QPoint> destination, int tmp1, Joueu
             std::cout << "dans estenechec13";std::cout << std::endl;
             if(destination[u].x() == coordcase->x() && destination[u].y() == coordcase->y() )
             {
+
                 verif= true;
             }
         }
