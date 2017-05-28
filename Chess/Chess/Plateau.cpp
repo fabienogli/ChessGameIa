@@ -25,7 +25,7 @@ void Plateau::initialize(){
     m_coupPrecedent = new QVector<QPoint>();
     m_coupPrecedent->append(QPoint(0,0));
     m_coupPrecedent->append(QPoint(0,0));
-    IA = new ia(1);
+    IA = new ia(2);
     IA->setCoupPrecedent(m_coupPrecedent);
     initiatePosInGrid();
 }
@@ -410,7 +410,7 @@ bool Plateau::caseAtOccupy(int x, int y)
  * @param couleur id du joueur
  * @return True si echec, sinon False
  */
-bool Plateau::est_en_echec(QPoint coordcase, QPoint *coordpion,int couleur){
+bool Plateau::est_en_echec(QPoint coordcase, QPoint *coordpion,int couleurPiece,const int couleur[8][8],const char idPiece[8][8]){
     //permet de savoir si une piece dont la couleur est donnée peut etre mangée par le joueur adverse
     QVector<QPoint> destination(0);
 
@@ -418,7 +418,7 @@ bool Plateau::est_en_echec(QPoint coordcase, QPoint *coordpion,int couleur){
     Joueur * joueur;
     int idJoueur;
 
-    if(couleur == 0)
+    if(couleurPiece == 0)
     {joueur= getJoueur2();
         idJoueur = 1;}
     else {joueur=getJoueur1();
@@ -430,7 +430,7 @@ bool Plateau::est_en_echec(QPoint coordcase, QPoint *coordpion,int couleur){
         {
         case 'P':
             std::cout << "dans estenechec1";std::cout << std::endl;
-            destination = listeAttaquePion(QPoint(joueur->getDeck()[i]->getCoordonne()->getX(),joueur->getDeck()[i]->getCoordonne()->getY()));
+            destination = listeAttaquePion(QPoint(joueur->getDeck()[i]->getCoordonne()->getX(),joueur->getDeck()[i]->getCoordonne()->getY()),couleur);
             std::cout << "dans estenechec2";std::cout << std::endl;
             std::cout << "nbelements="<<destination.count();std::cout << std::endl;
             for(int u = 0; u < destination.count(); u++)
@@ -446,15 +446,16 @@ bool Plateau::est_en_echec(QPoint coordcase, QPoint *coordpion,int couleur){
             std::cout << "dans estenechec3";std::cout << std::endl;
             if(coordpion != NULL)
             {
+                /*
                 if(damier->getCase(coordpion->x(),coordpion->y())->getId() != 'R') // on rois ne peu pas attaquer un autre rois !
                 {
-                    destination =joueur->getDeck()[i]->deplacementsPossible(idJoueur,this);
-                }
+                    destination =joueur->getDeck()[i]->deplacementsPossible(idJoueur,couleur,idPiece);
+                }*/
             }
             else
             {
                 std::cout << "dans estenechec4";std::cout << std::endl;
-                destination = joueur->getDeck()[i]->deplacementsPossible(idJoueur,this);
+                destination = joueur->getDeck()[i]->deplacementsPossible(idJoueur,couleur,idPiece);
                 std::cout << "dans estenechec5";std::cout << std::endl;
             }
 
@@ -472,17 +473,17 @@ bool Plateau::est_en_echec(QPoint coordcase, QPoint *coordpion,int couleur){
 
         case 'F':
             std::cout << "dans estenechec8";std::cout << std::endl;
-            if(testDestination(coordcase, i,idJoueur)==true)return true;
+            if(testDestination(coordcase, i,idJoueur,couleur,idPiece)==true)return true;
 
             break;
         case 'T':
             std::cout << "dans estenechec9";std::cout << std::endl;
-            if(testDestination(coordcase, i,idJoueur)==true)return true;
+            if(testDestination(coordcase, i,idJoueur,couleur,idPiece)==true)return true;
 
             break;
         case 'C':
             std::cout << "dans estenechec10";std::cout << std::endl;
-            if(testDestination(coordcase, i,idJoueur)==true)return true;
+            if(testDestination(coordcase, i,idJoueur,couleur,idPiece)==true)return true;
 
             break;
         default:break;
@@ -502,14 +503,11 @@ bool Plateau::est_en_echec(QPoint coordcase, QPoint *coordpion,int couleur){
  * @param i_joueur id du joueur
  * @return retourne true si les coordonnées de la destination sont égales à celle qu'on teste et false sinon
  */
-bool Plateau::testDestination(QPoint coordcase, int i_piece, int i_joueur)
+bool Plateau::testDestination(Joueur * joueur,QPoint coordcase, int i_piece,const int couleur[8][8],const char idPiece[8][8],const bool tabOccup[8][8])
 {
     QVector<QPoint> destination;
     std::cout << "dans estenechectest";std::cout << std::endl;
-    if(i_joueur==0)
-        destination =joueur1->getDeck()[i_piece]->deplacementsPossible(i_joueur,this);
-    else if(i_joueur==1)
-        destination =joueur2->getDeck()[i_piece]->deplacementsPossible(i_joueur,this);
+        destination =joueur->getDeck()[i_piece]->deplacementsPossible(joueur->getIdJoueur(),couleur,idPiece);
     std::cout << "dans estenechectest2";std::cout << std::endl;
     bool verif = false;
     for(int u = 0; u < destination.count(); u++)
@@ -529,7 +527,7 @@ bool Plateau::testDestination(QPoint coordcase, int i_piece, int i_joueur)
  * @param cas coordonnées du pion à calculer
  * @return
  */
-QVector<QPoint> Plateau::listeAttaquePion(QPoint cas){
+QVector<QPoint> Plateau::listeAttaquePion(QPoint cas,const int couleur[8][8]){
     QVector<QPoint> resultat;
     bool noir = true;
     if(getGrille()->getCase(cas.x(),cas.y())->getCouleur() != 0)
@@ -604,7 +602,7 @@ bool Plateau::checkPetitRoque(Joueur *joueur)
                 {
                     return false;
                 }
-                if(est_en_echec(QPoint(0,i),NULL,joueur->getIdJoueur()))
+                if(est_en_echec(QPoint(0,i),NULL,joueur->getIdJoueur(),couleur,idPiece))
                 {
                     return false;
                 }
@@ -628,7 +626,7 @@ bool Plateau::checkPetitRoque(Joueur *joueur)
                 {
                     return false;
                 }
-                if(est_en_echec(QPoint(7,i),NULL,joueur->getIdJoueur()))
+                if(est_en_echec(QPoint(7,i),NULL,joueur->getIdJoueur(),couleur,idPiece))
                 {
                     return false;
                 }
@@ -661,7 +659,7 @@ bool Plateau::checkGrandRoque(Joueur * joueur)
                 {
                     return false;
                 }
-                if(est_en_echec(QPoint(0,i),NULL,joueur->getIdJoueur()))
+                if(est_en_echec(QPoint(0,i),NULL,joueur->getIdJoueur(),couleur,idPiece))
                 {
                     return false;
                 }
@@ -689,7 +687,7 @@ bool Plateau::checkGrandRoque(Joueur * joueur)
                 {
                     return false;
                 }
-                if(est_en_echec(QPoint(7,i),NULL,joueur->getIdJoueur()))
+                if(est_en_echec(QPoint(7,i),NULL,joueur->getIdJoueur(),couleur,idPiece))
                 {
                     return false;
                 }

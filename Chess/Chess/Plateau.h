@@ -23,9 +23,9 @@ public:
     void updateCaseStatus(Piece piece,Coordonnee oldCoord);
     QVector<QPoint> getCoupPrec();
     void setCoupPrec(QVector<QPoint> CoupPrec);
-    bool est_en_echec(QPoint coordcase, QPoint* coordpion, int i);
-    bool testDestination(QPoint coordcase, int i_piece, int i_joueur);
-    QVector<QPoint> listeAttaquePion(QPoint point);
+    static bool est_en_echec(Joueur * joueur,QPoint coordcase, QPoint* coordpion, int i,const int couleur[8][8],const char idPiece[8][8]);
+    bool testDestination(Joueur * joueur,QPoint coordcase, int i_piece,const int couleur[8][8],const char idPiece[8][8]);
+    QVector<QPoint> listeAttaquePion(QPoint point,const int couleur[8][8]);
     bool caseAtOccupy(int x, int y);
     Piece* getPiece(Coordonnee* coord);
     void jouerIA();
