@@ -25,6 +25,7 @@ public:
     bool est_en_echec(QPoint* coordcase, QPoint* coordpion, int i);
     bool testDestination(QPoint *coordcase, int i_piece, int i_joueur);
     QVector<QPoint> attaquePion(QPoint point);
+    bool parcours(int x, int y,QVector<QPoint> destination,int tmp1, Joueur* joueur,QPoint *coordcase,QPoint *coordpion);
     bool caseAtOccupy(int x, int y);
     Piece* getPiece(Coordonnee* coord);
     void jouerIA();
