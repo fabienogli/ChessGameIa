@@ -61,13 +61,13 @@ int ia::max(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta)
             return retour;
         }
     }
-    std::vector<Piece*> deck = joueur->getDeck();
-    for(int x = 0; x<deck.size();x++){
-        int a = deck[x]->getCoordonne()->getX();
-        int b =deck[x]->getCoordonne()->getY();
-        char id=deck[x]->getId();
+    std::vector<Piece*>* deck_tmp = &(joueur->getDeck());
+    for(int x = 0; x<deck_tmp->size();x++){
+        int a = (*deck_tmp)[x]->getCoordonne()->getX();
+        int b =(*deck_tmp)[x]->getCoordonne()->getY();
+        char id=(*deck_tmp)[x]->getId();
         QVector<QPoint> listeCoup;
-        listeCoup = deck[x]->deplacementsPossible(joueur->getIdJoueur(),plateau);
+        listeCoup = (*deck_tmp)[x]->deplacementsPossible(joueur->getIdJoueur(),plateau);
         for(int i=0;i<listeCoup.size();i++){
             int coup_origin_x = plateau->getCoupPrec().at(0).x();
             int coup_origin_y =plateau->getCoupPrec().at(0).y();
@@ -226,13 +226,13 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
              * essai
              */
 
-    std::vector<Piece*> deck = joueur->getDeck();
-    for(int x=0; x<deck.size();x++){
+    std::vector<Piece*>* deck_tmp = &(joueur->getDeck());
+    for(int x=0; x<deck_tmp->size();x++){
         std::cout<<"num piece"<<x<<std::endl;
         QVector<QPoint> listeCoup;
-        listeCoup = deck[x]->deplacementsPossible(joueur->getIdJoueur(),plateau);
-        char id = deck[x]->getId();
-        for(int i=0;i<listeCoup.count();i++){
+        listeCoup = (*deck_tmp)[x]->deplacementsPossible(joueur->getIdJoueur(),plateau);
+        char id = (*deck_tmp)[x]->getId();
+        for(int i=0;i<listeCoup.size();i++){
             int coup_origin_x = plateau->getCoupPrec().at(0).x();
             int coup_origin_y =plateau->getCoupPrec().at(0).y();
             int coup_dest_x = plateau->getCoupPrec().at(1).x();
@@ -270,8 +270,8 @@ int ia::min(Joueur *joueur,Plateau *plateau,int profondeur,int alpha,int beta){
                     this->m_Posi_Rois2.setY(listeCoup.at(i).y());
                 }
             }
-            int a = deck[x]->getCoordonne()->getX();
-            int b = deck[x]->getCoordonne()->getY();
+            int a = (*deck_tmp)[x]->getCoordonne()->getX();
+            int b = (*deck_tmp)[x]->getCoordonne()->getY();
             plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setId(plateau->getGrille()->getCase(a,b)->getId()) ;
             plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setCouleur(plateau->getGrille()->getCase(a,b)->getCouleur()) ;
             plateau->getGrille()->getCase(listeCoup.at(i).x(),listeCoup.at(i).y())->setPiece();
@@ -387,10 +387,53 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
     int max = -10000;
     int score;
     QVector<QPoint> result;
-    for(int x=0;x<8;x++)
-    {
-        for(int y=0;y<8;y++)
-        {
+
+    std::vector<Piece*> _tmp =joueur->getDeck();
+    bool tmp1 = false;
+    bool tmp2 = false;
+
+    for(int a =0; a< _tmp.size();a++){
+
+        int x = _tmp[a]->getCoordonne()->getX();
+        int y = _tmp[a]->getCoordonne()->getY();
+
+        if(joueur==plateau->getJoueur1()){
+            if(!tmp1 &&_tmp[a]->getId()=='R'){
+                this->m_Posi_Rois1.setX(x);
+                this->m_Posi_Rois1.setY(y);
+                tmp1 =true;
+            }
+            if(!tmp2){
+                for(int b = 0; b < plateau->getJoueur2()->getDeck().size();b++){
+                    if(plateau->getJoueur2()->getDeck()[b]->getId()=='R'){
+                        this->m_Posi_Rois2.setX(plateau->getJoueur2()->getDeck()[b]->getCoordonne()->getX());
+                        this->m_Posi_Rois2.setY(plateau->getJoueur2()->getDeck()[b]->getCoordonne()->getY());
+                        tmp2 = true;
+                    }
+                }
+            }
+        }
+        else{
+            if(!tmp2 &&_tmp[a]->getId()=='R'){
+                this->m_Posi_Rois2.setX(x);
+                this->m_Posi_Rois2.setY(y);
+                tmp2 = true;
+            }
+            if(!tmp1){
+                for(int b = 0; b < plateau->getJoueur2()->getDeck().size();b++){
+                    if(plateau->getJoueur1()->getDeck()[b]->getId()=='R'){
+                        this->m_Posi_Rois1.setX(plateau->getJoueur1()->getDeck()[b]->getCoordonne()->getX());
+                        this->m_Posi_Rois1.setY(plateau->getJoueur1()->getDeck()[b]->getCoordonne()->getY());
+                        tmp1 = true;
+                    }
+                }
+            }
+        }
+
+//    for(int x=0;x<8;x++)
+//    {
+//        for(int y=0;y<8;y++)
+//        {
             std::cout << "dans jouer de la classe IA";std::cout << std::endl;
             if(plateau->getGrille()->getCase(x,y)->getId() == 'R')
             {
@@ -405,16 +448,16 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                     this->m_Posi_Rois2.setY(y);
                 }
             }
-            if(plateau->getGrille()->getCase(x,y)->getCouleur() == joueur->getIdJoueur())
-            {
-                std::cout << "dans jouer de la classe IA 1";std::cout << std::endl;
-                double idPiece=(joueur->isAnyPiece(Coordonnee(x,y)));
+//            if(plateau->getGrille()->getCase(x,y)->getCouleur() == joueur->getIdJoueur())
+//            {
+//                std::cout << "dans jouer de la classe IA 1";std::cout << std::endl;
+                //double idPiece=(joueur->isAnyPiece(Coordonnee(x,y)));
                 std::cout << "dans jouer de la classe IA 1-1";std::cout << std::endl;
                 std::cout << "dans jouer de la classe IA 1-2";std::cout << std::endl;
-                if(idPiece != (-1)){
-                    char id = joueur->getDeck()[idPiece]->getId();
+                //if(idPiece != (-1)){
+                    char id = _tmp[a]->getId();
                     QVector<QPoint> listeCoup;
-                    listeCoup = joueur->getDeck()[idPiece]->deplacementsPossible(joueur->getIdJoueur(),plateau);
+                    listeCoup = _tmp[a]->deplacementsPossible(joueur->getIdJoueur(),plateau);
                     std::cout << "dans jouer de la classe IA2";std::cout << std::endl;
                     std::cout << "nombre de coups="<<listeCoup.count();std::cout << std::endl;
                     for (int i = 0; i < listeCoup.count(); i++)
@@ -557,10 +600,10 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                         }
 
                     }
-                }
-            }
+                //}
+           // }
         }
-    }
+    //}
 
 
 
@@ -612,11 +655,20 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
     QPoint *coordtmp1 = new QPoint(0,0);
     int nbit=0;
 
-    for(int x = 0; x < 8; x++)
-    {
-        std::cout << "dans calc echec mat tmp";std::cout << std::endl;
-        for(int y = 0; y < 8; y++)
-        {   nbit++;
+    std::vector<Piece*> _tmp = joueur->getDeck();
+
+    for(int a=0; a<_tmp.size(); a++){
+        int x = _tmp[a]->getCoordonne()->getX();
+        int y = _tmp[a]->getCoordonne()->getY();
+
+
+//    for(int x = 0; x < 8; x++)
+//    {
+//        std::cout << "dans calc echec mat tmp";std::cout << std::endl;
+//        for(int y = 0; y < 8; y++)
+//        {
+
+            nbit++;
             std::cout << "dans calc echec mat tmpt";std::cout << std::endl;
             std::cout << x <<"et"<< y;std::cout << std::endl;
             std::cout <<"couleur case =" <<plateau->getGrille()->getCase(x,y)->getCouleur();std::cout << std::endl;
@@ -631,19 +683,19 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
                 std::cout <<"idjoueur =" <<joueur->getIdJoueur();std::cout << std::endl;
                 //coordtmp.setX(x);
                 //coordtmp.setY(y);
-                double tmpt;
+                //double tmpt;
                 std::cout << "dans calc echec mat tmp3";std::cout << std::endl;
                 /*if(joueur->getIdJoueur() == 0)
                     //on recherche dans le deck du premier joueur
                     tmpt = plateau->getJoueur1()->isAnyPiece(Coordonnee(x,y));
                 else if(joueur->getIdJoueur()==1)
                     tmpt = plateau->getJoueur2()->isAnyPiece(Coordonnee(x,y));*/
-                tmpt=joueur->isAnyPiece(Coordonnee(x,y));
-                std::cout <<"tmpt="<<tmpt;std::cout << std::endl;
+                //tmpt=joueur->isAnyPiece(Coordonnee(x,y));
+                //std::cout <<"tmpt="<<tmpt;std::cout << std::endl;
                 QVector<QPoint> listeCoup;
-                if(tmpt != -1){
+                //if(tmpt != -1){
                     std::cout << "dans calc echec mat 1";std::cout << std::endl;
-                    listeCoup = joueur->getDeck()[tmpt]->deplacementsPossible(joueur->getIdJoueur(),plateau);
+                    listeCoup =   _tmp[a]->deplacementsPossible(joueur->getIdJoueur(),plateau);
                     std::cout << "dans calc echec mat 2";std::cout << std::endl;
                     //int idPiece=(joueur->isAnyPiece(Coordonnee(x,y)));
                     std::cout << "dans calc echec mat 3";std::cout << std::endl;
@@ -801,12 +853,12 @@ QVector<QPoint> ia::calc_echec_et_mat(Joueur * joueur,QPoint pos_rois_joueur,Pla
                         std::cout << "calc echec mat 16";std::cout << std::endl;
                         //delete tmp;
                     }
-                }
+                //}
                 std::cout << "calc echec mat 17";std::cout << std::endl;
                 //coordtmp.~Coordonnee();
             }
             std::cout << "calc echec mat 18";std::cout << std::endl;
-        }
+        //}
         std::cout << "calc echec mat 19";std::cout << std::endl;
     }
     std::cout << "nbit="<<nbit;std::cout << std::endl;
