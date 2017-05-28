@@ -183,11 +183,11 @@ int ia::max(int idJoueur,const int couleur[8][8],const char idPiece[8][8],int pr
 
                     if(joueur == 0)
                     {
-                        score = min(1,idPiece,couleur,profondeur-1,alpha,beta);
+                        score = min(1,profondeur-1,alpha,beta);
                     }
                     else
                     {
-                        score = min(0,idPiece,couleur,profondeur-1,alpha,beta);
+                        score = min(0,profondeur-1,alpha,beta);
                     }
 
                     m_coupPrecedent[0][0].setX(coup_origin_x);
@@ -545,7 +545,7 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                         // on joue le 'T'
                         piece tempPiece = idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()];
                         int tempGroupe = couleur[listeCoup.at(i).x()][listeCoup.at(i).y()];
-
+/*
                         ///////// GERER LA CAPTURE D'UN 'P' A LA VOLE !!!
                         bool deplacementSpecialFait = false;
                         if(idPiece[x][y] == 'P')
@@ -565,7 +565,7 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                                 }
                             }
                         }
-
+*/
                         if(idPiece[x][y] == 'R')
                         {
                             if(couleur[x][y] == 1)
@@ -619,7 +619,7 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                                 this->m_Posi_Rois2.setY(y);
                             }
                         }
-
+/*
                         if(deplacementSpecialFait)
                         {
                             if(y - listeCoup.at(i).y() > 0)
@@ -647,7 +647,7 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
                                 }
                             }
                         }
-
+*/
 
                         idPiece[x][y] = idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()];
                         idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()] = tempPiece;
@@ -680,7 +680,7 @@ QVector<QPoint> ia::jouer(Joueur *joueur,int profondeur,Plateau *plateau)
  * @param plateau pointeur sur le plateau
  * @return Difference des valeurs des pieces de chaque joueur
  */
-int ia::eval(const int couleur[8][8],const char idPiece[8][8]){
+int ia::eval(){
     int scoreJoueur1 = 0;
     int scoreJoueur2 = 0;
     for(int x = 0; x < 8; x++)
@@ -711,14 +711,7 @@ int ia::eval(const int couleur[8][8],const char idPiece[8][8]){
             {
                 scoreJoueur2 += 5;
             }
-            if(idPiece[x][y] == Reine && couleur[x][y] == 0)
-            {
-                scoreJoueur1 += 10;
-            }
-            else if(idPiece[x][y] == Reine && couleur[x][y] == 1)
-            {
-                scoreJoueur2 += 10;
-            }
+
         }
     }
     return  scoreJoueur1 - scoreJoueur2;
@@ -732,7 +725,7 @@ int ia::eval(const int couleur[8][8],const char idPiece[8][8]){
          * @param plateau pointeur sur le plateaju
          * @return un vecteur vide si le joueur a perdu sinon la liste des deplacements sans mettre le roi en echec
          */
-QVector<QPoint> ia::calc_echec_et_mat(int idJoueur,QPoint pos_'R'_joueur){
+QVector<QPoint> ia::calc_echec_et_mat(int idJoueur,QPoint pos_roi){
     int score;
 
     QVector<QPoint> result;
@@ -746,10 +739,11 @@ QVector<QPoint> ia::calc_echec_et_mat(int idJoueur,QPoint pos_'R'_joueur){
                 switch(idPiece[x][y])
                 {
                 case 'P':
-                    listeCoup = deplacements::deplacementPion(couleur,this->idPiece,QPoint(x,y),m_coupPrecedent);
+                    listeCoup = deplacements::deplacementPion(idJoueur,couleur,this->idPiece,QPoint(x,y),m_coupPrecedent);
                     break;
                 case 'R':
                     listeCoup = deplacements::deplacementRoi(idPiece,couleur,QPoint(x,y));
+                    /*
                     if(deplacements::grandRoguePossible(couleur[x][y],couleur,m_deplacement,idPiece))
                     {
                         if(couleur[x][y] == 1)
@@ -771,10 +765,7 @@ QVector<QPoint> ia::calc_echec_et_mat(int idJoueur,QPoint pos_'R'_joueur){
                         {
                             listeCoup.append(QPoint(7,6));
                         }
-                    }
-                    break;
-                case Reine:
-                    listeCoup = deplacements::deplacementReine(couleur,QPoint(x,y));
+                    }*/
                     break;
                 case 'F':
                     listeCoup = deplacements::deplacementFou(couleur,QPoint(x,y));
@@ -810,6 +801,7 @@ QVector<QPoint> ia::calc_echec_et_mat(int idJoueur,QPoint pos_'R'_joueur){
                     {
                         ///////// GERER LA CAPTURE D'UN 'P' A LA VOLE !!!
                         bool deplacementSpecialFait = false;
+                        /*
                         if(idPiece[x][y] == 'P')
                         {
                             if(listeCoup.at(i).y() != y && idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()] == Rien )
@@ -826,7 +818,7 @@ QVector<QPoint> ia::calc_echec_et_mat(int idJoueur,QPoint pos_'R'_joueur){
                                     couleur[x][y+1] = 0;
                                 }
                             }
-                        }
+                        }*/
 
 
                         idPiece[listeCoup.at(i).x()][listeCoup.at(i).y()] = idPiece[x][y];
@@ -843,7 +835,7 @@ QVector<QPoint> ia::calc_echec_et_mat(int idJoueur,QPoint pos_'R'_joueur){
 
 
 
-                        if(deplacements::estEnEchec(idPiece,couleur,idJoueur,QPoint(pos_'R'_joueur.x(),pos_'R'_joueur.y())))
+                        if(deplacements::inCheck(idPiece,couleur,idJoueur,QPoint(pos_roi.x(),pos_roi.y())))
                         {
                             score = -1000;
                         }
@@ -913,6 +905,7 @@ QVector<QPoint> ia::calc_echec_et_mat(int idJoueur,QPoint pos_'R'_joueur){
 }
 
 void ia::initTableauTmp(Plateau * plateau){
+    this->m_coupPrecedent=plateau->getCoupPrec();
     //init des couleurs
     for(int x=0;x<8;x++){
         for(int y=0;y<8;y++){
