@@ -445,7 +445,6 @@ bool Plateau::parcours(int x, int y,QVector<QPoint> destination, int tmp1, Joueu
             std::cout << "dans estenechec13";std::cout << std::endl;
             if(destination[u].x() == coordcase->x() && destination[u].y() == coordcase->y() )
             {
-
                 verif= true;
             }
         }
