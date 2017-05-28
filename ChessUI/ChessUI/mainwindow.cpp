@@ -32,19 +32,22 @@ MainWindow::MainWindow(QWidget *parent) :
     //QObject::connect(plateau,SIGNAL(),this,SLOT());
 
     //initialiser plateau
-    QObject::connect(ui->actionLancer_Partie,SIGNAL(triggered(bool)),plateau,SLOT(displayPlateau()),Qt::UniqueConnection);
-    QObject::connect(ui->actionLancer_Partie,SIGNAL(triggered(bool)),plateau,SLOT(sentDisplayPlayerId()),Qt::UniqueConnection);
-
+//    QObject::connect(ui->actionLancer_Partie,SIGNAL(triggered(bool)),plateau,SLOT(displayPlateau()),Qt::UniqueConnection);
+//    QObject::connect(ui->actionLancer_Partie,SIGNAL(triggered(bool)),plateau,SLOT(sentDisplayPlayerId()),Qt::UniqueConnection);
+    QAction * launch = ui->actionLancer_Partie->addAction("Lancement");
+    connect(launch,SIGNAL(triggered(bool)), plateau, SLOT(displayPlateau()),Qt::UniqueConnection);
     //Choix niveau IA
-    QObject::connect(ui->actionniveau1,SIGNAL(triggered(bool)),plateau,SLOT(setLevel(1)),Qt::UniqueConnection);
-    QObject::connect(ui->actionniveau_3,SIGNAL(triggered(bool)),plateau,SLOT(setLevel(3)),Qt::UniqueConnection);
-    QObject::connect(ui->actionniveau_2,SIGNAL(triggered(bool)),plateau,SLOT(setLevel(2)),Qt::UniqueConnection);
-    QObject::connect(ui->actionPar_d_faut,SIGNAL(triggered(bool)),plateau,SLOT(setLevel(2)),Qt::UniqueConnection);
+    QObject::connect(ui->actionniveau1_2,SIGNAL(triggered(bool)),plateau,SLOT(setLevel(1)),Qt::UniqueConnection);
+    QObject::connect(ui->actionniveau_7,SIGNAL(triggered(bool)),plateau,SLOT(setLevel(3)),Qt::UniqueConnection);
+    QObject::connect(ui->actionniveau_8,SIGNAL(triggered(bool)),plateau,SLOT(setLevel(2)),Qt::UniqueConnection);
+    QObject::connect(ui->actionPar_d_faut_2,SIGNAL(triggered(bool)),plateau,SLOT(setLevel(2)),Qt::UniqueConnection);
 
     //deplacer une piece
     QObject::connect(ui->ok_button,SIGNAL(clicked(bool)),this,SLOT(on_ok_button_clicked()),Qt::UniqueConnection);
     QObject::connect(this,SIGNAL(movePiece(int,int,int,int)),plateau,SLOT(movePiece(int,int,int,int)),Qt::UniqueConnection);
     QObject::connect(plateau,SIGNAL(badMove()),this,SLOT(badMove()),Qt::UniqueConnection);
+    QObject::connect(plateau,SIGNAL(noPiece()),this,SLOT(noPiece()),Qt::UniqueConnection);
+
     //QPixmap pixmap;
     // bool loaded= pixmap.load("chessicons/King1.bmp");
     // std::cout << "image loaded = " << loaded << std::endl;
@@ -60,6 +63,11 @@ void MainWindow::displayPlayerId(int id){
 void MainWindow::badMove(){
     QMessageBox::critical(this, "Mauvais déplacement", "Ce déplacement n'est pas autorisé!");
 }
+
+void MainWindow::noPiece(){
+        QMessageBox::critical(this, "Mauvaise Case", "Cette case n'a pas de pièce !");
+}
+
 void MainWindow::affichSuppInit(Piece * piece, int id,int i){
     //std::cout << "image loaded";
     QPixmap pixmap;

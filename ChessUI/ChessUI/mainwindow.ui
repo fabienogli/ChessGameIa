@@ -1218,29 +1218,22 @@
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuLancer_Partie">
+   <widget class="QMenu" name="actionLancer_Partie">
     <property name="title">
      <string>Lancer Partie</string>
     </property>
-    <widget class="QMenu" name="menuNiveau_IA">
-     <property name="title">
-      <string>Niveau IA</string>
-     </property>
-     <widget class="QMenu" name="menuChoisir_niveau">
-      <property name="title">
-       <string>Choisir niveau</string>
-      </property>
-      <addaction name="actionniveau1"/>
-      <addaction name="actionniveau_2"/>
-      <addaction name="actionniveau_3"/>
-     </widget>
-     <addaction name="actionPar_d_faut"/>
-     <addaction name="menuChoisir_niveau"/>
-    </widget>
-    <addaction name="menuNiveau_IA"/>
-    <addaction name="actionLancer_Partie"/>
    </widget>
-   <addaction name="menuLancer_Partie"/>
+   <widget class="QMenu" name="menuChoisir_niveau_IA">
+    <property name="title">
+     <string>Choisir niveau IA</string>
+    </property>
+    <addaction name="actionPar_d_faut_2"/>
+    <addaction name="actionniveau1_2"/>
+    <addaction name="actionniveau_7"/>
+    <addaction name="actionniveau_8"/>
+   </widget>
+   <addaction name="actionLancer_Partie"/>
+   <addaction name="menuChoisir_niveau_IA"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -1301,9 +1294,29 @@
     <string>niveau 6</string>
    </property>
   </action>
-  <action name="actionLancer_Partie">
+  <action name="action">
    <property name="text">
     <string>Lancer Partie</string>
+   </property>
+  </action>
+  <action name="actionPar_d_faut_2">
+   <property name="text">
+    <string>Par Défaut</string>
+   </property>
+  </action>
+  <action name="actionniveau1_2">
+   <property name="text">
+    <string>Niveau 1</string>
+   </property>
+  </action>
+  <action name="actionniveau_7">
+   <property name="text">
+    <string>Niveau 2</string>
+   </property>
+  </action>
+  <action name="actionniveau_8">
+   <property name="text">
+    <string>Niveau 3</string>
    </property>
   </action>
  </widget>

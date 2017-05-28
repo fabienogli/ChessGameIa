@@ -48,6 +48,8 @@ signals:
     void affichSuppInit(Piece * piece,int id,int i);
     void displayPlayerId(int id);
     void badMove();
+    void noPiece();
+
 public slots:
     void setLevel(int level);
     void sentDisplayPlayerId();

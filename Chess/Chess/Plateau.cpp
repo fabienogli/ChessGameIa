@@ -179,13 +179,18 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
         //kmp = joueur2->isAnyPiece(*coordArrivee);
 
     }
-    //sinon c'est forcement occupe par une piece du joueur 2
+    //sinon c'est occupe par une piece du joueur 2
     else if(tmp2 != -1)
     {
         joueur = joueur2;
         tmpActif = tmp2;
         std::cout << "joueur 2"<< std::endl;
         //kmp = joueur1->isAnyPiece(*coordArrivee);
+    }
+    else{
+        std::cout<<"Pas de piece trouver"<<std::endl;
+        emit noPiece();
+        return;
     }
 
 

@@ -29,6 +29,8 @@ public slots:
  void affichSuppInit(Piece * piece,int id,int i);
 // mauvais deplacement();
  void badMove();
+ //Pas de Piece dans la case;
+ void noPiece();
 
 private:
     Ui::MainWindow *ui;
