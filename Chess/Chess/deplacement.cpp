@@ -356,6 +356,7 @@ QVector<QPoint> deplacement::towerMove( int couleur[8][8],  QPoint cas){
             if(couleur[x][cas.y()] != couleur[cas.x()][cas.y()]) // si on rencontre un blanc ou un pion ennemi
             {
                 resultat.append(QPoint(x, cas.y()));
+
             }
             if(couleur[x][cas.y()] != -1) // on a rencontre un obstacle ami ou ennemi
             {
@@ -379,7 +380,7 @@ QVector<QPoint> deplacement::towerMove( int couleur[8][8],  QPoint cas){
         while(y > 0)
         {
             y--;
-            if(couleur[cas.x()][y] != couleur[cas.x()][cas.y()]) // si on rencontre un blanc ou une char ennemie
+            if(couleur[cas.x()][y] != couleur[cas.x()][cas.y()]) // si on rencontre un blanc ou une piece ennemie
             {
                 resultat.append(QPoint(cas.x(), y));
             }
@@ -392,7 +393,7 @@ QVector<QPoint> deplacement::towerMove( int couleur[8][8],  QPoint cas){
         while(y < 7)
         {
             y++;
-            if(couleur[cas.x()][y] != couleur[cas.x()][cas.y()]) // si on rencontre un blanc ou une char ennemie
+            if(couleur[cas.x()][y] != couleur[cas.x()][cas.y()]) // si on rencontre un blanc ou une piece ennemie
             {
                 resultat.append(QPoint(cas.x(), y));
             }
@@ -549,7 +550,7 @@ QVector<QPoint> deplacement::pawnMove(int idJoueur, int couleur[8][8], QPoint ca
  * \param[in] idPiece Matrice corespondant au type des chars.
  * \param[in] couleur Matrice corespondant a la couleur de chars.
  * \param[in] couleur Token permetant de definir a quel equipe on appartient (quelle est ma couleur)
- * \param[in] coordcase Coordonnees de la char a calculer.
+ * \param[in] coordcase Coordonnees de la piece a calculer.
  * \param[in] coordpion Un pointeur qui peut etre NULL,permetant d'indiquer la position de la char qu'on compte deplacer (sert pour le roi)
  * \return True si on est en echec, sinon False
  */

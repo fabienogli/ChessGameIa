@@ -527,7 +527,7 @@ int ia::eval(int couleur[8][8],char idPiece[8][8]){
  * @return un vecteur vide si le joueur a perdu sinon la liste des deplacement sans mettre le roi en echec
  */
 QVector<QPoint> ia::calc_echec_et_mat(int idJoueur,QPoint pos_roi){
-    int score;
+    int score=0;
     QVector<QPoint> result;
     for(int x = 0; x < 8; x++)
     {
@@ -599,7 +599,7 @@ QVector<QPoint> ia::calc_echec_et_mat(int idJoueur,QPoint pos_roi){
                         tableauCouleur[movesList.at(i).x()][movesList.at(i).y()] = tableauCouleur[x][y];
                         tableauCouleur[x][y] = -1;
 
-                        if(deplacement::inCheck(tableauPieces,tableauCouleur,idJoueur,QPoint(pos_roi.x(),pos_roi.y())))
+                        if(deplacement::inCheck(tableauPieces,tableauCouleur,idJoueur,pos_roi))
                         {
                             score = -1000;
                         }
