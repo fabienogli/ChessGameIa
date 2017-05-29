@@ -91,8 +91,8 @@ void Plateau::jouerIA(){
         this->getPiece(new Coordonnee(i3,i4))->~Piece();
     }
     joueur1->getPiece2(idPiece)->setCoordonne(i3,i4);
-    CaseDeplacementPossible =  IA->calc_echec_et_mat(joueur2->getIdJoueur(),m_Posi_Rois2);
-    std::cout << "poss="<< CaseDeplacementPossible.count()<< std::endl;
+    //CaseDeplacementPossible =  IA->calc_echec_et_mat(joueur2->getIdJoueur(),m_Posi_Rois2);
+    //std::cout << "poss="<< CaseDeplacementPossible.count()<< std::endl;
     emit affichSuppInit(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i3,i4))),0,0);
     emit affichSuppInit(aSupprimer,0,1);
     emit coupJoue(joueur1->getIdJoueur(),i1,i2,i3,i4);
@@ -102,12 +102,12 @@ void Plateau::jouerIA(){
 
     joueurActif = joueur2;
     std::cout<<"DEPLACEMENT IA : origine x="<<i1<<" y="<<i2<<" arrive x="<<i3<<" y="<<i4;
-    if(int nb=CaseDeplacementPossible.count() == 0)
+    /*if(int nb=CaseDeplacementPossible.count() == 0)
                  {
 
         emit loseSignal();
 
-                 }
+                 }*/
 }
 /**
  * @brief Plateau::initiatePosInGrid
@@ -120,10 +120,10 @@ void Plateau::initiatePosInGrid()
         damier->putPiece(joueur1->getDeck()[i]);
         damier->putPiece(joueur2->getDeck()[i]);
         if(i<8){
-            m_matriceDeplacement[0][i] = 1;
-            m_matriceDeplacement[1][i] = 1;
-            m_matriceDeplacement[6][i] = 1;
-            m_matriceDeplacement[7][i] = 1;
+            m_matriceDeplacement[i][0] = 1;
+            m_matriceDeplacement[i][1] = 1;
+            m_matriceDeplacement[i][6] = 1;
+            m_matriceDeplacement[i][7] = 1;
         }
     }
 }
