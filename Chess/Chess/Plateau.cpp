@@ -22,9 +22,6 @@ void Plateau::initialize(){
     coordDepart = new Coordonnee(0,0);
     coordArrivee= new Coordonnee(0,0);
     aSupprimer=new Piece();
-    m_coupPrecedent = new QVector<QPoint>();
-    m_coupPrecedent->append(QPoint(0,0));
-    m_coupPrecedent->append(QPoint(0,0));
     IA = new ia(1);
     initiatePosInGrid();
 }
@@ -78,10 +75,6 @@ void Plateau::jouerIA(){
         m_Posi_Rois1.setX(dep.at(pion_dest).x());
         m_Posi_Rois1.setY(dep.at(pion_dest).y());
     }
-    m_coupPrecedent[0][0].setX(dep.at(pion_ori).x());
-    m_coupPrecedent[0][0].setY(dep.at(pion_ori).y());
-    m_coupPrecedent[0][1].setX(dep.at(pion_dest).x());
-    m_coupPrecedent[0][1].setY(dep.at(pion_dest).y());
 
     if(getGrille()->getCase(dep.at(pion_dest).x(),dep.at(pion_dest).y())->getId() != 'N')
     {
@@ -101,22 +94,26 @@ void Plateau::jouerIA(){
     coordDepart->setX(i1);
     coordDepart->setY(i2);
     (*aSupprimer).setCoordonnee(new Coordonnee(i1,i2));
-    std::cout << "idpiece1="<<joueur1->isAnyPiece(Coordonnee(i1,i2))<<std::endl;
-    joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i1,i2)))->setCoordonne(i3,i4);
-   // CaseDeplacementPossible =  IA->calc_echec_et_mat(joueur2->getIdJoueur(),m_Posi_Rois2);
-    std::cout << "idpiece1="<<joueur1->isAnyPiece(Coordonnee(i1,i2))<<std::endl;
+    int idPiece = joueur1->isAnyPiece(Coordonnee(i1,i2));
+    if(this->getGrille()->getCase(i3,i4)->getCouleur()==joueur2->getIdJoueur()){
+        this->getPiece(new Coordonnee(i3,i4))->~Piece();
+    }
+    joueur1->getPiece2(idPiece)->setCoordonne(i3,i4);
+    CaseDeplacementPossible =  IA->calc_echec_et_mat(joueur2->getIdJoueur(),m_Posi_Rois2);
     emit affichSuppInit(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i3,i4))),0,0);
     emit affichSuppInit(aSupprimer,0,1);
+    emit coupJoue(joueur1->getIdJoueur(),i1,i2,i3,i4);
     std::cout << "IA emet signal d'affichage"<< std::endl;
     getGrille()->putPiece(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i3,i4))));
     getGrille()->removePiece(coordDepart);
+
     joueurActif = joueur2;
     std::cout<<"DEPLACEMENT IA : origine x="<<i1<<" y="<<i2<<" arrive x="<<i3<<" y="<<i4;
-    /*if(CaseDeplacementPossible.count() == 0)
+    if(CaseDeplacementPossible.count() == 0)
                  {
         emit loseSignal();
 
-                 }*/
+                 }
 }
 /**
  * @brief Plateau::initiatePosInGrid
@@ -210,10 +207,6 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     if(b==true){
 
         //mettre a jour couleur des cases
-        m_coupPrecedent[0][0].setX(coordDepart->getX());
-        m_coupPrecedent[0][0].setY(coordDepart->getY());
-        m_coupPrecedent[0][1].setX(coordArrivee->getX());
-        m_coupPrecedent[0][1].setY(coordArrivee->getY());
         std::cout << "je suis 1-2bis";std::cout << std::endl;
         emit affichSuppInit((*joueur).getDeck()[tmpActif],(*joueur).getIdJoueur(),0);
         emit affichSuppInit(aSupprimer,(*joueur).getIdJoueur(),1);
@@ -370,21 +363,6 @@ Grille* Plateau::getGrille(){
     return damier;
 }
 
-/**
- * @brief Plateau::getCoupPrec
- * @return retourne le coup précédent
- */
-QVector<QPoint> Plateau::getCoupPrec(){
-    return *m_coupPrecedent;
-}
-
-/**
- * @brief Plateau::setCoupPrec
- * @param CoupPrec représente le coup précédent
- */
-void Plateau::setCoupPrec(QVector<QPoint> CoupPrec){
-    *m_coupPrecedent=CoupPrec;
-}
 
 /**
  * @brief Plateau::caseAtOccupy

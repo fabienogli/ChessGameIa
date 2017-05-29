@@ -39,7 +39,6 @@ private:
     Coordonnee *coordArrivee;
     Coordonnee *coordDepart;
     Piece *aSupprimer;
-    QVector<QPoint> *m_coupPrecedent;
     QVector<QPoint> CaseDeplacementPossible;
     QPoint m_Posi_Rois1;
     QPoint m_Posi_Rois2;
