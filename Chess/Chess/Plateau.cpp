@@ -120,10 +120,10 @@ void Plateau::initiatePosInGrid()
         damier->putPiece(joueur1->getDeck()[i]);
         damier->putPiece(joueur2->getDeck()[i]);
         if(i<8){
-            m_matriceDeplacement[0][i] = 1;
-            m_matriceDeplacement[1][i] = 1;
-            m_matriceDeplacement[6][i] = 1;
-            m_matriceDeplacement[7][i] = 1;
+            m_matriceDeplacement[i][0] = 1;
+            m_matriceDeplacement[i][1] = 1;
+            m_matriceDeplacement[i][6] = 1;
+            m_matriceDeplacement[i][7] = 1;
         }
     }
 }
