@@ -355,7 +355,7 @@ int ia::getLevel(){
  */
 QVector<QPoint> ia::jouer(Joueur *joueur,Plateau *plateau)
 {
-    int max = -10000;
+ int max = -10000;
  int idJoueur=joueur->getIdJoueur();
  int score =0;
     initTableauTmp(plateau);
