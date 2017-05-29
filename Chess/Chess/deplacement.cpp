@@ -404,7 +404,7 @@ QVector<QPoint> deplacement::towerMove( int couleur[8][8],  QPoint cas){
         return resultat;
 }
 /**
- * \brief deplacement::attaquePion()
+ * \brief deplacement::pawnAttackList()
  * Permet de recuperer les coordonnees des cases ou le pion peut attaquer.
  * La fonction va prendre a partir de la matrice couleur dans quelle equipe est le pion puis va tester tout les deplacement possibles
  * Si Le Pion peut attaquer quelqu'un la case est ajouter
@@ -412,7 +412,7 @@ QVector<QPoint> deplacement::towerMove( int couleur[8][8],  QPoint cas){
  * \param[in] cas Coordonnees du Pion a calculer.
  * \return Un tableau de coordonnees
  */
-QVector<QPoint> deplacement::attaquePion( int couleur[8][8], QPoint cas)
+QVector<QPoint> deplacement::pawnAttackList( int couleur[8][8], QPoint cas)
 {
     QVector<QPoint> resultat;
     bool noir = true;
@@ -480,7 +480,7 @@ QVector<QPoint> deplacement::pawnMove(int idJoueur, int couleur[8][8], QPoint ca
             //si le pion n'a pas encore bougé
                 if(matriceDeplacement[cas.x()][cas.y()]==1){
                 if((cas.y() == 1 || cas.y()==2) &&
-                        couleur[cas.x()][cas.y()+2] && couleur[cas.x()][cas.y()+1])
+                        couleur[cas.x()][cas.y()+2]==-1 && couleur[cas.x()][cas.y()+1]==-1)
                 {
                     tabDep.append(QPoint(cas.x(),cas.y()+2));
                 }}
@@ -565,7 +565,7 @@ bool deplacement::inCheck(char idPiece[8][8], int couleur[8][8],int couleurPiece
                 switch(idPiece[x][y])
                 {
                     case 'P':
-                        destination = deplacement::attaquePion(couleur,QPoint(x,y));
+                        destination = deplacement::pawnAttackList(couleur,QPoint(x,y));
                         for(int u = 0; u < destination.count(); u++)
                         {
                             if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )

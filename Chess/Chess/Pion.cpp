@@ -67,7 +67,7 @@ QVector<QPoint> Pion::deplacementsPossible(int idJoueur,int couleur[8][8],char i
     int x = this->getCoordonne()->getX();
     int y=this->getCoordonne()->getY();
     int m[8][8];
-    QVector<QPoint> test = deplacement::deplacementPion(idJoueur,couleur,QPoint(x,y),m) ;
+    QVector<QPoint> test = deplacement::pawnMove(idJoueur,couleur,QPoint(x,y),m) ;
     return test;
 
 }

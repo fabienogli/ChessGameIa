@@ -96,19 +96,19 @@ int ia::max(int idJoueur,int profondeur,int alpha,int beta,int couleur[8][8],cha
                 {
                 case 'P':
                     std::cout<<"ici3"<<std::endl;
-                    movesList = deplacement::deplacementPion(idJoueur, couleur,QPoint(x,y),matriceDep);
+                    movesList = deplacement::pawnMove(idJoueur, couleur,QPoint(x,y),matriceDep);
                     break;
                 case 'R':
-                    movesList = deplacement::deplacementRoi(idPiece,couleur,QPoint(x,y));
+                    movesList = deplacement::kingMove(idPiece,couleur,QPoint(x,y));
                     break;
                 case 'F':
-                    movesList = deplacement::deplacementFou(couleur,QPoint(x,y));
+                    movesList = deplacement::madMove(couleur,QPoint(x,y));
                     break;
                 case 'T':
-                    movesList = deplacement::deplacementTour(couleur,QPoint(x,y));
+                    movesList = deplacement::towerMove(couleur,QPoint(x,y));
                     break;
                 case 'C':
-                    movesList = deplacement::deplacementCavalier(couleur,QPoint(x,y));
+                    movesList = deplacement::knightMove(couleur,QPoint(x,y));
                     break;
                 default:
                     movesList = QVector<QPoint>();
@@ -181,7 +181,6 @@ int ia::max(int idJoueur,int profondeur,int alpha,int beta,int couleur[8][8],cha
                     {
                         return max;
                     }
-
                     if(max > alpha)
                     {
                         alpha = max;
@@ -205,121 +204,121 @@ int ia::max(int idJoueur,int profondeur,int alpha,int beta,int couleur[8][8],cha
 int ia::min(int idJoueur,int profondeur,int alpha,int beta,int couleur[8][8],char idPiece[8][8]){
     int retour = 0;
 
-        // eval  ne prend pas en compte l'echec et mat vu que celui-ci est verifie dans gagnant
-        if(profondeur <= 0 || (retour = gagnantEnCours(idJoueur)) != 0)
+    // eval  ne prend pas en compte l'echec et mat vu que celui-ci est verifie dans gagnant
+    if(profondeur <= 0 || (retour = gagnantEnCours(idJoueur)) != 0)
+    {
+        if(profondeur <= 0)
         {
-            if(profondeur <= 0)
+            return eval(couleur,idPiece);
+        }
+        else
+        {
+            return retour;
+        }
+    }
+    int min = 10000;
+    for(int x=0;x<8;x++)
+    {
+        for(int y=0;y<8;y++)
+        {
+            if(couleur[x][y] == idJoueur)
             {
-                return eval(couleur,idPiece);
-            }
-            else
-            {
-                return retour;
+                QVector<QPoint> movesList;
+                switch(idPiece[x][y])
+                {
+                case 'P':
+                    std::cout<<"ici2"<<std::endl;
+                    movesList = deplacement::pawnMove(idJoueur,couleur,QPoint(x,y),matriceDep);
+                    break;
+                case 'R':
+                    movesList = deplacement::kingMove(idPiece,couleur,QPoint(x,y));
+                    break;
+                case 'F':
+                    movesList = deplacement::madMove(couleur,QPoint(x,y));
+                    break;
+                case 'T':
+                    movesList = deplacement::towerMove(couleur,QPoint(x,y));
+                    break;
+                case 'C':
+                    movesList = deplacement::knightMove(couleur,QPoint(x,y));
+                    break;
+                default:
+                    movesList = QVector<QPoint>();
+                    break;
+                }
+                for (int i = 0; i < movesList.count(); i++)
+                {
+                    char idPieceTmp = idPiece[movesList.at(i).x()][movesList.at(i).y()];
+                    int couleurTmp = couleur[movesList.at(i).x()][movesList.at(i).y()];
+
+                    if(tableauPieces[x][y] == 'R')
+                    {
+                        if(tableauCouleur[x][y] == 0)
+                        {
+                            this->posi_roi_joueur1.setX(movesList.at(i).x());
+                            this->posi_roi_joueur1.setY(movesList.at(i).y());
+                        }
+                        else
+                        {
+                            this->posi_roi_joueur2.setX(movesList.at(i).x());
+                            this->posi_roi_joueur2.setY(movesList.at(i).y());
+                        }
+                    }
+
+                    idPiece[movesList.at(i).x()][movesList.at(i).y()] = idPiece[x][y];
+                    idPiece[x][y] = 'N';
+                    couleur[movesList.at(i).x()][movesList.at(i).y()] = couleur[x][y];
+                    couleur[x][y] = -1;
+
+                    int score = 0;
+                    if(idJoueur == 0)
+
+                    { std::cout<<"profondeur max ="<<profondeur-1<<std::endl;
+                        score = max(1,profondeur-1,alpha,beta,couleur,idPiece);
+                    }
+                    else
+                    {
+                        std::cout<<"profondeur max ="<<profondeur-1<<std::endl;
+                        score = max(0,profondeur-1,alpha,beta,couleur,idPiece);
+                    }
+
+                    if(tableauPieces[movesList.at(i).x()][movesList.at(i).y()] == 'R')
+                    {
+                        if(tableauCouleur[movesList.at(i).x()][movesList.at(i).y()] == 0)
+                        {
+                            this->posi_roi_joueur1.setX(x);
+                            this->posi_roi_joueur1.setY(y);
+                        }
+                        else
+                        {
+                            this->posi_roi_joueur2.setX(x);
+                            this->posi_roi_joueur2.setY(y);
+                        }
+                    }
+
+                    idPiece[x][y] = idPiece[movesList.at(i).x()][movesList.at(i).y()];
+                    idPiece[movesList.at(i).x()][movesList.at(i).y()] = idPieceTmp;
+
+                    couleur[x][y] = couleur[movesList.at(i).x()][movesList.at(i).y()] ;
+                    couleur[movesList.at(i).x()][movesList.at(i).y()] = couleurTmp;
+
+                    if (score < min)
+                    {
+                        min = score;
+                    }
+                    if(alpha >= min)
+                    {
+                        return min;
+                    }
+                    if(beta > min)
+                    {
+                        beta = min;
+                    }
+                }
             }
         }
-         int min = 10000;
-         for(int x=0;x<8;x++)
-         {
-              for(int y=0;y<8;y++)
-              {
-                  if(couleur[x][y] == idJoueur)
-                  {
-                      QVector<QPoint> movesList;
-                      switch(idPiece[x][y])
-                      {
-                          case 'P':
-                          std::cout<<"ici2"<<std::endl;
-                              movesList = deplacement::deplacementPion(idJoueur,couleur,QPoint(x,y),matriceDep);
-                          break;
-                          case 'R':
-                              movesList = deplacement::deplacementRoi(idPiece,couleur,QPoint(x,y));
-                          break;
-                          case 'F':
-                              movesList = deplacement::deplacementFou(couleur,QPoint(x,y));
-                          break;
-                          case 'T':
-                              movesList = deplacement::deplacementTour(couleur,QPoint(x,y));
-                          break;
-                          case 'C':
-                              movesList = deplacement::deplacementCavalier(couleur,QPoint(x,y));
-                          break;
-                          default:
-                              movesList = QVector<QPoint>();
-                          break;
-                      }
-                      for (int i = 0; i < movesList.count(); i++)
-                      {                         
-                          char idPieceTmp = idPiece[movesList.at(i).x()][movesList.at(i).y()];
-                          int couleurTmp = couleur[movesList.at(i).x()][movesList.at(i).y()];
-
-                          if(tableauPieces[x][y] == 'R')
-                          {
-                              if(tableauCouleur[x][y] == 0)
-                              {
-                                  this->posi_roi_joueur1.setX(movesList.at(i).x());
-                                  this->posi_roi_joueur1.setY(movesList.at(i).y());
-                              }
-                              else
-                              {
-                                  this->posi_roi_joueur2.setX(movesList.at(i).x());
-                                  this->posi_roi_joueur2.setY(movesList.at(i).y());
-                              }
-                          }
-
-                          idPiece[movesList.at(i).x()][movesList.at(i).y()] = idPiece[x][y];
-                          idPiece[x][y] = 'N';
-                          couleur[movesList.at(i).x()][movesList.at(i).y()] = couleur[x][y];
-                          couleur[x][y] = -1;
-
-                          int score = 0;
-                          if(idJoueur == 0)
-
-                          { std::cout<<"profondeur max ="<<profondeur-1<<std::endl;
-                              score = max(1,profondeur-1,alpha,beta,couleur,idPiece);
-                          }
-                          else
-                          {
-                              std::cout<<"profondeur max ="<<profondeur-1<<std::endl;
-                              score = max(0,profondeur-1,alpha,beta,couleur,idPiece);
-                          }
-
-                          if(tableauPieces[movesList.at(i).x()][movesList.at(i).y()] == 'R')
-                          {
-                              if(tableauCouleur[movesList.at(i).x()][movesList.at(i).y()] == 0)
-                              {
-                                  this->posi_roi_joueur1.setX(x);
-                                  this->posi_roi_joueur1.setY(y);
-                              }
-                              else
-                              {
-                                  this->posi_roi_joueur2.setX(x);
-                                  this->posi_roi_joueur2.setY(y);
-                              }
-                          }
-
-                          idPiece[x][y] = idPiece[movesList.at(i).x()][movesList.at(i).y()];
-                          idPiece[movesList.at(i).x()][movesList.at(i).y()] = idPieceTmp;
-
-                          couleur[x][y] = couleur[movesList.at(i).x()][movesList.at(i).y()] ;
-                          couleur[movesList.at(i).x()][movesList.at(i).y()] = couleurTmp;
-
-                          if (score < min)
-                          {
-                              min = score;
-                          }
-                          if(alpha >= min)
-                          {
-                                return min;
-                          }
-                          if(beta > min)
-                          {
-                              beta = min;
-                          }
-                      }
-                   }
-              }
-         }
-         return min;
+    }
+    return min;
 }
 /**
  * @brief ia::setLevel
@@ -354,128 +353,128 @@ int ia::getLevel(){
  */
 QVector<QPoint> ia::jouer(Joueur *joueur,Plateau *plateau)
 {
- int max = -10000;
- int idJoueur=joueur->getIdJoueur();
- int score =0;
+    int max = -10000;
+    int idJoueur=joueur->getIdJoueur();
+    int score =0;
     initTableauTmp(plateau);
     QVector<QPoint> result;
-        for(int x = 0; x < 8; x++)
+    for(int x = 0; x < 8; x++)
+    {
+        for(int y = 0; y < 8; y++)
         {
-            for(int y = 0; y < 8; y++)
+            if( tableauPieces[x][y] == 'R')
             {
-                if( tableauPieces[x][y] == 'R')
+                if(tableauCouleur[x][y] == 0)
                 {
-                    if(tableauCouleur[x][y] == 0)
-                    {
-                        this->posi_roi_joueur1.setX(x);
-                        this->posi_roi_joueur1.setY(y);
-                    }
-                    else
-                    {
-                        this->posi_roi_joueur2.setX(x);
-                        this->posi_roi_joueur2.setY(y);
-                    }
+                    this->posi_roi_joueur1.setX(x);
+                    this->posi_roi_joueur1.setY(y);
                 }
-                if(tableauCouleur[x][y] == idJoueur)
+                else
                 {
-                    QVector<QPoint> movesList;
-                    switch(tableauPieces[x][y])
+                    this->posi_roi_joueur2.setX(x);
+                    this->posi_roi_joueur2.setY(y);
+                }
+            }
+            if(tableauCouleur[x][y] == idJoueur)
+            {
+                QVector<QPoint> movesList;
+                switch(tableauPieces[x][y])
+                {
+                case 'P':
+                    std::cout<<"ici1 ="<<std::endl;
+                    movesList = deplacement::pawnMove(idJoueur,tableauCouleur,QPoint(x,y),matriceDep);
+                    break;
+                case 'R':
+                    movesList = deplacement::kingMove(tableauPieces,tableauCouleur,QPoint(x,y));
+                    break;
+                case 'F':
+                    movesList = deplacement::madMove(tableauCouleur,QPoint(x,y));
+                    break;
+                case 'T':
+                    movesList = deplacement::towerMove(tableauCouleur,QPoint(x,y));
+                    break;
+                case 'C':
+                    movesList = deplacement::knightMove(tableauCouleur,QPoint(x,y));
+                    break;
+                default:
+                    movesList = QVector<QPoint>();
+                    break;
+                }
+
+                for (int i = 0; i < movesList.count(); i++)
+                {
+                    char idPieceTmp = tableauPieces[movesList.at(i).x()][movesList.at(i).y()];
+                    int couleurTmp = tableauCouleur[movesList.at(i).x()][movesList.at(i).y()];
+
+                    if(tableauPieces[x][y] == 'R')
                     {
-                        case 'P':
-                        std::cout<<"ici1 ="<<std::endl;
-                            movesList = deplacement::deplacementPion(idJoueur,tableauCouleur,QPoint(x,y),matriceDep);
-                        break;
-                        case 'R':
-                            movesList = deplacement::deplacementRoi(tableauPieces,tableauCouleur,QPoint(x,y));
-                        break;
-                        case 'F':
-                            movesList = deplacement::deplacementFou(tableauCouleur,QPoint(x,y));
-                        break;
-                        case 'T':
-                            movesList = deplacement::deplacementTour(tableauCouleur,QPoint(x,y));
-                        break;
-                        case 'C':
-                            movesList = deplacement::deplacementCavalier(tableauCouleur,QPoint(x,y));
-                        break;
-                        default:
-                            movesList = QVector<QPoint>();
-                        break;
-                    }
-
-                    for (int i = 0; i < movesList.count(); i++)
-                    {
-                        char idPieceTmp = tableauPieces[movesList.at(i).x()][movesList.at(i).y()];
-                        int couleurTmp = tableauCouleur[movesList.at(i).x()][movesList.at(i).y()];
-
-                        if(tableauPieces[x][y] == 'R')
+                        if(tableauCouleur[x][y] == 0)
                         {
-                            if(tableauCouleur[x][y] == 0)
-                            {
-                                this->posi_roi_joueur1.setX(movesList.at(i).x());
-                                this->posi_roi_joueur1.setY(movesList.at(i).y());
-                            }
-                            else
-                            {
-                                this->posi_roi_joueur2.setX(movesList.at(i).x());
-                                this->posi_roi_joueur2.setY(movesList.at(i).y());
-                            }
-                        }
-
-                        tableauPieces[movesList.at(i).x()][movesList.at(i).y()] = tableauPieces[x][y];
-                        tableauPieces[x][y] = 'N';
-                        tableauCouleur[movesList.at(i).x()][movesList.at(i).y()] = tableauCouleur[x][y];
-                        tableauCouleur[x][y] = -1;
-
-                        if(idJoueur == 0)
-                        {
-                            std::cout<<"profondeur min ="<<this->getLevel()-1<<std::endl;
-                            score = min(1,this->getLevel()-1,-10000,100000,tableauCouleur,tableauPieces);
+                            this->posi_roi_joueur1.setX(movesList.at(i).x());
+                            this->posi_roi_joueur1.setY(movesList.at(i).y());
                         }
                         else
                         {
-                            std::cout<<"profondeur min ="<<this->getLevel()-1<<std::endl;
-                            score = min(0,this->getLevel()-1,-10000,100000,tableauCouleur,tableauPieces);
+                            this->posi_roi_joueur2.setX(movesList.at(i).x());
+                            this->posi_roi_joueur2.setY(movesList.at(i).y());
                         }
+                    }
+
+                    tableauPieces[movesList.at(i).x()][movesList.at(i).y()] = tableauPieces[x][y];
+                    tableauPieces[x][y] = 'N';
+                    tableauCouleur[movesList.at(i).x()][movesList.at(i).y()] = tableauCouleur[x][y];
+                    tableauCouleur[x][y] = -1;
+
+                    if(idJoueur == 0)
+                    {
+                        std::cout<<"profondeur min ="<<this->getLevel()-1<<std::endl;
+                        score = min(1,this->getLevel()-1,-10000,100000,tableauCouleur,tableauPieces);
+                    }
+                    else
+                    {
+                        std::cout<<"profondeur min ="<<this->getLevel()-1<<std::endl;
+                        score = min(0,this->getLevel()-1,-10000,100000,tableauCouleur,tableauPieces);
+                    }
 
 
-                        if(tableauPieces[movesList.at(i).x()][movesList.at(i).y()] == 'R')
+                    if(tableauPieces[movesList.at(i).x()][movesList.at(i).y()] == 'R')
+                    {
+                        if(tableauCouleur[movesList.at(i).x()][movesList.at(i).y()] == 0)
                         {
-                            if(tableauCouleur[movesList.at(i).x()][movesList.at(i).y()] == 0)
-                            {
-                                this->posi_roi_joueur1.setX(x);
-                                this->posi_roi_joueur1.setY(y);
-                            }
-                            else
-                            {
-                                this->posi_roi_joueur2.setX(x);
-                                this->posi_roi_joueur2.setY(y);
-                            }
+                            this->posi_roi_joueur1.setX(x);
+                            this->posi_roi_joueur1.setY(y);
                         }
+                        else
+                        {
+                            this->posi_roi_joueur2.setX(x);
+                            this->posi_roi_joueur2.setY(y);
+                        }
+                    }
 
 
-                        tableauPieces[x][y] = tableauPieces[movesList.at(i).x()][movesList.at(i).y()];
-                        tableauPieces[movesList.at(i).x()][movesList.at(i).y()] = idPieceTmp;
+                    tableauPieces[x][y] = tableauPieces[movesList.at(i).x()][movesList.at(i).y()];
+                    tableauPieces[movesList.at(i).x()][movesList.at(i).y()] = idPieceTmp;
 
-                        tableauCouleur[x][y] = tableauCouleur[movesList.at(i).x()][movesList.at(i).y()] ;
-                        tableauCouleur[movesList.at(i).x()][movesList.at(i).y()] = couleurTmp;
+                    tableauCouleur[x][y] = tableauCouleur[movesList.at(i).x()][movesList.at(i).y()] ;
+                    tableauCouleur[movesList.at(i).x()][movesList.at(i).y()] = couleurTmp;
 
-                          if(score > max)
-                          {
-                                max = score;
-                                result.clear();
-                                result.append(QPoint(x,y));
-                                result.append(movesList.at(i));
-                          }
-                          else if(score == max) // si deux coups sont  a peu près égaux on les mets a la suite
-                          {
-                              result.append(QPoint(x,y));
-                              result.append(movesList.at(i));
-                          }
+                    if(score > max)
+                    {
+                        max = score;
+                        result.clear();
+                        result.append(QPoint(x,y));
+                        result.append(movesList.at(i));
+                    }
+                    else if(score == max) // si deux coups sont  a peu près égaux on les mets a la suite
+                    {
+                        result.append(QPoint(x,y));
+                        result.append(movesList.at(i));
                     }
                 }
             }
         }
-        return result;
+    }
+    return result;
 }
 /**
  * @brief ia::eval
@@ -540,10 +539,10 @@ QVector<QPoint> ia::calc_echec_et_mat(int idJoueur,QPoint pos_roi){
                 switch(tableauPieces[x][y])
                 {
                 case 'P':
-                    movesList = deplacement::deplacementPion(idJoueur,tableauCouleur,QPoint(x,y),matriceDep);
+                    movesList = deplacement::pawnMove(idJoueur,tableauCouleur,QPoint(x,y),matriceDep);
                     break;
                 case 'R':
-                    movesList = deplacement::deplacementRoi(tableauPieces,tableauCouleur,QPoint(x,y));
+                    movesList = deplacement::kingMove(tableauPieces,tableauCouleur,QPoint(x,y));
 
                     if(deplacement::checkGrandRoque(idJoueur,tableauCouleur,matriceDep,tableauPieces))
                     {
@@ -569,13 +568,13 @@ QVector<QPoint> ia::calc_echec_et_mat(int idJoueur,QPoint pos_roi){
                     }
                     break;
                 case 'F':
-                    movesList = deplacement::deplacementFou(tableauCouleur,QPoint(x,y));
+                    movesList = deplacement::madMove(tableauCouleur,QPoint(x,y));
                     break;
                 case 'T':
-                    movesList = deplacement::deplacementTour(tableauCouleur,QPoint(x,y));
+                    movesList = deplacement::towerMove(tableauCouleur,QPoint(x,y));
                     break;
                 case 'C':
-                    movesList = deplacement::deplacementCavalier(tableauCouleur,QPoint(x,y));
+                    movesList = deplacement::knightMove(tableauCouleur,QPoint(x,y));
                     break;
                 default:
                     movesList = QVector<QPoint>();
