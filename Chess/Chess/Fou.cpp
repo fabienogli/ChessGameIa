@@ -1,6 +1,6 @@
 #include "Fou.h"
 #include "Plateau.h"
-#include "deplacements.h"
+#include "deplacement.h"
 
 Fou::Fou() :Piece()
 {
@@ -11,8 +11,11 @@ Fou::Fou() :Piece()
 Fou::~Fou()
 {
 }
-QVector<QPoint> Fou::deplacementsPossible(int idJoueur,const int couleur[8][8],const char idPiece[8][8]){
-return deplacements::deplacementFou(couleur,QPoint(this->getCoordonne()->getX(),this->getCoordonne()->getY()));
+QVector<QPoint> Fou::deplacementsPossible(int idJoueur,int couleur[8][8],char idPiece[8][8]){
+    int x = this->getCoordonne()->getX();
+    int y=this->getCoordonne()->getY();
+return QVector<QPoint>();
+//deplacement::deplacementFou(couleur,QPoint(x,y));
 }
 
 bool Fou::testDeplacement(Coordonnee coord, Plateau * plateau)

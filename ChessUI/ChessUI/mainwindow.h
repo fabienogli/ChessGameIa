@@ -30,6 +30,7 @@ public slots:
 // mauvais deplacement();
  void badMove();
  void loseSignal();
+ void coupJoue(int idjoueur,int xdep,int ydep,int xarr,int yarr);
 
 private:
     Ui::MainWindow *ui;

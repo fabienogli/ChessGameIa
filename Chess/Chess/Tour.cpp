@@ -1,6 +1,6 @@
 #include "Tour.h"
 #include "Plateau.h"
-#include "deplacements.h"
+#include "deplacement.h"
 
 
 Tour::Tour() :Piece()
@@ -18,6 +18,9 @@ bool Tour::testDeplacement(Coordonnee coord, Plateau * plateau)
     return (testHorizontal(coord,plateau) || testVertical(coord,plateau));
 }
 
-QVector<QPoint> Tour::deplacementsPossible(int idJoueur,const int couleur[8][8],const char idPiece[8][8],QVector<QPoint> *coupPrec){
-  return deplacements::deplacementTour(couleur,QPoint(this->getCoordonne()->getX(),this->getCoordonne()->getY()));
+QVector<QPoint> Tour::deplacementsPossible(int idJoueur,int couleur[8][8],char idPiece[8][8]){
+    int x = this->getCoordonne()->getX();
+    int y=this->getCoordonne()->getY();
+    return QVector<QPoint>();
+    //deplacement::deplacementTour(couleur,QPoint(x,y));
 }

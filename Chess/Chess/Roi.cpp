@@ -1,11 +1,11 @@
 #include "Roi.h"
 #include "Plateau.h"
-#include "deplacements.h"
+#include "deplacement.h"
 /**
 Classe du roi
 */
 
-
+class deplacement;
 
 Roi::Roi() :Piece()
 {
@@ -24,8 +24,11 @@ bool Roi::testDeplacement(Coordonnee coord, Plateau * plateau)
     }
 }
 
-QVector<QPoint> Roi::deplacementsPossible(int idJoueur,const int couleur[8][8],const char idPiece[8][8],QVector<QPoint> *coupPrec){
-    return deplacements::deplacementRoi(idPiece,couleur,QPoint(this->getCoordonne()->getX(),this->getCoordonne()->getY()));
+QVector<QPoint> Roi::deplacementsPossible(int idJoueur,int couleur[8][8],char idPiece[8][8]){
+    int x = this->getCoordonne()->getX();
+    int y= this->getCoordonne()->getY();
+    return QVector<QPoint>();
+    //deplacement::deplacementRoi(idPiece,couleur,QPoint(x,y));
 }
 
 

@@ -22,9 +22,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     plateau = new Plateau();
     ui->setupUi(this);
+    ui->tableWidget->setFixedWidth(221);
     ui->tableWidget->setColumnWidth(0,20);
     ui->tableWidget->setColumnWidth(1,100);
     ui->tableWidget->setColumnWidth(2,100);
+    QStringList m_TableHeader;
+    m_TableHeader<<"N°"<<"Depart"<<"Arrivee";
+    ui->tableWidget->setHorizontalHeaderLabels(m_TableHeader);
     //afficher une piece
     QObject::connect(plateau,SIGNAL(affichSuppInit(Piece*,int,int)),this,SLOT(affichSuppInit(Piece*,int,int)));
     //afficher idJoueur
@@ -40,7 +44,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->actionniveau_3,SIGNAL(triggered(bool)),plateau,SLOT(setLevel(3)),Qt::UniqueConnection);
     QObject::connect(ui->actionniveau_2,SIGNAL(triggered(bool)),plateau,SLOT(setLevel(2)),Qt::UniqueConnection);
     QObject::connect(ui->actionPar_d_faut,SIGNAL(triggered(bool)),plateau,SLOT(setLevel(2)),Qt::UniqueConnection);
-
+    //afficher le coup joue
+    QObject::connect(plateau,SIGNAL(coupJoue(int,int,int,int,int)),this,SLOT(coupJoue(int,int,int,int,int)),Qt::UniqueConnection);
     //deplacer une piece
     QObject::connect(ui->ok_button,SIGNAL(clicked(bool)),this,SLOT(on_ok_button_clicked()),Qt::UniqueConnection);
     QObject::connect(this,SIGNAL(movePiece(int,int,int,int)),plateau,SLOT(movePiece(int,int,int,int)),Qt::UniqueConnection);
@@ -62,7 +67,7 @@ void MainWindow::badMove(){
 }
 void MainWindow::loseSignal(){
 
-    int ret = QMessageBox::question(this,"Pauvre noob Partie Perdu","L'IA a gagnier la partie ! \nVoulez vous rejouer ?",QMessageBox::Yes | QMessageBox::No);
+    int ret = QMessageBox::question(this,"GAME OVER","L'IA a gagné la partie ! \nVoulez vous rejouer ?",QMessageBox::Yes | QMessageBox::No);
     if(ret == QMessageBox::Yes)
     {
        // this->reinitialisation();
@@ -357,6 +362,17 @@ void MainWindow::affichSuppInit(Piece * piece, int id,int i){
     }
 }
 
+void MainWindow::coupJoue(int idjoueur,int xdep, int ydep, int xarr, int yarr){
+    QString m_TableHeader1,m_TableHeader2,m_TableHeader3;
+    m_TableHeader1 = QString("x=%1 y=%2").arg(xdep).arg(ydep);
+    m_TableHeader2 = QString("x=%1 y=%2").arg(xarr).arg(yarr);
+    m_TableHeader3 = QString("%1").arg(idjoueur);
+    if(ui->tableWidget->rowCount() >= 20) ui->tableWidget->clearContents();
+    ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+    ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,0, new QTableWidgetItem(m_TableHeader3));
+    ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,1, new QTableWidgetItem(m_TableHeader1));
+    ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,2, new QTableWidgetItem(m_TableHeader2));
+}
 MainWindow::~MainWindow()
 {
     delete ui;

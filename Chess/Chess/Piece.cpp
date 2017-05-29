@@ -38,7 +38,7 @@ void Piece::kill(Piece * piece)
     piece->~Piece();
 }
 
-QVector<QPoint> Piece::deplacementsPossible(int idJoueur,const int couleur[8][8],const char idPiece[8][8],QVector<QPoint> coupPrec){
+QVector<QPoint> Piece::deplacementsPossible(int idJoueur,int couleur[8][8],char idPiece[8][8]){
 
     QVector<QPoint> listDep;
     return listDep;

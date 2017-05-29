@@ -1,6 +1,6 @@
 #include "Pion.h"
 #include "Joueur.h"
-#include "deplacements.h"
+#include "deplacement.h"
 
 Pion::Pion(int i) :Piece()
 {
@@ -63,6 +63,9 @@ void Pion::move(Coordonnee *coord, Coordonnee origin, Plateau* plateau)
         nbCout+=1;
 }
 
-QVector<QPoint> Pion::deplacementsPossible(int idJoueur,const int couleur[8][8],const char idPiece[8][8],QVector<QPoint> *coupPrec){
-    return deplacements::deplacementPion(idJoueur,couleur,idPiece,QPoint(this->getCoordonne()->getX(),this->getCoordonne()->getY()),coupPrec)
+QVector<QPoint> Pion::deplacementsPossible(int idJoueur,int couleur[8][8],char idPiece[8][8]){
+    int x = this->getCoordonne()->getX();
+    int y=this->getCoordonne()->getY();
+    return QVector<QPoint>();
+    //deplacement::deplacementPion(idJoueur,couleur,idPiece,QPoint(x,y),coupPrec);
 }

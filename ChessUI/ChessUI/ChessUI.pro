@@ -39,7 +39,7 @@ SOURCES += main.cpp\
     ../../Chess/Chess/Tour.cpp \
     ../../Chess/Chess/TypePiece.cpp \
     ../../Chess/Chess/ia.cpp \
-    ../../Chess/Chess/deplacements.cpp
+    ../../Chess/Chess/deplacement.cpp
 
 HEADERS  += mainwindow.h \
     ../../Chess/Chess/Case.h \
@@ -55,7 +55,7 @@ HEADERS  += mainwindow.h \
     ../../Chess/Chess/Roi.h \
     ../../Chess/Chess/Tour.h \
     ../../Chess/Chess/ia.h \
-    ../../Chess/Chess/deplacements.h
+    ../../Chess/Chess/deplacement.h
 
 FORMS    += mainwindow.ui
 

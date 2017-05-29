@@ -1,6 +1,6 @@
 #include "Cavalier.h"
 #include "Plateau.h"
-#include "deplacements.h"
+#include "deplacement.h"
 
 
 Cavalier::Cavalier() :Piece()
@@ -12,8 +12,11 @@ Cavalier::Cavalier() :Piece()
 Cavalier::~Cavalier()
 {
 }
-QVector<QPoint> Cavalier::deplacementsPossible(int idJoueur, const int couleur[][], const char idPiece[][]){
-    return deplacements::deplacementCavalier(couleur,QPoint(this->getCoordonne()->getX(),this->getCoordonne()->getY()));
+QVector<QPoint> Cavalier::deplacementsPossible(int idJoueur,int couleur[8][8],char idPiece[8][8]){
+    int x = this->getCoordonne()->getX();
+    int y = this->getCoordonne()->getY();
+    return  QVector<QPoint>();
+            //deplacement::deplacementCavalier(couleur,QPoint(x,y));
 }
 
 bool Cavalier::testDeplacement(Coordonnee coord, Plateau * plateau)

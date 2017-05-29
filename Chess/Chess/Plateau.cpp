@@ -25,8 +25,7 @@ void Plateau::initialize(){
     m_coupPrecedent = new QVector<QPoint>();
     m_coupPrecedent->append(QPoint(0,0));
     m_coupPrecedent->append(QPoint(0,0));
-    IA = new ia(2);
-    IA->setCoupPrecedent(m_coupPrecedent);
+    IA = new ia(1);
     initiatePosInGrid();
 }
 void Plateau::reinitialize(){
@@ -40,7 +39,7 @@ void Plateau::jouerIA(){
     std::cout << "je fais jouer IA"<< std::endl;
     //on retourne les coups possibles dans un vecteur
     //chaque se compose de la position de depart et celle d'arrivée
-    QVector<QPoint> dep = IA->jouer(joueur1,IA->getLevel(),this);
+    QVector<QPoint> dep = IA->jouer(joueur1,this);
     std::cout << "fin jeu IA"<< std::endl;
 
     for(int i=0;i<dep.count();i++){
@@ -104,7 +103,7 @@ void Plateau::jouerIA(){
     (*aSupprimer).setCoordonnee(new Coordonnee(i1,i2));
     std::cout << "idpiece1="<<joueur1->isAnyPiece(Coordonnee(i1,i2))<<std::endl;
     joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i1,i2)))->setCoordonne(i3,i4);
-    //CaseDeplacementPossible =  IA->calc_echec_et_mat(joueur2,m_Posi_Rois2,this);
+   // CaseDeplacementPossible =  IA->calc_echec_et_mat(joueur2->getIdJoueur(),m_Posi_Rois2);
     std::cout << "idpiece1="<<joueur1->isAnyPiece(Coordonnee(i1,i2))<<std::endl;
     emit affichSuppInit(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i3,i4))),0,0);
     emit affichSuppInit(aSupprimer,0,1);
@@ -187,7 +186,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
         //kmp = joueur1->isAnyPiece(*coordArrivee);
     }
 
-
+    /*
     //DEBUT TEST DEPLACEMENT
     Piece* tmpt = (*joueur).getDeck()[tmpActif];
     std::cout<<"Piece prise"<<std::endl;
@@ -197,7 +196,7 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
     for (int i =0; i<listeCoups.size();i++)
     {
         std::cout<<"x = "<<listeCoups[i].x()<<" et y="<<listeCoups[i].y()<<std::endl;
-    }
+    }*/
     std::cout<<"fin de liste déplacement"<<std::endl;
     //FIN DEPLACEMENT
     (*joueur).afficherPiece();
@@ -218,20 +217,16 @@ void Plateau::movePiece(int i1, int i2, int i3, int i4){
         std::cout << "je suis 1-2bis";std::cout << std::endl;
         emit affichSuppInit((*joueur).getDeck()[tmpActif],(*joueur).getIdJoueur(),0);
         emit affichSuppInit(aSupprimer,(*joueur).getIdJoueur(),1);
+        emit coupJoue(joueur->getIdJoueur(),i2,i1,i4,i3);
         getGrille()->putPiece((*joueur).getDeck()[tmpActif]);
         getGrille()->removePiece(coordDepart);
         if(joueurActif->getIdJoueur()==0){
-            //idJoueurActif = 2;
             joueurActif = joueur2;
         }
         else if(joueurActif->getIdJoueur()==1){
             joueurActif = joueur1;
-            // idJoueurActif =1;
             this->jouerIA();
-
-            //idJoueurActif = 1;
         }
-
         emit displayPlayerId(1);
     }else{
 
@@ -432,6 +427,7 @@ bool Plateau::caseAtOccupy(int x, int y)
  * @param joueur pointeur du joueur
  * @return true si possible false sinon
  */
+
 
 //Destructeur du plateau
 Plateau::~Plateau()

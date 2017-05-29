@@ -23,11 +23,12 @@ public:
     void updateCaseStatus(Piece piece,Coordonnee oldCoord);
     QVector<QPoint> getCoupPrec();
     void setCoupPrec(QVector<QPoint> CoupPrec);
-    static bool est_en_echec(Joueur * joueur,QPoint coordcase, QPoint* coordpion, int i,const int couleur[8][8],const char idPiece[8][8]);
-    bool testDestination(Joueur * joueur,QPoint coordcase, int i_piece,const int couleur[8][8],const char idPiece[8][8]);
-    QVector<QPoint> listeAttaquePion(QPoint point,const int couleur[8][8]);
+    static bool est_en_echec(Joueur * joueur,QPoint coordcase, QPoint* coordpion, int i, int couleur[8][8], char idPiece[8][8]);
+    bool testDestination(Joueur * joueur,QPoint coordcase, int i_piece, int couleur[8][8], char idPiece[8][8]);
+    QVector<QPoint> listeAttaquePion(QPoint point, int couleur[8][8]);
     bool caseAtOccupy(int x, int y);
     Piece* getPiece(Coordonnee* coord);
+    int m_matriceDeplacement[8][8];
     void jouerIA();
 	~Plateau();
 private:
@@ -42,13 +43,14 @@ private:
     QVector<QPoint> CaseDeplacementPossible;
     QPoint m_Posi_Rois1;
     QPoint m_Posi_Rois2;
-    int m_matriceDeplacement[8][8]; // permet de savoir si une piece a bouger ou pas, toute les pieces a 1 n'ont pas ete bouger sinon 0
+     // permet de savoir si une piece a bouger ou pas, toute les pieces a 1 n'ont pas ete bouger sinon 0
     ia *IA;
 signals:
     void affichSuppInit(Piece * piece,int id,int i);
     void displayPlayerId(int id);
     void badMove();
     void loseSignal();
+    void coupJoue(int idjoueur,int xDep,int yDep,int xArr,int yArr);
 public slots:
     void setLevel(int level);
     void sentDisplayPlayerId();

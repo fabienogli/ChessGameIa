@@ -23,7 +23,7 @@ public:
     bool testVertical(Coordonnee coord, Plateau * plateau);
     bool testHorizontal(Coordonnee coord, Plateau * plateau);
     bool move(Coordonnee *coord, Coordonnee origin, Plateau* plateau);
-    virtual QVector<QPoint> deplacementsPossible(int idJoueur,const int couleur[8][8],const char idPiece[8][8],const bool tabOccup[8][8]);
+    virtual QVector<QPoint> deplacementsPossible(int idJoueur, int couleur[8][8], char idPiece[8][8]);
     int getCouleur();
     void setCouleur(int i);
 	~Piece();
