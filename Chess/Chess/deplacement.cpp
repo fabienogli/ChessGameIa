@@ -2,7 +2,7 @@
 #include <QDebug>
 
 /**
- * \brief deplacement::kingMove()
+ * \brief deplacement::deplacementRoi()
  * Permet de recuperer les coordonnees des cases ou le roi peut se deplacer.
  * Il va prendre a partir de la matrice couleur dans quelle equipe est le roi puis va tester tout les deplacement possibles
  * Si il rencontre une char de son equipe il ne selectionne pas la case
@@ -13,7 +13,7 @@
  * \param[in] cas Coordonnees du roi a calculer.
  * \return Un tableau de coordonnees
  */
-QVector<QPoint> deplacement::kingMove( char idchar[8][8], int couleur[8][8],  QPoint& cas)
+QVector<QPoint> deplacement::deplacementRoi( char idchar[8][8], int couleur[8][8],  QPoint& cas)
 {
     QVector<QPoint> resultat;
         for(int x = -1; x < 2 ; x++) // on fait les 3 zones de guauche a droite
@@ -173,7 +173,7 @@ bool deplacement::checkGrandRoque(int joueur, int couleur[8][8], int matriceDepl
 
 
 /**
- * \brief deplacement::madMove()
+ * \brief deplacement::deplacementFou()
  * Permet de recuperer les coordonnees des cases ou le fou peut se deplacer.
  * La fonction va prendre a partir de la matrice couleur dans quelle equipe est le fous puis va tester tous les deplacement possibles
  * Si le fou rencontre une char de son equipe il ne selectionne pas la case et s'arrete
@@ -183,7 +183,7 @@ bool deplacement::checkGrandRoque(int joueur, int couleur[8][8], int matriceDepl
  * \param[in] cas Coordonnees du fou a calculer.
  * \return Un tableau de coordonnees
  */
-QVector<QPoint> deplacement::madMove( int couleur[8][8],  QPoint cas){
+QVector<QPoint> deplacement::deplacementFou( int couleur[8][8],  QPoint cas){
 
     QVector<QPoint> resultat;
 
@@ -252,7 +252,7 @@ QVector<QPoint> deplacement::madMove( int couleur[8][8],  QPoint cas){
 }
 /*
 /**
- * \brief deplacement::knightMove()
+ * \brief deplacement::deplacementCavalier()
  * Permet de recuperer les coordonnees des cases ou le Cavalier peut se deplacer.
  * La fonction va prendre a partir de la matrice couleur dans quelle equipe est le Cavalier puis va tester tous les deplacement possibles
  * Si le Cavalier rencontre une char de son equipe il ne selectionne pas la case
@@ -261,7 +261,7 @@ QVector<QPoint> deplacement::madMove( int couleur[8][8],  QPoint cas){
  * \param[in] cas Coordonnees du Cavalier a calculer.
  * \return Un tableau de coordonnees
  */
-QVector<QPoint> deplacement::knightMove( const int couleur[8][8], const  QPoint cas){
+QVector<QPoint> deplacement::deplacementCavalier( const int couleur[8][8], const  QPoint cas){
     QVector<QPoint> resultat;
         /////////// HAUT
         if(cas.y()>= 1){
@@ -347,7 +347,7 @@ QVector<QPoint> deplacement::knightMove( const int couleur[8][8], const  QPoint 
  * \param[in] cas Coordonnees de la tour a calculer.
  * \return Un tableau de coordonnees
  */
-QVector<QPoint> deplacement::towerMove( int couleur[8][8],  QPoint cas){
+QVector<QPoint> deplacement::deplacementTour( int couleur[8][8],  QPoint cas){
     QVector<QPoint> resultat;
         int x = cas.x();
         while(x > 0)
@@ -459,7 +459,7 @@ QVector<QPoint> deplacement::pawnAttackList( int couleur[8][8], QPoint cas)
     return resultat;
 }
 /**
- * \brief deplacement::pawnMove()
+ * \brief deplacement::deplacementPion()
  * Permet de recuperer les coordonnees des cases ou le pion peut se deplacer.
  * La fonction va prendre a partir de la matrice couleur dans quelle equipe est le pion puis va tester tout les deplacement possibles
  * Si Le Pion a une char qui le gene pour avancer (amie ou enemie) la case n'est pas ajoute
@@ -471,7 +471,7 @@ QVector<QPoint> deplacement::pawnAttackList( int couleur[8][8], QPoint cas)
  * \param[in] coup_precedent Tableau du coup precedemment joue [0] = depart [1] = arriver.
  * \return Un tableau de coordonnees
  */
-QVector<QPoint> deplacement::pawnMove(int idJoueur, int couleur[8][8], QPoint cas,int matriceDeplacement[8][8])
+QVector<QPoint> deplacement::deplacementPion(int idJoueur, int couleur[8][8], QPoint cas,int matriceDeplacement[8][8])
 {
     QVector<QPoint> tabDep;
         switch(idJoueur){
@@ -580,7 +580,7 @@ bool deplacement::inCheck(char idPiece[8][8], int couleur[8][8],int couleurPiece
                         {
                             if(idPiece[coordpion->x()][coordpion->y()] != 'R') // un roi ne peut pas attaquer un autre roi !
                             {
-                                destination = deplacement::kingMove(idPiece,couleur,QPoint(x,y));
+                                destination = deplacement::deplacementRoi(idPiece,couleur,QPoint(x,y));
                             }
                             else
                             {
@@ -590,7 +590,7 @@ bool deplacement::inCheck(char idPiece[8][8], int couleur[8][8],int couleurPiece
                         }
                         else
                         {
-                            destination = deplacement::kingMove(idPiece,couleur,QPoint(x,y));
+                            destination = deplacement::deplacementRoi(idPiece,couleur,QPoint(x,y));
                         }
 
                         for(int u = 0; u < destination.count(); u++)
@@ -603,7 +603,7 @@ bool deplacement::inCheck(char idPiece[8][8], int couleur[8][8],int couleurPiece
                         destination.clear();
 
                     case 'F':
-                        destination = deplacement::madMove(couleur,QPoint(x,y));
+                        destination = deplacement::deplacementFou(couleur,QPoint(x,y));
                         for(int u = 0; u < destination.count(); u++)
                         {
                             if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
@@ -614,7 +614,7 @@ bool deplacement::inCheck(char idPiece[8][8], int couleur[8][8],int couleurPiece
                         destination.clear();
                     break;
                     case 'T':
-                        destination =  deplacement::towerMove(couleur,QPoint(x,y));
+                        destination =  deplacement::deplacementTour(couleur,QPoint(x,y));
                         for(int u = 0; u < destination.count(); u++)
                         {
                             if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
@@ -625,7 +625,7 @@ bool deplacement::inCheck(char idPiece[8][8], int couleur[8][8],int couleurPiece
                         destination.clear();
                     break;
                     case 'C':
-                        destination = deplacement::knightMove(couleur,QPoint(x,y));
+                        destination = deplacement::deplacementCavalier(couleur,QPoint(x,y));
                         for(int u = 0; u < destination.count(); u++)
                         {
                             if(destination.at(u).x() == coordcase.x() && destination.at(u).y() == coordcase.y() )
