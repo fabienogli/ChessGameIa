@@ -408,7 +408,6 @@ QVector<QPoint> ia::jouer(Joueur *joueur,Plateau *plateau)
                 {
                     char idPieceTmp = tableauPieces[movesList.at(i).x()][movesList.at(i).y()];
                     int couleurTmp = tableauCouleur[movesList.at(i).x()][movesList.at(i).y()];
-
                     if(tableauPieces[x][y] == 'R')
                     {
                         if(tableauCouleur[x][y] == 0)
@@ -427,6 +426,7 @@ QVector<QPoint> ia::jouer(Joueur *joueur,Plateau *plateau)
                     tableauPieces[x][y] = 'N';
                     tableauCouleur[movesList.at(i).x()][movesList.at(i).y()] = tableauCouleur[x][y];
                     tableauCouleur[x][y] = -1;
+
 
                     if(idJoueur == 0)
                     {
