@@ -29,7 +29,7 @@ public slots:
  void affichSuppInit(Piece * piece,int id,int i);
 // mauvais deplacement();
  void badMove();
- void loseSignal();
+ void loseSignal1(int i);
  void coupJoue(int idjoueur,int xdep,int ydep,int xarr,int yarr);
 
 private:

@@ -204,7 +204,7 @@ int ia::max(int idJoueur,int profondeur,int alpha,int beta,int couleur[8][8],cha
 int ia::min(int idJoueur,int profondeur,int alpha,int beta,int couleur[8][8],char idPiece[8][8]){
     int retour = 0;
 
-    // eval  ne prend pas en compte l'echec et mat vu que celui-ci est verifie dans gagnant
+    // eval  ne prend pas en compte l'echec et mat vu que celui-ci est verifie dans gagnantEnCours
     if(profondeur <= 0 || (retour = gagnantEnCours(idJoueur,couleur,idPiece)) != 0)
     {
         if(profondeur <= 0)
@@ -658,6 +658,10 @@ void ia::listerChar(char t[8][8]){
  * @param plateau un pointeur sur le plateau
  */
 void ia::initTableauTmp(Plateau * plateau){
+    this->posi_roi_joueur1.setX(plateau->m_Posi_Rois1.x());
+    this->posi_roi_joueur2.setX(plateau->m_Posi_Rois2.x());
+    this->posi_roi_joueur1.setY(plateau->m_Posi_Rois1.y());
+    this->posi_roi_joueur2.setY(plateau->m_Posi_Rois2.y());
     for(int x=0;x<8;x++){
         for(int y=0;y<8;y++){
             this->tableauCouleur[x][y]=plateau->getGrille()->getCase(x,y)->getCouleur();
@@ -668,6 +672,16 @@ void ia::initTableauTmp(Plateau * plateau){
     }
 }
 
+/**
+ * @brief ia::CaseDepPossible
+ * retourne les cases de deplacements possibles pour le joueur 2
+ * @param idJoueur
+ * @param pos_rois_joueur
+ * @return un vecteur qpoint des cases de deplacements possibles pour le joueur 2
+ */
+QVector<QPoint> ia::CaseDepPossible(int idJoueur,QPoint pos_rois_joueur){
+    return calc_echec_et_mat(idJoueur,pos_rois_joueur,tableauCouleur,tableauPieces);
+}
 
 ia::~ia()
 {

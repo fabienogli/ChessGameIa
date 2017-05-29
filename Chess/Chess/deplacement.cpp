@@ -1,5 +1,6 @@
 #include "deplacement.h"
 #include <QDebug>
+#include <iostream>
 
 /**
  * \brief deplacement::kingMove()
@@ -469,7 +470,6 @@ QVector<QPoint> deplacement::pawnAttackList( int couleur[8][8], QPoint cas)
  * \param[in] couleur Matrice corespondant au type de chars sur le idchar.
  * \param[in] idchar Matrice corespondant a la couleur des chars.
  * \param[in] cas Coordonnees du pion a calculer.
- * \param[in] coup_precedent Tableau du coup precedemment joue [0] = depart [1] = arriver.
  * \return Un tableau de coordonnees
  */
 QVector<QPoint> deplacement::pawnMove(int idJoueur, int couleur[8][8], QPoint cas,int matriceDeplacement[8][8])
@@ -483,6 +483,7 @@ QVector<QPoint> deplacement::pawnMove(int idJoueur, int couleur[8][8], QPoint ca
                 if((cas.y() == 1 || cas.y()==2) &&
                         couleur[cas.x()][cas.y()+2]==-1 && couleur[cas.x()][cas.y()+1]==-1)
                 {
+                    std::cout << "merde"<< std::endl;
                     tabDep.append(QPoint(cas.x(),cas.y()+2));
                 }}
                 if(cas.y() < 7)

@@ -19,6 +19,7 @@ public:
     int max(int idJoueur,int profondeur,int alpha,int beta,int couleur[8][8],char idPiece[8][8]);
     int min(int idJoueur,int profondeur,int alpha,int beta,int couleur[8][8],char idPiece[8][8]);
     int gagnantEnCours(int idJoueur,int couleur[8][8],char idPiece[8][8]);
+    QVector<QPoint> CaseDepPossible(int idJoueur,QPoint pos_rois_joueur);
     void listerCouleur(int t[8][8]);
     void listerChar(char t[8][8]);
     ~ia();

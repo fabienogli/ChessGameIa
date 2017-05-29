@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[22];
-    char stringdata0[161];
+    char stringdata0[162];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -46,19 +46,19 @@ QT_MOC_LITERAL(11, 89, 6), // "Piece*"
 QT_MOC_LITERAL(12, 96, 5), // "piece"
 QT_MOC_LITERAL(13, 102, 1), // "i"
 QT_MOC_LITERAL(14, 104, 7), // "badMove"
-QT_MOC_LITERAL(15, 112, 10), // "loseSignal"
-QT_MOC_LITERAL(16, 123, 8), // "coupJoue"
-QT_MOC_LITERAL(17, 132, 8), // "idjoueur"
-QT_MOC_LITERAL(18, 141, 4), // "xdep"
-QT_MOC_LITERAL(19, 146, 4), // "ydep"
-QT_MOC_LITERAL(20, 151, 4), // "xarr"
-QT_MOC_LITERAL(21, 156, 4) // "yarr"
+QT_MOC_LITERAL(15, 112, 11), // "loseSignal1"
+QT_MOC_LITERAL(16, 124, 8), // "coupJoue"
+QT_MOC_LITERAL(17, 133, 8), // "idjoueur"
+QT_MOC_LITERAL(18, 142, 4), // "xdep"
+QT_MOC_LITERAL(19, 147, 4), // "ydep"
+QT_MOC_LITERAL(20, 152, 4), // "xarr"
+QT_MOC_LITERAL(21, 157, 4) // "yarr"
 
     },
     "MainWindow\0movePiece\0\0i1\0i2\0i3\0i4\0"
     "on_ok_button_clicked\0displayPlayerId\0"
     "id\0affichSuppInit\0Piece*\0piece\0i\0"
-    "badMove\0loseSignal\0coupJoue\0idjoueur\0"
+    "badMove\0loseSignal1\0coupJoue\0idjoueur\0"
     "xdep\0ydep\0xarr\0yarr"
 };
 #undef QT_MOC_LITERAL
@@ -84,8 +84,8 @@ static const uint qt_meta_data_MainWindow[] = {
        8,    1,   59,    2, 0x0a /* Public */,
       10,    3,   62,    2, 0x0a /* Public */,
       14,    0,   69,    2, 0x0a /* Public */,
-      15,    0,   70,    2, 0x0a /* Public */,
-      16,    5,   71,    2, 0x0a /* Public */,
+      15,    1,   70,    2, 0x0a /* Public */,
+      16,    5,   73,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int,    3,    4,    5,    6,
@@ -95,7 +95,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void, QMetaType::Int,    9,
     QMetaType::Void, 0x80000000 | 11, QMetaType::Int, QMetaType::Int,   12,    9,   13,
     QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,   13,
     QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int,   17,   18,   19,   20,   21,
 
        0        // eod
@@ -112,7 +112,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 2: _t->displayPlayerId((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 3: _t->affichSuppInit((*reinterpret_cast< Piece*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
         case 4: _t->badMove(); break;
-        case 5: _t->loseSignal(); break;
+        case 5: _t->loseSignal1((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 6: _t->coupJoue((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4])),(*reinterpret_cast< int(*)>(_a[5]))); break;
         default: ;
         }

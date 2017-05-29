@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Plateau_t {
     QByteArrayData data[25];
-    char stringdata0[187];
+    char stringdata0[188];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -40,26 +40,26 @@ QT_MOC_LITERAL(5, 37, 2), // "id"
 QT_MOC_LITERAL(6, 40, 1), // "i"
 QT_MOC_LITERAL(7, 42, 15), // "displayPlayerId"
 QT_MOC_LITERAL(8, 58, 7), // "badMove"
-QT_MOC_LITERAL(9, 66, 10), // "loseSignal"
-QT_MOC_LITERAL(10, 77, 8), // "coupJoue"
-QT_MOC_LITERAL(11, 86, 8), // "idjoueur"
-QT_MOC_LITERAL(12, 95, 4), // "xDep"
-QT_MOC_LITERAL(13, 100, 4), // "yDep"
-QT_MOC_LITERAL(14, 105, 4), // "xArr"
-QT_MOC_LITERAL(15, 110, 4), // "yArr"
-QT_MOC_LITERAL(16, 115, 8), // "setLevel"
-QT_MOC_LITERAL(17, 124, 5), // "level"
-QT_MOC_LITERAL(18, 130, 19), // "sentDisplayPlayerId"
-QT_MOC_LITERAL(19, 150, 14), // "displayPlateau"
-QT_MOC_LITERAL(20, 165, 9), // "movePiece"
-QT_MOC_LITERAL(21, 175, 2), // "i1"
-QT_MOC_LITERAL(22, 178, 2), // "i2"
-QT_MOC_LITERAL(23, 181, 2), // "i3"
-QT_MOC_LITERAL(24, 184, 2) // "i4"
+QT_MOC_LITERAL(9, 66, 11), // "loseSignal1"
+QT_MOC_LITERAL(10, 78, 8), // "coupJoue"
+QT_MOC_LITERAL(11, 87, 8), // "idjoueur"
+QT_MOC_LITERAL(12, 96, 4), // "xDep"
+QT_MOC_LITERAL(13, 101, 4), // "yDep"
+QT_MOC_LITERAL(14, 106, 4), // "xArr"
+QT_MOC_LITERAL(15, 111, 4), // "yArr"
+QT_MOC_LITERAL(16, 116, 8), // "setLevel"
+QT_MOC_LITERAL(17, 125, 5), // "level"
+QT_MOC_LITERAL(18, 131, 19), // "sentDisplayPlayerId"
+QT_MOC_LITERAL(19, 151, 14), // "displayPlateau"
+QT_MOC_LITERAL(20, 166, 9), // "movePiece"
+QT_MOC_LITERAL(21, 176, 2), // "i1"
+QT_MOC_LITERAL(22, 179, 2), // "i2"
+QT_MOC_LITERAL(23, 182, 2), // "i3"
+QT_MOC_LITERAL(24, 185, 2) // "i4"
 
     },
     "Plateau\0affichSuppInit\0\0Piece*\0piece\0"
-    "id\0i\0displayPlayerId\0badMove\0loseSignal\0"
+    "id\0i\0displayPlayerId\0badMove\0loseSignal1\0"
     "coupJoue\0idjoueur\0xDep\0yDep\0xArr\0yArr\0"
     "setLevel\0level\0sentDisplayPlayerId\0"
     "displayPlateau\0movePiece\0i1\0i2\0i3\0i4"
@@ -83,20 +83,20 @@ static const uint qt_meta_data_Plateau[] = {
        1,    3,   59,    2, 0x06 /* Public */,
        7,    1,   66,    2, 0x06 /* Public */,
        8,    0,   69,    2, 0x06 /* Public */,
-       9,    0,   70,    2, 0x06 /* Public */,
-      10,    5,   71,    2, 0x06 /* Public */,
+       9,    1,   70,    2, 0x06 /* Public */,
+      10,    5,   73,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      16,    1,   82,    2, 0x0a /* Public */,
-      18,    0,   85,    2, 0x0a /* Public */,
-      19,    0,   86,    2, 0x0a /* Public */,
-      20,    4,   87,    2, 0x0a /* Public */,
+      16,    1,   84,    2, 0x0a /* Public */,
+      18,    0,   87,    2, 0x0a /* Public */,
+      19,    0,   88,    2, 0x0a /* Public */,
+      20,    4,   89,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3, QMetaType::Int, QMetaType::Int,    4,    5,    6,
     QMetaType::Void, QMetaType::Int,    5,
     QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    6,
     QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int,   11,   12,   13,   14,   15,
 
  // slots: parameters
@@ -117,7 +117,7 @@ void Plateau::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 0: _t->affichSuppInit((*reinterpret_cast< Piece*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
         case 1: _t->displayPlayerId((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 2: _t->badMove(); break;
-        case 3: _t->loseSignal(); break;
+        case 3: _t->loseSignal1((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 4: _t->coupJoue((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4])),(*reinterpret_cast< int(*)>(_a[5]))); break;
         case 5: _t->setLevel((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 6: _t->sentDisplayPlayerId(); break;
@@ -150,8 +150,8 @@ void Plateau::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
             }
         }
         {
-            typedef void (Plateau::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Plateau::loseSignal)) {
+            typedef void (Plateau::*_t)(int );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Plateau::loseSignal1)) {
                 *result = 3;
                 return;
             }
@@ -223,9 +223,10 @@ void Plateau::badMove()
 }
 
 // SIGNAL 3
-void Plateau::loseSignal()
+void Plateau::loseSignal1(int _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 3, nullptr);
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 3, _a);
 }
 
 // SIGNAL 4

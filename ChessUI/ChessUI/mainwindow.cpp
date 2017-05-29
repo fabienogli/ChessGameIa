@@ -50,13 +50,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->ok_button,SIGNAL(clicked(bool)),this,SLOT(on_ok_button_clicked()),Qt::UniqueConnection);
     QObject::connect(this,SIGNAL(movePiece(int,int,int,int)),plateau,SLOT(movePiece(int,int,int,int)),Qt::UniqueConnection);
     QObject::connect(plateau,SIGNAL(badMove()),this,SLOT(badMove()),Qt::UniqueConnection);
-    //QPixmap pixmap;
-    // bool loaded= pixmap.load("chessicons/King1.bmp");
-    // std::cout << "image loaded = " << loaded << std::endl;
-    /* pixmap = pixmap.scaled(45,45);
-    QGraphicsScene* scene = new QGraphicsScene;
-    scene->addPixmap(pixmap);
-    ui->graphicsView->setScene(scene);*/
+    //signal de fin de partie
+    QObject::connect(plateau,SIGNAL(loseSignal1(int)),this,SLOT(loseSignal1(int)),Qt::UniqueConnection);
 
 }
 void MainWindow::displayPlayerId(int id){
@@ -65,8 +60,8 @@ void MainWindow::displayPlayerId(int id){
 void MainWindow::badMove(){
     QMessageBox::critical(this, "Mauvais déplacement", "Ce déplacement n'est pas autorisé!");
 }
-void MainWindow::loseSignal(){
-
+void MainWindow::loseSignal1(int i){
+    if(i==1){
     int ret = QMessageBox::question(this,"GAME OVER","L'IA a gagné la partie ! \nVoulez vous rejouer ?",QMessageBox::Yes | QMessageBox::No);
     if(ret == QMessageBox::Yes)
     {
@@ -76,25 +71,23 @@ void MainWindow::loseSignal(){
     {
        // this->destroyed();
     }
+    }
+    else{
+        int ret = QMessageBox::question(this,"GAME OVER","L'IA a perdu la partie ! \nVoulez vous rejouer ?",QMessageBox::Yes | QMessageBox::No);
+        if(ret == QMessageBox::Yes)
+        {
+           // this->reinitialisation();
+        }
+        else
+        {
+           // this->destroyed();
+        }
+
+    }
 }
 void MainWindow::affichSuppInit(Piece * piece, int id,int i){
     //std::cout << "image loaded";
     QPixmap pixmap;
-//    bool verid =pixmap.load(":/chessicons/bKing.png");
-
-//    QDirIterator it(":", QDirIterator::Subdirectories);
-//    while (it.hasNext()) {
-//        qDebug() << it.next();
-//    }
-    //pixmap.fill(Qt::transparent);
-    /* void MainWindow::afficherInit(){
-    QPixmap pixmap;
-    bool loaded= pixmap.load("chessicons/King1.bmp");
-    std::cout << "image loaded = " << loaded << std::endl;
-    pixmap = pixmap.scaled(45,45);
-    QGraphicsScene* scene = new QGraphicsScene;
-    scene->addPixmap(pixmap);
-    ui->graphicsView->setScene(scene);*/
     if(i==0){
         std::cout << "jaffiche"<<id;std::cout << std::endl;
         switch((*piece).getId()){
@@ -361,13 +354,21 @@ void MainWindow::affichSuppInit(Piece * piece, int id,int i){
         ui->graphicsView_67->setScene(scene);
     }
 }
-
+/**
+ * @brief MainWindow::coupJoue
+ * fonction permettant d'afficher dans le tablewidget
+ * @param idjoueur
+ * @param xdep
+ * @param ydep
+ * @param xarr
+ * @param yarr
+ */
 void MainWindow::coupJoue(int idjoueur,int xdep, int ydep, int xarr, int yarr){
     QString m_TableHeader1,m_TableHeader2,m_TableHeader3;
     m_TableHeader1 = QString("x=%1 y=%2").arg(xdep).arg(ydep);
     m_TableHeader2 = QString("x=%1 y=%2").arg(xarr).arg(yarr);
     m_TableHeader3 = QString("%1").arg(idjoueur);
-    if(ui->tableWidget->rowCount() >= 20) ui->tableWidget->clearContents();
+   // if(ui->tableWidget->rowCount() >= 20) ui->tableWidget->clearContents();
     ui->tableWidget->insertRow(ui->tableWidget->rowCount());
     ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,0, new QTableWidgetItem(m_TableHeader3));
     ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,1, new QTableWidgetItem(m_TableHeader1));

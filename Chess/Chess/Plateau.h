@@ -29,6 +29,9 @@ public:
     bool caseAtOccupy(int x, int y);
     Piece* getPiece(Coordonnee* coord);
     int m_matriceDeplacement[8][8];
+    static int m_matriceDeplacement2[8][8];
+    QPoint m_Posi_Rois1;
+    QPoint m_Posi_Rois2;
     void jouerIA();
 	~Plateau();
 private:
@@ -40,15 +43,14 @@ private:
     Coordonnee *coordDepart;
     Piece *aSupprimer;
     QVector<QPoint> CaseDeplacementPossible;
-    QPoint m_Posi_Rois1;
-    QPoint m_Posi_Rois2;
+
      // permet de savoir si une piece a bouger ou pas, toute les pieces a 1 n'ont pas ete bouger sinon 0
     ia *IA;
 signals:
     void affichSuppInit(Piece * piece,int id,int i);
     void displayPlayerId(int id);
     void badMove();
-    void loseSignal();
+    void loseSignal1(int i);
     void coupJoue(int idjoueur,int xDep,int yDep,int xArr,int yArr);
 public slots:
     void setLevel(int level);

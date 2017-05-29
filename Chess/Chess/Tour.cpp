@@ -21,6 +21,5 @@ bool Tour::testDeplacement(Coordonnee coord, Plateau * plateau)
 QVector<QPoint> Tour::deplacementsPossible(int idJoueur,int couleur[8][8],char idPiece[8][8]){
     int x = this->getCoordonne()->getX();
     int y=this->getCoordonne()->getY();
-    return QVector<QPoint>();
-    //deplacement::deplacementTour(couleur,QPoint(x,y));
+    return deplacement::towerMove(couleur,QPoint(x,y));
 }

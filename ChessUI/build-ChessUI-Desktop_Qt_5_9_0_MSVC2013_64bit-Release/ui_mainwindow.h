@@ -155,6 +155,10 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(796, 576);
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/chessicons/images03I29GE5.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        MainWindow->setWindowIcon(icon);
+        MainWindow->setAutoFillBackground(false);
         actionIA_niveau_2 = new QAction(MainWindow);
         actionIA_niveau_2->setObjectName(QStringLiteral("actionIA_niveau_2"));
         actionIA_niveau_3 = new QAction(MainWindow);
@@ -880,7 +884,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Echecs", Q_NULLPTR));
         actionIA_niveau_2->setText(QApplication::translate("MainWindow", "IA niveau 2", Q_NULLPTR));
         actionIA_niveau_3->setText(QApplication::translate("MainWindow", "IA niveau 3", Q_NULLPTR));
         actionPar_d_faut->setText(QApplication::translate("MainWindow", "Par d\303\251faut", Q_NULLPTR));
