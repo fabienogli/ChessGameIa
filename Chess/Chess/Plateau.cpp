@@ -64,9 +64,6 @@ void Plateau::jouerIA(){
             std::cout <<"IF 2 IA"<< std::endl;
             coordArrivee->setX(dep.at(pion_dest).x());
             coordArrivee->setY(dep.at(pion_dest).y()-1);
-            // m_interface->addtoScore(Pion, 1);
-            //getGrille()->removePiece(coordArrivee);
-
         }
     }
     //si c'est un roi qui se déplace
@@ -74,11 +71,6 @@ void Plateau::jouerIA(){
     {
         m_Posi_Rois1.setX(dep.at(pion_dest).x());
         m_Posi_Rois1.setY(dep.at(pion_dest).y());
-    }
-
-    if(getGrille()->getCase(dep.at(pion_dest).x(),dep.at(pion_dest).y())->getId() != 'N')
-    {
-        // m_interface->addtoScore(m_matricePiece[dep.at(pion_dest).x()][dep.at(pion_dest).y()], 1);
     }
     //on set la valeur à 0 pour montrer que la pièce a bougé
     m_matriceDeplacement[dep.at(pion_ori).x()][dep.at(pion_ori).y()] = 0;
@@ -100,6 +92,7 @@ void Plateau::jouerIA(){
     }
     joueur1->getPiece2(idPiece)->setCoordonne(i3,i4);
     CaseDeplacementPossible =  IA->calc_echec_et_mat(joueur2->getIdJoueur(),m_Posi_Rois2);
+    std::cout << "poss="<< CaseDeplacementPossible.count()<< std::endl;
     emit affichSuppInit(joueur1->getPiece2(joueur1->isAnyPiece(Coordonnee(i3,i4))),0,0);
     emit affichSuppInit(aSupprimer,0,1);
     emit coupJoue(joueur1->getIdJoueur(),i1,i2,i3,i4);
@@ -109,8 +102,9 @@ void Plateau::jouerIA(){
 
     joueurActif = joueur2;
     std::cout<<"DEPLACEMENT IA : origine x="<<i1<<" y="<<i2<<" arrive x="<<i3<<" y="<<i4;
-    if(CaseDeplacementPossible.count() == 0)
+    if(int nb=CaseDeplacementPossible.count() == 0)
                  {
+
         emit loseSignal();
 
                  }
@@ -121,7 +115,6 @@ void Plateau::jouerIA(){
  */
 void Plateau::initiatePosInGrid()
 {
-
     for (int i=0; i < (*joueur1).getDeckSize(); i++)
     {
         damier->putPiece(joueur1->getDeck()[i]);

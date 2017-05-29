@@ -66,6 +66,8 @@ void Pion::move(Coordonnee *coord, Coordonnee origin, Plateau* plateau)
 QVector<QPoint> Pion::deplacementsPossible(int idJoueur,int couleur[8][8],char idPiece[8][8]){
     int x = this->getCoordonne()->getX();
     int y=this->getCoordonne()->getY();
-    return QVector<QPoint>();
-    //deplacement::deplacementPion(idJoueur,couleur,idPiece,QPoint(x,y),coupPrec);
+    int m[8][8];
+    QVector<QPoint> test = deplacement::deplacementPion(idJoueur,couleur,QPoint(x,y),m) ;
+    return test;
+
 }
