@@ -1,13 +1,26 @@
 #include "Case.h"
 
-
-
 Case::Case(int x, int y)
 {
 	occupied = false;
+    couleur=-1;
+    id='N';
 	coordonnee = new Coordonnee(x, y);
 }
 
+char Case::getId(){
+    return id;
+}
+void Case::setId(char id){
+    this->id=id;
+}
+int Case::getCouleur(){
+    std::cout << "dans getcouleur";std::cout << std::endl;
+    return couleur;
+}
+void Case::setCouleur(int i){
+    this->couleur=i;
+}
 Coordonnee Case::getCoordonee()
 {
 	return *coordonnee;
@@ -40,3 +53,4 @@ Case::~Case()
 {
 	delete coordonnee;
 }
+

@@ -1,0 +1,46 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/bbishop.svg</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/bking.svg</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/bknight.svg</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/Black.bmp</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/bpawn.svg</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/bqueen.svg</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/brook.svg</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/desktop.ini</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/King1.bmp</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/King2.bmp</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/Mad1.bmp</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/Mad2.bmp</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/Pawn1.bmp</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/Pawn2.bmp</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/Player1.bmp</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/Player2.bmp</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/Queen1.bmp</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/Queen2.bmp</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/Rider1.bmp</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/Rider2.bmp</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/Thumbs.db</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/Tower1.bmp</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/Tower2.bmp</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/wbishop.svg</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/White.bmp</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/wking.svg</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/wknight.svg</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/wpawn.svg</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/wqueen.svg</file>
+        <file>../build-ChessUI-Desktop_Qt_5_9_0_MSVC2013_64bit-Debug/chessicons/wrook.svg</file>
+        <file>../chessicons/bKing.png</file>
+        <file>../chessicons/bKnight.png</file>
+        <file>../chessicons/bMad.png</file>
+        <file>../chessicons/bPawn.png</file>
+        <file>../chessicons/bQueen.png</file>
+        <file>../chessicons/bTower.png</file>
+        <file>../chessicons/wKing.png</file>
+        <file>../chessicons/wKnight.png</file>
+        <file>../chessicons/wMAd.png</file>
+        <file>../chessicons/wPawn.png</file>
+        <file>../chessicons/wQueen.png</file>
+        <file>../chessicons/wTower.png</file>
+    </qresource>
+</RCC>

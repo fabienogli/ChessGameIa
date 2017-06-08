@@ -32,14 +32,13 @@ SOURCES += main.cpp\
     ../../Chess/Chess/Fou.cpp \
     ../../Chess/Chess/Grille.cpp \
     ../../Chess/Chess/Joueur.cpp \
-    ../../Chess/Chess/main.cpp \
     ../../Chess/Chess/Piece.cpp \
-    ../../Chess/Chess/PieceDiagonale.cpp \
     ../../Chess/Chess/Pion.cpp \
     ../../Chess/Chess/Plateau.cpp \
     ../../Chess/Chess/Roi.cpp \
     ../../Chess/Chess/Tour.cpp \
-    ../../Chess/Chess/TypePiece.cpp
+    ../../Chess/Chess/TypePiece.cpp \
+    ../../Chess/Chess/ia.cpp
 
 HEADERS  += mainwindow.h \
     ../../Chess/Chess/Case.h \
@@ -50,10 +49,13 @@ HEADERS  += mainwindow.h \
     ../../Chess/Chess/Grille.h \
     ../../Chess/Chess/Joueur.h \
     ../../Chess/Chess/Piece.h \
-    ../../Chess/Chess/PieceDiagonale.h \
     ../../Chess/Chess/Pion.h \
     ../../Chess/Chess/Plateau.h \
     ../../Chess/Chess/Roi.h \
-    ../../Chess/Chess/Tour.h
+    ../../Chess/Chess/Tour.h \
+    ../../Chess/Chess/ia.h
 
 FORMS    += mainwindow.ui
+
+RESOURCES += \
+    ../image.qrc
